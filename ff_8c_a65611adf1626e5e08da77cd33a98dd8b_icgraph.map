@@ -1,0 +1,6 @@
+<map id="get_fat" name="get_fat">
+<area shape="rect" id="node3" href="$ff_8h.html#a9f0df1d597f92e2e6482e3a8f5c9b136" title="f_read" alt="" coords="126,5,183,32"/>
+<area shape="rect" id="node5" href="$ff_8h.html#ac9a2d3b1cec2ede839b1c70397e6f1f8" title="f_lseek" alt="" coords="123,56,186,83"/>
+<area shape="rect" id="node7" href="$ff_8h.html#a08f50eeafdd73abb2f4ad033ce6cabb0" title="f_getfree" alt="" coords="119,107,190,133"/>
+<area shape="rect" id="node9" href="$ff_8h.html#a29d002c2c9b726151b9c1a4ad742c41d" title="f_truncate" alt="" coords="115,157,194,184"/>
+</map>

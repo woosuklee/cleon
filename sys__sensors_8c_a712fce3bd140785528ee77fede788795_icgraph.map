@@ -1,0 +1,7 @@
+<map id="SYS_SENSORS_SHT11_Read" name="SYS_SENSORS_SHT11_Read">
+<area shape="rect" id="node3" href="$sys__sensors_8h.html#a3e967a32e144eaabb00a2ca740af8742" title="Transmit command to SHT11." alt="" coords="256,31,488,57"/>
+<area shape="rect" id="node5" href="$sys__sensors_8h.html#ae97605a716834deb766758fd269559bc" title="Read SHT11 temperature." alt="" coords="536,5,811,32"/>
+<area shape="rect" id="node11" href="$sys__sensors_8h.html#aef8a5f70ef9c92c4c2d60438f88e6e97" title="Read SHT11 humidity." alt="" coords="546,56,801,83"/>
+<area shape="rect" id="node7" href="$app__log_8h.html#af0aa7ce17d347ccd13683acc6952403c" title="Collect CLEON data sample(s)" alt="" coords="859,31,936,57"/>
+<area shape="rect" id="node9" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="984,31,1035,57"/>
+</map>

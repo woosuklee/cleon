@@ -1,0 +1,14 @@
+<map id="hal/hal_define.h" name="hal/hal_define.h">
+<area shape="rect" id="node23" href="$hal__init_8h.html" title="Initializing HAL." alt="" coords="940,80,1015,107"/>
+<area shape="rect" id="node25" href="$hal__wdt_8h.html" title="Watchdog timer configuration." alt="" coords="1039,80,1116,107"/>
+<area shape="rect" id="node27" href="$hal__ucs_8h.html" title="Universal clock system configuration." alt="" coords="1141,80,1219,107"/>
+<area shape="rect" id="node29" href="$hal__uart_8h.html" title="UART configuration." alt="" coords="1243,80,1321,107"/>
+<area shape="rect" id="node31" href="$hal__dma_8h.html" title="DMA configuration." alt="" coords="1347,80,1429,107"/>
+<area shape="rect" id="node33" href="$hal__rtc_8h.html" title="Initializing RTC." alt="" coords="1453,80,1525,107"/>
+<area shape="rect" id="node35" href="$hal__gpio_8h.html" title="GPIO configuration." alt="" coords="1550,80,1631,107"/>
+<area shape="rect" id="node37" href="$hal__flash_8h.html" title="FLASH configuration." alt="" coords="1655,80,1739,107"/>
+<area shape="rect" id="node39" href="$hal__timer_8h.html" title="timer configuration" alt="" coords="1763,80,1849,107"/>
+<area shape="rect" id="node41" href="$hal__adc_8h.html" title="ADC configuration." alt="" coords="1874,80,1952,107"/>
+<area shape="rect" id="node43" href="$hal__spi_8h.html" title="SPI configuration." alt="" coords="1977,80,2052,107"/>
+<area shape="rect" id="node45" href="$hal__pmm_8h.html" title="PMM configuration." alt="" coords="2077,80,2163,107"/>
+</map>

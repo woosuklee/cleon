@@ -1,0 +1,7 @@
+<map id="SYS_SENSORS_SHT11_Off" name="SYS_SENSORS_SHT11_Off">
+<area shape="rect" id="node3" href="$app__log_8h.html#af0aa7ce17d347ccd13683acc6952403c" title="Collect CLEON data sample(s)" alt="" coords="516,5,593,32"/>
+<area shape="rect" id="node7" href="$sys__sensors_8h.html#ac89af61bd28e663714d07d7aedf3e71a" title="Initializing SHT11 (Humidity &amp; Temperature sensor)" alt="" coords="243,56,434,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="797,31,848,57"/>
+<area shape="rect" id="node9" href="$sys__sensors_8h.html#a6c88eaeb7ad40a418b51bed2e243255a" title="Initializing sensors." alt="" coords="483,56,627,83"/>
+<area shape="rect" id="node11" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="675,56,749,83"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="APP_Log" name="APP_Log">
+<area shape="rect" id="node3" href="$sys__gps_8c.html#a01ef95f0d71cff979600eef689526422" title="Starting GPS operation." alt="" coords="181,5,355,32"/>
+<area shape="rect" id="node5" href="$sys__sensors_8c.html#aa2107a5a0d5aa2418e6c01fd25edd93a" title="Turn SHT11 on." alt="" coords="173,56,363,83"/>
+<area shape="rect" id="node7" href="$sys__sensors_8c.html#ae97605a716834deb766758fd269559bc" title="Read SHT11 temperature." alt="" coords="131,107,405,133"/>
+<area shape="rect" id="node22" href="$sys__sensors_8c.html#aef8a5f70ef9c92c4c2d60438f88e6e97" title="Read SHT11 humidity." alt="" coords="141,157,395,184"/>
+<area shape="rect" id="node26" href="$sys__sensors_8c.html#af6ed6cf97e1bf0562007f9f4ff4da24a" title="Turn SHT11 off." alt="" coords="173,309,363,336"/>
+<area shape="rect" id="node28" href="$sys__sensors_8c.html#ab77918dcbb562698c1658cf7d60621e6" title="Read sensor value of S1087 (PAR)" alt="" coords="167,208,369,235"/>
+<area shape="rect" id="node31" href="$sys__sensors_8c.html#a490dd722bffde9c01dc3c3299b27a790" title="Read sensor value of S1087&#45;01 (TSR)" alt="" coords="161,259,375,285"/>
+<area shape="rect" id="node34" href="$sys__gps_8c.html#a8bfeca8060af1e74dc0e3da24faa7a96" title="Starting GPS operation." alt="" coords="181,360,355,387"/>
+<area shape="rect" id="node9" href="$sys__sensors_8c.html#a3e967a32e144eaabb00a2ca740af8742" title="Transmit command to SHT11." alt="" coords="453,120,685,147"/>
+<area shape="rect" id="node20" href="$sys__usb_8c.html#a5e6191d3fa2f23698f5b9d816c597e3c" title="Mimic the standard &#39;printf&#39; with USB as output device." alt="" coords="509,196,629,223"/>
+<area shape="rect" id="node11" href="$sys__sensors_8c.html#a6c968ec4bf4726f1a5a7b270753b4585" title="Start SHT11." alt="" coords="990,69,1191,96"/>
+<area shape="rect" id="node13" href="$sys__sensors_8c.html#ad428260e357fd60f39d7d6d142ad16c8" title="Write to SHT11." alt="" coords="735,145,939,172"/>
+<area shape="rect" id="node15" href="$sys__sensors_8c.html#af496623728317460156b702336538857" title="Reset SHT11." alt="" coords="734,95,941,121"/>
+<area shape="rect" id="node18" href="$sys__sensors_8c.html#a712fce3bd140785528ee77fede788795" title="Read from SHT11." alt="" coords="736,196,939,223"/>
+</map>

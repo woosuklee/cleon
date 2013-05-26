@@ -1,0 +1,8 @@
+<map id="HAL_RTC_GetSecondConvertedFromStoredRTCTime" name="HAL_RTC_GetSecondConvertedFromStoredRTCTime">
+<area shape="rect" id="node3" href="$hal__rtc_8h.html#a114a84a6c1afeccc1752846309289349" title="Restore time tick value out of RTC." alt="" coords="262,12,445,39"/>
+<area shape="rect" id="node5" href="$hal__rtc_8h.html#a83189bb059346789f8008359c9c3a214" title="Initializing RTC." alt="" coords="494,12,597,39"/>
+<area shape="rect" id="node7" href="$hal__init_8h.html#a62fc6fe0ace20baedb48d662c349225b" title="Initializing hardware." alt="" coords="646,12,717,39"/>
+<area shape="rect" id="node9" href="$sys__mcu_8h.html#a8dfc2685c2dd0f59270135852e204987" title="Initializing microcontroller." alt="" coords="765,12,875,39"/>
+<area shape="rect" id="node11" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="923,12,997,39"/>
+<area shape="rect" id="node13" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="1045,12,1096,39"/>
+</map>

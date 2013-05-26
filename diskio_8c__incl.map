@@ -1,0 +1,30 @@
+<map id="fs/FatFs/diskio.c" name="fs/FatFs/diskio.c">
+<area shape="rect" id="node3" href="$hal__define_8h.html" title="HAL definitions for CLEON." alt="" coords="981,229,1072,256"/>
+<area shape="rect" id="node49" href="$sys__define_8h.html" title="System definitions for CLEON." alt="" coords="1299,80,1393,107"/>
+<area shape="rect" id="node68" href="$fs__define_8h.html" title="File system definition." alt="" coords="1913,80,1996,107"/>
+<area shape="rect" id="node25" href="$hal__init_8h.html" title="Initializing HAL." alt="" coords="940,304,1015,331"/>
+<area shape="rect" id="node27" href="$hal__wdt_8h.html" title="Watchdog timer configuration." alt="" coords="1039,304,1116,331"/>
+<area shape="rect" id="node29" href="$hal__ucs_8h.html" title="Universal clock system configuration." alt="" coords="1141,304,1219,331"/>
+<area shape="rect" id="node31" href="$hal__uart_8h.html" title="UART configuration." alt="" coords="1243,304,1321,331"/>
+<area shape="rect" id="node33" href="$hal__dma_8h.html" title="DMA configuration." alt="" coords="1347,304,1429,331"/>
+<area shape="rect" id="node35" href="$hal__rtc_8h.html" title="Initializing RTC." alt="" coords="1453,304,1525,331"/>
+<area shape="rect" id="node37" href="$hal__gpio_8h.html" title="GPIO configuration." alt="" coords="1550,304,1631,331"/>
+<area shape="rect" id="node39" href="$hal__flash_8h.html" title="FLASH configuration." alt="" coords="1655,304,1739,331"/>
+<area shape="rect" id="node41" href="$hal__timer_8h.html" title="timer configuration" alt="" coords="1763,304,1849,331"/>
+<area shape="rect" id="node43" href="$hal__adc_8h.html" title="ADC configuration." alt="" coords="1874,304,1952,331"/>
+<area shape="rect" id="node45" href="$hal__spi_8h.html" title="SPI configuration." alt="" coords="1977,304,2052,331"/>
+<area shape="rect" id="node47" href="$hal__pmm_8h.html" title="PMM configuration." alt="" coords="2077,304,2163,331"/>
+<area shape="rect" id="node51" href="$sys__mcu_8h.html" title="MCU related functions." alt="" coords="917,155,1003,181"/>
+<area shape="rect" id="node53" href="$sys__usb_8h.html" title="USB related functions." alt="" coords="1028,155,1111,181"/>
+<area shape="rect" id="node55" href="$sys__gps_8h.html" title="GPS related functions." alt="" coords="1135,155,1217,181"/>
+<area shape="rect" id="node58" href="$sys__power_8h.html" title="sys_power.h" alt="" coords="1242,155,1336,181"/>
+<area shape="rect" id="node60" href="$sys__flash_8h.html" title="FLASH related functions." alt="" coords="1361,155,1449,181"/>
+<area shape="rect" id="node62" href="$sys__sensors_8h.html" title="Sensors related functions." alt="" coords="1473,155,1580,181"/>
+<area shape="rect" id="node64" href="$sys__mmc_8h.html" title="Micro SD card related functions." alt="" coords="1604,155,1695,181"/>
+<area shape="rect" id="node66" href="$sys__init_8h.html" title="Initializing the system." alt="" coords="1719,155,1797,181"/>
+<area shape="rect" id="node70" href="$diskio_8h.html" title="diskio.h" alt="" coords="1823,155,1889,181"/>
+<area shape="rect" id="node72" href="$integer_8h.html" title="integer.h" alt="" coords="1891,229,1963,256"/>
+<area shape="rect" id="node74" href="$ff_8h.html" title="ff.h" alt="" coords="1965,155,2003,181"/>
+<area shape="rect" id="node77" href="$ffconf_8h.html" title="ffconf.h" alt="" coords="1998,229,2060,256"/>
+<area shape="rect" id="node81" href="$fs__init_8h.html" title="Initializing file system." alt="" coords="2079,155,2145,181"/>
+</map>

@@ -1,0 +1,26 @@
+<map id="app/app_define.h" name="app/app_define.h">
+<area shape="rect" id="node3" href="$app__log_8c.html" title="Logging CLEON data." alt="" coords="5,80,107,107"/>
+<area shape="rect" id="node5" href="$app__usb_8c.html" title="Communication via USB." alt="" coords="132,80,239,107"/>
+<area shape="rect" id="node7" href="$fs__init_8c.html" title="Initializing file system." alt="" coords="263,80,344,107"/>
+<area shape="rect" id="node9" href="$hal__adc_8c.html" title="ADC configuration." alt="" coords="369,80,468,107"/>
+<area shape="rect" id="node11" href="$hal__dma_8c.html" title="DMA configuration." alt="" coords="493,80,595,107"/>
+<area shape="rect" id="node13" href="$hal__flash_8c.html" title="FLASH configuration." alt="" coords="619,80,724,107"/>
+<area shape="rect" id="node15" href="$hal__gpio_8c.html" title="GPIO configuration." alt="" coords="749,80,851,107"/>
+<area shape="rect" id="node17" href="$hal__init_8c.html" title="Initializing HAL." alt="" coords="875,80,969,107"/>
+<area shape="rect" id="node19" href="$hal__pmm_8c.html" title="PMM configuration." alt="" coords="995,80,1101,107"/>
+<area shape="rect" id="node21" href="$hal__rtc_8c.html" title="RTC configuration." alt="" coords="1125,80,1219,107"/>
+<area shape="rect" id="node23" href="$hal__spi_8c.html" title="SPI configuration." alt="" coords="1243,80,1337,107"/>
+<area shape="rect" id="node25" href="$hal__timer_8c.html" title="timer configuration" alt="" coords="1363,80,1469,107"/>
+<area shape="rect" id="node27" href="$hal__uart_8c.html" title="UART configuration." alt="" coords="1494,80,1593,107"/>
+<area shape="rect" id="node29" href="$hal__ucs_8c.html" title="Universal clock system configuration." alt="" coords="1619,80,1717,107"/>
+<area shape="rect" id="node31" href="$hal__wdt_8c.html" title="Watchdog timer configuration." alt="" coords="1741,80,1840,107"/>
+<area shape="rect" id="node33" href="$main_8c.html" title="Main entry for the CLEO sensor board firmware." alt="" coords="1864,80,1925,107"/>
+<area shape="rect" id="node35" href="$sys__flash_8c.html" title="FLASH related functions." alt="" coords="1950,80,2063,107"/>
+<area shape="rect" id="node37" href="$sys__gps_8c.html" title="GPS related functions." alt="" coords="2088,80,2195,107"/>
+<area shape="rect" id="node39" href="$sys__init_8c.html" title="Initializing the system." alt="" coords="2219,80,2321,107"/>
+<area shape="rect" id="node41" href="$sys__mcu_8c.html" title="MCU related functions." alt="" coords="2346,80,2456,107"/>
+<area shape="rect" id="node43" href="$sys__mmc_8c.html" title="Micro SD card related functions." alt="" coords="2481,80,2596,107"/>
+<area shape="rect" id="node45" href="$sys__power_8c.html" title="Power related functions." alt="" coords="2620,80,2740,107"/>
+<area shape="rect" id="node47" href="$sys__sensors_8c.html" title="Sensors related functions." alt="" coords="2765,80,2896,107"/>
+<area shape="rect" id="node49" href="$sys__usb_8c.html" title="USB related functions." alt="" coords="2921,80,3028,107"/>
+</map>

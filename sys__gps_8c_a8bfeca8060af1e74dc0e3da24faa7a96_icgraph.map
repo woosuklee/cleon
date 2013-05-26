@@ -1,0 +1,7 @@
+<map id="SYS_GPS_StopOperation" name="SYS_GPS_StopOperation">
+<area shape="rect" id="node3" href="$app__log_8h.html#af0aa7ce17d347ccd13683acc6952403c" title="Collect CLEON data sample(s)" alt="" coords="437,5,515,32"/>
+<area shape="rect" id="node7" href="$sys__gps_8h.html#a99ba3f2dc6ff241bd5ec7385906aaebd" title="Initializing GPS." alt="" coords="422,56,530,83"/>
+<area shape="rect" id="node12" href="$sys__gps_8h.html#a785400ba1c19f90e025a096f5ef0dcf8" title="Test if GPS is initalized properly." alt="" coords="229,107,373,133"/>
+<area shape="rect" id="node5" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="701,31,752,57"/>
+<area shape="rect" id="node9" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="579,56,653,83"/>
+</map>

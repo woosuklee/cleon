@@ -1,0 +1,6 @@
+<map id="HAL_UCS_Init" name="HAL_UCS_Init">
+<area shape="rect" id="node3" href="$hal__init_8h.html#a62fc6fe0ace20baedb48d662c349225b" title="Initializing hardware." alt="" coords="161,5,231,32"/>
+<area shape="rect" id="node5" href="$sys__mcu_8h.html#a8dfc2685c2dd0f59270135852e204987" title="Initializing microcontroller." alt="" coords="280,5,389,32"/>
+<area shape="rect" id="node7" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="438,5,511,32"/>
+<area shape="rect" id="node9" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="560,5,611,32"/>
+</map>

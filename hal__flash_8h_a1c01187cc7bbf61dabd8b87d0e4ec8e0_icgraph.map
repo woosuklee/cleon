@@ -1,0 +1,7 @@
+<map id="HAL_FLASH_EraseBank" name="HAL_FLASH_EraseBank">
+<area shape="rect" id="node3" href="$hal__flash_8h.html#ae50c6b56d47876967cfe93e07a4f7c57" title="Initializing FLASH." alt="" coords="221,5,341,32"/>
+<area shape="rect" id="node5" href="$hal__init_8h.html#a62fc6fe0ace20baedb48d662c349225b" title="Initializing hardware." alt="" coords="390,5,461,32"/>
+<area shape="rect" id="node7" href="$sys__mcu_8h.html#a8dfc2685c2dd0f59270135852e204987" title="Initializing microcontroller." alt="" coords="509,5,619,32"/>
+<area shape="rect" id="node9" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="667,5,741,32"/>
+<area shape="rect" id="node11" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="789,5,840,32"/>
+</map>

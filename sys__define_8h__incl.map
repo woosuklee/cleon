@@ -1,0 +1,23 @@
+<map id="sys/sys_define.h" name="sys/sys_define.h">
+<area shape="rect" id="node3" href="$sys__mcu_8h.html" title="MCU related functions." alt="" coords="767,80,853,107"/>
+<area shape="rect" id="node5" href="$sys__usb_8h.html" title="USB related functions." alt="" coords="879,80,961,107"/>
+<area shape="rect" id="node7" href="$sys__gps_8h.html" title="GPS related functions." alt="" coords="985,80,1068,107"/>
+<area shape="rect" id="node55" href="$sys__power_8h.html" title="sys_power.h" alt="" coords="1093,80,1187,107"/>
+<area shape="rect" id="node57" href="$sys__flash_8h.html" title="FLASH related functions." alt="" coords="1212,80,1300,107"/>
+<area shape="rect" id="node59" href="$sys__sensors_8h.html" title="Sensors related functions." alt="" coords="1324,80,1431,107"/>
+<area shape="rect" id="node61" href="$sys__mmc_8h.html" title="Micro SD card related functions." alt="" coords="1455,80,1545,107"/>
+<area shape="rect" id="node63" href="$sys__init_8h.html" title="Initializing the system." alt="" coords="1570,80,1648,107"/>
+<area shape="rect" id="node9" href="$hal__define_8h.html" title="HAL definitions for CLEON." alt="" coords="981,155,1072,181"/>
+<area shape="rect" id="node31" href="$hal__init_8h.html" title="Initializing HAL." alt="" coords="940,229,1015,256"/>
+<area shape="rect" id="node33" href="$hal__wdt_8h.html" title="Watchdog timer configuration." alt="" coords="1039,229,1116,256"/>
+<area shape="rect" id="node35" href="$hal__ucs_8h.html" title="Universal clock system configuration." alt="" coords="1141,229,1219,256"/>
+<area shape="rect" id="node37" href="$hal__uart_8h.html" title="UART configuration." alt="" coords="1243,229,1321,256"/>
+<area shape="rect" id="node39" href="$hal__dma_8h.html" title="DMA configuration." alt="" coords="1347,229,1429,256"/>
+<area shape="rect" id="node41" href="$hal__rtc_8h.html" title="Initializing RTC." alt="" coords="1453,229,1525,256"/>
+<area shape="rect" id="node43" href="$hal__gpio_8h.html" title="GPIO configuration." alt="" coords="1550,229,1631,256"/>
+<area shape="rect" id="node45" href="$hal__flash_8h.html" title="FLASH configuration." alt="" coords="1655,229,1739,256"/>
+<area shape="rect" id="node47" href="$hal__timer_8h.html" title="timer configuration" alt="" coords="1763,229,1849,256"/>
+<area shape="rect" id="node49" href="$hal__adc_8h.html" title="ADC configuration." alt="" coords="1874,229,1952,256"/>
+<area shape="rect" id="node51" href="$hal__spi_8h.html" title="SPI configuration." alt="" coords="1977,229,2052,256"/>
+<area shape="rect" id="node53" href="$hal__pmm_8h.html" title="PMM configuration." alt="" coords="2077,229,2163,256"/>
+</map>

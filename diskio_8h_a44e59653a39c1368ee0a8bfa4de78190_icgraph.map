@@ -1,0 +1,7 @@
+<map id="disk_write" name="disk_write">
+<area shape="rect" id="node3" href="$ff_8h.html#a9f0df1d597f92e2e6482e3a8f5c9b136" title="f_read" alt="" coords="137,5,194,32"/>
+<area shape="rect" id="node5" href="$ff_8h.html#af02e0c59a61ad5954bc9b566fe8a79b8" title="f_write" alt="" coords="136,56,195,83"/>
+<area shape="rect" id="node7" href="$ff_8h.html#ae3ba7b156902f7678b3344f1e5bc5e88" title="f_sync" alt="" coords="135,107,195,133"/>
+<area shape="rect" id="node11" href="$ff_8h.html#ac9a2d3b1cec2ede839b1c70397e6f1f8" title="f_lseek" alt="" coords="134,157,197,184"/>
+<area shape="rect" id="node9" href="$ff_8h.html#a004f8ebf5a01c5c7065292cc4545bc38" title="f_close" alt="" coords="246,107,309,133"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="SYS_SENSORS_SHT11_Command" name="SYS_SENSORS_SHT11_Command">
+<area shape="rect" id="node3" href="$sys__sensors_8c.html#a6c968ec4bf4726f1a5a7b270753b4585" title="Start SHT11." alt="" coords="542,26,743,53"/>
+<area shape="rect" id="node5" href="$sys__sensors_8c.html#ad428260e357fd60f39d7d6d142ad16c8" title="Write to SHT11." alt="" coords="287,26,491,53"/>
+<area shape="rect" id="node7" href="$sys__sensors_8c.html#af496623728317460156b702336538857" title="Reset SHT11." alt="" coords="286,77,493,103"/>
+<area shape="rect" id="node10" href="$sys__sensors_8c.html#a712fce3bd140785528ee77fede788795" title="Read from SHT11." alt="" coords="288,127,491,154"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="SYS_USB_BuildCRC" name="SYS_USB_BuildCRC">
+<area shape="rect" id="node3" href="$sys__usb_8h.html#a44b75cba45b6c944312deccd963ba033" title="Sending USB frame ACK." alt="" coords="213,5,360,32"/>
+<area shape="rect" id="node9" href="$sys__usb_8h.html#ad51c770de14905e59f7ef907a7a3db6b" title="Receiving a bayte and test whether correct frame has been received." alt="" coords="201,56,373,83"/>
+<area shape="rect" id="node5" href="$app__usb_8h.html#afd3e69fbaca3347223f9a409ae53b4f6" title="Processing USB frame." alt="" coords="422,5,642,32"/>
+<area shape="rect" id="node7" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="691,5,741,32"/>
+<area shape="rect" id="node11" href="$hal__uart_8c.html#a2ab57f8a3e6e32703bd1ea58f958e4ee" title="USCI_A1_VECTOR_ISR" alt="" coords="451,56,613,83"/>
+</map>

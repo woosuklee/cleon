@@ -1,0 +1,6 @@
+<map id="SYS_MMC_Init" name="SYS_MMC_Init">
+<area shape="rect" id="node3" href="$sys__mmc_8c.html#a16c20b36266e5dbb8ad8c0e870a05a40" title="Initializing Micro SD interface pins." alt="" coords="166,5,290,32"/>
+<area shape="rect" id="node5" href="$fs__init_8c.html#aa67c972ffc834d1ee6a3aa38b101ba89" title="Initializing file system." alt="" coords="197,56,259,83"/>
+<area shape="rect" id="node7" href="$diskio_8c.html#a8e429a29bdbb73f5bc9e2ab2335a5112" title="disk_initialize" alt="" coords="339,56,439,83"/>
+<area shape="rect" id="node9" href="$diskio_8c.html#a21ad8e9a107ea2000705a3edfebaaa2d" title="disk_status" alt="" coords="489,56,578,83"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="f_lseek" name="f_lseek">
+<area shape="rect" id="node3" href="$ff_8c.html#a65611adf1626e5e08da77cd33a98dd8b" title="get_fat" alt="" coords="128,5,189,32"/>
+<area shape="rect" id="node5" href="$ff_8c.html#a7519abb60fe91f6aa1d17f64fbae123a" title="clust2sect" alt="" coords="117,56,200,83"/>
+<area shape="rect" id="node7" href="$diskio_8h.html#a44e59653a39c1368ee0a8bfa4de78190" title="disk_write" alt="" coords="119,107,199,133"/>
+<area shape="rect" id="node9" href="$diskio_8c.html#a42043c0f462756dbdf1f3bd1bdb5fa50" title="disk_read" alt="" coords="119,157,198,184"/>
+<area shape="rect" id="node11" href="$diskio_8c.html#a21ad8e9a107ea2000705a3edfebaaa2d" title="disk_status" alt="" coords="249,157,338,184"/>
+</map>

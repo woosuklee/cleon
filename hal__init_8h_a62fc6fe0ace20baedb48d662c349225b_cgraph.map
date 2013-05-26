@@ -1,0 +1,26 @@
+<map id="HAL_Init" name="HAL_Init">
+<area shape="rect" id="node3" href="$hal__pmm_8c.html#a0ac3e24f222cf1911232d714ac205a33" title="Initializing PMM." alt="" coords="131,5,240,32"/>
+<area shape="rect" id="node7" href="$hal__gpio_8c.html#a08a2270eac937563afd987f54fa13b94" title="Initializing GPIO." alt="" coords="130,56,241,83"/>
+<area shape="rect" id="node9" href="$hal__ucs_8c.html#adb87b198afb2b475fbe297dc59a062cd" title="Initializing universal clock system." alt="" coords="133,107,238,133"/>
+<area shape="rect" id="node11" href="$hal__uart_8c.html#a3d66e97fc387ead9d49a987c20c38e73" title="Initializing UART." alt="" coords="129,157,241,184"/>
+<area shape="rect" id="node13" href="$hal__rtc_8c.html#ab4d8dc1e2a2dec66d3bda6128faa54eb" title="Initializing RTC." alt="" coords="134,208,237,235"/>
+<area shape="rect" id="node35" href="$hal__flash_8c.html#ae50c6b56d47876967cfe93e07a4f7c57" title="Initializing FLASH." alt="" coords="125,259,245,285"/>
+<area shape="rect" id="node39" href="$hal__dma_8c.html#a52c9b3797c2af1d4404fae70a3e9bd4e" title="Initializing DMA." alt="" coords="132,309,239,336"/>
+<area shape="rect" id="node41" href="$hal__adc_8c.html#ab72c14ec7b6998bf10a2a9a5ed09daa0" title="Initializing ADC." alt="" coords="133,360,238,387"/>
+<area shape="rect" id="node43" href="$hal__timer_8c.html#a378fd09178c01ac60cd628b47491534d" title="Initializing timer." alt="" coords="127,411,244,437"/>
+<area shape="rect" id="node47" href="$hal__spi_8c.html#abdaee45906b06a392e37d82482810661" title="Initializing SPI." alt="" coords="136,461,235,488"/>
+<area shape="rect" id="node49" href="$sys__usb_8c.html#a5e6191d3fa2f23698f5b9d816c597e3c" title="Mimic the standard &#39;printf&#39; with USB as output device." alt="" coords="125,512,245,539"/>
+<area shape="rect" id="node5" href="$hal__pmm_8c.html#a4dffaf92d5571feb235eb3dd16f951b7" title="SetVCore" alt="" coords="346,5,425,32"/>
+<area shape="rect" id="node15" href="$hal__rtc_8c.html#a114a84a6c1afeccc1752846309289349" title="Restore time tick value out of RTC." alt="" coords="294,208,477,235"/>
+<area shape="rect" id="node17" href="$hal__rtc_8c.html#a57f0bdd5ab2d00bac9aba2ac0befe3ec" title="Read RTC time." alt="" coords="545,179,714,205"/>
+<area shape="rect" id="node33" href="$hal__rtc_8c.html#af45cdde45f669f4b806d5fecd15671db" title="Get total seconds converted from RTC time." alt="" coords="525,230,733,271"/>
+<area shape="rect" id="node19" href="$hal__rtc_8c.html#a89f7b16ba53fa62655fc288efa7df152" title="HAL_GetRTCYear" alt="" coords="789,27,915,53"/>
+<area shape="rect" id="node21" href="$hal__rtc_8c.html#ad17a64d20a2b6d76a9278afe410613ff" title="HAL_GetRTCMon" alt="" coords="789,77,915,104"/>
+<area shape="rect" id="node23" href="$hal__rtc_8c.html#a54683fb15429c4db352709dac1ade638" title="HAL_GetRTCDay" alt="" coords="791,128,913,155"/>
+<area shape="rect" id="node25" href="$hal__rtc_8c.html#a5283fa74376946ca4ad839ada2685243" title="HAL_GetRTCHour" alt="" coords="789,179,915,205"/>
+<area shape="rect" id="node27" href="$hal__rtc_8c.html#aaa5ba6933d7030858223c4af717fa572" title="HAL_GetRTCMin" alt="" coords="791,229,913,256"/>
+<area shape="rect" id="node29" href="$hal__rtc_8c.html#a879ba4469852870b38f1ce0ced55cd80" title="HAL_GetRTCSec" alt="" coords="791,280,913,307"/>
+<area shape="rect" id="node31" href="$hal__rtc_8c.html#a072a4438d8fe9b0396b476276c4ae156" title="HAL_GetRTCMilisec" alt="" coords="781,331,923,357"/>
+<area shape="rect" id="node37" href="$hal__flash_8c.html#a1c01187cc7bbf61dabd8b87d0e4ec8e0" title="Erase FLASH bank." alt="" coords="302,259,469,285"/>
+<area shape="rect" id="node45" href="$hal__timer_8c.html#ae44ba0226b5ef3d1d95eadae4443efec" title="Initializing timerA1." alt="" coords="303,411,468,437"/>
+</map>

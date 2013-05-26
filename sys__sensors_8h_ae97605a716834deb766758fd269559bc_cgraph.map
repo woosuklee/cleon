@@ -1,0 +1,8 @@
+<map id="SYS_SENSORS_SHT11_ReadTemperature" name="SYS_SENSORS_SHT11_ReadTemperature">
+<area shape="rect" id="node3" href="$sys__sensors_8c.html#a3e967a32e144eaabb00a2ca740af8742" title="Transmit command to SHT11." alt="" coords="328,51,560,78"/>
+<area shape="rect" id="node14" href="$sys__usb_8c.html#a5e6191d3fa2f23698f5b9d816c597e3c" title="Mimic the standard &#39;printf&#39; with USB as output device." alt="" coords="384,102,504,129"/>
+<area shape="rect" id="node5" href="$sys__sensors_8c.html#a6c968ec4bf4726f1a5a7b270753b4585" title="Start SHT11." alt="" coords="865,26,1066,53"/>
+<area shape="rect" id="node7" href="$sys__sensors_8c.html#ad428260e357fd60f39d7d6d142ad16c8" title="Write to SHT11." alt="" coords="610,26,814,53"/>
+<area shape="rect" id="node9" href="$sys__sensors_8c.html#af496623728317460156b702336538857" title="Reset SHT11." alt="" coords="609,77,815,103"/>
+<area shape="rect" id="node12" href="$sys__sensors_8c.html#a712fce3bd140785528ee77fede788795" title="Read from SHT11." alt="" coords="611,127,813,154"/>
+</map>

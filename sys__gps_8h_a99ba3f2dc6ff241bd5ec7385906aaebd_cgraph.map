@@ -1,0 +1,8 @@
+<map id="SYS_GPS_Init" name="SYS_GPS_Init">
+<area shape="rect" id="node3" href="$sys__gps_8c.html#a5a6c1e1b7af0776b92f9ab9a00b76dc5" title="Initializing GPS control pins." alt="" coords="167,5,329,32"/>
+<area shape="rect" id="node5" href="$sys__gps_8c.html#a8bfeca8060af1e74dc0e3da24faa7a96" title="Starting GPS operation." alt="" coords="382,107,557,133"/>
+<area shape="rect" id="node7" href="$sys__gps_8c.html#a1f05f207fe07da0e19e9a426d995b47f" title="Initializing GPS control pins." alt="" coords="163,107,333,133"/>
+<area shape="rect" id="node9" href="$sys__gps_8c.html#ad1db66f30e7a4db89ab6db7d8abe9306" title="Initializing GPS data pins." alt="" coords="174,157,322,184"/>
+<area shape="rect" id="node11" href="$sys__gps_8c.html#a785400ba1c19f90e025a096f5ef0dcf8" title="Test if GPS is initalized properly." alt="" coords="176,208,320,235"/>
+<area shape="rect" id="node13" href="$sys__gps_8c.html#a01ef95f0d71cff979600eef689526422" title="Starting GPS operation." alt="" coords="382,208,557,235"/>
+</map>

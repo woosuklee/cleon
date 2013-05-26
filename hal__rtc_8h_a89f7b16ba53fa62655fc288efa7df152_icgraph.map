@@ -1,0 +1,15 @@
+<map id="HAL_GetRTCYear" name="HAL_GetRTCYear">
+<area shape="rect" id="node3" href="$ff_8h.html#af58b536abfd30f77213f4ecaf2ac52f5" title="get_fattime" alt="" coords="223,81,310,108"/>
+<area shape="rect" id="node13" href="$hal__rtc_8h.html#a57f0bdd5ab2d00bac9aba2ac0befe3ec" title="Read RTC time." alt="" coords="182,157,351,184"/>
+<area shape="rect" id="node5" href="$ff_8h.html#acf2fcce74586a7af2a86d0543de6cdef" title="f_open" alt="" coords="462,5,522,32"/>
+<area shape="rect" id="node7" href="$ff_8h.html#ae3ba7b156902f7678b3344f1e5bc5e88" title="f_sync" alt="" coords="462,56,522,83"/>
+<area shape="rect" id="node11" href="$ff_8h.html#a13452975056874fbec616433db001bf9" title="f_mkdir" alt="" coords="460,107,524,133"/>
+<area shape="rect" id="node9" href="$ff_8h.html#a004f8ebf5a01c5c7065292cc4545bc38" title="f_close" alt="" coords="653,56,715,83"/>
+<area shape="rect" id="node15" href="$app__usb_8h.html#afd3e69fbaca3347223f9a409ae53b4f6" title="Processing USB frame." alt="" coords="785,157,1005,184"/>
+<area shape="rect" id="node19" href="$hal__rtc_8h.html#a114a84a6c1afeccc1752846309289349" title="Restore time tick value out of RTC." alt="" coords="401,208,583,235"/>
+<area shape="rect" id="node17" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="1333,183,1384,209"/>
+<area shape="rect" id="node21" href="$hal__rtc_8h.html#a83189bb059346789f8008359c9c3a214" title="Initializing RTC." alt="" coords="633,208,735,235"/>
+<area shape="rect" id="node23" href="$hal__init_8h.html#a62fc6fe0ace20baedb48d662c349225b" title="Initializing hardware." alt="" coords="859,208,930,235"/>
+<area shape="rect" id="node25" href="$sys__mcu_8h.html#a8dfc2685c2dd0f59270135852e204987" title="Initializing microcontroller." alt="" coords="1053,208,1163,235"/>
+<area shape="rect" id="node27" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="1211,208,1285,235"/>
+</map>

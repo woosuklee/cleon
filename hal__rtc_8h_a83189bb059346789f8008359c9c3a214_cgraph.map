@@ -1,0 +1,12 @@
+<map id="HAL_RTC_Init" name="HAL_RTC_Init">
+<area shape="rect" id="node3" href="$hal__rtc_8c.html#a114a84a6c1afeccc1752846309289349" title="Restore time tick value out of RTC." alt="" coords="158,187,341,213"/>
+<area shape="rect" id="node5" href="$hal__rtc_8c.html#a57f0bdd5ab2d00bac9aba2ac0befe3ec" title="Read RTC time." alt="" coords="409,157,578,184"/>
+<area shape="rect" id="node21" href="$hal__rtc_8c.html#af45cdde45f669f4b806d5fecd15671db" title="Get total seconds converted from RTC time." alt="" coords="389,209,597,250"/>
+<area shape="rect" id="node7" href="$hal__rtc_8c.html#a89f7b16ba53fa62655fc288efa7df152" title="HAL_GetRTCYear" alt="" coords="653,5,779,32"/>
+<area shape="rect" id="node9" href="$hal__rtc_8c.html#ad17a64d20a2b6d76a9278afe410613ff" title="HAL_GetRTCMon" alt="" coords="653,56,779,83"/>
+<area shape="rect" id="node11" href="$hal__rtc_8c.html#a54683fb15429c4db352709dac1ade638" title="HAL_GetRTCDay" alt="" coords="655,107,777,133"/>
+<area shape="rect" id="node13" href="$hal__rtc_8c.html#a5283fa74376946ca4ad839ada2685243" title="HAL_GetRTCHour" alt="" coords="653,157,779,184"/>
+<area shape="rect" id="node15" href="$hal__rtc_8c.html#aaa5ba6933d7030858223c4af717fa572" title="HAL_GetRTCMin" alt="" coords="655,208,777,235"/>
+<area shape="rect" id="node17" href="$hal__rtc_8c.html#a879ba4469852870b38f1ce0ced55cd80" title="HAL_GetRTCSec" alt="" coords="655,259,777,285"/>
+<area shape="rect" id="node19" href="$hal__rtc_8c.html#a072a4438d8fe9b0396b476276c4ae156" title="HAL_GetRTCMilisec" alt="" coords="645,309,787,336"/>
+</map>

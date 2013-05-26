@@ -1,0 +1,12 @@
+<map id="disk_status" name="disk_status">
+<area shape="rect" id="node3" href="$diskio_8c.html#a4b0769dd2937ea66574910600f76ef8c" title="detectCard" alt="" coords="293,5,379,32"/>
+<area shape="rect" id="node5" href="$diskio_8h.html#a2d5ebc53960f1cd48fc6b419d1256df3" title="disk_initialize" alt="" coords="145,56,245,83"/>
+<area shape="rect" id="node16" href="$diskio_8h.html#a75298f57b6d13bd7148bc5dfa0e50472" title="disk_read" alt="" coords="155,132,234,159"/>
+<area shape="rect" id="node8" href="$fs__init_8h.html#aa67c972ffc834d1ee6a3aa38b101ba89" title="Initializing file system." alt="" coords="305,56,367,83"/>
+<area shape="rect" id="node10" href="$sys__mmc_8h.html#a59d8b636466038ab0827bcf5aff4eb06" title="Initializing microcontroller." alt="" coords="427,56,538,83"/>
+<area shape="rect" id="node12" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="587,56,661,83"/>
+<area shape="rect" id="node14" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="709,56,760,83"/>
+<area shape="rect" id="node18" href="$ff_8h.html#a9f0df1d597f92e2e6482e3a8f5c9b136" title="f_read" alt="" coords="307,107,365,133"/>
+<area shape="rect" id="node20" href="$ff_8h.html#af02e0c59a61ad5954bc9b566fe8a79b8" title="f_write" alt="" coords="307,157,365,184"/>
+<area shape="rect" id="node22" href="$ff_8h.html#ac9a2d3b1cec2ede839b1c70397e6f1f8" title="f_lseek" alt="" coords="305,208,367,235"/>
+</map>

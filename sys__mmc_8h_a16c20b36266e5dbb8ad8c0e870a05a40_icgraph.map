@@ -1,0 +1,5 @@
+<map id="SYS_MMC_InitIO" name="SYS_MMC_InitIO">
+<area shape="rect" id="node3" href="$sys__mmc_8h.html#a59d8b636466038ab0827bcf5aff4eb06" title="Initializing microcontroller." alt="" coords="179,5,290,32"/>
+<area shape="rect" id="node5" href="$sys__init_8h.html#ae7266b09907efcfb4bc5df00c544715c" title="Initializing CLEON." alt="" coords="339,5,413,32"/>
+<area shape="rect" id="node7" href="$main_8c.html#a6288eba0f8e8ad3ab1544ad731eb7667" title="main" alt="" coords="461,5,512,32"/>
+</map>

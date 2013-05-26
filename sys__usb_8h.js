@@ -1,0 +1,25 @@
+var sys__usb_8h =
+[
+    [ "usb_frame_s", "structusb__frame__s.html", "structusb__frame__s" ],
+    [ "usb_frame_u", "unionusb__frame__u.html", "unionusb__frame__u" ],
+    [ "SYS_USB_IsUSBConnected", "sys__usb_8h.html#a7dcf19ca7c5b0eb5733d86464e34d714", null ],
+    [ "USB_FRAME_COMMAND_ACK", "sys__usb_8h.html#a6a445dbf21a2fd44357332b39126996d", null ],
+    [ "USB_FRAME_COMMAND_AND_DATA_FIELD_LENGTH", "sys__usb_8h.html#aabc8bbf503f7f46a2665da2e7cc83d3d", null ],
+    [ "USB_FRAME_COMMAND_CONNECT", "sys__usb_8h.html#adb77a972faf7c895a1c49988f60083bd", null ],
+    [ "USB_FRAME_COMMAND_UPDATE_CHUNK_COUNT", "sys__usb_8h.html#a4adedbf93842ed931883de76b463fd40", null ],
+    [ "USB_FRAME_COMMAND_UPDATE_CHUNK_GAP", "sys__usb_8h.html#ae52d5846f76f1665a538486b4119ea4e", null ],
+    [ "USB_FRAME_COMMAND_UPDATE_RTC_TIME", "sys__usb_8h.html#a79fd0a7144018af69a59ce94b2469a35", null ],
+    [ "USB_FRAME_COMMAND_UPDATE_SAMPLE_COUNT", "sys__usb_8h.html#a3d5a0d65102c809e6e538fc822499494", null ],
+    [ "USB_FRAME_COMMAND_UPDATE_SAMPLE_GAP", "sys__usb_8h.html#a7f929804c203d991728b6c13caa5b76d", null ],
+    [ "USB_FRAME_COMMAND_UPDATE_TIME_TICK", "sys__usb_8h.html#ace3a892cb6eb506625eb28234c48674e", null ],
+    [ "USB_FRAME_DATA_FIELD_LENGTH", "sys__usb_8h.html#a7b207eefa4052ad3b39ec0d22c542e73", null ],
+    [ "USB_FRAME_FOOTER", "sys__usb_8h.html#a930d0d5588900b8eec123d7d4a263703", null ],
+    [ "USB_FRAME_HEADER", "sys__usb_8h.html#ae8f4b71e449e2ba88c044a6dbd372207", null ],
+    [ "USB_FRAME_LENGTH", "sys__usb_8h.html#ab625a22d4a7772da48074bdea09024ed", null ],
+    [ "SYS_USB_BuildCRC", "sys__usb_8h.html#a069c08a273a8d79c93bd53a0bf672e4b", null ],
+    [ "SYS_USB_Init", "sys__usb_8h.html#af8813b5d2b2deefc562494227822a938", null ],
+    [ "SYS_USB_Printf", "sys__usb_8h.html#a5e6191d3fa2f23698f5b9d816c597e3c", null ],
+    [ "SYS_USB_ReceiveFrame", "sys__usb_8h.html#ad51c770de14905e59f7ef907a7a3db6b", null ],
+    [ "SYS_USB_SendACK", "sys__usb_8h.html#a44b75cba45b6c944312deccd963ba033", null ],
+    [ "SYS_USB_TransmitSingleByte", "sys__usb_8h.html#a147a398f76677cac67a63d26e487e631", null ]
+];
