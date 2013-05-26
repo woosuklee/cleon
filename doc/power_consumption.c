@@ -6,6 +6,7 @@
 @page       PWR         Power consumption
 
 @section    PWR         Power consumption
+                        - This chapter describe the power consumption in case of three GPS signal chunks capturing with 50ms chunk gap
                         - The software is fully interrupt-driven and system remains in low-power-mode almost all the time, except for sensing and USB communication
                             + STAGE 1: Low-power-mode (&asymp; 2.5mA)
                                 - Almost all the time, CLEON remains in low-power-mode (LPM)
@@ -13,6 +14,7 @@
                                 - MSP430 is in active mode
                                 - Temperature, Humidity, and light sensors are temporarily turned on, then off
                                 - GPS is turned-on, stabilized, and in operation
+                                  (In practice, this stablizing time is configurable with limited flexibility and is set to roughly 100ms)
                             + STAGE 3: MSP430 in AM + GPS on + MicroSD writing (&asymp; 73mA)
                                 - MSP430 is in active mode
                                 - GPS remains on

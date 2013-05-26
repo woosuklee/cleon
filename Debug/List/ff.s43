@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      06/Feb/2013  16:40:20 /
-// Copyright 1996-2012 IAR Systems AB.                                        /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      26/May/2013  01:02:22 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
 //                                                                            /
 //    __rt_version  =  3                                                      /
 //    __double_size =  64                                                     /
@@ -10,44 +10,53 @@
 //    __pic         =  no                                                     /
 //    __core        =  430X                                                   /
 //    __data_model  =  large                                                  /
-//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
-//                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\ff.c         /
-//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\fs\FatFs\ff.c" /
-//                      -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.   /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\Debug\List\"   /
-//                     -la "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.    /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\Debug\List\"   /
-//                     -o "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.     /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\Debug\Obj\"    /
-//                     --no_cse --no_unroll --no_inline --no_code_motion      /
-//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
-//                     --dlib_config "C:\Program Files (x86)\IAR              /
-//                     Systems\Embedded Workbench                             /
-//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\intro\" -I     /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\sys\" -I       /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\hal\" -I       /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\hal\rtclib\"   /
-//                     -I "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.     /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\platform\" -I  /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\fs\" -I        /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\fs\FatFs\" -I  /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\app\" -I       /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon2.1\" --core=430X  /
+//    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  /
+//                     2013\2_cleon\4. Development\1.                         /
+//                     Software\cleon\fs\FatFs\ff.c                           /
+//    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\fs\FatFs\ff.c" -lC                      /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\Debug\List\" -la                        /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\Debug\List\" -o                         /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\Debug\Obj\" --no_cse --no_unroll        /
+//                     --no_inline --no_code_motion --no_tbaa --debug         /
+//                     -D__MSP430F5338__ -e --double=64 --dlib_config         /
+//                     "C:\Program Files (x86)\IAR Systems\Embedded           /
+//                     Workbench 6.5\430\LIB\DLIB\dl430xldn.h" -I             /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\intro\" -I "C:\Users\woosuk\Dropbox\lws /
+//                     \ESL\3. Research\9. Summer 2013\2_cleon\4.             /
+//                     Development\1. Software\cleon\sys\" -I                 /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\E /
+//                     SL\3. Research\9. Summer 2013\2_cleon\4.               /
+//                     Development\1. Software\cleon\hal\rtclib\" -I          /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\platform\" -I                           /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\fs\" -I "C:\Users\woosuk\Dropbox\lws\ES /
+//                     L\3. Research\9. Summer 2013\2_cleon\4.                /
+//                     Development\1. Software\cleon\fs\FatFs\" -I            /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\app\" -I "C:\Users\woosuk\Dropbox\lws\E /
+//                     SL\3. Research\9. Summer 2013\2_cleon\4.               /
+//                     Development\1. Software\cleon\" --core=430X            /
 //                     --data_model=large -On --multiplier=32                 /
 //                     --multiplier_location=4C0 --hw_workaround=CPU40        /
-//                     --hw_workaround=CPU42                                  /
-//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
-//                     2013\3_cleon\3_software\cleon2.1\Debug\List\ff.s43     /
+//    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  /
+//                     2013\2_cleon\4. Development\1.                         /
+//                     Software\cleon\Debug\List\ff.s43                       /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -68,12 +77,12 @@
 
         RSEG CSTACK:DATA:SORT:NOROOT(0)
 
-        EXTERN ?Mul32
-        EXTERN ?ShiftRight32u_7
-        EXTERN ?DivMod16u
-        EXTERN ?DivMod32u
         EXTERN ?ShiftRight32u_9
         EXTERN ?ShiftLeft32_9
+        EXTERN ?DivMod32u
+        EXTERN ?Mul32
+        EXTERN ?DivMod16u
+        EXTERN ?ShiftRight32u_7
         EXTERN ?cstart_init_zero20
         EXTERN ?longjmp_r4
         EXTERN ?longjmp_r5
@@ -331,28 +340,28 @@
           CFI R15 Undefined
           CFI EndCommon cfiCommon0
         
+        EXTERN get_fattime
+        FUNCTION get_fattime,0202H
         EXTERN disk_write
         FUNCTION disk_write,0202H
         EXTERN disk_read
         FUNCTION disk_read,0202H
-        EXTERN disk_ioctl
-        FUNCTION disk_ioctl,0202H
-        EXTERN ff_wtoupper
-        FUNCTION ff_wtoupper,0202H
-        EXTERN ff_convert
-        FUNCTION ff_convert,0202H
-        EXTERN disk_status
-        FUNCTION disk_status,0202H
-        EXTERN disk_initialize
-        FUNCTION disk_initialize,0202H
-        EXTERN get_fattime
-        FUNCTION get_fattime,0202H
         EXTERN strlen
         FUNCTION strlen,010202H
         EXTERN sprintf
         FUNCTION sprintf,010202H
         EXTERN printf
         FUNCTION printf,010202H
+        EXTERN disk_status
+        FUNCTION disk_status,0202H
+        EXTERN disk_initialize
+        FUNCTION disk_initialize,0202H
+        EXTERN ff_convert
+        FUNCTION ff_convert,0202H
+        EXTERN ff_wtoupper
+        FUNCTION ff_wtoupper,0202H
+        EXTERN disk_ioctl
+        FUNCTION disk_ioctl,0202H
 
 
         RSEG DATA20_Z:DATA:SORT:NOROOT(1)
@@ -4941,8 +4950,8 @@ f_mount:
           CFI R10H Frame(CFA, -6)
           CFI CFA SP+8
         MOV.B   R12, R14
-        CMP.B   #0x1, R14
-        JNC     ??f_mount_0
+        CMP.B   #0x0, R14
+        JEQ     ??f_mount_0
         MOV.B   #0xb, R12
         JMP     ??f_mount_1
 ??f_mount_0:
@@ -6195,8 +6204,8 @@ f_chdrive:
           CFI Block cfiBlock38 Using cfiCommon0
           CFI Function f_chdrive
         MOV.B   R12, R14
-        CMP.B   #0x1, R14
-        JNC     ??f_chdrive_0
+        CMP.B   #0x0, R14
+        JEQ     ??f_chdrive_0
         MOV.B   #0xb, R12
         RETA
 ??f_chdrive_0:

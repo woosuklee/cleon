@@ -1,7 +1,7 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       06/Feb/2013  16:40:20 #
-# Copyright 1996-2012 IAR Systems AB.                                         #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       26/May/2013  01:02:23 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
 #                                                                             #
 #    __rt_version  =  3                                                       #
 #    __double_size =  64                                                      #
@@ -10,50 +10,59 @@
 #    __pic         =  no                                                      #
 #    __core        =  430X                                                    #
 #    __data_model  =  large                                                   #
-#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\ff.c          #
-#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\ff.c" -lC     #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\Debug\List\" -la       #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\Debug\List\" -o        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\Debug\Obj\" --no_cse   #
-#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
-#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\ff.c                            #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\ff.c" -lC                       #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -la                         #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -o                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\" --no_cse --no_unroll         #
+#                     --no_inline --no_code_motion --no_tbaa --debug          #
+#                     -D__MSP430F5338__ -e --double=64 --dlib_config          #
 #                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
-#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\intro\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\sys\" -I               #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\hal\" -I               #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\hal\rtclib\" -I        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\platform\" -I          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\fs\" -I                #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\" -I          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\app\" -I               #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\" --core=430X          #
-#                     --data_model=large -On --multiplier=32                  #
+#                     6.5\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\intro\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.      #
+#                     Summer 2013\2_cleon\4. Development\1.                   #
+#                     Software\cleon\sys\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\rtclib\" -I                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\platform\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\fs\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\app\" -I  #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\"         #
+#                     --core=430X --data_model=large -On --multiplier=32      #
 #                     --multiplier_location=4C0 --hw_workaround=CPU40         #
-#                     --hw_workaround=CPU42                                   #
-#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon2.1\Debug\List\ff.lst      #
-#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon2.1\Debug\Obj\ff.r43       #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\ff.lst                        #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\ff.r43                         #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon2.1\fs\FatFs\ff.c
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer 2013\2_cleon\4. Development\1. Software\cleon\fs\FatFs\ff.c
       1          /*----------------------------------------------------------------------------/
       2          /  FatFs - FAT file system module  R0.09a                 (C)ChaN, 2012
       3          /-----------------------------------------------------------------------------/
@@ -5881,8 +5890,8 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
    2294          
    2295          
    2296          	if (vol >= _VOLUMES)		/* Check if the drive number is valid */
-   \   000004   5E93         CMP.B   #0x1, R14
-   \   000006   0328         JNC     ??f_mount_0
+   \   000004   4E93         CMP.B   #0x0, R14
+   \   000006   0324         JEQ     ??f_mount_0
    2297          		return FR_INVALID_DRIVE;
    \   000008   7C400B00     MOV.B   #0xb, R12
    \   00000C   133C         JMP     ??f_mount_1
@@ -7337,8 +7346,8 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
    2777          {
    \   000000   4E4C         MOV.B   R12, R14
    2778          	if (drv >= _VOLUMES) return FR_INVALID_DRIVE;
-   \   000002   5E93         CMP.B   #0x1, R14
-   \   000004   0328         JNC     ??f_chdrive_0
+   \   000002   4E93         CMP.B   #0x0, R14
+   \   000004   0324         JEQ     ??f_chdrive_0
    \   000006   7C400B00     MOV.B   #0xb, R12
    \   00000A   1001         RETA
    2779          
@@ -10593,222 +10602,222 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
 
    CSTACK Function
    ------ --------
-      22  check_fs
-             22 -> disk_read
-       4  chk_chr
-      76  chk_mounted
-             72 -> check_fs
-             72 -> disk_initialize
-             74 -> disk_read
-             72 -> disk_status
-      36  clmt_clust
-       8  clust2sect
-      28  cmp_lfn
-             28 -> ff_wtoupper
-      44  create_chain
-             40 -> get_fat
-             44 -> put_fat
-      46  create_name
-             46 -> chk_chr
-             46 -> ff_convert
-             46 -> mem_set
-      36  dir_find
-             36 -> cmp_lfn
-             36 -> dir_next
-             36 -> dir_sdi
-             36 -> mem_cmp
-             36 -> move_window
-             36 -> sum_sfn
-      28  dir_next
-             28 -> clust2sect
-             28 -> create_chain
-             28 -> get_fat
-             28 -> mem_set
-             28 -> move_window
-      36  dir_read
-             36 -> dir_next
-             36 -> move_window
-             36 -> pick_lfn
-             36 -> sum_sfn
-      50  dir_register
-             50 -> dir_find
-             50 -> dir_next
-             50 -> dir_sdi
-             50 -> fit_lfn
-             50 -> gen_numname
-             50 -> mem_cpy
-             50 -> mem_set
-             50 -> move_window
-             50 -> sum_sfn
-      20  dir_remove
-             20 -> dir_next
-             20 -> dir_sdi
-             20 -> move_window
-      28  dir_sdi
-             28 -> clust2sect
-             28 -> get_fat
-     260  f_chdir
-            260 -> chk_mounted
-            260 -> follow_path
-            260 -> ld_clust
-       4  f_chdrive
-     272  f_chmod
-            272 -> chk_mounted
-            272 -> follow_path
-            272 -> sync
-      12  f_close
-             12 -> f_sync
-     316  f_getcwd
-            316 -> chk_mounted
-            316 -> dir_next
-            316 -> dir_read
-            316 -> dir_sdi
-            316 -> get_fileinfo
-            316 -> ld_clust
-      62  f_getfree
-             58 -> chk_mounted
-             58 -> get_fat
-             58 -> move_window
-      64  f_lseek
-             60 -> clmt_clust
-             60 -> clust2sect
-             60 -> create_chain
-             62 -> disk_read
-             62 -> disk_write
-             60 -> get_fat
-             60 -> validate
-     294  f_mkdir
-            294 -> chk_mounted
-            294 -> clust2sect
-            294 -> create_chain
-            294 -> dir_register
-            294 -> follow_path
-            294 -> get_fattime
-            294 -> mem_cpy
-            294 -> mem_set
-            294 -> move_window
-            294 -> remove_chain
-            294 -> st_clust
-            294 -> sync
-       8  f_mount
-     288  f_open
-            288 -> chk_mounted
-            288 -> dir_register
-            288 -> follow_path
-            288 -> get_fattime
-            288 -> ld_clust
-            288 -> move_window
-            288 -> remove_chain
-            288 -> st_clust
-     238  f_opendir
-            238 -> chk_mounted
-            238 -> dir_sdi
-            238 -> follow_path
-            238 -> ld_clust
-      64  f_read
-             54 -> clmt_clust
-             54 -> clust2sect
-             56 -> disk_read
-             56 -> disk_write
-             54 -> get_fat
-             54 -> mem_cpy
-             54 -> validate
-     234  f_readdir
-            234 -> dir_next
-            234 -> dir_read
-            234 -> dir_sdi
-            234 -> get_fileinfo
-            234 -> validate
-     336  f_rename
-            336 -> chk_mounted
-            336 -> clust2sect
-            336 -> dir_register
-            336 -> dir_remove
-            336 -> follow_path
-            336 -> ld_clust
-            336 -> mem_cpy
-            336 -> move_window
-            336 -> st_clust
-            336 -> sync
-     264  f_stat
-            264 -> chk_mounted
-            264 -> follow_path
-            264 -> get_fileinfo
-      30  f_sync
-             30 -> disk_write
-             28 -> get_fattime
-             28 -> move_window
-             28 -> st_clust
-             28 -> sync
-             28 -> validate
-      24  f_truncate
-             20 -> get_fat
-             24 -> put_fat
-             20 -> remove_chain
-             20 -> validate
-     306  f_unlink
-            306 -> chk_mounted
-            306 -> dir_read
-            306 -> dir_remove
-            306 -> dir_sdi
-            306 -> follow_path
-            306 -> ld_clust
-            306 -> mem_cpy
-            306 -> remove_chain
-            306 -> sync
-     272  f_utime
-            272 -> chk_mounted
-            272 -> follow_path
-            272 -> sync
-      56  f_write
-             50 -> clmt_clust
-             50 -> clust2sect
-             50 -> create_chain
-             52 -> disk_read
-             52 -> disk_write
-             50 -> mem_cpy
-             50 -> validate
-      28  fit_lfn
-      24  follow_path
-             24 -> create_name
-             24 -> dir_find
-             24 -> dir_sdi
-             24 -> ld_clust
-      44  gen_numname
-             44 -> mem_cpy
-      36  get_fat
-             36 -> move_window
-      42  get_fileinfo
-             42 -> ff_convert
-      12  ld_clust
-      20  mem_cmp
-      12  mem_cpy
-       8  mem_set
-      30  move_window
-             30 -> disk_read
-             30 -> disk_write
-      28  pick_lfn
-      36  put_fat
-             36 -> move_window
-      32  remove_chain
-             28 -> get_fat
-             32 -> put_fat
-      90  scan_files
-             82 -> f_opendir
-             82 -> f_readdir
-             90 -> printf
-             86 -> scan_files
-             86 -> sprintf
-             82 -> strlen
-       4  st_clust
-       4  sum_sfn
-      14  sync
-             12 -> disk_ioctl
-             14 -> disk_write
-             12 -> mem_set
-             12 -> move_window
-      12  validate
-             12 -> disk_status
+     22   check_fs
+       22   -> disk_read
+      4   chk_chr
+     76   chk_mounted
+       72   -> check_fs
+       72   -> disk_initialize
+       74   -> disk_read
+       72   -> disk_status
+     36   clmt_clust
+      8   clust2sect
+     28   cmp_lfn
+       28   -> ff_wtoupper
+     44   create_chain
+       40   -> get_fat
+       44   -> put_fat
+     46   create_name
+       46   -> chk_chr
+       46   -> ff_convert
+       46   -> mem_set
+     36   dir_find
+       36   -> cmp_lfn
+       36   -> dir_next
+       36   -> dir_sdi
+       36   -> mem_cmp
+       36   -> move_window
+       36   -> sum_sfn
+     28   dir_next
+       28   -> clust2sect
+       28   -> create_chain
+       28   -> get_fat
+       28   -> mem_set
+       28   -> move_window
+     36   dir_read
+       36   -> dir_next
+       36   -> move_window
+       36   -> pick_lfn
+       36   -> sum_sfn
+     50   dir_register
+       50   -> dir_find
+       50   -> dir_next
+       50   -> dir_sdi
+       50   -> fit_lfn
+       50   -> gen_numname
+       50   -> mem_cpy
+       50   -> mem_set
+       50   -> move_window
+       50   -> sum_sfn
+     20   dir_remove
+       20   -> dir_next
+       20   -> dir_sdi
+       20   -> move_window
+     28   dir_sdi
+       28   -> clust2sect
+       28   -> get_fat
+    260   f_chdir
+      260   -> chk_mounted
+      260   -> follow_path
+      260   -> ld_clust
+      4   f_chdrive
+    272   f_chmod
+      272   -> chk_mounted
+      272   -> follow_path
+      272   -> sync
+     12   f_close
+       12   -> f_sync
+    316   f_getcwd
+      316   -> chk_mounted
+      316   -> dir_next
+      316   -> dir_read
+      316   -> dir_sdi
+      316   -> get_fileinfo
+      316   -> ld_clust
+     62   f_getfree
+       58   -> chk_mounted
+       58   -> get_fat
+       58   -> move_window
+     64   f_lseek
+       60   -> clmt_clust
+       60   -> clust2sect
+       60   -> create_chain
+       62   -> disk_read
+       62   -> disk_write
+       60   -> get_fat
+       60   -> validate
+    294   f_mkdir
+      294   -> chk_mounted
+      294   -> clust2sect
+      294   -> create_chain
+      294   -> dir_register
+      294   -> follow_path
+      294   -> get_fattime
+      294   -> mem_cpy
+      294   -> mem_set
+      294   -> move_window
+      294   -> remove_chain
+      294   -> st_clust
+      294   -> sync
+      8   f_mount
+    288   f_open
+      288   -> chk_mounted
+      288   -> dir_register
+      288   -> follow_path
+      288   -> get_fattime
+      288   -> ld_clust
+      288   -> move_window
+      288   -> remove_chain
+      288   -> st_clust
+    238   f_opendir
+      238   -> chk_mounted
+      238   -> dir_sdi
+      238   -> follow_path
+      238   -> ld_clust
+     64   f_read
+       54   -> clmt_clust
+       54   -> clust2sect
+       56   -> disk_read
+       56   -> disk_write
+       54   -> get_fat
+       54   -> mem_cpy
+       54   -> validate
+    234   f_readdir
+      234   -> dir_next
+      234   -> dir_read
+      234   -> dir_sdi
+      234   -> get_fileinfo
+      234   -> validate
+    336   f_rename
+      336   -> chk_mounted
+      336   -> clust2sect
+      336   -> dir_register
+      336   -> dir_remove
+      336   -> follow_path
+      336   -> ld_clust
+      336   -> mem_cpy
+      336   -> move_window
+      336   -> st_clust
+      336   -> sync
+    264   f_stat
+      264   -> chk_mounted
+      264   -> follow_path
+      264   -> get_fileinfo
+     30   f_sync
+       30   -> disk_write
+       28   -> get_fattime
+       28   -> move_window
+       28   -> st_clust
+       28   -> sync
+       28   -> validate
+     24   f_truncate
+       20   -> get_fat
+       24   -> put_fat
+       20   -> remove_chain
+       20   -> validate
+    306   f_unlink
+      306   -> chk_mounted
+      306   -> dir_read
+      306   -> dir_remove
+      306   -> dir_sdi
+      306   -> follow_path
+      306   -> ld_clust
+      306   -> mem_cpy
+      306   -> remove_chain
+      306   -> sync
+    272   f_utime
+      272   -> chk_mounted
+      272   -> follow_path
+      272   -> sync
+     56   f_write
+       50   -> clmt_clust
+       50   -> clust2sect
+       50   -> create_chain
+       52   -> disk_read
+       52   -> disk_write
+       50   -> mem_cpy
+       50   -> validate
+     28   fit_lfn
+     24   follow_path
+       24   -> create_name
+       24   -> dir_find
+       24   -> dir_sdi
+       24   -> ld_clust
+     44   gen_numname
+       44   -> mem_cpy
+     36   get_fat
+       36   -> move_window
+     42   get_fileinfo
+       42   -> ff_convert
+     12   ld_clust
+     20   mem_cmp
+     12   mem_cpy
+      8   mem_set
+     30   move_window
+       30   -> disk_read
+       30   -> disk_write
+     28   pick_lfn
+     36   put_fat
+       36   -> move_window
+     32   remove_chain
+       28   -> get_fat
+       32   -> put_fat
+     90   scan_files
+       82   -> f_opendir
+       82   -> f_readdir
+       90   -> printf
+       86   -> scan_files
+       86   -> sprintf
+       82   -> strlen
+      4   st_clust
+      4   sum_sfn
+     14   sync
+       12   -> disk_ioctl
+       14   -> disk_write
+       12   -> mem_set
+       12   -> move_window
+     12   validate
+       12   -> disk_status
 
 
    Segment part sizes:

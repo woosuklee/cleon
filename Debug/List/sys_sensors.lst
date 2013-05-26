@@ -1,7 +1,7 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:35 #
-# Copyright 1996-2012 IAR Systems AB.                                         #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       26/May/2013  01:02:15 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
 #                                                                             #
 #    __rt_version  =  3                                                       #
 #    __double_size =  64                                                      #
@@ -10,51 +10,59 @@
 #    __pic         =  no                                                      #
 #    __core        =  430X                                                    #
 #    __data_model  =  large                                                   #
-#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\sys\sys_sensors.c         #
-#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\sys\sys_sensors.c" -lC    #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
-#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
-#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\sys\sys_sensors.c                        #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\sys\sys_sensors.c" -lC                   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -la                         #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -o                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\" --no_cse --no_unroll         #
+#                     --no_inline --no_code_motion --no_tbaa --debug          #
+#                     -D__MSP430F5338__ -e --double=64 --dlib_config          #
 #                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
-#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\intro\" -I                #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\platform\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\app\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\" --core=430X             #
-#                     --data_model=large -On --multiplier=32                  #
+#                     6.5\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\intro\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.      #
+#                     Summer 2013\2_cleon\4. Development\1.                   #
+#                     Software\cleon\sys\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\rtclib\" -I                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\platform\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\fs\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\app\" -I  #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\"         #
+#                     --core=430X --data_model=large -On --multiplier=32      #
 #                     --multiplier_location=4C0 --hw_workaround=CPU40         #
-#                     --hw_workaround=CPU42                                   #
-#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\List\sys_sensors.ls #
-#                     t                                                       #
-#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_sensors.r43 #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\sys_sensors.lst               #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\sys_sensors.r43                #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_sensors.c
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer 2013\2_cleon\4. Development\1. Software\cleon\sys\sys_sensors.c
       1          /**
       2          @file       sys_sensors.c
       3          
@@ -1115,51 +1123,51 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
 
    CSTACK Function
    ------ --------
-       4  SYS_SENSORS_Init
-             4 -> SYS_SENSORS_S108701_Init
-             4 -> SYS_SENSORS_S1087_Init
-             4 -> SYS_SENSORS_SHT11_Init
-       4  SYS_SENSORS_S108701_Init
-      36  SYS_SENSORS_S108701_Read
-            36 -> _Cast32uto64f
-            36 -> _Cast64fto32u
-            36 -> _Div64f
-            36 -> _Mul64f
-            36 -> _Sub64f
-       4  SYS_SENSORS_S1087_Init
-      36  SYS_SENSORS_S1087_Read
-            36 -> _Cast32uto64f
-            36 -> _Cast64fto32u
-            36 -> _Div64f
-            36 -> _Mul64f
-            36 -> _Sub64f
-      28  SYS_SENSORS_SHT11_Command
-            28 -> SYS_SENSORS_SHT11_Read
-            28 -> SYS_SENSORS_SHT11_Reset
-            28 -> SYS_SENSORS_SHT11_Start
-            28 -> SYS_SENSORS_SHT11_Write
-       4  SYS_SENSORS_SHT11_Init
-             4 -> SYS_SENSORS_SHT11_Off
-       4  SYS_SENSORS_SHT11_Off
-       4  SYS_SENSORS_SHT11_On
-       4  SYS_SENSORS_SHT11_Read
-      50  SYS_SENSORS_SHT11_ReadHumidity
-            48 -> SYS_SENSORS_SHT11_Command
-            48 -> _Add64f
-            48 -> _Cast32uto64f
-            48 -> _Cast64fto32u
-            48 -> _Mul64f
-            48 -> _Sub64f
-      28  SYS_SENSORS_SHT11_ReadTemperature
-            28 -> SYS_SENSORS_SHT11_Command
-            28 -> _Add64f
-            28 -> _Cast32uto64f
-            28 -> _Cast64fto32u
-            28 -> _Mul64f
-       4  SYS_SENSORS_SHT11_Reset
-             4 -> SYS_SENSORS_SHT11_Start
-       4  SYS_SENSORS_SHT11_Start
-       4  SYS_SENSORS_SHT11_Write
+      4   SYS_SENSORS_Init
+        4   -> SYS_SENSORS_S108701_Init
+        4   -> SYS_SENSORS_S1087_Init
+        4   -> SYS_SENSORS_SHT11_Init
+      4   SYS_SENSORS_S108701_Init
+     36   SYS_SENSORS_S108701_Read
+       36   -> _Cast32uto64f
+       36   -> _Cast64fto32u
+       36   -> _Div64f
+       36   -> _Mul64f
+       36   -> _Sub64f
+      4   SYS_SENSORS_S1087_Init
+     36   SYS_SENSORS_S1087_Read
+       36   -> _Cast32uto64f
+       36   -> _Cast64fto32u
+       36   -> _Div64f
+       36   -> _Mul64f
+       36   -> _Sub64f
+     28   SYS_SENSORS_SHT11_Command
+       28   -> SYS_SENSORS_SHT11_Read
+       28   -> SYS_SENSORS_SHT11_Reset
+       28   -> SYS_SENSORS_SHT11_Start
+       28   -> SYS_SENSORS_SHT11_Write
+      4   SYS_SENSORS_SHT11_Init
+        4   -> SYS_SENSORS_SHT11_Off
+      4   SYS_SENSORS_SHT11_Off
+      4   SYS_SENSORS_SHT11_On
+      4   SYS_SENSORS_SHT11_Read
+     50   SYS_SENSORS_SHT11_ReadHumidity
+       48   -> SYS_SENSORS_SHT11_Command
+       48   -> _Add64f
+       48   -> _Cast32uto64f
+       48   -> _Cast64fto32u
+       48   -> _Mul64f
+       48   -> _Sub64f
+     28   SYS_SENSORS_SHT11_ReadTemperature
+       28   -> SYS_SENSORS_SHT11_Command
+       28   -> _Add64f
+       28   -> _Cast32uto64f
+       28   -> _Cast64fto32u
+       28   -> _Mul64f
+      4   SYS_SENSORS_SHT11_Reset
+        4   -> SYS_SENSORS_SHT11_Start
+      4   SYS_SENSORS_SHT11_Start
+      4   SYS_SENSORS_SHT11_Write
 
 
    Segment part sizes:

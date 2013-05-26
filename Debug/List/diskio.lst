@@ -1,7 +1,7 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       06/Feb/2013  16:40:17 #
-# Copyright 1996-2012 IAR Systems AB.                                         #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       26/May/2013  01:02:17 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
 #                                                                             #
 #    __rt_version  =  3                                                       #
 #    __double_size =  64                                                      #
@@ -10,51 +10,59 @@
 #    __pic         =  no                                                      #
 #    __core        =  430X                                                    #
 #    __data_model  =  large                                                   #
-#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\diskio.c      #
-#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\diskio.c"     #
-#                     -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.     #
-#                     Spring 2013\3_cleon\3_software\cleon2.1\Debug\List\"    #
-#                     -la "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.     #
-#                     Spring 2013\3_cleon\3_software\cleon2.1\Debug\List\"    #
-#                     -o "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.      #
-#                     Spring 2013\3_cleon\3_software\cleon2.1\Debug\Obj\"     #
-#                     --no_cse --no_unroll --no_inline --no_code_motion       #
-#                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64      #
-#                     --dlib_config "C:\Program Files (x86)\IAR               #
-#                     Systems\Embedded Workbench                              #
-#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\intro\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\sys\" -I               #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\hal\" -I               #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\hal\rtclib\" -I        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\platform\" -I          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\fs\" -I                #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\" -I          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\app\" -I               #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon2.1\" --core=430X          #
-#                     --data_model=large -On --multiplier=32                  #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\diskio.c                        #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\diskio.c" -lC                   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -la                         #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -o                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\" --no_cse --no_unroll         #
+#                     --no_inline --no_code_motion --no_tbaa --debug          #
+#                     -D__MSP430F5338__ -e --double=64 --dlib_config          #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.5\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\intro\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.      #
+#                     Summer 2013\2_cleon\4. Development\1.                   #
+#                     Software\cleon\sys\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\rtclib\" -I                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\platform\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\fs\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\app\" -I  #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\"         #
+#                     --core=430X --data_model=large -On --multiplier=32      #
 #                     --multiplier_location=4C0 --hw_workaround=CPU40         #
-#                     --hw_workaround=CPU42                                   #
-#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon2.1\Debug\List\diskio.lst  #
-#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon2.1\Debug\Obj\diskio.r43   #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\diskio.lst                    #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\diskio.r43                     #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon2.1\fs\FatFs\diskio.c
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer 2013\2_cleon\4. Development\1. Software\cleon\fs\FatFs\diskio.c
       1          /*-----------------------------------------------------------------------*/
       2          /* Low level disk I/O module skeleton for FatFs     (C)ChaN, 2012        */
       3          /*-----------------------------------------------------------------------*/
@@ -1561,70 +1569,70 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
 
    CSTACK Function
    ------ --------
-       6  deselect
-             6 -> SYS_MMC_DeselectCard
-             6 -> rcvr_mmc
-       4  detectCard
-             4 -> disk_initialize
-             4 -> disk_status
-             4 -> validateCSD
-      32  disk_initialize
-            32 -> HAL_SPI_Init
-            32 -> SYS_MMC_DeselectCard
-            32 -> SYS_MMC_FastMode
-            32 -> deselect
-            32 -> disk_status
-            32 -> rcvr_mmc
-            32 -> send_cmd
-      44  disk_ioctl
-            44 -> deselect
-            44 -> disk_status
-            44 -> rcvr_datablock
-            44 -> select
-            44 -> send_cmd
-      28  disk_read
-            28 -> deselect
-            28 -> disk_status
-            28 -> rcvr_datablock
-            28 -> send_cmd
-       4  disk_status
-      28  disk_write
-            28 -> deselect
-            28 -> disk_status
-            28 -> send_cmd
-            28 -> xmit_datablock
-      36  get_fattime
-            36 -> HAL_GetRTCDay
-            36 -> HAL_GetRTCHour
-            36 -> HAL_GetRTCMin
-            36 -> HAL_GetRTCMon
-            36 -> HAL_GetRTCSec
-            36 -> HAL_GetRTCYear
-      22  rcvr_datablock
-            22 -> rcvr_mmc
-      12  rcvr_mmc
-            12 -> SYS_MMC_ReadFrame
-       4  select
-             4 -> SYS_MMC_SelectCard
-             4 -> deselect
-             4 -> wait_ready
-      28  send_cmd
-            28 -> deselect
-            28 -> rcvr_mmc
-            28 -> select
-            28 -> send_cmd
-            28 -> xmit_mmc
-      44  validateCSD
-            44 -> rcvr_datablock
-            44 -> send_cmd
-      10  wait_ready
-            10 -> rcvr_mmc
-      14  xmit_datablock
-            14 -> rcvr_mmc
-            14 -> wait_ready
-            14 -> xmit_mmc
-      12  xmit_mmc
-            12 -> SYS_MMC_SendFrame
+      6   deselect
+        6   -> SYS_MMC_DeselectCard
+        6   -> rcvr_mmc
+      4   detectCard
+        4   -> disk_initialize
+        4   -> disk_status
+        4   -> validateCSD
+     32   disk_initialize
+       32   -> HAL_SPI_Init
+       32   -> SYS_MMC_DeselectCard
+       32   -> SYS_MMC_FastMode
+       32   -> deselect
+       32   -> disk_status
+       32   -> rcvr_mmc
+       32   -> send_cmd
+     44   disk_ioctl
+       44   -> deselect
+       44   -> disk_status
+       44   -> rcvr_datablock
+       44   -> select
+       44   -> send_cmd
+     28   disk_read
+       28   -> deselect
+       28   -> disk_status
+       28   -> rcvr_datablock
+       28   -> send_cmd
+      4   disk_status
+     28   disk_write
+       28   -> deselect
+       28   -> disk_status
+       28   -> send_cmd
+       28   -> xmit_datablock
+     36   get_fattime
+       36   -> HAL_GetRTCDay
+       36   -> HAL_GetRTCHour
+       36   -> HAL_GetRTCMin
+       36   -> HAL_GetRTCMon
+       36   -> HAL_GetRTCSec
+       36   -> HAL_GetRTCYear
+     22   rcvr_datablock
+       22   -> rcvr_mmc
+     12   rcvr_mmc
+       12   -> SYS_MMC_ReadFrame
+      4   select
+        4   -> SYS_MMC_SelectCard
+        4   -> deselect
+        4   -> wait_ready
+     28   send_cmd
+       28   -> deselect
+       28   -> rcvr_mmc
+       28   -> select
+       28   -> send_cmd
+       28   -> xmit_mmc
+     44   validateCSD
+       44   -> rcvr_datablock
+       44   -> send_cmd
+     10   wait_ready
+       10   -> rcvr_mmc
+     14   xmit_datablock
+       14   -> rcvr_mmc
+       14   -> wait_ready
+       14   -> xmit_mmc
+     12   xmit_mmc
+       12   -> SYS_MMC_SendFrame
 
 
    Segment part sizes:

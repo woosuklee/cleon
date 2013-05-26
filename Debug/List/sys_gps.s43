@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 //                                                                            /
-// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      20/Feb/2013  20:57:37 /
-// Copyright 1996-2012 IAR Systems AB.                                        /
+// IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430      26/May/2013  01:02:17 /
+// Copyright 1996-2013 IAR Systems AB.                                        /
 //                                                                            /
 //    __rt_version  =  3                                                      /
 //    __double_size =  64                                                     /
@@ -10,44 +10,53 @@
 //    __pic         =  no                                                     /
 //    __core        =  430X                                                   /
 //    __data_model  =  large                                                  /
-//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
-//                     2013\3_cleon\3_software\cleon\sys\sys_gps.c            /
-//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\sys\sys_gps.c"    /
-//                     -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.    /
-//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -la  /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -o   /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\Debug\Obj\"       /
-//                     --no_cse --no_unroll --no_inline --no_code_motion      /
-//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
-//                     --dlib_config "C:\Program Files (x86)\IAR              /
-//                     Systems\Embedded Workbench                             /
-//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\intro\" -I        /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\sys\" -I          /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\hal\" -I          /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\hal\rtclib\" -I   /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\platform\" -I     /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\fs\" -I           /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\fs\FatFs\" -I     /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\app\" -I          /
-//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
-//                     Spring 2013\3_cleon\3_software\cleon\" --core=430X     /
+//    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  /
+//                     2013\2_cleon\4. Development\1.                         /
+//                     Software\cleon\sys\sys_gps.c                           /
+//    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\sys\sys_gps.c" -lC                      /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\Debug\List\" -la                        /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\Debug\List\" -o                         /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\Debug\Obj\" --no_cse --no_unroll        /
+//                     --no_inline --no_code_motion --no_tbaa --debug         /
+//                     -D__MSP430F5338__ -e --double=64 --dlib_config         /
+//                     "C:\Program Files (x86)\IAR Systems\Embedded           /
+//                     Workbench 6.5\430\LIB\DLIB\dl430xldn.h" -I             /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\intro\" -I "C:\Users\woosuk\Dropbox\lws /
+//                     \ESL\3. Research\9. Summer 2013\2_cleon\4.             /
+//                     Development\1. Software\cleon\sys\" -I                 /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\E /
+//                     SL\3. Research\9. Summer 2013\2_cleon\4.               /
+//                     Development\1. Software\cleon\hal\rtclib\" -I          /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\platform\" -I                           /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\fs\" -I "C:\Users\woosuk\Dropbox\lws\ES /
+//                     L\3. Research\9. Summer 2013\2_cleon\4.                /
+//                     Development\1. Software\cleon\fs\FatFs\" -I            /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.        /
+//                     Summer 2013\2_cleon\4. Development\1.                  /
+//                     Software\cleon\app\" -I "C:\Users\woosuk\Dropbox\lws\E /
+//                     SL\3. Research\9. Summer 2013\2_cleon\4.               /
+//                     Development\1. Software\cleon\" --core=430X            /
 //                     --data_model=large -On --multiplier=32                 /
 //                     --multiplier_location=4C0 --hw_workaround=CPU40        /
-//                     --hw_workaround=CPU42                                  /
-//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
-//                     2013\3_cleon\3_software\cleon\Debug\List\sys_gps.s43   /
+//    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  /
+//                     2013\2_cleon\4. Development\1.                         /
+//                     Software\cleon\Debug\List\sys_gps.s43                  /
 //                                                                            /
 //                                                                            /
 ///////////////////////////////////////////////////////////////////////////////
@@ -101,7 +110,7 @@
         PUBLIC SYS_GPS_TestGPS
         FUNCTION SYS_GPS_TestGPS,021203H
         ARGFRAME CSTACK, 0, STACK
-        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME CSTACK, 20, STACK
         PUBWEAK _A_DMA0CTL_L
         PUBWEAK _A_PADIR_L
         PUBWEAK _A_PAOUT_L
@@ -375,34 +384,35 @@ SYS_GPS_TestGPS:
           CFI Block cfiBlock6 Using cfiCommon0
           CFI Function SYS_GPS_TestGPS
         FUNCALL SYS_GPS_TestGPS, SYS_GPS_StartOperation
-        LOCFRAME CSTACK, 8, STACK
+        LOCFRAME CSTACK, 20, STACK
         FUNCALL SYS_GPS_TestGPS, SYS_GPS_StopOperation
-        LOCFRAME CSTACK, 8, STACK
-        PUSHM.A #0x1, R10
-          CFI R10L Frame(CFA, -8)
-          CFI R10H Frame(CFA, -6)
-          CFI CFA SP+8
-        MOV.W   R12, R15
-        MOV.W   #0x0, R14
-        MOV.W   #0x0, R13
+        LOCFRAME CSTACK, 20, STACK
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        MOV.W   R12, R10
+        MOV.W   #0x0, R11
+        MOV.W   #0x0, R8
         CALLA   #SYS_GPS_StartOperation
-        MOV.W   #0x0, R12
+        MOV.W   #0x0, R15
 ??SYS_GPS_TestGPS_0:
-        CMP.W   R15, R12
+        CMP.W   R10, R15
         JC      ??SYS_GPS_TestGPS_3
         ////////////// Start of 12000 cycles delay.
-        JMP     ??SYS_GPS_TestGPS_11
-??SYS_GPS_TestGPS_11:
-        PUSHM.A #0x1, R8
-          CFI CFA SP+12
-        MOV.W   #0xf9b, R8
+        NOP
+        MOV.W   #0xf9e, R14
 ??SYS_GPS_TestGPS_10:
-        ADD.W   #0xffff, R8
+        ADD.W   #0xffff, R14
         JC      ??SYS_GPS_TestGPS_10
-        POPM.A  #0x1, R8
-          CFI CFA SP+8
         ////////////// End of delay code.
-        ADD.W   #0x1, R12
+        ADD.W   #0x1, R15
         JMP     ??SYS_GPS_TestGPS_0
 ??SYS_GPS_TestGPS_3:
         BIS.W   #0x10, &0x510
@@ -410,28 +420,28 @@ SYS_GPS_TestGPS:
         BIT.W   #0x8, &0x510
         JNC     ??SYS_GPS_TestGPS_1
         BIC.W   #0x8, &0x510
-        MOV.W   #0x0, R12
+        MOV.W   #0x0, R15
 ??SYS_GPS_TestGPS_2:
-        CMP.W   #0x1ff8, R12
+        CMP.W   #0x1ff8, R15
         JGE     ??SYS_GPS_TestGPS_4
-        MOV.W   R12, R10
-        CMPX.B  #0xff, uniCLEONGPSData(R10)
+        MOV.W   R15, R14
+        CMPX.B  #0xff, uniCLEONGPSData(R14)
         JNE     ??SYS_GPS_TestGPS_5
-        ADD.W   #0x1, R14
+        ADD.W   #0x1, R11
         JMP     ??SYS_GPS_TestGPS_6
 ??SYS_GPS_TestGPS_5:
-        MOV.W   R12, R10
-        CMPX.B  #0x0, uniCLEONGPSData(R10)
+        MOV.W   R15, R14
+        CMPX.B  #0x0, uniCLEONGPSData(R14)
         JNE     ??SYS_GPS_TestGPS_6
-        ADD.W   #0x1, R13
+        ADD.W   #0x1, R8
 ??SYS_GPS_TestGPS_6:
-        ADD.W   #0x1, R12
+        ADD.W   #0x1, R15
         JMP     ??SYS_GPS_TestGPS_2
 ??SYS_GPS_TestGPS_4:
         CALLA   #SYS_GPS_StopOperation
-        CMP.W   #0xffd, R14
+        CMP.W   #0xffd, R11
         JC      ??SYS_GPS_TestGPS_7
-        CMP.W   #0xffd, R13
+        CMP.W   #0xffd, R8
         JNC     ??SYS_GPS_TestGPS_8
 ??SYS_GPS_TestGPS_7:
         MOV.B   #0x0, R12
@@ -439,9 +449,15 @@ SYS_GPS_TestGPS:
 ??SYS_GPS_TestGPS_8:
         MOV.B   #0x1, R12
 ??SYS_GPS_TestGPS_9:
-        POPM.A  #0x1, R10
+        POPM.A  #0x4, R11
           CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
           CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
           CFI CFA SP+4
         RETA
           CFI EndBlock cfiBlock6
@@ -459,10 +475,10 @@ SYS_GPS_TestGPS:
 
         END
 // 
-// 522 bytes in segment CODE
+// 518 bytes in segment CODE
 //  18 bytes in segment DATA16_AN
 // 
-// 522 bytes of CODE memory
+// 518 bytes of CODE memory
 //   0 bytes of DATA memory (+ 18 bytes shared)
 //
 //Errors: none

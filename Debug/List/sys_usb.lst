@@ -1,7 +1,7 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:36 #
-# Copyright 1996-2012 IAR Systems AB.                                         #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       26/May/2013  01:02:17 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
 #                                                                             #
 #    __rt_version  =  3                                                       #
 #    __double_size =  64                                                      #
@@ -10,50 +10,59 @@
 #    __pic         =  no                                                      #
 #    __core        =  430X                                                    #
 #    __data_model  =  large                                                   #
-#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\sys\sys_usb.c             #
-#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\sys\sys_usb.c" -lC        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
-#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
-#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\sys\sys_usb.c                            #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\sys\sys_usb.c" -lC                       #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -la                         #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -o                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\" --no_cse --no_unroll         #
+#                     --no_inline --no_code_motion --no_tbaa --debug          #
+#                     -D__MSP430F5338__ -e --double=64 --dlib_config          #
 #                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
-#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\intro\" -I                #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\platform\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\app\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\" --core=430X             #
-#                     --data_model=large -On --multiplier=32                  #
+#                     6.5\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\intro\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.      #
+#                     Summer 2013\2_cleon\4. Development\1.                   #
+#                     Software\cleon\sys\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\rtclib\" -I                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\platform\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\fs\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\app\" -I  #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\"         #
+#                     --core=430X --data_model=large -On --multiplier=32      #
 #                     --multiplier_location=4C0 --hw_workaround=CPU40         #
-#                     --hw_workaround=CPU42                                   #
-#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\List\sys_usb.lst    #
-#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_usb.r43     #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\sys_usb.lst                   #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\sys_usb.r43                    #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_usb.c
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer 2013\2_cleon\4. Development\1. Software\cleon\sys\sys_usb.c
       1          /**
       2          @file       sys_usb.c
       3          
@@ -440,8 +449,8 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
    \   0000E0   ....F2905500 CMPX.B  #0x55, &uniUSBRecvFrame + 1
    \            ....        
    \   0000E8   0C20         JNE     ??SYS_USB_ReceiveFrame_7
-   \   0000EA   5A93         CMP.B   #0x1, R10
-   \   0000EC   0A28         JNC     ??SYS_USB_ReceiveFrame_7
+   \   0000EA   4A93         CMP.B   #0x0, R10
+   \   0000EC   0A24         JEQ     ??SYS_USB_ReceiveFrame_7
    \   0000EE   7A901E00     CMP.B   #0x1e, R10
    \   0000F2   072C         JC      ??SYS_USB_ReceiveFrame_7
     154                              uniUSBRecvFrame.stUSBFrame.ucLength = ucData;
@@ -644,17 +653,17 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
 
    CSTACK Function
    ------ --------
-       4  SYS_USB_BuildCRC
-       4  SYS_USB_Init
-     278  SYS_USB_Printf
-            278 -> vsprintf
-       8  SYS_USB_ReceiveFrame
-              8 -> SYS_USB_BuildCRC
-       8  SYS_USB_SendACK
-              8 -> SYS_USB_BuildCRC
-              8 -> SYS_USB_TransmitSingleByte
-              8 -> memset
-       4  SYS_USB_TransmitSingleByte
+      4   SYS_USB_BuildCRC
+      4   SYS_USB_Init
+    278   SYS_USB_Printf
+      278   -> vsprintf
+      8   SYS_USB_ReceiveFrame
+        8   -> SYS_USB_BuildCRC
+      8   SYS_USB_SendACK
+        8   -> SYS_USB_BuildCRC
+        8   -> SYS_USB_TransmitSingleByte
+        8   -> memset
+      4   SYS_USB_TransmitSingleByte
 
 
    Segment part sizes:

@@ -1,7 +1,7 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:35 #
-# Copyright 1996-2012 IAR Systems AB.                                         #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       26/May/2013  01:02:15 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
 #                                                                             #
 #    __rt_version  =  3                                                       #
 #    __double_size =  64                                                      #
@@ -10,50 +10,59 @@
 #    __pic         =  no                                                      #
 #    __core        =  430X                                                    #
 #    __data_model  =  large                                                   #
-#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\fs\fs_init.c              #
-#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\fs_init.c" -lC         #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
-#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
-#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\fs_init.c                             #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\fs_init.c" -lC                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -la                         #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -o                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\" --no_cse --no_unroll         #
+#                     --no_inline --no_code_motion --no_tbaa --debug          #
+#                     -D__MSP430F5338__ -e --double=64 --dlib_config          #
 #                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
-#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\intro\" -I                #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\platform\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\app\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\" --core=430X             #
-#                     --data_model=large -On --multiplier=32                  #
+#                     6.5\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\intro\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.      #
+#                     Summer 2013\2_cleon\4. Development\1.                   #
+#                     Software\cleon\sys\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\rtclib\" -I                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\platform\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\fs\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\app\" -I  #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\"         #
+#                     --core=430X --data_model=large -On --multiplier=32      #
 #                     --multiplier_location=4C0 --hw_workaround=CPU40         #
-#                     --hw_workaround=CPU42                                   #
-#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\List\fs_init.lst    #
-#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\fs_init.r43     #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\fs_init.lst                   #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\fs_init.r43                    #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\fs\fs_init.c
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer 2013\2_cleon\4. Development\1. Software\cleon\fs\fs_init.c
       1          /**
       2          @file       fs_init.c
       3          
@@ -108,8 +117,8 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
 
    CSTACK Function
    ------ --------
-       4  FS_Init
-            4 -> disk_initialize
+      4   FS_Init
+        4   -> disk_initialize
 
 
    Segment part sizes:

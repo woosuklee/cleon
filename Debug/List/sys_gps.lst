@@ -1,7 +1,7 @@
 ###############################################################################
 #                                                                             #
-# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:37 #
-# Copyright 1996-2012 IAR Systems AB.                                         #
+# IAR C/C++ Compiler V5.52.1.50724/W32 for MSP430       26/May/2013  01:02:17 #
+# Copyright 1996-2013 IAR Systems AB.                                         #
 #                                                                             #
 #    __rt_version  =  3                                                       #
 #    __double_size =  64                                                      #
@@ -10,50 +10,59 @@
 #    __pic         =  no                                                      #
 #    __core        =  430X                                                    #
 #    __data_model  =  large                                                   #
-#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\sys\sys_gps.c             #
-#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\sys\sys_gps.c" -lC        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
-#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
-#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\sys\sys_gps.c                            #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\sys\sys_gps.c" -lC                       #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -la                         #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\" -o                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\" --no_cse --no_unroll         #
+#                     --no_inline --no_code_motion --no_tbaa --debug          #
+#                     -D__MSP430F5338__ -e --double=64 --dlib_config          #
 #                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
-#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\intro\" -I                #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\platform\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\app\" -I                  #
-#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
-#                     2013\3_cleon\3_software\cleon\" --core=430X             #
-#                     --data_model=large -On --multiplier=32                  #
+#                     6.5\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\intro\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9.      #
+#                     Summer 2013\2_cleon\4. Development\1.                   #
+#                     Software\cleon\sys\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\" -I "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\9. Summer 2013\2_cleon\4. Development\1.  #
+#                     Software\cleon\hal\rtclib\" -I                          #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\platform\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\fs\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\fs\FatFs\" -I                            #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\app\" -I  #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer  #
+#                     2013\2_cleon\4. Development\1. Software\cleon\"         #
+#                     --core=430X --data_model=large -On --multiplier=32      #
 #                     --multiplier_location=4C0 --hw_workaround=CPU40         #
-#                     --hw_workaround=CPU42                                   #
-#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\List\sys_gps.lst    #
-#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
-#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_gps.r43     #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\List\sys_gps.lst                   #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer   #
+#                     2013\2_cleon\4. Development\1.                          #
+#                     Software\cleon\Debug\Obj\sys_gps.r43                    #
 #                                                                             #
 #                                                                             #
 ###############################################################################
 
-C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_gps.c
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\9. Summer 2013\2_cleon\4. Development\1. Software\cleon\sys\sys_gps.c
       1          /**
       2          @file       sys_gps.c
       3          
@@ -448,12 +457,12 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
     228          bool SYS_GPS_TestGPS(unsigned int uiDelay)
    \                     SYS_GPS_TestGPS:
     229          {
-   \   000000   0A14         PUSHM.A #0x1, R10
-   \   000002   0F4C         MOV.W   R12, R15
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   0A4C         MOV.W   R12, R10
     230              unsigned int uiTestCountFor0xFF = 0;
-   \   000004   0E43         MOV.W   #0x0, R14
+   \   000004   0B43         MOV.W   #0x0, R11
     231              unsigned int uiTestCountFor0x00 = 0;
-   \   000006   0D43         MOV.W   #0x0, R13
+   \   000006   0843         MOV.W   #0x0, R8
     232              
     233              // Start GPS operation
     234              SYS_GPS_StartOperation();
@@ -461,86 +470,83 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
     235              
     236              // Allow GPS time to settle
     237              SYS_GPS_TimingDealy(uiDelay);
-   \   00000C   0C43         MOV.W   #0x0, R12
+   \   00000C   0F43         MOV.W   #0x0, R15
    \                     ??SYS_GPS_TestGPS_0:
-   \   00000E   0C9F         CMP.W   R15, R12
-   \   000010   092C         JC      ??SYS_GPS_TestGPS_3
+   \   00000E   0F9A         CMP.W   R10, R15
+   \   000010   072C         JC      ??SYS_GPS_TestGPS_3
    \   000012                ////////////// Start of 12000 cycles delay.
-   \   000012   003C         JMP     ??SYS_GPS_TestGPS_11
-   \                     ??SYS_GPS_TestGPS_11:
-   \   000014   0814         PUSHM.A #0x1, R8
-   \   000016   38409B0F     MOV.W   #0xf9b, R8
+   \   000012   0343         NOP
+   \   000014   3E409E0F     MOV.W   #0xf9e, R14
    \                     ??SYS_GPS_TestGPS_10:
-   \   00001A   3853         ADD.W   #0xffff, R8
-   \   00001C   FE2F         JC      ??SYS_GPS_TestGPS_10
-   \   00001E   0816         POPM.A  #0x1, R8
-   \   000020                ////////////// End of delay code.
-   \   000020   1C53         ADD.W   #0x1, R12
-   \   000022   F53F         JMP     ??SYS_GPS_TestGPS_0
+   \   000018   3E53         ADD.W   #0xffff, R14
+   \   00001A   FE2F         JC      ??SYS_GPS_TestGPS_10
+   \   00001C                ////////////// End of delay code.
+   \   00001C   1F53         ADD.W   #0x1, R15
+   \   00001E   F73F         JMP     ??SYS_GPS_TestGPS_0
     238              
     239              // Start DMA transfer
     240              DMA0CTL |= DMAEN;  
    \                     ??SYS_GPS_TestGPS_3:
-   \   000024   B2D010001005 BIS.W   #0x10, &0x510
+   \   000020   B2D010001005 BIS.W   #0x10, &0x510
     241              
     242              // Wait until DMA transfer completed
     243              while((DMA0CTL & DMAIFG) != DMAIFG);
    \                     ??SYS_GPS_TestGPS_1:
-   \   00002A   B2B21005     BIT.W   #0x8, &0x510
-   \   00002E   FD2B         JNC     ??SYS_GPS_TestGPS_1
+   \   000026   B2B21005     BIT.W   #0x8, &0x510
+   \   00002A   FD2B         JNC     ??SYS_GPS_TestGPS_1
     244              DMA0CTL &= ~DMAIFG;
-   \   000030   B2C21005     BIC.W   #0x8, &0x510
+   \   00002C   B2C21005     BIC.W   #0x8, &0x510
     245           
     246              // Count the number of '0xFF' and '0x00'
     247              for(int i = 0 ; i < SIZE_OF_GPS_DATA_CHUNK_IN_BYTE ; i++ ){
-   \   000034   0C43         MOV.W   #0x0, R12
+   \   000030   0F43         MOV.W   #0x0, R15
    \                     ??SYS_GPS_TestGPS_2:
-   \   000036   3C90F81F     CMP.W   #0x1ff8, R12
-   \   00003A   0F34         JGE     ??SYS_GPS_TestGPS_4
+   \   000032   3F90F81F     CMP.W   #0x1ff8, R15
+   \   000036   0F34         JGE     ??SYS_GPS_TestGPS_4
     248                  if(uniCLEONGPSData.ucSignal[i] == 0xFF){
-   \   00003C   0A4C         MOV.W   R12, R10
-   \   00003E   ....FA93.... CMPX.B  #0xff, uniCLEONGPSData(R10)
-   \   000044   0220         JNE     ??SYS_GPS_TestGPS_5
+   \   000038   0E4F         MOV.W   R15, R14
+   \   00003A   ....FE93.... CMPX.B  #0xff, uniCLEONGPSData(R14)
+   \   000040   0220         JNE     ??SYS_GPS_TestGPS_5
     249                      uiTestCountFor0xFF++;
-   \   000046   1E53         ADD.W   #0x1, R14
-   \   000048   063C         JMP     ??SYS_GPS_TestGPS_6
+   \   000042   1B53         ADD.W   #0x1, R11
+   \   000044   063C         JMP     ??SYS_GPS_TestGPS_6
     250                  }else if(uniCLEONGPSData.ucSignal[i] == 0x00){
    \                     ??SYS_GPS_TestGPS_5:
-   \   00004A   0A4C         MOV.W   R12, R10
-   \   00004C   ....CA93.... CMPX.B  #0x0, uniCLEONGPSData(R10)
-   \   000052   0120         JNE     ??SYS_GPS_TestGPS_6
+   \   000046   0E4F         MOV.W   R15, R14
+   \   000048   ....CE93.... CMPX.B  #0x0, uniCLEONGPSData(R14)
+   \   00004E   0120         JNE     ??SYS_GPS_TestGPS_6
     251                      uiTestCountFor0x00++;
-   \   000054   1D53         ADD.W   #0x1, R13
+   \   000050   1853         ADD.W   #0x1, R8
     252                  }
     253              }
    \                     ??SYS_GPS_TestGPS_6:
-   \   000056   1C53         ADD.W   #0x1, R12
-   \   000058   EE3F         JMP     ??SYS_GPS_TestGPS_2
+   \   000052   1F53         ADD.W   #0x1, R15
+   \   000054   EE3F         JMP     ??SYS_GPS_TestGPS_2
     254              
     255              // Stop GPS operation
     256              SYS_GPS_StopOperation();
    \                     ??SYS_GPS_TestGPS_4:
-   \   00005A   ........     CALLA   #SYS_GPS_StopOperation
+   \   000056   ........     CALLA   #SYS_GPS_StopOperation
     257              
     258              // If number of '0xFF' or '0x00' exceeds half or total sampled signal, regards GPS chip is not functional
     259              // (number of '0xFF' or '0x00' cannot exceed half of captured GPS signal due to signal's physical nature)
     260              if((uiTestCountFor0xFF > (SIZE_OF_GPS_DATA_CHUNK_IN_BYTE/2))||(uiTestCountFor0x00 > (SIZE_OF_GPS_DATA_CHUNK_IN_BYTE/2))){
-   \   00005E   3E90FD0F     CMP.W   #0xffd, R14
-   \   000062   032C         JC      ??SYS_GPS_TestGPS_7
-   \   000064   3D90FD0F     CMP.W   #0xffd, R13
-   \   000068   0228         JNC     ??SYS_GPS_TestGPS_8
+   \   00005A   3B90FD0F     CMP.W   #0xffd, R11
+   \   00005E   032C         JC      ??SYS_GPS_TestGPS_7
+   \   000060   3890FD0F     CMP.W   #0xffd, R8
+   \   000064   0228         JNC     ??SYS_GPS_TestGPS_8
     261                  return _FAIL_;
    \                     ??SYS_GPS_TestGPS_7:
-   \   00006A   4C43         MOV.B   #0x0, R12
-   \   00006C   013C         JMP     ??SYS_GPS_TestGPS_9
+   \   000066   4C43         MOV.B   #0x0, R12
+   \   000068   013C         JMP     ??SYS_GPS_TestGPS_9
     262              }else{
     263                  return _SUCCESS_;
    \                     ??SYS_GPS_TestGPS_8:
-   \   00006E   5C43         MOV.B   #0x1, R12
+   \   00006A   5C43         MOV.B   #0x1, R12
    \                     ??SYS_GPS_TestGPS_9:
-   \   000070   0A16         POPM.A  #0x1, R10
-   \   000072   1001         RETA
-   \   000074                REQUIRE _A_DMA0CTL_L
+   \   00006C   3816         POPM.A  #0x4, R11
+   \   00006E   1001         RETA
+   \   000070                REQUIRE _A_DMA0CTL_L
     264              }
     265          }
     266              
@@ -567,19 +573,19 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
 
    CSTACK Function
    ------ --------
-       4  SYS_GPS_Init
-            4 -> SYS_GPS_InitControlIO
-            4 -> SYS_GPS_InitDataIO
-            4 -> SYS_GPS_InitProgramIO
-            4 -> SYS_GPS_StopOperation
-       4  SYS_GPS_InitControlIO
-       4  SYS_GPS_InitDataIO
-       4  SYS_GPS_InitProgramIO
-       4  SYS_GPS_StartOperation
-       4  SYS_GPS_StopOperation
-       8  SYS_GPS_TestGPS
-            8 -> SYS_GPS_StartOperation
-            8 -> SYS_GPS_StopOperation
+      4   SYS_GPS_Init
+        4   -> SYS_GPS_InitControlIO
+        4   -> SYS_GPS_InitDataIO
+        4   -> SYS_GPS_InitProgramIO
+        4   -> SYS_GPS_StopOperation
+      4   SYS_GPS_InitControlIO
+      4   SYS_GPS_InitDataIO
+      4   SYS_GPS_InitProgramIO
+      4   SYS_GPS_StartOperation
+      4   SYS_GPS_StopOperation
+     20   SYS_GPS_TestGPS
+       20   -> SYS_GPS_StartOperation
+       20   -> SYS_GPS_StopOperation
 
 
    Segment part sizes:
@@ -592,7 +598,7 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
       34  SYS_GPS_InitProgramIO
        6  SYS_GPS_StartOperation
        6  SYS_GPS_StopOperation
-     116  SYS_GPS_TestGPS
+     112  SYS_GPS_TestGPS
        2  _A_DMA0CTL_L
        2  _A_PADIR_L
        2  _A_PAOUT_L
@@ -604,10 +610,10 @@ C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cl
        2  _A_PEOUT_L
 
  
- 522 bytes in segment CODE
+ 518 bytes in segment CODE
   18 bytes in segment DATA16_AN
  
- 522 bytes of CODE memory
+ 518 bytes of CODE memory
    0 bytes of DATA memory (+ 18 bytes shared)
 
 Errors: none

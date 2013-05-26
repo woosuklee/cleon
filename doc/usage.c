@@ -31,13 +31,35 @@
                             -# If defined number of samples are captured, new file will be created for next logging
                             -# If MicroSD card is suddenly removed, MicroSD error LED will be turned on (however, data captured until error will remain uncorrupted)\n
                             -# If MicroSD is inserted back to the slot again, CLEON will initialze the file system again
+
+@section    LED         LED Indicator
+                        - There are 6 LEDs between MicroSD card slot and JTAG header
+                        - Let's call the LEDs as LED1 to LED6 from the leftmost LED which is closest to MicroSD card slot
+                        - LED1 and LED3 are used to indicate errors\n
+                          (If everything goes well and GPS signal is ready to be captured, LED1 and LED3 should be automatically turned off by the firmware)
+                            + LED1
+                                - ON  : MicroSD is missing
+                                - OFF : MicroSD is in the slot
+                            + LED2
+                                - ON  : GPS signal is being captured
+                                - OFF : GPS signal is not being captured
+                            + LED3
+                                - ON  : Time is not synchronized
+                                - OFF : Time is synchrinized
+                            + LED4
+                                - N/A
+                            + LED5
+                                - N/A
+                            + LED6
+                                - N/A
                             
 @section    TIME        System time
                         - CLEON maintains two distinct system time: \b Time \b tick and \b RTC \b time
                             + Time tick
                                 - Mainly used for GPS and sensor data time stamp
                                 - Set to zero when initial power-up 
-                                - Need to be synchronized with UTC time tick in DateTime format (http://msdn.microsoft.com/en-us/library/system.datetime.ticks.aspx)\n
+                                - Need to be synchronized with UTC time tick in DateTime format\n 
+                                  (http://msdn.microsoft.com/en-us/library/system.datetime.ticks.aspx)\n
                                   (10,000 tick is equal to 1 millisecond)
                                 - Variables used: uniSecondTimeTick, uniMillisecondTimeTick                                  
                                     + 'uniMillisecondTimeTick' is incremented by 10,000 in every millisecond
