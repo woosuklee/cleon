@@ -1,0 +1,110 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       03/Dec/2012  06:22:09 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_atom #
+#                     ic_clock.c                                              #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_atom #
+#                     ic_clock.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.     #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ESL\ #
+#                     3. Research\7. Fall 2012\4_CLEON\3_software\1_developin #
+#                     g\cleon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develop #
+#                     ing\cleon\Debug\Obj\" --no_cse --no_unroll --no_inline  #
+#                     --no_code_motion --no_tbaa --debug -D__MSP430F5338__    #
+#                     -e --double=64 --dlib_config "C:\Program Files\IAR      #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\intro\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib\" #
+#                      -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfor #
+#                     m\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\FatF #
+#                     s\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\app\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -On --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\s #
+#                     ys_atomic_clock.lst                                     #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\sy #
+#                     s_atomic_clock.r43                                      #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\sys\sys_atomic_clock.c
+      1          /**
+      2          @file       sys_atomic_clock.c
+      3          
+      4          @brief      Initializing atomic clock
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "sys_define.h"
+      9          #include "hal_define.h"
+     10          
+     11          /*----------------------------------------------------------------------------*/
+     12          /**
+     13          @brief    Initializing atomic clock
+     14          
+     15          @return   void 
+     16          
+     17          @param    void
+     18          */
+     19          
+
+   \                                 In  segment CODE, align 2
+     20          void SYS_ATOMIC_CLOCK_Init(void)
+   \                     SYS_ATOMIC_CLOCK_Init:
+     21          { 
+     22          
+     23          }
+   \   000000   1001         RETA
+     24          
+     25          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_ATOMIC_CLOCK_Init
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  SYS_ATOMIC_CLOCK_Init
+
+ 
+ 2 bytes in segment CODE
+ 
+ 2 bytes of CODE memory
+
+Errors: none
+Warnings: none

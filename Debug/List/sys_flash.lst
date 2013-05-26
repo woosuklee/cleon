@@ -1,0 +1,184 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:41 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\sys\sys_flash.c           #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\sys_flash.c" -lC      #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\sys_flash.lst  #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_flash.r43   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_flash.c
+      1          /**
+      2          @file       sys_flash.c
+      3          
+      4          @brief      FLASH related functions
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x202
+   \   union <unnamed> __data16 _A_PAOUT_L
+   \                     _A_PAOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x204
+   \   union <unnamed> __data16 _A_PADIR_L
+   \                     _A_PADIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x262
+   \   union <unnamed> __data16 _A_PDOUT_L
+   \                     _A_PDOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x264
+   \   union <unnamed> __data16 _A_PDDIR_L
+   \                     _A_PDDIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x26a
+   \   union <unnamed> __data16 _A_PDSEL_L
+   \                     _A_PDSEL_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          /*----------------------------------------------------------------------------*/
+     14          /**
+     15          @brief    Initializing external FLASH
+     16          
+     17          @return   void 
+     18          
+     19          @param    void
+     20          */
+
+   \                                 In  segment CODE, align 2
+     21          void SYS_EXT_FLASH_Init(void)
+   \                     SYS_EXT_FLASH_Init:
+     22          { 
+     23              SYS_EXT_FLASH_InitIO();
+   \   000000   ........     BRA     #SYS_EXT_FLASH_InitIO
+     24          }
+     25          
+     26          /*----------------------------------------------------------------------------*/
+     27          /**
+     28          @brief    Initializing external FLASH interface pins
+     29          
+     30          @return   void 
+     31          
+     32          @param    void
+     33          */
+
+   \                                 In  segment CODE, align 2
+     34          void SYS_EXT_FLASH_InitIO(void)
+   \                     SYS_EXT_FLASH_InitIO:
+     35          {
+     36              // Release CS initially
+     37              EXT_FLASH_CS_PORT(OUT)   |= BV(EXT_FLASH_CS_PIN);
+   \   000000   F2D080000202 BIS.B   #0x80, &0x202
+     38              EXT_FLASH_CS_PORT(DIR)   |= BV(EXT_FLASH_CS_PIN);
+   \   000006   F2D080000402 BIS.B   #0x80, &0x204
+     39              
+     40              EXT_FLASH_WP_PORT(OUT)   |= BV(EXT_FLASH_WP_PIN);
+   \   00000C   F2D010000202 BIS.B   #0x10, &0x202
+     41              EXT_FLASH_WP_PORT(DIR)   |= BV(EXT_FLASH_WP_PIN);
+   \   000012   F2D010000402 BIS.B   #0x10, &0x204
+     42              
+     43              EXT_FLASH_HOLD_PORT(OUT) |= BV(EXT_FLASH_HOLD_PIN);
+   \   000018   F2D080006302 BIS.B   #0x80, &0x263
+     44              EXT_FLASH_HOLD_PORT(DIR) |= BV(EXT_FLASH_HOLD_PIN);
+   \   00001E   F2D080006502 BIS.B   #0x80, &0x265
+     45              
+     46              // Set as SPI pins
+     47              EXT_FLASH_MOSI_PORT(SEL) |= BV(EXT_FLASH_MOSI_PIN);
+   \   000024   F2D020006B02 BIS.B   #0x20, &0x26b
+     48              EXT_FLASH_MISO_PORT(SEL) |= BV(EXT_FLASH_MISO_PIN);
+   \   00002A   F2D040006B02 BIS.B   #0x40, &0x26b
+     49              EXT_FLASH_CLK_PORT(SEL)  |= BV(EXT_FLASH_CLK_PIN);
+   \   000030   F2D010006B02 BIS.B   #0x10, &0x26b
+     50          }
+   \   000036   1001         RETA
+   \   000038                REQUIRE _A_PAOUT_L
+   \   000038                REQUIRE _A_PADIR_L
+   \   000038                REQUIRE _A_PDOUT_L
+   \   000038                REQUIRE _A_PDDIR_L
+   \   000038                REQUIRE _A_PDSEL_L
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_EXT_FLASH_Init
+            4 -> SYS_EXT_FLASH_InitIO
+       4  SYS_EXT_FLASH_InitIO
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  SYS_EXT_FLASH_Init
+      56  SYS_EXT_FLASH_InitIO
+       2  _A_PADIR_L
+       2  _A_PAOUT_L
+       2  _A_PDDIR_L
+       2  _A_PDOUT_L
+       2  _A_PDSEL_L
+
+ 
+ 60 bytes in segment CODE
+ 10 bytes in segment DATA16_AN
+ 
+ 60 bytes of CODE memory
+  0 bytes of DATA memory (+ 10 bytes shared)
+
+Errors: none
+Warnings: none

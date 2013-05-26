@@ -1,0 +1,1178 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:40 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_rtc.c             #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_rtc.c" -lC        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_rtc.lst    #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_rtc.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_rtc.c
+      1          /**
+      2          @file       hal_rtc.c
+      3          
+      4          @brief      RTC configuration
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x49c
+   \   union <unnamed> __data16 _A_BAKCTL_L
+   \                     _A_BAKCTL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x282
+   \   union <unnamed> __data16 _A_PEOUT_L
+   \                     _A_PEOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x4a0
+   \   union <unnamed> __data16 _A_RTCCTL01_L
+   \                     _A_RTCCTL01_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x4ae
+   \   unsigned short volatile __data16 RTCIV
+   \                     RTCIV:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x4b0
+   \   union <unnamed> __data16 _A_RTCTIM0_L
+   \                     _A_RTCTIM0_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x4b2
+   \   union <unnamed> __data16 _A_RTCTIM1_L
+   \                     _A_RTCTIM1_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x4b4
+   \   union <unnamed> __data16 _A_RTCDATE_L
+   \                     _A_RTCDATE_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x4b6
+   \   union <unnamed> __data16 _A_RTCYEAR_L
+   \                     _A_RTCYEAR_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          #define GPS_TEST_ON_INITIALIZATION      _ENABLE_    
+     14          
+     15          // CLEON data structure
+     16          extern cleon_header_u      uniCLEONHeader;
+     17          extern cleon_gps_data_u    uniCLEONGPSData;
+     18          extern cleon_sensor_data_u uniCLEONSensorData;
+     19          
+     20          // Flags
+     21          extern bool bFLAG_CLEONSampleIntervalConuter;
+     22          extern bool bFLAG_ISLoggingRequested;
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     23                 bool bFLAG_IsTimeSynced = _CLEAR_;
+   \                     bFLAG_IsTimeSynced:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     24                 bool bFLAG_RTCTimeTickOfSecond = _CLEAR_;
+   \                     bFLAG_RTCTimeTickOfSecond:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     25                 bool bFLAG_ISResetOccuredBySVSHPOR = _CLEAR_;
+   \                     bFLAG_ISResetOccuredBySVSHPOR:
+   \   000000                DS8 1
+     26          
+     27          // Variable for storing SYSRSTIV
+     28          extern volatile unsigned int SysRstIv;
+     29          
+     30          // User parameters
+     31          extern unsigned long   ulSampleCount;
+     32          extern unsigned long   ulSampleGap;
+     33          extern unsigned long   ulChunkCount;
+     34          extern unsigned long   ulChunkGap;
+     35          
+     36          // RTC time
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     37          rtc_time_u  uniRTCTime  = {0};
+   \                     uniRTCTime:
+   \   000000                DS8 8
+     38          
+     39          // Second and millisecond time tick
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     40          milliseoncd_time_tick_u uniMillisecondTimeTick = {0};
+   \                     uniMillisecondTimeTick:
+   \   000000                DS8 8
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     41          seoncd_time_tick_u      uniSecondTimeTick = {0};
+   \                     uniSecondTimeTick:
+   \   000000                DS8 8
+     42          
+     43          // Counting number of seconds
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     44          unsigned char ucRTCNumberOfSecondCounter = 0;
+   \                     ucRTCNumberOfSecondCounter:
+   \   000000                DS8 1
+     45          
+     46          // Measuring time taken by each step of CLEON data logging
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     47          time_measurement_s  stTimeMeasurement[NUMBER_OF_TIME_MEASUREMENT_TEST] = {0};
+   \                     stTimeMeasurement:
+   \   000000                DS8 320
+     48          
+     49          /*----------------------------------------------------------------------------*/
+     50          /**
+     51          @brief    Initializing RTC
+     52          
+     53          @return   void 
+     54          
+     55          @param    void
+     56          */
+
+   \                                 In  segment CODE, align 2
+     57          void HAL_RTC_Init()
+   \                     HAL_RTC_Init:
+     58          { 
+     59              // Check if reset has been occured by SVSH(POR)
+     60              if((SysRstIv == 0x0E)||(SysRstIv == 0x02)){
+   \   000000   ....B2900E00 CMPX.W  #0xe, &SysRstIv
+   \            ....        
+   \   000008   0424         JEQ     ??HAL_RTC_Init_1
+   \   00000A   ....A293.... CMPX.W  #0x2, &SysRstIv
+   \   000010   0920         JNE     ??HAL_RTC_Init_2
+     61                  // Restore previous setting
+     62                  RTCCTL01 |=  RTCRDYIE;	        // enable rtc ready interrupt; 1sec
+   \                     ??HAL_RTC_Init_1:
+   \   000012   B2D01000A004 BIS.W   #0x10, &0x4a0
+     63                  RTCCTL01 &= ~RTCHOLD;	        // release rtchold, begin count
+   \   000018   B2C00040A004 BIC.W   #0x4000, &0x4a0
+     64                  // Restore time tick
+     65                  HAL_RTC_RestoreTimeTick();
+   \   00001E   ........     CALLA   #HAL_RTC_RestoreTimeTick
+   \   000022   193C         JMP     ??HAL_RTC_Init_0
+     66              }else{
+     67                  RTCCTL01 |= RTCHOLD;            // hold rtc for setting; 
+   \                     ??HAL_RTC_Init_2:
+   \   000024   B2D00040A004 BIS.W   #0x4000, &0x4a0
+     68                  RTCCTL01 |= RTCRDYIE;	        // enable rtc ready interrupt; 1sec
+   \   00002A   B2D01000A004 BIS.W   #0x10, &0x4a0
+     69              
+     70                  // Example RTC setting
+     71                  RTCYEAR = 1980;                 // Year    = 1980
+   \   000030   B240BC07B604 MOV.W   #0x7bc, &0x4b6
+     72                  RTCMON  = 1;                    // Month   = 1 (Jan)
+   \   000036   D243B504     MOV.B   #0x1, &0x4b5
+     73                  RTCDAY  = 1;                    // Day     = 1 (1st)
+   \   00003A   D243B404     MOV.B   #0x1, &0x4b4
+     74                  RTCHOUR = 0;                    // Hour    = 0
+   \   00003E   C243B204     MOV.B   #0x0, &0x4b2
+     75                  RTCMIN  = 0;                    // Minute  = 0
+   \   000042   C243B104     MOV.B   #0x0, &0x4b1
+     76                  RTCSEC  = 0;                    // Seconds = 0
+   \   000046   C243B004     MOV.B   #0x0, &0x4b0
+     77              
+     78                  RTCCTL01 &= ~RTCHOLD;	        // release rtchold, begin count
+   \   00004A   B2C00040A004 BIC.W   #0x4000, &0x4a0
+     79                  
+     80                  // Indicating that system time is not synchronized
+     81                  TIME_SYNC_ERROR_LED_ON();
+   \   000050   F2C020008202 BIC.B   #0x20, &0x282
+     82              }
+     83              
+     84              // Change backup system's power source from backup battery to main power
+     85              while(BAKCTL & LOCKBAK)	BAKCTL &= ~(LOCKBAK);
+   \                     ??HAL_RTC_Init_0:
+   \   000056   92B39C04     BIT.W   #0x1, &0x49c
+   \   00005A   0328         JNC     ??HAL_RTC_Init_3
+   \   00005C   92C39C04     BIC.W   #0x1, &0x49c
+   \   000060   FA3F         JMP     ??HAL_RTC_Init_0
+     86          }
+   \                     ??HAL_RTC_Init_3:
+   \   000062   1001         RETA
+   \   000064                REQUIRE _A_RTCCTL01_L
+   \   000064                REQUIRE _A_RTCYEAR_L
+   \   000064                REQUIRE _A_RTCDATE_L
+   \   000064                REQUIRE _A_RTCTIM1_L
+   \   000064                REQUIRE _A_RTCTIM0_L
+   \   000064                REQUIRE _A_PEOUT_L
+   \   000064                REQUIRE _A_BAKCTL_L
+     87          
+     88          /*----------------------------------------------------------------------------*/
+     89          /**
+     90          @brief    Read RTC time
+     91          
+     92          @return   void 
+     93          
+     94          @param    void
+     95          */
+
+   \                                 In  segment CODE, align 2
+     96          void HAL_RTC_ReadRTCTime(void)
+   \                     HAL_RTC_ReadRTCTime:
+     97          {
+     98              // Only the value of 'Current-year - 1980' will be stored to 'ucYear' field to save memory
+     99              uniRTCTime.stRTCTime.ucYear        = (unsigned char) (HAL_GetRTCYear() - 1980);     
+   \   000000   ........     CALLA   #HAL_GetRTCYear
+   \   000004   7C504400     ADD.B   #0x44, R12
+   \   000008   ....C24C.... MOVX.B  R12, &uniRTCTime
+    100              uniRTCTime.stRTCTime.ucMonth       = (unsigned char) HAL_GetRTCMon();
+   \   00000E   ........     CALLA   #HAL_GetRTCMon
+   \   000012   ....C24C.... MOVX.B  R12, &uniRTCTime + 1
+    101              uniRTCTime.stRTCTime.ucDay         = (unsigned char) HAL_GetRTCDay();
+   \   000018   ........     CALLA   #HAL_GetRTCDay
+   \   00001C   ....C24C.... MOVX.B  R12, &uniRTCTime + 2
+    102              uniRTCTime.stRTCTime.ucHour        = (unsigned char) HAL_GetRTCHour();
+   \   000022   ........     CALLA   #HAL_GetRTCHour
+   \   000026   ....C24C.... MOVX.B  R12, &uniRTCTime + 3
+    103              uniRTCTime.stRTCTime.ucMinute      = (unsigned char) HAL_GetRTCMin();
+   \   00002C   ........     CALLA   #HAL_GetRTCMin
+   \   000030   ....C24C.... MOVX.B  R12, &uniRTCTime + 4
+    104              uniRTCTime.stRTCTime.ucSecond      = HAL_GetRTCSec();
+   \   000036   ........     CALLA   #HAL_GetRTCSec
+   \   00003A   ....C24C.... MOVX.B  R12, &uniRTCTime + 5
+    105              uniRTCTime.stRTCTime.uiMillisecond = HAL_GetRTCMilisec();
+   \   000040   ........     CALLA   #HAL_GetRTCMilisec
+   \   000044   ....824C.... MOVX.W  R12, &uniRTCTime + 6
+    106          }
+   \   00004A   1001         RETA
+    107          
+    108          /*----------------------------------------------------------------------------*/
+    109          /**
+    110          @brief    Restore time tick value out of RTC
+    111          
+    112          @return   void 
+    113          
+    114          @param    void
+    115          */
+
+   \                                 In  segment CODE, align 2
+    116          void HAL_RTC_RestoreTimeTick(void)
+   \                     HAL_RTC_RestoreTimeTick:
+    117          {
+   \   000000   7B14         PUSHM.A #0x8, R11
+   \   000002   31801000     SUB.W   #0x10, SP
+    118              // Temporary variables
+    119              rtc_time_u          uniTempRTCTime;
+    120              seoncd_time_tick_u  uniTempSecondTimeTick;
+    121              
+    122              // Storing time difference
+    123              unsigned long long ullRTCTimeDifferenceConvertedToTimeTick = 0;
+   \   000006   0443         MOV.W   #0x0, R4
+   \   000008   0543         MOV.W   #0x0, R5
+   \   00000A   0643         MOV.W   #0x0, R6
+   \   00000C   0743         MOV.W   #0x0, R7
+    124              
+    125              // Read stored time information, which was written to FLASH when time was synchronized
+    126              memcpy(&uniTempRTCTime, (unsigned char *)MSP430_INTERNAL_FLASH_BANK3_ADDRESS, sizeof(uniTempRTCTime));
+   \   00000E   3E42         MOV.W   #0x8, R14
+   \   000010   0F43         MOV.W   #0x0, R15
+   \   000012   8D030080     MOVA    #0x38000, R13
+   \   000016   0C41         MOV.W   SP, R12
+   \   000018   3C52         ADD.W   #0x8, R12
+   \   00001A   ........     CALLA   #memcpy
+    127              memcpy(&uniTempSecondTimeTick, (unsigned char *)(MSP430_INTERNAL_FLASH_BANK3_ADDRESS + sizeof(uniTempRTCTime)), sizeof(uniTempSecondTimeTick));    
+   \   00001E   3E42         MOV.W   #0x8, R14
+   \   000020   0F43         MOV.W   #0x0, R15
+   \   000022   8D030880     MOVA    #0x38008, R13
+   \   000026   0C41         MOV.W   SP, R12
+   \   000028   0C53         ADD.W   #0x0, R12
+   \   00002A   ........     CALLA   #memcpy
+    128              
+    129              // Read RTC time
+    130              HAL_RTC_ReadRTCTime();
+   \   00002E   ........     CALLA   #HAL_RTC_ReadRTCTime
+    131          
+    132              // Validity check for restored time tick
+    133              if(uniRTCTime.stRTCTime.ucYear < 32){
+   \   000032   ....F2902000 CMPX.B  #0x20, &uniRTCTime
+   \            ....        
+   \   00003A   042C         JC      ??HAL_RTC_RestoreTimeTick_0
+    134                  // Note that 'uniRTCTime.stRTCTime.ucYear = 0' means current year of RTC is set to 1980 (See, HAL_RTC_ReadRTCTime())
+    135                  // Because this source is being written in year of 2012, 'ucYear' cannot be smaller than 32 (2012 - 1980 = 32)
+    136                  // If uniRTCTime.stRTCTime.ucYear is equal to zero, it means that current system RTC time has neither been synchronized nor restored correctly
+    137                  TIME_SYNC_ERROR_LED_ON();
+   \   00003C   F2C020008202 BIC.B   #0x20, &0x282
+   \   000042   393C         JMP     ??HAL_RTC_RestoreTimeTick_1
+    138              }else{    
+    139                  // If it is confirmed that RTC has been running even for the period of main-battery-failure, then, get current time tick out of RTC time
+    140                  // First, we get total seconds out of both current and stored RTC time
+    141                  // After that, get the differnce in seconds and add it to the previous time tick which has been kept in FLASH from last time synchronization
+    142                  ullRTCTimeDifferenceConvertedToTimeTick = HAL_RTC_GetSecondConvertedFromStoredRTCTime(&uniRTCTime) - HAL_RTC_GetSecondConvertedFromStoredRTCTime(&uniTempRTCTime);
+   \                     ??HAL_RTC_RestoreTimeTick_0:
+   \   000044   ........     MOVA    #uniRTCTime, R12
+   \   000048   ........     CALLA   #HAL_RTC_GetSecondConvertedFromStoredRTCTime
+   \   00004C   084C         MOV.W   R12, R8
+   \   00004E   094D         MOV.W   R13, R9
+   \   000050   0A4E         MOV.W   R14, R10
+   \   000052   0B4F         MOV.W   R15, R11
+   \   000054   0C41         MOV.W   SP, R12
+   \   000056   3C52         ADD.W   #0x8, R12
+   \   000058   ........     CALLA   #HAL_RTC_GetSecondConvertedFromStoredRTCTime
+   \   00005C   088C         SUB.W   R12, R8
+   \   00005E   097D         SUBC.W  R13, R9
+   \   000060   0A7E         SUBC.W  R14, R10
+   \   000062   0B7F         SUBC.W  R15, R11
+   \   000064   0448         MOV.W   R8, R4
+   \   000066   0549         MOV.W   R9, R5
+   \   000068   064A         MOV.W   R10, R6
+   \   00006A   074B         MOV.W   R11, R7
+    143                  uniSecondTimeTick.ullSecondTimeTick = uniTempSecondTimeTick.ullSecondTimeTick + (ullRTCTimeDifferenceConvertedToTimeTick * 10000000);    
+   \   00006C   0C44         MOV.W   R4, R12
+   \   00006E   0D45         MOV.W   R5, R13
+   \   000070   0E46         MOV.W   R6, R14
+   \   000072   0F47         MOV.W   R7, R15
+   \   000074   38408096     MOV.W   #0x9680, R8
+   \   000078   39409800     MOV.W   #0x98, R9
+   \   00007C   0A43         MOV.W   #0x0, R10
+   \   00007E   0B43         MOV.W   #0x0, R11
+   \   000080   ........     CALLA   #_Mul64i
+   \   000084   2C51         ADD.W   @SP, R12
+   \   000086   1D610200     ADDC.W  0x2(SP), R13
+   \   00008A   1E610400     ADDC.W  0x4(SP), R14
+   \   00008E   1F610600     ADDC.W  0x6(SP), R15
+   \   000092   ....824C.... MOVX.W  R12, &uniSecondTimeTick
+   \   000098   ....824D.... MOVX.W  R13, &uniSecondTimeTick + 2
+   \   00009E   ....824E.... MOVX.W  R14, &uniSecondTimeTick + 4
+   \   0000A4   ....824F.... MOVX.W  R15, &uniSecondTimeTick + 6
+    144                    
+    145                  // Set flag
+    146                  bFLAG_IsTimeSynced = _SET_;
+   \   0000AA   ....D243.... MOVX.B  #0x1, &bFLAG_IsTimeSynced
+    147                  
+    148                  // Turn LED3 off 
+    149                  TIME_SYNC_ERROR_LED_OFF();
+   \   0000B0   F2D020008202 BIS.B   #0x20, &0x282
+    150              }
+    151          }
+   \                     ??HAL_RTC_RestoreTimeTick_1:
+   \   0000B6   31501000     ADD.W   #0x10, SP
+   \   0000BA   7416         POPM.A  #0x8, R11
+   \   0000BC   1001         RETA
+   \   0000BE                REQUIRE _A_PEOUT_L
+    152          
+    153          /*----------------------------------------------------------------------------*/
+    154          /**
+    155          @brief    Get total seconds converted from RTC time
+    156          
+    157          @return   llConvertedSecond - total time elapsed from year of '0', which is represented as seconds
+    158          
+    159          @param    ptruniTempRTCTime - RTC time which has been kept in FLASH from last time synchronization
+    160          */
+
+   \                                 In  segment CODE, align 2
+    161          unsigned long long HAL_RTC_GetSecondConvertedFromStoredRTCTime(rtc_time_u *ptruniTempRTCTime)
+   \                     HAL_RTC_GetSecondConvertedFromStoredRTCTime:
+    162          {
+   \   000000   5B14         PUSHM.A #0x6, R11
+   \   000002   C60C         MOVA    R12, R6
+    163              // Total elapsed time represented in seconds
+    164              unsigned long long ullConvertedSecond = 0;
+   \   000004   0843         MOV.W   #0x0, R8
+   \   000006   0943         MOV.W   #0x0, R9
+   \   000008   0A43         MOV.W   #0x0, R10
+   \   00000A   0B43         MOV.W   #0x0, R11
+    165              
+    166              // Variable for checking leap year
+    167              bool bIsLeapYear = _FALSE_;
+   \   00000C   4743         MOV.B   #0x0, R7
+    168              
+    169              // 'ucYear' is regarded as leap year if it is divisible by 4
+    170              // (See, pp. 567 of 'MSP430x5xx and MSP430x6xx Family User's Guide)
+    171              if(ptruniTempRTCTime->stRTCTime.ucYear % 4 == 0) bIsLeapYear = _TRUE_;
+   \   00000E   6C46         MOV.B   @R6, R12
+   \   000010   6E42         MOV.B   #0x4, R14
+   \   000012   ........     CALLA   #?DivMod8u
+   \   000016   4E93         CMP.B   #0x0, R14
+   \   000018   0120         JNE     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_2
+   \   00001A   5743         MOV.B   #0x1, R7
+    172              
+    173              // Get total elapsed seconds from the first day of year 1 to the first day of RTC year
+    174              ullConvertedSecond += (ptruniTempRTCTime->stRTCTime.ucYear - 1) * 365 * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_2:
+   \   00001C   6C46         MOV.B   @R6, R12
+   \   00001E   4C4C         MOV.B   R12, R12
+   \   000020   3C53         ADD.W   #0xffff, R12
+   \   000022                RPT     #0x7
+   \   000022   46180C5C     RLAX.W  R12
+   \   000026   0F4C         MOV.W   R12, R15
+   \   000028   0C5C         RLA.W   R12
+   \   00002A   0F5C         ADD.W   R12, R15
+   \   00002C   0C5C         RLA.W   R12
+   \   00002E   0F5C         ADD.W   R12, R15
+   \   000030   5C0A         RLAM.W  #0x3, R12
+   \   000032   0F5C         ADD.W   R12, R15
+   \   000034   0C5C         RLA.W   R12
+   \   000036   0C5F         ADD.W   R15, R12
+   \   000038   0D4C         MOV.W   R12, R13
+   \   00003A   3DE3         XOR.W   #0xffff, R13
+   \   00003C   0D5D         RLA.W   R13
+   \   00003E   0D7D         SUBC.W  R13, R13
+   \   000040   0E4D         MOV.W   R13, R14
+   \   000042   3EE3         XOR.W   #0xffff, R14
+   \   000044   0E5E         RLA.W   R14
+   \   000046   0E7E         SUBC.W  R14, R14
+   \   000048   0F4E         MOV.W   R14, R15
+   \   00004A   085C         ADD.W   R12, R8
+   \   00004C   096D         ADDC.W  R13, R9
+   \   00004E   0A6E         ADDC.W  R14, R10
+   \   000050   0B6F         ADDC.W  R15, R11
+    175              // Compansate days in leap years
+    176              ullConvertedSecond += (ptruniTempRTCTime->stRTCTime.ucYear / 4);
+   \   000052   6C46         MOV.B   @R6, R12
+   \   000054   6E42         MOV.B   #0x4, R14
+   \   000056   ........     CALLA   #?DivMod8u
+   \   00005A   4C4C         MOV.B   R12, R12
+   \   00005C   0D43         MOV.W   #0x0, R13
+   \   00005E   0E43         MOV.W   #0x0, R14
+   \   000060   0F43         MOV.W   #0x0, R15
+   \   000062   085C         ADD.W   R12, R8
+   \   000064   096D         ADDC.W  R13, R9
+   \   000066   0A6E         ADDC.W  R14, R10
+   \   000068   0B6F         ADDC.W  R15, R11
+    177              
+    178              // Get total elapsed seconds from the first day of this year to the end of previous month of RTC month
+    179              switch(ptruniTempRTCTime->stRTCTime.ucMonth){
+   \   00006A   5E460100     MOV.B   0x1(R6), R14
+   \   00006E   5E83         SUB.B   #0x1, R14
+   \   000070   6324         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+   \   000072   5E83         SUB.B   #0x1, R14
+   \   000074   1524         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_3
+   \   000076   5E83         SUB.B   #0x1, R14
+   \   000078   1A24         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_4
+   \   00007A   5E83         SUB.B   #0x1, R14
+   \   00007C   1F24         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_5
+   \   00007E   5E83         SUB.B   #0x1, R14
+   \   000080   2424         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_6
+   \   000082   5E83         SUB.B   #0x1, R14
+   \   000084   2924         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_7
+   \   000086   5E83         SUB.B   #0x1, R14
+   \   000088   2E24         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_8
+   \   00008A   5E83         SUB.B   #0x1, R14
+   \   00008C   3324         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_9
+   \   00008E   5E83         SUB.B   #0x1, R14
+   \   000090   3824         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_10
+   \   000092   5E83         SUB.B   #0x1, R14
+   \   000094   3D24         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_11
+   \   000096   5E83         SUB.B   #0x1, R14
+   \   000098   4224         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_12
+   \   00009A   5E83         SUB.B   #0x1, R14
+   \   00009C   4724         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_13
+   \   00009E   4C3C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    180                  case 1: // Jan
+    181                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_JAN * 24 * 60 * 60;
+    182                      break;
+    183                  case 2: // Feb
+    184                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_FEB * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_3:
+   \   0000A0   385080DE     ADD.W   #0xde80, R8
+   \   0000A4   39602800     ADDC.W  #0x28, R9
+   \   0000A8   0A63         ADDC.W  #0x0, R10
+   \   0000AA   0B63         ADDC.W  #0x0, R11
+    185                      break;
+   \   0000AC   453C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    186                  case 3: // Mar
+    187                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_MAR * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_4:
+   \   0000AE   385080C8     ADD.W   #0xc880, R8
+   \   0000B2   39604D00     ADDC.W  #0x4d, R9
+   \   0000B6   0A63         ADDC.W  #0x0, R10
+   \   0000B8   0B63         ADDC.W  #0x0, R11
+    188                      break;
+   \   0000BA   3E3C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    189                  case 4: // Apr
+    190                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_APR * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_5:
+   \   0000BC   385000A7     ADD.W   #0xa700, R8
+   \   0000C0   39607600     ADDC.W  #0x76, R9
+   \   0000C4   0A63         ADDC.W  #0x0, R10
+   \   0000C6   0B63         ADDC.W  #0x0, R11
+    191                      break;
+   \   0000C8   373C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    192                  case 5: // May
+    193                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_MAY * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_6:
+   \   0000CA   38500034     ADD.W   #0x3400, R8
+   \   0000CE   39609E00     ADDC.W  #0x9e, R9
+   \   0000D2   0A63         ADDC.W  #0x0, R10
+   \   0000D4   0B63         ADDC.W  #0x0, R11
+    194                      break;
+   \   0000D6   303C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    195                  case 6: // Jun
+    196                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_JUN * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_7:
+   \   0000D8   38508012     ADD.W   #0x1280, R8
+   \   0000DC   3960C700     ADDC.W  #0xc7, R9
+   \   0000E0   0A63         ADDC.W  #0x0, R10
+   \   0000E2   0B63         ADDC.W  #0x0, R11
+    197                      break;
+   \   0000E4   293C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    198                  case 7: // Jul
+    199                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_JUL * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_8:
+   \   0000E6   3850809F     ADD.W   #0x9f80, R8
+   \   0000EA   3960EE00     ADDC.W  #0xee, R9
+   \   0000EE   0A63         ADDC.W  #0x0, R10
+   \   0000F0   0B63         ADDC.W  #0x0, R11
+    200                      break;
+   \   0000F2   223C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    201                  case 8: // Aug
+    202                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_AUG * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_9:
+   \   0000F4   3850007E     ADD.W   #0x7e00, R8
+   \   0000F8   39601701     ADDC.W  #0x117, R9
+   \   0000FC   0A63         ADDC.W  #0x0, R10
+   \   0000FE   0B63         ADDC.W  #0x0, R11
+    203                      break;
+   \   000100   1B3C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    204                  case 9: // Sep
+    205                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_SEP * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_10:
+   \   000102   3850805C     ADD.W   #0x5c80, R8
+   \   000106   39604001     ADDC.W  #0x140, R9
+   \   00010A   0A63         ADDC.W  #0x0, R10
+   \   00010C   0B63         ADDC.W  #0x0, R11
+    206                      break;
+   \   00010E   143C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    207                  case 10:// Oct
+    208                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_OCT * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_11:
+   \   000110   385080E9     ADD.W   #0xe980, R8
+   \   000114   39606701     ADDC.W  #0x167, R9
+   \   000118   0A63         ADDC.W  #0x0, R10
+   \   00011A   0B63         ADDC.W  #0x0, R11
+    209                      break;
+   \   00011C   0D3C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    210                  case 11:// Nov
+    211                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_NOV * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_12:
+   \   00011E   385000C8     ADD.W   #0xc800, R8
+   \   000122   39609001     ADDC.W  #0x190, R9
+   \   000126   0A63         ADDC.W  #0x0, R10
+   \   000128   0B63         ADDC.W  #0x0, R11
+    212                      break;
+   \   00012A   063C         JMP     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0
+    213                  case 12:// Dec
+    214                      ullConvertedSecond += (unsigned long long)DAYS_IN_MONTHS_BEFORE_THE_FIRST_DAY_OF_DEC * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_13:
+   \   00012C   38500055     ADD.W   #0x5500, R8
+   \   000130   3960B801     ADDC.W  #0x1b8, R9
+   \   000134   0A63         ADDC.W  #0x0, R10
+   \   000136   0B63         ADDC.W  #0x0, R11
+    215                      break;
+    216                  default:  
+    217                      break;
+    218              }
+    219              
+    220              // If it is leap year, add one day
+    221              if((bIsLeapYear == _TRUE_)&&(ptruniTempRTCTime->stRTCTime.ucMonth != 1)){
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_0:
+   \   000138   4793         CMP.B   #0x0, R7
+   \   00013A   0824         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_14
+   \   00013C   D6930100     CMP.B   #0x1, 0x1(R6)
+   \   000140   0524         JEQ     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_14
+    222                  ullConvertedSecond += (long long)24 * 60 * 60;
+   \   000142   38508051     ADD.W   #0x5180, R8
+   \   000146   1963         ADDC.W  #0x1, R9
+   \   000148   0A63         ADDC.W  #0x0, R10
+   \   00014A   0B63         ADDC.W  #0x0, R11
+    223              }
+    224              
+    225              ullConvertedSecond += ((ptruniTempRTCTime->stRTCTime.ucDay)-1) * 24 * 60 * 60;
+   \                     ??HAL_RTC_GetSecondConvertedFromStoredRTCTime_14:
+   \   00014C   5C460200     MOV.B   0x2(R6), R12
+   \   000150   4C4C         MOV.B   R12, R12
+   \   000152   3C53         ADD.W   #0xffff, R12
+   \   000154                RPT     #0x7
+   \   000154   46180C5C     RLAX.W  R12
+   \   000158   0F4C         MOV.W   R12, R15
+   \   00015A   0C5C         RLA.W   R12
+   \   00015C   0F5C         ADD.W   R12, R15
+   \   00015E   5C0E         RLAM.W  #0x4, R12
+   \   000160   0F5C         ADD.W   R12, R15
+   \   000162   5C06         RLAM.W  #0x2, R12
+   \   000164   0C5F         ADD.W   R15, R12
+   \   000166   0D4C         MOV.W   R12, R13
+   \   000168   3DE3         XOR.W   #0xffff, R13
+   \   00016A   0D5D         RLA.W   R13
+   \   00016C   0D7D         SUBC.W  R13, R13
+   \   00016E   0E4D         MOV.W   R13, R14
+   \   000170   3EE3         XOR.W   #0xffff, R14
+   \   000172   0E5E         RLA.W   R14
+   \   000174   0E7E         SUBC.W  R14, R14
+   \   000176   0F4E         MOV.W   R14, R15
+   \   000178   085C         ADD.W   R12, R8
+   \   00017A   096D         ADDC.W  R13, R9
+   \   00017C   0A6E         ADDC.W  R14, R10
+   \   00017E   0B6F         ADDC.W  R15, R11
+    226              ullConvertedSecond += ((ptruniTempRTCTime->stRTCTime.ucHour)-1) * 60 * 60;    
+   \   000180   5C460300     MOV.B   0x3(R6), R12
+   \   000184   4C4C         MOV.B   R12, R12
+   \   000186   3C53         ADD.W   #0xffff, R12
+   \   000188   5C0E         RLAM.W  #0x4, R12
+   \   00018A   0F4C         MOV.W   R12, R15
+   \   00018C                RPT     #0x5
+   \   00018C   44180C5C     RLAX.W  R12
+   \   000190   0F5C         ADD.W   R12, R15
+   \   000192   0C5C         RLA.W   R12
+   \   000194   0F5C         ADD.W   R12, R15
+   \   000196   0C5C         RLA.W   R12
+   \   000198   0C5F         ADD.W   R15, R12
+   \   00019A   0D4C         MOV.W   R12, R13
+   \   00019C   3DE3         XOR.W   #0xffff, R13
+   \   00019E   0D5D         RLA.W   R13
+   \   0001A0   0D7D         SUBC.W  R13, R13
+   \   0001A2   0E4D         MOV.W   R13, R14
+   \   0001A4   3EE3         XOR.W   #0xffff, R14
+   \   0001A6   0E5E         RLA.W   R14
+   \   0001A8   0E7E         SUBC.W  R14, R14
+   \   0001AA   0F4E         MOV.W   R14, R15
+   \   0001AC   085C         ADD.W   R12, R8
+   \   0001AE   096D         ADDC.W  R13, R9
+   \   0001B0   0A6E         ADDC.W  R14, R10
+   \   0001B2   0B6F         ADDC.W  R15, R11
+    227              ullConvertedSecond += ((ptruniTempRTCTime->stRTCTime.ucMinute)-1) * 60;
+   \   0001B4   5C460400     MOV.B   0x4(R6), R12
+   \   0001B8   4C4C         MOV.B   R12, R12
+   \   0001BA   3C53         ADD.W   #0xffff, R12
+   \   0001BC   5C06         RLAM.W  #0x2, R12
+   \   0001BE   0F4C         MOV.W   R12, R15
+   \   0001C0   0C5C         RLA.W   R12
+   \   0001C2   0F5C         ADD.W   R12, R15
+   \   0001C4   0C5C         RLA.W   R12
+   \   0001C6   0F5C         ADD.W   R12, R15
+   \   0001C8   0C5C         RLA.W   R12
+   \   0001CA   0C5F         ADD.W   R15, R12
+   \   0001CC   0D4C         MOV.W   R12, R13
+   \   0001CE   3DE3         XOR.W   #0xffff, R13
+   \   0001D0   0D5D         RLA.W   R13
+   \   0001D2   0D7D         SUBC.W  R13, R13
+   \   0001D4   0E4D         MOV.W   R13, R14
+   \   0001D6   3EE3         XOR.W   #0xffff, R14
+   \   0001D8   0E5E         RLA.W   R14
+   \   0001DA   0E7E         SUBC.W  R14, R14
+   \   0001DC   0F4E         MOV.W   R14, R15
+   \   0001DE   085C         ADD.W   R12, R8
+   \   0001E0   096D         ADDC.W  R13, R9
+   \   0001E2   0A6E         ADDC.W  R14, R10
+   \   0001E4   0B6F         ADDC.W  R15, R11
+    228              ullConvertedSecond += ptruniTempRTCTime->stRTCTime.ucSecond;
+   \   0001E6   5C460500     MOV.B   0x5(R6), R12
+   \   0001EA   4C4C         MOV.B   R12, R12
+   \   0001EC   0D43         MOV.W   #0x0, R13
+   \   0001EE   0E43         MOV.W   #0x0, R14
+   \   0001F0   0F43         MOV.W   #0x0, R15
+   \   0001F2   085C         ADD.W   R12, R8
+   \   0001F4   096D         ADDC.W  R13, R9
+   \   0001F6   0A6E         ADDC.W  R14, R10
+   \   0001F8   0B6F         ADDC.W  R15, R11
+    229              
+    230              // Total elapsed time from the first day of year 1, which is represented in seconds
+    231              return ullConvertedSecond;
+   \   0001FA   0C48         MOV.W   R8, R12
+   \   0001FC   0D49         MOV.W   R9, R13
+   \   0001FE   0E4A         MOV.W   R10, R14
+   \   000200   0F4B         MOV.W   R11, R15
+   \   000202   5616         POPM.A  #0x6, R11
+   \   000204   1001         RETA
+    232          }
+    233          
+    234          //------------------------------------------------------------------------------
+    235          // RTC Interrupt Service Routine
+    236          //------------------------------------------------------------------------------
+    237          #pragma vector=RTC_VECTOR
+
+   \                                 In  segment ISR_CODE, align 2
+    238          __interrupt void RTC_VECTOR_ISR(void)
+   \                     RTC_VECTOR_ISR:
+    239          {
+   \   000000   5F14         PUSHM.A #0x6, R15
+    240              switch(__even_in_range(RTCIV,16))
+   \   000002   1F42AE04     MOV.W   &0x4ae, R15
+   \   000006   E00F         ADDA    R15, PC
+   \                     `?<Jumptable for RTC_VECTOR_ISR>_0`:
+   \   000008   583C         JMP     ??RTC_VECTOR_ISR_2
+   \   00000A   073C         JMP     ??RTC_VECTOR_ISR_5
+   \   00000C   563C         JMP     ??RTC_VECTOR_ISR_2
+   \   00000E   553C         JMP     ??RTC_VECTOR_ISR_2
+   \   000010   543C         JMP     ??RTC_VECTOR_ISR_2
+   \   000012   533C         JMP     ??RTC_VECTOR_ISR_2
+   \   000014   523C         JMP     ??RTC_VECTOR_ISR_2
+   \   000016   513C         JMP     ??RTC_VECTOR_ISR_2
+   \   000018   503C         JMP     ??RTC_VECTOR_ISR_2
+    241              {
+    242                  case RTC_NONE:          // No interrupts
+    243                      break;
+    244                  case RTC_RTCRDYIFG:     // RTCRDYIFG
+    245                      bFLAG_RTCTimeTickOfSecond = _SET_;   
+   \                     ??RTC_VECTOR_ISR_5:
+   \   00001A   ....D243.... MOVX.B  #0x1, &bFLAG_RTCTimeTickOfSecond
+    246                    
+    247                      // Reset millisecond to zero
+    248                      uniMillisecondTimeTick.ullMillisecondTimeTick = 0; 
+   \   000020   ....8243.... MOVX.W  #0x0, &uniMillisecondTimeTick
+   \   000026   ....8243.... MOVX.W  #0x0, &uniMillisecondTimeTick + 2
+   \   00002C   ....8243.... MOVX.W  #0x0, &uniMillisecondTimeTick + 4
+   \   000032   ....8243.... MOVX.W  #0x0, &uniMillisecondTimeTick + 6
+    249                      
+    250                      // Increase second time tick 
+    251                      uniSecondTimeTick.ullSecondTimeTick += 10000000;
+   \   000038   ....B2508096 ADDX.W  #0x9680, &uniSecondTimeTick
+   \            ....        
+   \   000040   ....B2609800 ADDCX.W #0x98, &uniSecondTimeTick + 2
+   \            ....        
+   \   000048   ....8263.... ADDCX.W #0x0, &uniSecondTimeTick + 4
+   \   00004E   ....8263.... ADDCX.W #0x0, &uniSecondTimeTick + 6
+    252          
+    253                      // Set flag if condition is met
+    254                      if(bFLAG_ISLoggingRequested == _SET_){ 
+   \   000054   ....C293.... CMPX.B  #0x0, &bFLAG_ISLoggingRequested
+   \   00005A   2F24         JEQ     ??RTC_VECTOR_ISR_2
+    255                          if(ulSampleCount != 1){
+   \   00005C   ....9293.... CMPX.W  #0x1, &ulSampleCount
+   \   000062   0420         JNE     ??RTC_VECTOR_ISR_3
+   \   000064   ....8293.... CMPX.W  #0x0, &ulSampleCount + 2
+   \   00006A   2724         JEQ     ??RTC_VECTOR_ISR_2
+    256                              // Check if defined time interval for logging has elapsed
+    257                              if(ucRTCNumberOfSecondCounter == ((ulSampleGap/1000)-1)){
+   \                     ??RTC_VECTOR_ISR_3:
+   \   00006C   ....5A42.... MOVX.B  &ucRTCNumberOfSecondCounter, R10
+   \   000072   4A4A         MOV.B   R10, R10
+   \   000074   0B43         MOV.W   #0x0, R11
+   \   000076   ....1C42.... MOVX.W  &ulSampleGap, R12
+   \   00007C   ....1D42.... MOVX.W  &ulSampleGap + 2, R13
+   \   000082   3E40E803     MOV.W   #0x3e8, R14
+   \   000086   0F43         MOV.W   #0x0, R15
+   \   000088   ........     CALLA   #?DivMod32u
+   \   00008C   3C53         ADD.W   #0xffff, R12
+   \   00008E   3D63         ADDC.W  #0xffff, R13
+   \   000090   0A9C         CMP.W   R12, R10
+   \   000092   0C20         JNE     ??RTC_VECTOR_ISR_4
+   \   000094   0B9D         CMP.W   R13, R11
+   \   000096   0A20         JNE     ??RTC_VECTOR_ISR_4
+    258                                  ucRTCNumberOfSecondCounter = 0;
+   \   000098   ....C243.... MOVX.B  #0x0, &ucRTCNumberOfSecondCounter
+    259                                  bFLAG_CLEONSampleIntervalConuter = _SET_;
+   \   00009E   ....D243.... MOVX.B  #0x1, &bFLAG_CLEONSampleIntervalConuter
+    260                                  // If defined time interval for logging has elapsed, exit low-power-mode
+    261                                  __low_power_mode_off_on_exit();
+   \   0000A4   B1C0F0001800 BIC.W   #0xf0, 0x18(SP)
+   \   0000AA   073C         JMP     ??RTC_VECTOR_ISR_2
+    262                              }else{
+    263                                  if(bFLAG_ISLoggingRequested == _SET_){
+   \                     ??RTC_VECTOR_ISR_4:
+   \   0000AC   ....C293.... CMPX.B  #0x0, &bFLAG_ISLoggingRequested
+   \   0000B2   0324         JEQ     ??RTC_VECTOR_ISR_2
+    264                                      ucRTCNumberOfSecondCounter++;
+   \   0000B4   ....D253.... ADDX.B  #0x1, &ucRTCNumberOfSecondCounter
+    265                                  }
+    266                              } 
+    267                          }
+    268                      }  
+    269                      break;
+    270                  case RTC_RTCTEVIFG:     // RTCEVIFG
+    271                      break;
+    272                  case RTC_RTCAIFG:       // RTCAIFG
+    273                      break;
+    274                  case RTC_RT0PSIFG:      // RT0PSIFG
+    275                      break;
+    276                  case RTC_RT1PSIFG:      // RT1PSIFG
+    277                      break;
+    278                  case 12: break;         // Reserved
+    279                  case 14: break;         // Reserved
+    280                  case 16: break;         // Reserved
+    281                  default: break;
+    282              }
+    283          }
+   \                     ??RTC_VECTOR_ISR_2:
+   \   0000BA   5A16         POPM.A  #0x6, R15
+   \   0000BC   0013         RETI
+   \   0000BE                REQUIRE RTCIV
+    284          
+    285          ////////////////////////////// Set RTC values //////////////////////////////////
+
+   \                                 In  segment CODE, align 2
+    286          unsigned int HAL_SetRTCYear(int year)
+   \                     HAL_SetRTCYear:
+    287          {
+    288              RTCYEAR = year;
+   \   000000   824CB604     MOV.W   R12, &0x4b6
+    289              return year;
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCYEAR_L
+    290          }
+    291          
+
+   \                                 In  segment CODE, align 2
+    292          unsigned int HAL_SetRTCMon(int month)
+   \                     HAL_SetRTCMon:
+    293          {
+    294              RTCMON = month;
+   \   000000   C24CB504     MOV.B   R12, &0x4b5
+    295              return month;
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCDATE_L
+    296          }
+    297          
+
+   \                                 In  segment CODE, align 2
+    298          unsigned int HAL_SetRTCDay(int day)
+   \                     HAL_SetRTCDay:
+    299          {
+    300              RTCDAY = day;
+   \   000000   C24CB404     MOV.B   R12, &0x4b4
+    301              return day;
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCDATE_L
+    302          }
+    303          
+
+   \                                 In  segment CODE, align 2
+    304          unsigned int HAL_SetRTCDow(int dow)
+   \                     HAL_SetRTCDow:
+    305          {
+    306              RTCDOW = dow;
+   \   000000   C24CB304     MOV.B   R12, &0x4b3
+    307              return dow;
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCTIM1_L
+    308          }
+    309          
+
+   \                                 In  segment CODE, align 2
+    310          unsigned int HAL_SetRTCHour(int hour)
+   \                     HAL_SetRTCHour:
+    311          {
+    312              RTCHOUR = hour;
+   \   000000   C24CB204     MOV.B   R12, &0x4b2
+    313              return hour;
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCTIM1_L
+    314          }
+    315          
+
+   \                                 In  segment CODE, align 2
+    316          unsigned int HAL_SetRTCMin(int min)
+   \                     HAL_SetRTCMin:
+    317          {
+    318              RTCMIN = min;
+   \   000000   C24CB104     MOV.B   R12, &0x4b1
+    319              return min;
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCTIM0_L
+    320          }
+    321          
+
+   \                                 In  segment CODE, align 2
+    322          unsigned int HAL_SetRTCSec(int sec)
+   \                     HAL_SetRTCSec:
+    323          {
+    324              RTCSEC = sec;
+   \   000000   C24CB004     MOV.B   R12, &0x4b0
+    325              return sec;
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCTIM0_L
+    326          }
+    327          
+
+   \                                 In  segment CODE, align 2
+    328          unsigned int HAL_SetRTCMilisec(int millisec)
+   \                     HAL_SetRTCMilisec:
+    329          {
+   \   000000   5B14         PUSHM.A #0x6, R11
+   \   000002   064C         MOV.W   R12, R6
+    330              uniRTCTime.stRTCTime.uiMillisecond = uniMillisecondTimeTick.ullMillisecondTimeTick/10000;
+   \   000004   38401027     MOV.W   #0x2710, R8
+   \   000008   0943         MOV.W   #0x0, R9
+   \   00000A   0A43         MOV.W   #0x0, R10
+   \   00000C   0B43         MOV.W   #0x0, R11
+   \   00000E   ........     MOVA    #uniMillisecondTimeTick, R15
+   \   000012   3C4F         MOV.W   @R15+, R12
+   \   000014   3D4F         MOV.W   @R15+, R13
+   \   000016   3E4F         MOV.W   @R15+, R14
+   \   000018   3F4F         MOV.W   @R15+, R15
+   \   00001A   ........     CALLA   #_Div64u
+   \   00001E   ....824C.... MOVX.W  R12, &uniRTCTime + 6
+    331              return (uniRTCTime.stRTCTime.uiMillisecond);
+   \   000024   ....1C42.... MOVX.W  &uniRTCTime + 6, R12
+   \   00002A   5616         POPM.A  #0x6, R11
+   \   00002C   1001         RETA
+    332          }
+    333          
+    334          ////////////////////////////// HAL_Get RTC values //////////////////////////////////
+
+   \                                 In  segment CODE, align 2
+    335          unsigned int HAL_GetRTCYear(void)
+   \                     HAL_GetRTCYear:
+    336          {
+    337              return RTCYEAR;
+   \   000000   1C42B604     MOV.W   &0x4b6, R12
+   \   000004   1001         RETA
+   \   000006                REQUIRE _A_RTCYEAR_L
+    338          }
+    339          
+
+   \                                 In  segment CODE, align 2
+    340          unsigned int HAL_GetRTCMon(void)
+   \                     HAL_GetRTCMon:
+    341          {
+    342              return RTCMON;
+   \   000000   5C42B504     MOV.B   &0x4b5, R12
+   \   000004   4C4C         MOV.B   R12, R12
+   \   000006   1001         RETA
+   \   000008                REQUIRE _A_RTCDATE_L
+    343          }
+    344          
+
+   \                                 In  segment CODE, align 2
+    345          unsigned int HAL_GetRTCDow(void)
+   \                     HAL_GetRTCDow:
+    346          {
+    347              return RTCDOW;
+   \   000000   5C42B304     MOV.B   &0x4b3, R12
+   \   000004   4C4C         MOV.B   R12, R12
+   \   000006   1001         RETA
+   \   000008                REQUIRE _A_RTCTIM1_L
+    348          }
+    349          
+
+   \                                 In  segment CODE, align 2
+    350          unsigned int HAL_GetRTCDay(void)
+   \                     HAL_GetRTCDay:
+    351          {
+    352              return RTCDAY;
+   \   000000   5C42B404     MOV.B   &0x4b4, R12
+   \   000004   4C4C         MOV.B   R12, R12
+   \   000006   1001         RETA
+   \   000008                REQUIRE _A_RTCDATE_L
+    353          }
+    354          
+
+   \                                 In  segment CODE, align 2
+    355          unsigned int HAL_GetRTCHour(void)
+   \                     HAL_GetRTCHour:
+    356          {
+    357              return RTCHOUR;
+   \   000000   5C42B204     MOV.B   &0x4b2, R12
+   \   000004   4C4C         MOV.B   R12, R12
+   \   000006   1001         RETA
+   \   000008                REQUIRE _A_RTCTIM1_L
+    358          }
+    359          
+
+   \                                 In  segment CODE, align 2
+    360          unsigned int HAL_GetRTCMin(void)
+   \                     HAL_GetRTCMin:
+    361          {
+    362              return RTCMIN;
+   \   000000   5C42B104     MOV.B   &0x4b1, R12
+   \   000004   4C4C         MOV.B   R12, R12
+   \   000006   1001         RETA
+   \   000008                REQUIRE _A_RTCTIM0_L
+    363          }
+    364          
+
+   \                                 In  segment CODE, align 2
+    365          unsigned int HAL_GetRTCSec(void)
+   \                     HAL_GetRTCSec:
+    366          {
+    367              return RTCSEC;
+   \   000000   5C42B004     MOV.B   &0x4b0, R12
+   \   000004   4C4C         MOV.B   R12, R12
+   \   000006   1001         RETA
+   \   000008                REQUIRE _A_RTCTIM0_L
+    368          }
+    369          
+
+   \                                 In  segment CODE, align 2
+    370          unsigned int HAL_GetRTCMilisec(void)
+   \                     HAL_GetRTCMilisec:
+    371          {
+   \   000000   5B14         PUSHM.A #0x6, R11
+    372              unsigned int uiTemp = 0;
+   \   000002   0643         MOV.W   #0x0, R6
+    373              uiTemp = (unsigned int)(uniMillisecondTimeTick.ullMillisecondTimeTick/10000);
+   \   000004   38401027     MOV.W   #0x2710, R8
+   \   000008   0943         MOV.W   #0x0, R9
+   \   00000A   0A43         MOV.W   #0x0, R10
+   \   00000C   0B43         MOV.W   #0x0, R11
+   \   00000E   ........     MOVA    #uniMillisecondTimeTick, R15
+   \   000012   3C4F         MOV.W   @R15+, R12
+   \   000014   3D4F         MOV.W   @R15+, R13
+   \   000016   3E4F         MOV.W   @R15+, R14
+   \   000018   3F4F         MOV.W   @R15+, R15
+   \   00001A   ........     CALLA   #_Div64u
+   \   00001E   064C         MOV.W   R12, R6
+    374              
+    375              if(uiTemp > 999) uiTemp = 0;  // set value of ullMillisecondTick to 0, if it exceeds 999, to correct 1ms error
+   \   000020   3690E803     CMP.W   #0x3e8, R6
+   \   000024   0128         JNC     ??HAL_GetRTCMilisec_0
+   \   000026   0643         MOV.W   #0x0, R6
+    376              return uiTemp;
+   \                     ??HAL_GetRTCMilisec_0:
+   \   000028   0C46         MOV.W   R6, R12
+   \   00002A   5616         POPM.A  #0x6, R11
+   \   00002C   1001         RETA
+    377          }
+
+   \                                 In  segment INTVEC, offset 0x54, root
+   \                     `??RTC_VECTOR_ISR??INTVEC 84`:
+   \   000054   ....         DC16    RTC_VECTOR_ISR
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_GetRTCDay
+       4  HAL_GetRTCDow
+       4  HAL_GetRTCHour
+      28  HAL_GetRTCMilisec
+            28 -> _Div64u
+       4  HAL_GetRTCMin
+       4  HAL_GetRTCMon
+       4  HAL_GetRTCSec
+       4  HAL_GetRTCYear
+      28  HAL_RTC_GetSecondConvertedFromStoredRTCTime
+       4  HAL_RTC_Init
+             4 -> HAL_RTC_RestoreTimeTick
+       4  HAL_RTC_ReadRTCTime
+             4 -> HAL_GetRTCDay
+             4 -> HAL_GetRTCHour
+             4 -> HAL_GetRTCMilisec
+             4 -> HAL_GetRTCMin
+             4 -> HAL_GetRTCMon
+             4 -> HAL_GetRTCSec
+             4 -> HAL_GetRTCYear
+      52  HAL_RTC_RestoreTimeTick
+            52 -> HAL_RTC_GetSecondConvertedFromStoredRTCTime
+            52 -> HAL_RTC_ReadRTCTime
+            52 -> memcpy
+       4  HAL_SetRTCDay
+       4  HAL_SetRTCDow
+       4  HAL_SetRTCHour
+      28  HAL_SetRTCMilisec
+            28 -> _Div64u
+       4  HAL_SetRTCMin
+       4  HAL_SetRTCMon
+       4  HAL_SetRTCSec
+       4  HAL_SetRTCYear
+      28  RTC_VECTOR_ISR
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  ??RTC_VECTOR_ISR??INTVEC 84
+       8  HAL_GetRTCDay
+       8  HAL_GetRTCDow
+       8  HAL_GetRTCHour
+      46  HAL_GetRTCMilisec
+       8  HAL_GetRTCMin
+       8  HAL_GetRTCMon
+       8  HAL_GetRTCSec
+       6  HAL_GetRTCYear
+     518  HAL_RTC_GetSecondConvertedFromStoredRTCTime
+     100  HAL_RTC_Init
+      76  HAL_RTC_ReadRTCTime
+     190  HAL_RTC_RestoreTimeTick
+       6  HAL_SetRTCDay
+       6  HAL_SetRTCDow
+       6  HAL_SetRTCHour
+      46  HAL_SetRTCMilisec
+       6  HAL_SetRTCMin
+       6  HAL_SetRTCMon
+       6  HAL_SetRTCSec
+       6  HAL_SetRTCYear
+       2  RTCIV
+     190  RTC_VECTOR_ISR
+       2  _A_BAKCTL_L
+       2  _A_PEOUT_L
+       2  _A_RTCCTL01_L
+       2  _A_RTCDATE_L
+       2  _A_RTCTIM0_L
+       2  _A_RTCTIM1_L
+       2  _A_RTCYEAR_L
+       1  bFLAG_ISResetOccuredBySVSHPOR
+       1  bFLAG_IsTimeSynced
+       1  bFLAG_RTCTimeTickOfSecond
+     320  stTimeMeasurement
+       1  ucRTCNumberOfSecondCounter
+       8  uniMillisecondTimeTick
+       8  uniRTCTime
+       8  uniSecondTimeTick
+
+ 
+ 1 072 bytes in segment CODE
+    16 bytes in segment DATA16_AN
+   348 bytes in segment DATA20_Z
+     2 bytes in segment INTVEC
+   190 bytes in segment ISR_CODE
+ 
+ 1 262 bytes of CODE  memory
+     0 bytes of CONST memory (+  2 bytes shared)
+   348 bytes of DATA  memory (+ 16 bytes shared)
+
+Errors: none
+Warnings: none

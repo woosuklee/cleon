@@ -1,0 +1,1502 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3196769149</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\app\app_log.h</file>
+      <file>$PROJ_DIR$\app\app_log.c</file>
+      <file>$PROJ_DIR$\app\app_define.h</file>
+      <file>$PROJ_DIR$\app\app_usb.c</file>
+      <file>$PROJ_DIR$\app\app_usb.h</file>
+      <file>$PROJ_DIR$\doc\hw_architecture.c</file>
+      <file>$PROJ_DIR$\doc\intro.c</file>
+      <file>$PROJ_DIR$\doc\power_consumption.c</file>
+      <file>$PROJ_DIR$\doc\sw_architecture.c</file>
+      <file>$PROJ_DIR$\doc\usage.c</file>
+      <file>$PROJ_DIR$\fs\FatFs\ccsbcs.c</file>
+      <file>$PROJ_DIR$\fs\FatFs\diskio.c</file>
+      <file>$PROJ_DIR$\fs\FatFs\diskio.h</file>
+      <file>$PROJ_DIR$\fs\FatFs\ff.c</file>
+      <file>$PROJ_DIR$\fs\FatFs\ff.h</file>
+      <file>$PROJ_DIR$\fs\FatFs\ffconf.h</file>
+      <file>$PROJ_DIR$\fs\FatFs\integer.h</file>
+      <file>$PROJ_DIR$\fs\fs_define.h</file>
+      <file>$PROJ_DIR$\fs\fs_init.c</file>
+      <file>$PROJ_DIR$\fs\fs_init.h</file>
+      <file>$PROJ_DIR$\hal\hal_adc.c</file>
+      <file>$PROJ_DIR$\hal\hal_adc.h</file>
+      <file>$PROJ_DIR$\hal\hal_define.h</file>
+      <file>$PROJ_DIR$\hal\hal_dma.c</file>
+      <file>$PROJ_DIR$\hal\hal_dma.h</file>
+      <file>$PROJ_DIR$\hal\hal_flash.c</file>
+      <file>$PROJ_DIR$\hal\hal_flash.h</file>
+      <file>$PROJ_DIR$\hal\hal_gpio.c</file>
+      <file>$PROJ_DIR$\hal\hal_gpio.h</file>
+      <file>$PROJ_DIR$\hal\hal_init.c</file>
+      <file>$PROJ_DIR$\hal\hal_init.h</file>
+      <file>$PROJ_DIR$\hal\hal_pmm.c</file>
+      <file>$PROJ_DIR$\hal\hal_pmm.h</file>
+      <file>$PROJ_DIR$\hal\hal_rtc.c</file>
+      <file>$PROJ_DIR$\hal\hal_rtc.h</file>
+      <file>$PROJ_DIR$\hal\hal_spi.c</file>
+      <file>$PROJ_DIR$\hal\hal_spi.h</file>
+      <file>$PROJ_DIR$\hal\hal_timer.c</file>
+      <file>$PROJ_DIR$\hal\hal_timer.h</file>
+      <file>$PROJ_DIR$\hal\hal_uart.c</file>
+      <file>$PROJ_DIR$\hal\hal_uart.h</file>
+      <file>$PROJ_DIR$\hal\hal_ucs.c</file>
+      <file>$PROJ_DIR$\hal\hal_ucs.h</file>
+      <file>$PROJ_DIR$\hal\hal_wdt.c</file>
+      <file>$PROJ_DIR$\hal\hal_wdt.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\platform\cleon_conf.h</file>
+      <file>$PROJ_DIR$\sys\sys_define.h</file>
+      <file>$PROJ_DIR$\sys\sys_flash.c</file>
+      <file>$PROJ_DIR$\sys\sys_flash.h</file>
+      <file>$PROJ_DIR$\sys\sys_gps.c</file>
+      <file>$PROJ_DIR$\sys\sys_gps.h</file>
+      <file>$PROJ_DIR$\sys\sys_init.c</file>
+      <file>$PROJ_DIR$\sys\sys_init.h</file>
+      <file>$PROJ_DIR$\sys\sys_mcu.c</file>
+      <file>$PROJ_DIR$\sys\sys_mcu.h</file>
+      <file>$PROJ_DIR$\sys\sys_mmc.c</file>
+      <file>$PROJ_DIR$\sys\sys_mmc.h</file>
+      <file>$PROJ_DIR$\sys\sys_power.c</file>
+      <file>$PROJ_DIR$\sys\sys_power.h</file>
+      <file>$PROJ_DIR$\sys\sys_sensors.c</file>
+      <file>$PROJ_DIR$\sys\sys_sensors.h</file>
+      <file>$PROJ_DIR$\sys\sys_usb.c</file>
+      <file>$PROJ_DIR$\sys\sys_usb.h</file>
+      <file>$PROJ_DIR$\Debug\List\hal_flash.lst</file>
+      <file>$PROJ_DIR$\Debug\List\sw_architecture.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_uart.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\sys_usb.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xtgmath.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\usage.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\intro.r43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_dma.lst</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xldn.h</file>
+      <file>$PROJ_DIR$\Debug\List\diskio.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_timer.r43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_gps.lst</file>
+      <file>$PROJ_DIR$\Debug\List\usage.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\usage.r43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_gpio.lst</file>
+      <file>$PROJ_DIR$\Debug\List\hal_flash.s43</file>
+      <file>$PROJ_DIR$\Debug\List\fs_init.s43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_spi.lst</file>
+      <file>$PROJ_DIR$\Debug\List\hal_spi.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\diskio.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$PROJ_DIR$\Debug\List\hal_dma.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\fs_init.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_power.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\usage.lst</file>
+      <file>$TOOLKIT_DIR$\config\lnk430F5338.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\wchar.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\app_usb.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\intro.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\sys_power.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccsbcs.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_sensors.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_flash.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\app_log.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_flash.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_gpio.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hw_architecture.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_mmc.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\cleon.ulp</file>
+      <file>$PROJ_DIR$\Debug\List\diskio.s43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xlocale.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_ucs.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\cleon.d43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_rtc.s43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_usb.s43</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xldn.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdarg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_adc.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_mcu.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\hal_uart.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_adc.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\hal_timer.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_usb.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\List\hal_rtc.lst</file>
+      <file>$PROJ_DIR$\Debug\List\sys_mcu.s43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_pmm.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_flash.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\sys_power.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_mmc.r43</file>
+      <file>$PROJ_DIR$\Debug\List\ff.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_mcu.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_gps.r43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_flash.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ccsbcs.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\app_usb.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\cleon.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\power_consumption.pbi</file>
+      <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\hw_architecture.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$PROJ_DIR$\Debug\List\hal_timer.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\app_usb.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\sw_architecture.s43</file>
+      <file>$PROJ_DIR$\Debug\List\hw_architecture.s43</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_wdt.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\main.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sw_architecture.r43</file>
+      <file>$PROJ_DIR$\Debug\List\power_consumption.lst</file>
+      <file>$PROJ_DIR$\Debug\List\intro.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_usb.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_init.r43</file>
+      <file>$PROJ_DIR$\Debug\List\intro.lst</file>
+      <file>$PROJ_DIR$\Debug\List\ff.s43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xlocaleuse.h</file>
+      <file>$PROJ_DIR$\Debug\List\hal_uart.lst</file>
+      <file>$PROJ_DIR$\Debug\List\ccsbcs.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_wdt.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_wdt.s43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_init.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_spi.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_rtc.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xtls.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f5338.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_init.r43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_sensors.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ctype.h</file>
+      <file>$PROJ_DIR$\Debug\List\main.lst</file>
+      <file>$PROJ_DIR$\Debug\List\hal_adc.s43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdbool.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_sensors.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\sys_flash.s43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_gps.s43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_init.s43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_ucs.lst</file>
+      <file>$PROJ_DIR$\Debug\List\hal_gpio.s43</file>
+      <file>$PROJ_DIR$\Debug\List\app_log.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\ff.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_timer.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_init.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_spi.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_rtc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_init.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_pmm.r43</file>
+      <file>$PROJ_DIR$\Debug\List\app_log.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\ccsbcs.s43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_uart.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\fs_init.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ff.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_dma.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\app_usb.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_gpio.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\hal_adc.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_gps.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_dma.r43</file>
+      <file>$PROJ_DIR$\Debug\List\power_consumption.s43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\diskio.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\sys_init.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_pmm.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_power.r43</file>
+      <file>$PROJ_DIR$\Debug\List\hw_architecture.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xmtx.h</file>
+      <file>$PROJ_DIR$\Debug\List\hal_wdt.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\power_consumption.r43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_mcu.lst</file>
+      <file>$PROJ_DIR$\Debug\List\sys_mmc.lst</file>
+      <file>$PROJ_DIR$\Debug\List\hal_pmm.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sw_architecture.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\math.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_ucs.r43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_mmc.s43</file>
+      <file>$PROJ_DIR$\Debug\List\sys_sensors.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\sys_flash.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ymath.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdlib.h</file>
+      <file>$PROJ_DIR$\Debug\List\fs_init.lst</file>
+      <file>$PROJ_DIR$\Debug\List\sys_init.lst</file>
+      <file>$PROJ_DIR$\Debug\List\hal_ucs.s43</file>
+      <file>$PROJ_DIR$\Debug\Obj\app_log.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xlocale_c.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\app\app_log.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 225</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 185 176 97</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\app\app_usb.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 139</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 194 132 91</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\doc\hw_architecture.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 141 206 136</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\doc\intro.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 92</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 147 150 70</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\doc\power_consumption.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 134</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 199 146 210</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\doc\sw_architecture.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 214</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 140 65 145</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\doc\usage.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 69</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 76 88 77</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\fs\FatFs\ccsbcs.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 131</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 187 155 94</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14 16 15</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 14 16 15</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\fs\FatFs\diskio.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 201</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 104 73 83</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 47 55 63 51 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 47 55 63 51 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\fs\FatFs\ff.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 177</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 151 126 192</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 12 16 14 15 19 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 17 12 16 14 15 19 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\fs\fs_init.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 86</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 80 222 190</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_adc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 116</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 168 196 113</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_dma.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 193</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 85 71 198</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_flash.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 123</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 79 64 98</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 108</file>
+        </tool>
+        <tool>
+          <name>ULP430</name>
+          <file> 103</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 195</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 175 78 99</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_init.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 182</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 173 159 149</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_pmm.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 203</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 213 122 184</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_rtc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 181</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 109 120 161</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_spi.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 180</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 82 81 160</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_timer.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 178</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 117 138 74</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 115 154 189</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_ucs.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 107</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 224 174 216</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_wdt.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 143</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 158 208 156</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 186</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 144 167 157</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_flash.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 96</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 171 129 219</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_gps.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 197</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 172 75 128</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_init.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 179</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 202 223 164</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_mcu.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 114</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 121 211 127</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_mmc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 101</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 217 212 125</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_power.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 87</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 124 93 205</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_sensors.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 170</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 218 165 95</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_usb.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 148</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 110 67 118</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46 2 0 4 47 55 63 51 22 142 84 163 102 112 119 152 209 72 188 200 183 221 191 169 204 130 215 220 68 137 106 166 105 162 207 153 226 90 30 44 42 40 24 34 28 26 38 21 36 32 59 49 61 57 53 17 12 16 14 15 19</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\cleon.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 89 135 97 91 94 83 192 190 113 198 98 99 149 184 161 160 74 189 216 156 136 70 157 210 145 219 128 164 127 125 205 95 118 77 111</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\hal\hal_adc.c</file>
+      <file>$PROJ_DIR$\hal\hal_adc.h</file>
+      <file>$PROJ_DIR$\hal\hal_define.h</file>
+      <file>$PROJ_DIR$\hal\hal_dma.c</file>
+      <file>$PROJ_DIR$\hal\hal_dma.h</file>
+      <file>$PROJ_DIR$\hal\hal_flash.c</file>
+      <file>$PROJ_DIR$\hal\hal_flash.h</file>
+      <file>$PROJ_DIR$\hal\hal_gpio.c</file>
+      <file>$PROJ_DIR$\hal\hal_gpio.h</file>
+      <file>$PROJ_DIR$\hal\hal_init.c</file>
+      <file>$PROJ_DIR$\hal\hal_init.h</file>
+      <file>$PROJ_DIR$\hal\hal_rtc.c</file>
+      <file>$PROJ_DIR$\hal\hal_rtc.h</file>
+      <file>$PROJ_DIR$\hal\hal_uart.c</file>
+      <file>$PROJ_DIR$\hal\hal_uart.h</file>
+      <file>$PROJ_DIR$\hal\hal_ucs.c</file>
+      <file>$PROJ_DIR$\hal\hal_ucs.h</file>
+      <file>$PROJ_DIR$\hal\hal_wdt.c</file>
+      <file>$PROJ_DIR$\hal\hal_wdt.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\platform\cleon_conf.h</file>
+      <file>$PROJ_DIR$\sys\sys_define.h</file>
+      <file>$PROJ_DIR$\sys\sys_flash.c</file>
+      <file>$PROJ_DIR$\sys\sys_flash.h</file>
+      <file>$PROJ_DIR$\sys\sys_gps.c</file>
+      <file>$PROJ_DIR$\sys\sys_gps.h</file>
+      <file>$PROJ_DIR$\sys\sys_init.c</file>
+      <file>$PROJ_DIR$\sys\sys_init.h</file>
+      <file>$PROJ_DIR$\sys\sys_mcu.c</file>
+      <file>$PROJ_DIR$\sys\sys_mcu.h</file>
+      <file>$PROJ_DIR$\sys\sys_power.c</file>
+      <file>$PROJ_DIR$\sys\sys_power.h</file>
+      <file>$PROJ_DIR$\sys\sys_sensors.c</file>
+      <file>$PROJ_DIR$\sys\sys_sensors.h</file>
+      <file>$PROJ_DIR$\sys\sys_usb.c</file>
+      <file>$PROJ_DIR$\sys\sys_usb.h</file>
+      <file>$TOOLKIT_DIR$\config\lnk430F5338.xcl</file>
+      <file>$TOOLKIT_DIR$\config\multiplier32_loc2.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Release\Exe\cleon.d43</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdbool.h</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_uart.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_rtc.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_init.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_usb.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_adc.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_mcu.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_init.r43</file>
+      <file>$TOOLKIT_DIR$\inc\io430.h</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_wdt.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\ctype.h</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_adc.pbi</file>
+      <file>$PROJ_DIR$\sys\sys_atomic_clock.h</file>
+      <file>$PROJ_DIR$\Release\Obj\main.r43</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdlib.h</file>
+      <file>$PROJ_DIR$\Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_flash.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\io430f5338.h</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_atomic_clock.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_ucs.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_gpio.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_sensors.r43</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl430xlf.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_flash.r43</file>
+      <file>$PROJ_DIR$\sys\sys_audio_jack_comm.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_init.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_usb.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_gps.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_uart.r43</file>
+      <file>$PROJ_DIR$\sys\sys_atomic_clock.c</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_audio_jack_comm.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_sensors.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_dma.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_init.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_rtc.pbi</file>
+      <file>$PROJ_DIR$\sys\sys_audio_jack_comm.c</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_power.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_dma.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_audio_jack_comm.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_gps.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_power.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_flash.pbi</file>
+      <file>$PROJ_DIR$\Release\Exe\cleon.txt</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_flash.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_gpio.r43</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_mcu.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_ucs.r43</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$PROJ_DIR$\Release\Obj\sys_atomic_clock.r43</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_wdt.r43</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_adc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 46</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_dma.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 80</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_flash.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 57</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 39</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_gpio.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 62</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 87</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_init.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 68</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_rtc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 77</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 71</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_ucs.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 90</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal\hal_wdt.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 93</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 54</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27 20</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27 20</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_flash.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 86</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_gps.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 82</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_init.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_mcu.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 89</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 47</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_power.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 83</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_sensors.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_usb.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 69</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\cleon.d43</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 36 37 46 80 65 87 48 43 71 90 93 54 92 73 86 82 44 47 83 63 69 64</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_atomic_clock.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 92</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\sys\sys_audio_jack_comm.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 20 21 29 35 25 31 53 23 33 66 2 38 49 58 67 88 55 40 42 91 61 51 10 18 16 14 4 12 8 6 1 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\cleon.txt</name>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 36 37 46 80 65 87 48 43 71 90 93 54 92 73 86 82 44 47 83 63 69 64</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

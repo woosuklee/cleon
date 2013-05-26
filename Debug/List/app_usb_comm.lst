@@ -1,0 +1,297 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       05/Dec/2012  04:32:11 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\app\app_usb_ #
+#                     comm.c                                                  #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\app\app_usb_ #
+#                     comm.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.         #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ESL\ #
+#                     3. Research\7. Fall 2012\4_CLEON\3_software\1_developin #
+#                     g\cleon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develop #
+#                     ing\cleon\Debug\Obj\" --no_cse --no_unroll --no_inline  #
+#                     --no_code_motion --no_tbaa --debug -D__MSP430F5338__    #
+#                     -e --double=64 --dlib_config "C:\Program Files\IAR      #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\intro\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib\" #
+#                      -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfor #
+#                     m\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\FatF #
+#                     s\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\app\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -On --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\a #
+#                     pp_usb_comm.lst                                         #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\ap #
+#                     p_usb_comm.r43                                          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\app\app_usb_comm.c
+      1          /**
+      2          @file       app_usb_comm.c
+      3          
+      4          @brief      Communication via USB
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x282
+   \   union <unnamed> __data16 _A_PEOUT_L
+   \                     _A_PEOUT_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          // RTC time
+     14          extern rtc_time_u  uniRTCTime;
+     15          
+     16          // Second and millisecond time tick
+     17          extern milliseoncd_time_tick_u uniMillisecondTimeTick;
+     18          extern seoncd_time_tick_u      uniSecondTimeTick;
+     19          
+     20          // USB reception frame
+     21          extern usb_frame_u uniUSBRecvFrame;
+     22          
+     23          // Flags
+     24          extern bool bFLAG_USBConnected;
+     25          extern bool bFLAG_USBFrameReceived;
+     26          extern bool bFLAG_IsTimeSynced;
+     27          extern bool bFLAG_RTCTimeTickOfSecond;
+     28          
+     29          /*----------------------------------------------------------------------------*/
+     30          /**
+     31          @brief          Processing USB frame
+     32                          - For every received USB frame, there will be an ack 
+     33                          - Ack frame will contain received command as data in data field
+     34          
+     35          @return		void
+     36          
+     37          @param		void
+     38          */
+
+   \                                 In  segment CODE, align 2
+     39          void APP_ProcessingUSBFrame()
+   \                     APP_ProcessingUSBFrame:
+     40          {
+     41          ///////////////////////// CHECK IF CONDITIONS ARE MET //////////////////////////
+     42              // Check if USB frame has been received
+     43              if(bFLAG_USBFrameReceived == _SET_){
+   \   000000   ....C293.... CMPX.B  #0x0, &bFLAG_USBFrameReceived
+   \   000006   8C24         JEQ     ??APP_ProcessingUSBFrame_1
+     44                  bFLAG_USBFrameReceived = _CLEAR_;
+   \   000008   ....C243.... MOVX.B  #0x0, &bFLAG_USBFrameReceived
+     45          
+     46          ////////////////////////////// IDENTIFY COMMAND ////////////////////////////////  
+     47                  // Identify command contained in the USB frame
+     48                  switch(uniUSBRecvFrame.stUSBFrame.ucCommand){
+   \   00000E   ....5E42.... MOVX.B  &uniUSBRecvFrame + 3, R14
+   \   000014   5E83         SUB.B   #0x1, R14
+   \   000016   0524         JEQ     ??APP_ProcessingUSBFrame_2
+   \   000018   5E83         SUB.B   #0x1, R14
+   \   00001A   0824         JEQ     ??APP_ProcessingUSBFrame_3
+   \   00001C   5E83         SUB.B   #0x1, R14
+   \   00001E   3724         JEQ     ??APP_ProcessingUSBFrame_4
+   \   000020   1001         RETA
+     49                    
+     50          ///////////////// COMMAND : USB_FRAME_COMMAND_CONNECT //////////////////////////
+     51                      case USB_FRAME_COMMAND_CONNECT:
+     52                          // Transmit ACK
+     53                          SYS_USB_SendACK(uniUSBRecvFrame.stUSBFrame.ucCommand);
+   \                     ??APP_ProcessingUSBFrame_2:
+   \   000022   ....5C42.... MOVX.B  &uniUSBRecvFrame + 3, R12
+   \   000028   ........     BRA     #SYS_USB_SendACK
+     54                          break;
+     55          
+     56          ///////////////// COMMAND : USB_FRAME_COMMAND_UPDATE_RTC_TIME //////////////////
+     57                      case USB_FRAME_COMMAND_UPDATE_RTC_TIME:
+     58                          // Transmit ACK
+     59                          SYS_USB_SendACK(uniUSBRecvFrame.stUSBFrame.ucCommand);
+   \                     ??APP_ProcessingUSBFrame_3:
+   \   00002C   ....5C42.... MOVX.B  &uniUSBRecvFrame + 3, R12
+   \   000032   ........     CALLA   #SYS_USB_SendACK
+     60                          HAL_SetRTCYear((uniUSBRecvFrame.ucSingleByte[4] << 8) + uniUSBRecvFrame.ucSingleByte[5]);
+   \   000036   ....5C42.... MOVX.B  &uniUSBRecvFrame + 4, R12
+   \   00003C   4C4C         MOV.B   R12, R12
+   \   00003E   3CF0FF00     AND.W   #0xff, R12
+   \   000042   8C10         SWPB    R12
+   \   000044   ....5F42.... MOVX.B  &uniUSBRecvFrame + 5, R15
+   \   00004A   4F4F         MOV.B   R15, R15
+   \   00004C   0C5F         ADD.W   R15, R12
+   \   00004E   ........     CALLA   #HAL_SetRTCYear
+     61                          HAL_SetRTCMon(uniUSBRecvFrame.ucSingleByte[6]);
+   \   000052   ....5C42.... MOVX.B  &uniUSBRecvFrame + 6, R12
+   \   000058   4C4C         MOV.B   R12, R12
+   \   00005A   ........     CALLA   #HAL_SetRTCMon
+     62                          HAL_SetRTCDay(uniUSBRecvFrame.ucSingleByte[7]);
+   \   00005E   ....5C42.... MOVX.B  &uniUSBRecvFrame + 7, R12
+   \   000064   4C4C         MOV.B   R12, R12
+   \   000066   ........     CALLA   #HAL_SetRTCDay
+     63                          HAL_SetRTCHour(uniUSBRecvFrame.ucSingleByte[8]);
+   \   00006A   ....5C42.... MOVX.B  &uniUSBRecvFrame + 8, R12
+   \   000070   4C4C         MOV.B   R12, R12
+   \   000072   ........     CALLA   #HAL_SetRTCHour
+     64                          HAL_SetRTCMin(uniUSBRecvFrame.ucSingleByte[9]);
+   \   000076   ....5C42.... MOVX.B  &uniUSBRecvFrame + 9, R12
+   \   00007C   4C4C         MOV.B   R12, R12
+   \   00007E   ........     CALLA   #HAL_SetRTCMin
+     65                          HAL_SetRTCSec(uniUSBRecvFrame.ucSingleByte[10]);
+   \   000082   ....5C42.... MOVX.B  &uniUSBRecvFrame + 10, R12
+   \   000088   4C4C         MOV.B   R12, R12
+   \   00008A   ........     BRA     #HAL_SetRTCSec
+     66                          break;
+     67                          
+     68          ///////////////// COMMAND : USB_FRAME_COMMAND_UPDATE_TIME_TICK /////////////////               
+     69                      case USB_FRAME_COMMAND_UPDATE_TIME_TICK:
+     70                          // Transmit ACK
+     71                          SYS_USB_SendACK(uniUSBRecvFrame.stUSBFrame.ucCommand);
+   \                     ??APP_ProcessingUSBFrame_4:
+   \   00008E   ....5C42.... MOVX.B  &uniUSBRecvFrame + 3, R12
+   \   000094   ........     CALLA   #SYS_USB_SendACK
+     72                          uniSecondTimeTick.ucSingleByte[7] = uniUSBRecvFrame.ucSingleByte[11];
+   \   000098   ....D242.... MOVX.B  &uniUSBRecvFrame + 11, &uniSecondTimeTick + 7
+   \            ....        
+     73                          uniSecondTimeTick.ucSingleByte[6] = uniUSBRecvFrame.ucSingleByte[10];
+   \   0000A0   ....D242.... MOVX.B  &uniUSBRecvFrame + 10, &uniSecondTimeTick + 6
+   \            ....        
+     74                          uniSecondTimeTick.ucSingleByte[5] = uniUSBRecvFrame.ucSingleByte[9];
+   \   0000A8   ....D242.... MOVX.B  &uniUSBRecvFrame + 9, &uniSecondTimeTick + 5
+   \            ....        
+     75                          uniSecondTimeTick.ucSingleByte[4] = uniUSBRecvFrame.ucSingleByte[8];
+   \   0000B0   ....D242.... MOVX.B  &uniUSBRecvFrame + 8, &uniSecondTimeTick + 4
+   \            ....        
+     76                          uniSecondTimeTick.ucSingleByte[3] = uniUSBRecvFrame.ucSingleByte[7];
+   \   0000B8   ....D242.... MOVX.B  &uniUSBRecvFrame + 7, &uniSecondTimeTick + 3
+   \            ....        
+     77                          uniSecondTimeTick.ucSingleByte[2] = uniUSBRecvFrame.ucSingleByte[6];
+   \   0000C0   ....D242.... MOVX.B  &uniUSBRecvFrame + 6, &uniSecondTimeTick + 2
+   \            ....        
+     78                          uniSecondTimeTick.ucSingleByte[1] = uniUSBRecvFrame.ucSingleByte[5];
+   \   0000C8   ....D242.... MOVX.B  &uniUSBRecvFrame + 5, &uniSecondTimeTick + 1
+   \            ....        
+     79                          uniSecondTimeTick.ucSingleByte[0] = uniUSBRecvFrame.ucSingleByte[4];
+   \   0000D0   ....D242.... MOVX.B  &uniUSBRecvFrame + 4, &uniSecondTimeTick
+   \            ....        
+     80                          
+     81                          // Wait until millisecond part becomes zero
+     82                          while(uniMillisecondTimeTick.llMillisecondTimeTick != 0);
+   \                     ??APP_ProcessingUSBFrame_0:
+   \   0000D8   ....1F42.... MOVX.W  &uniMillisecondTimeTick, R15
+   \   0000DE   ....1FD2.... BISX.W  &uniMillisecondTimeTick + 2, R15
+   \   0000E4   ....1FD2.... BISX.W  &uniMillisecondTimeTick + 4, R15
+   \   0000EA   ....1FD2.... BISX.W  &uniMillisecondTimeTick + 6, R15
+   \   0000F0   0F93         CMP.W   #0x0, R15
+   \   0000F2   F223         JNE     ??APP_ProcessingUSBFrame_0
+     83                          
+     84                          // Read RTC time and save it to 'uniRTCTime'
+     85                          HAL_RTC_ReadRTCTime();
+   \   0000F4   ........     CALLA   #HAL_RTC_ReadRTCTime
+     86                          
+     87                          // Store 'uniRTCTime (8 bytes)' to the first entry of internal FLASH bank 3 (0x038000) 
+     88                          // This information will later be used to restore system time 
+     89                          HAL_FLASH_Write(sizeof(uniRTCTime), (unsigned char *)&uniRTCTime, (unsigned char *)MSP430_INTERNAL_FLASH_BANK3_ADDRESS);
+   \   0000F8   8E030080     MOVA    #0x38000, R14
+   \   0000FC   ........     MOVA    #uniRTCTime, R13
+   \   000100   3C42         MOV.W   #0x8, R12
+   \   000102   ........     CALLA   #HAL_FLASH_Write
+     90                          
+     91                          // Store 'uniSecondTimeTick (8bytes)' next to 'uniRTCTime' stored to internal FLASH bank 3 (0x038008)
+     92                          // This information will later be used to restore system time
+     93                          HAL_FLASH_Write(sizeof(uniSecondTimeTick), (unsigned char *)&uniSecondTimeTick, (unsigned char *)(MSP430_INTERNAL_FLASH_BANK3_ADDRESS + sizeof(uniRTCTime)));
+   \   000106   8E030880     MOVA    #0x38008, R14
+   \   00010A   ........     MOVA    #uniSecondTimeTick, R13
+   \   00010E   3C42         MOV.W   #0x8, R12
+   \   000110   ........     CALLA   #HAL_FLASH_Write
+     94                          
+     95                          // Now that time is synchronized, set flag 
+     96                          bFLAG_IsTimeSynced = _SET_;
+   \   000114   ....D243.... MOVX.B  #0x1, &bFLAG_IsTimeSynced
+     97                          
+     98                          // Turn LED3 off 
+     99                          TIME_SYNC_ERROR_LED_OFF();
+   \   00011A   F2D020008202 BIS.B   #0x20, &0x282
+    100                          break;
+    101                          
+    102          ///////////////////////////////////// DEFAULT //////////////////////////////////
+    103                      default: break;
+    104                  }    
+    105              }
+    106          }
+   \                     ??APP_ProcessingUSBFrame_1:
+   \   000120   1001         RETA
+   \   000122                REQUIRE _A_PEOUT_L
+    107          
+    108          
+    109          
+    110          
+    111          
+    112          
+    113          
+    114          
+    115          
+    116          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  APP_ProcessingUSBFrame
+            4 -> HAL_FLASH_Write
+            4 -> HAL_RTC_ReadRTCTime
+            4 -> HAL_SetRTCDay
+            4 -> HAL_SetRTCHour
+            4 -> HAL_SetRTCMin
+            4 -> HAL_SetRTCMon
+            4 -> HAL_SetRTCSec
+            4 -> HAL_SetRTCYear
+            4 -> SYS_USB_SendACK
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     290  APP_ProcessingUSBFrame
+       2  _A_PEOUT_L
+
+ 
+ 290 bytes in segment CODE
+   2 bytes in segment DATA16_AN
+ 
+ 290 bytes of CODE memory
+   0 bytes of DATA memory (+ 2 bytes shared)
+
+Errors: none
+Warnings: none

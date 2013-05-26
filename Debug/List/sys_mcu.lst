@@ -1,0 +1,108 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:34 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\sys\sys_mcu.c             #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\sys_mcu.c" -lC        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\sys_mcu.lst    #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_mcu.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_mcu.c
+      1          /**
+      2          @file       sys_mcu.c
+      3          
+      4          @brief      MCU related functions
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          /*----------------------------------------------------------------------------*/
+     14          /**
+     15          @brief    Initializing microcontroller
+     16          
+     17          @return   void 
+     18          
+     19          @param    void
+     20          */
+
+   \                                 In  segment CODE, align 2
+     21          void SYS_MCU_Init(void)
+   \                     SYS_MCU_Init:
+     22          { 
+     23              HAL_Init();
+   \   000000   ........     BRA     #HAL_Init
+     24          }
+     25          
+     26          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_MCU_Init
+            4 -> HAL_Init
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  SYS_MCU_Init
+
+ 
+ 4 bytes in segment CODE
+ 
+ 4 bytes of CODE memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,89 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       29/Nov/2012  23:37:23 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Program Files\IAR Systems\Embedded Workbench         #
+#                     6.4\430\bin\file.c                                      #
+#    Command line  =  "C:\Program Files\IAR Systems\Embedded Workbench        #
+#                     6.4\430\bin\file.c" -lC "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develop #
+#                     ing\cleon\Debug\List" -la "C:\Users\woosuk\Dropbox\lws\ #
+#                     ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_devel #
+#                     oping\cleon\Debug\List" -o                              #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon" --no_cse    #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files\IAR Systems\Embedded Workbench        #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\intro" -I    #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys" -I      #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal" -I      #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib"  #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfor #
+#                     m" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.   #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs" -I  #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\fs\FatFs"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\app"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon"        #
+#                     --core=430X --data_model=large -On --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42 --predef_macros                   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\IAR_ULPAdvis #
+#                     or_Defs.h"                                              #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\f #
+#                     ile.lst                                                 #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\file.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+
+   \                                 In  segment CODE, align 2
+C:\Program Files\IAR Systems\Embedded Workbench 6.4\430\bin\file.c
+      1          int main(void)
+   \                     main:
+      2          {
+      3          }
+   \   000000   0C43         MOV.W   #0x0, R12
+   \   000002   1001         RETA
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  main
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  main
+
+ 
+ 4 bytes in segment CODE
+ 
+ 4 bytes of CODE memory
+
+Errors: none
+Warnings: none

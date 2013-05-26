@@ -1,0 +1,304 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      05/Dec/2012  04:32:11 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\app\app_usb /
+//                     _comm.c                                                /
+//    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\app\app_usb /
+//                     _comm.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.       /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ES /
+//                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develo /
+//                     ping\cleon\Debug\List\" -o                             /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\" /
+//                      --no_cse --no_unroll --no_inline --no_code_motion     /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files\IAR Systems\Embedded   /
+//                     Workbench 6.4\430\LIB\DLIB\dl430xldn.h" -I             /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\intro\" -I  /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib\ /
+//                     " -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.   /
+//                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfo /
+//                     rm\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.            /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\fs\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.      /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\fs\FatFs\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3 /
+//                     . Research\7. Fall 2012\4_CLEON\3_software\1_developin /
+//                     g\cleon\app\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.   /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\" --core=430X --data_model=large -On             /
+//                     --multiplier=32 --multiplier_location=4C0              /
+//                     --hw_workaround=CPU40 --hw_workaround=CPU42            /
+//    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\ /
+//                     app_usb_comm.s43                                       /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME app_usb_comm
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC APP_ProcessingUSBFrame
+        FUNCTION APP_ProcessingUSBFrame,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBWEAK _A_PEOUT_L
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN bFLAG_USBFrameReceived
+        EXTERN uniUSBRecvFrame
+        EXTERN SYS_USB_SendACK
+        FUNCTION SYS_USB_SendACK,0202H
+        EXTERN HAL_SetRTCYear
+        FUNCTION HAL_SetRTCYear,0202H
+        EXTERN HAL_SetRTCMon
+        FUNCTION HAL_SetRTCMon,0202H
+        EXTERN HAL_SetRTCDay
+        FUNCTION HAL_SetRTCDay,0202H
+        EXTERN HAL_SetRTCHour
+        FUNCTION HAL_SetRTCHour,0202H
+        EXTERN HAL_SetRTCMin
+        FUNCTION HAL_SetRTCMin,0202H
+        EXTERN HAL_SetRTCSec
+        FUNCTION HAL_SetRTCSec,0202H
+        EXTERN uniSecondTimeTick
+        EXTERN uniMillisecondTimeTick
+        EXTERN HAL_RTC_ReadRTCTime
+        FUNCTION HAL_RTC_ReadRTCTime,0202H
+        EXTERN uniRTCTime
+        EXTERN HAL_FLASH_Write
+        FUNCTION HAL_FLASH_Write,0202H
+        EXTERN bFLAG_IsTimeSynced
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0282H
+// union <unnamed> __data16 _A_PEOUT_L
+_A_PEOUT_L:
+        DS8 2
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+APP_ProcessingUSBFrame:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function APP_ProcessingUSBFrame
+        FUNCALL APP_ProcessingUSBFrame, SYS_USB_SendACK
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, SYS_USB_SendACK
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_SetRTCYear
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_SetRTCMon
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_SetRTCDay
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_SetRTCHour
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_SetRTCMin
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_SetRTCSec
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, SYS_USB_SendACK
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_RTC_ReadRTCTime
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_FLASH_Write
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL APP_ProcessingUSBFrame, HAL_FLASH_Write
+        LOCFRAME CSTACK, 4, STACK
+        CMPX.B  #0x0, &bFLAG_USBFrameReceived
+        JEQ     ??APP_ProcessingUSBFrame_1
+        MOVX.B  #0x0, &bFLAG_USBFrameReceived
+        MOVX.B  &uniUSBRecvFrame + 3, R14
+        SUB.B   #0x1, R14
+        JEQ     ??APP_ProcessingUSBFrame_2
+        SUB.B   #0x1, R14
+        JEQ     ??APP_ProcessingUSBFrame_3
+        SUB.B   #0x1, R14
+        JEQ     ??APP_ProcessingUSBFrame_4
+        RETA
+??APP_ProcessingUSBFrame_2:
+        MOVX.B  &uniUSBRecvFrame + 3, R12
+        BRA     #SYS_USB_SendACK
+??APP_ProcessingUSBFrame_3:
+        MOVX.B  &uniUSBRecvFrame + 3, R12
+        CALLA   #SYS_USB_SendACK
+        MOVX.B  &uniUSBRecvFrame + 4, R12
+        MOV.B   R12, R12
+        AND.W   #0xff, R12
+        SWPB    R12
+        MOVX.B  &uniUSBRecvFrame + 5, R15
+        MOV.B   R15, R15
+        ADD.W   R15, R12
+        CALLA   #HAL_SetRTCYear
+        MOVX.B  &uniUSBRecvFrame + 6, R12
+        MOV.B   R12, R12
+        CALLA   #HAL_SetRTCMon
+        MOVX.B  &uniUSBRecvFrame + 7, R12
+        MOV.B   R12, R12
+        CALLA   #HAL_SetRTCDay
+        MOVX.B  &uniUSBRecvFrame + 8, R12
+        MOV.B   R12, R12
+        CALLA   #HAL_SetRTCHour
+        MOVX.B  &uniUSBRecvFrame + 9, R12
+        MOV.B   R12, R12
+        CALLA   #HAL_SetRTCMin
+        MOVX.B  &uniUSBRecvFrame + 10, R12
+        MOV.B   R12, R12
+        BRA     #HAL_SetRTCSec
+??APP_ProcessingUSBFrame_4:
+        MOVX.B  &uniUSBRecvFrame + 3, R12
+        CALLA   #SYS_USB_SendACK
+        MOVX.B  &uniUSBRecvFrame + 11, &uniSecondTimeTick + 7
+        MOVX.B  &uniUSBRecvFrame + 10, &uniSecondTimeTick + 6
+        MOVX.B  &uniUSBRecvFrame + 9, &uniSecondTimeTick + 5
+        MOVX.B  &uniUSBRecvFrame + 8, &uniSecondTimeTick + 4
+        MOVX.B  &uniUSBRecvFrame + 7, &uniSecondTimeTick + 3
+        MOVX.B  &uniUSBRecvFrame + 6, &uniSecondTimeTick + 2
+        MOVX.B  &uniUSBRecvFrame + 5, &uniSecondTimeTick + 1
+        MOVX.B  &uniUSBRecvFrame + 4, &uniSecondTimeTick
+??APP_ProcessingUSBFrame_0:
+        MOVX.W  &uniMillisecondTimeTick, R15
+        BISX.W  &uniMillisecondTimeTick + 2, R15
+        BISX.W  &uniMillisecondTimeTick + 4, R15
+        BISX.W  &uniMillisecondTimeTick + 6, R15
+        CMP.W   #0x0, R15
+        JNE     ??APP_ProcessingUSBFrame_0
+        CALLA   #HAL_RTC_ReadRTCTime
+        MOVA    #0x38000, R14
+        MOVA    #uniRTCTime, R13
+        MOV.W   #0x8, R12
+        CALLA   #HAL_FLASH_Write
+        MOVA    #0x38008, R14
+        MOVA    #uniSecondTimeTick, R13
+        MOV.W   #0x8, R12
+        CALLA   #HAL_FLASH_Write
+        MOVX.B  #0x1, &bFLAG_IsTimeSynced
+        BIS.B   #0x20, &0x282
+??APP_ProcessingUSBFrame_1:
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PEOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+// 290 bytes in segment CODE
+//   2 bytes in segment DATA16_AN
+// 
+// 290 bytes of CODE memory
+//   0 bytes of DATA memory (+ 2 bytes shared)
+//
+//Errors: none
+//Warnings: none

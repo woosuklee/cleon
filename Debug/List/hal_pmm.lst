@@ -1,0 +1,618 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:34 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_pmm.c             #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_pmm.c" -lC        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_pmm.lst    #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_pmm.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_pmm.c
+      1          /**
+      2          @file       hal_pmm.c
+      3          
+      4          @brief      PMM configuration
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x120
+   \   union <unnamed> __data16 _A_PMMCTL0_L
+   \                     _A_PMMCTL0_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x124
+   \   union <unnamed> __data16 _A_SVSMHCTL_L
+   \                     _A_SVSMHCTL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x126
+   \   union <unnamed> __data16 _A_SVSMLCTL_L
+   \                     _A_SVSMLCTL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x12c
+   \   union <unnamed> __data16 _A_PMMIFG_L
+   \                     _A_PMMIFG_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x12e
+   \   union <unnamed> __data16 _A_PMMRIE_L
+   \                     _A_PMMRIE_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x19e
+   \   union <unnamed> __data16 _A_SYSRSTIV_L
+   \                     _A_SYSRSTIV_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          // Variable for storing SYSRSTIV
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     14          volatile unsigned int SysRstIv = 0;
+   \                     SysRstIv:
+   \   000000                DS8 2
+     15          
+     16          /*----------------------------------------------------------------------------*/
+     17          /**
+     18          @brief    Initializing PMM
+     19          
+     20          @return   void 
+     21          
+     22          @param    void
+     23          */
+
+   \                                 In  segment CODE, align 2
+     24          void HAL_PMM_Init(void)
+   \                     HAL_PMM_Init:
+     25          { 
+     26              SysRstIv = SYSRSTIV;
+   \   000000   ....92429E01 MOVX.W  &0x19e, &SysRstIv
+   \            ....        
+     27              
+     28              // Set Vcore voltage to level 2 in order to support 12MHz MCLK
+     29              // SVSH enabled
+     30              // SVSHRVL = 2 (2.04V), SVSMHRRL = 2 (2.14V)    
+     31              SetVCore(2);
+   \   000008   6C43         MOV.B   #0x2, R12
+   \   00000A   ........     CALLA   #SetVCore
+     32              
+     33              // Enable SYSH and SVMH
+     34              ENABLE_SVSH_SVMH();
+   \   00000E   F240A5002101 MOV.B   #0xa5, &0x121
+   \   000014   B2D000442401 BIS.W   #0x4400, &0x124
+   \   00001A   C2432101     MOV.B   #0x0, &0x121
+     35              
+     36              // Enable SVSH reset
+     37              ENABLE_SVSH_RESET();
+   \   00001E   F240A5002101 MOV.B   #0xa5, &0x121
+   \   000024   B2D000102E01 BIS.W   #0x1000, &0x12e
+   \   00002A   C2432101     MOV.B   #0x0, &0x121
+     38              
+     39              // SVS is enabled in LPM as normal performance
+     40              SVSH_ENABLED_IN_LPM_NORM_PERF();
+   \   00002E   F240A5002101 MOV.B   #0xa5, &0x121
+   \   000034   B2D010002401 BIS.W   #0x10, &0x124
+   \   00003A   B2F07FF72401 AND.W   #0xf77f, &0x124
+   \   000040   C2432101     MOV.B   #0x0, &0x121
+     41              
+     42              // Clear existing interrupt flags
+     43              CLEAR_PMM_IFGS();
+   \   000044   F240A5002101 MOV.B   #0xa5, &0x121
+   \   00004A   82432C01     MOV.W   #0x0, &0x12c
+   \   00004E   C2432101     MOV.B   #0x0, &0x121
+     44          }
+   \   000052   1001         RETA
+   \   000054                REQUIRE _A_SYSRSTIV_L
+   \   000054                REQUIRE _A_PMMCTL0_L
+   \   000054                REQUIRE _A_SVSMHCTL_L
+   \   000054                REQUIRE _A_PMMRIE_L
+   \   000054                REQUIRE _A_PMMIFG_L
+     45          
+     46          /////////////// The sources blow has been taken from TI soruce ////// Start ////
+     47          /*******************************************************************************
+     48           *
+     49           * HAL_PMM.c
+     50           * Power Management Module Library for MSP430F5xx/6xx family
+     51           *
+     52           *
+     53           * Copyright (C) 2010 Texas Instruments Incorporated - http://www.ti.com/
+     54           *
+     55           *
+     56           *  Redistribution and use in source and binary forms, with or without
+     57           *  modification, are permitted provided that the following conditions
+     58           *  are met:
+     59           *
+     60           *    Redistributions of source code must retain the above copyright
+     61           *    notice, this list of conditions and the following disclaimer.
+     62           *
+     63           *    Redistributions in binary form must reproduce the above copyright
+     64           *    notice, this list of conditions and the following disclaimer in the
+     65           *    documentation and/or other materials provided with the
+     66           *    distribution.
+     67           *
+     68           *    Neither the name of Texas Instruments Incorporated nor the names of
+     69           *    its contributors may be used to endorse or promote products derived
+     70           *    from this software without specific prior written permission.
+     71           *
+     72           *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+     73           *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+     74           *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+     75           *  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+     76           *  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+     77           *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+     78           *  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+     79           *  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+     80           *  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+     81           *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+     82           *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+     83           *
+     84           ******************************************************************************/
+     85          
+     86          /*******************************************************************************
+     87           * \brief   Increase Vcore by one level
+     88           *
+     89           * \param level     Level to which Vcore needs to be increased
+     90           * \return status   Success/failure
+     91           ******************************************************************************/
+     92          
+
+   \                                 In  segment CODE, align 2
+     93          static uint16_t SetVCoreUp(uint8_t level)
+   \                     SetVCoreUp:
+     94          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   4E4C         MOV.B   R12, R14
+     95              uint16_t PMMRIE_backup, SVSMHCTL_backup, SVSMLCTL_backup;
+     96          
+     97              // The code flow for increasing the Vcore has been altered to work around
+     98              // the erratum FLASH37.
+     99              // Please refer to the Errata sheet to know if a specific device is affected
+    100              // DO NOT ALTER THIS FUNCTION
+    101          
+    102              // Open PMM registers for write access
+    103              PMMCTL0_H = 0xA5;
+   \   000004   F240A5002101 MOV.B   #0xa5, &0x121
+    104          
+    105              // Disable dedicated Interrupts
+    106              // Backup all registers
+    107              PMMRIE_backup = PMMRIE;
+   \   00000A   1F422E01     MOV.W   &0x12e, R15
+    108              PMMRIE &= ~(SVMHVLRPE | SVSHPE | SVMLVLRPE | SVSLPE | SVMHVLRIE |
+    109                          SVMHIE | SVSMHDLYIE | SVMLVLRIE | SVMLIE | SVSMLDLYIE);
+   \   00000E   B2F088CC2E01 AND.W   #0xcc88, &0x12e
+    110              SVSMHCTL_backup = SVSMHCTL;
+   \   000014   1D422401     MOV.W   &0x124, R13
+    111              SVSMLCTL_backup = SVSMLCTL;
+   \   000018   1A422601     MOV.W   &0x126, R10
+    112          
+    113              // Clear flags
+    114              PMMIFG = 0;
+   \   00001C   82432C01     MOV.W   #0x0, &0x12c
+    115          
+    116              // Set SVM highside to new level and check if a VCore increase is possible
+    117              SVSMHCTL = SVMHE | SVSHE | (SVSMHRRL0 * level);
+   \   000020   4C4E         MOV.B   R14, R12
+   \   000022   3CD00044     BIS.W   #0x4400, R12
+   \   000026   824C2401     MOV.W   R12, &0x124
+    118          
+    119              // Wait until SVM highside is settled
+    120              while ((PMMIFG & SVSMHDLYIFG) == 0) ;
+   \                     ??SetVCoreUp_0:
+   \   00002A   B2B010002C01 BIT.W   #0x10, &0x12c
+   \   000030   FC2B         JNC     ??SetVCoreUp_0
+    121          
+    122              // Clear flag
+    123              PMMIFG &= ~SVSMHDLYIFG;
+   \   000032   B2C010002C01 BIC.W   #0x10, &0x12c
+    124          
+    125              // Check if a VCore increase is possible
+    126              if ((PMMIFG & SVMHIFG) == SVMHIFG){     // -> Vcc is too low for a Vcore increase
+   \   000038   B2B020002C01 BIT.W   #0x20, &0x12c
+   \   00003E   1228         JNC     ??SetVCoreUp_5
+    127                  // recover the previous settings
+    128                  PMMIFG &= ~SVSMHDLYIFG;
+   \   000040   B2C010002C01 BIC.W   #0x10, &0x12c
+    129                  SVSMHCTL = SVSMHCTL_backup;
+   \   000046   824D2401     MOV.W   R13, &0x124
+    130          
+    131                  // Wait until SVM highside is settled
+    132                  while ((PMMIFG & SVSMHDLYIFG) == 0) ;
+   \                     ??SetVCoreUp_1:
+   \   00004A   B2B010002C01 BIT.W   #0x10, &0x12c
+   \   000050   FC2B         JNC     ??SetVCoreUp_1
+    133          
+    134                  // Clear all Flags
+    135                  PMMIFG &= ~(SVMHVLRIFG | SVMHIFG | SVSMHDLYIFG | SVMLVLRIFG | SVMLIFG | SVSMLDLYIFG);
+   \   000052   B2F088FF2C01 AND.W   #0xff88, &0x12c
+    136          
+    137                  PMMRIE = PMMRIE_backup;             // Restore PMM interrupt enable register
+   \   000058   824F2E01     MOV.W   R15, &0x12e
+    138                  PMMCTL0_H = 0x00;                   // Lock PMM registers for write access
+   \   00005C   C2432101     MOV.B   #0x0, &0x121
+    139                  return PMM_STATUS_ERROR;            // return: voltage not set
+   \   000060   1C43         MOV.W   #0x1, R12
+   \   000062   3B3C         JMP     ??SetVCoreUp_6
+    140              }
+    141          
+    142              // Set also SVS highside to new level
+    143              // Vcc is high enough for a Vcore increase
+    144              SVSMHCTL |= (SVSHRVL0 * level);
+   \                     ??SetVCoreUp_5:
+   \   000064   4C4E         MOV.B   R14, R12
+   \   000066   3CF0FF00     AND.W   #0xff, R12
+   \   00006A   8C10         SWPB    R12
+   \   00006C   82DC2401     BIS.W   R12, &0x124
+    145          
+    146              // Wait until SVM highside is settled
+    147              while ((PMMIFG & SVSMHDLYIFG) == 0) ;
+   \                     ??SetVCoreUp_2:
+   \   000070   B2B010002C01 BIT.W   #0x10, &0x12c
+   \   000076   FC2B         JNC     ??SetVCoreUp_2
+    148          
+    149              // Clear flag
+    150              PMMIFG &= ~SVSMHDLYIFG;
+   \   000078   B2C010002C01 BIC.W   #0x10, &0x12c
+    151          
+    152              // Set VCore to new level
+    153              PMMCTL0_L = PMMCOREV0 * level;
+   \   00007E   C24E2001     MOV.B   R14, &0x120
+    154          
+    155              // Set SVM, SVS low side to new level
+    156              SVSMLCTL = SVMLE | (SVSMLRRL0 * level) | SVSLE | (SVSLRVL0 * level);
+   \   000082   4B4E         MOV.B   R14, R11
+   \   000084   4C4E         MOV.B   R14, R12
+   \   000086   3CF0FF00     AND.W   #0xff, R12
+   \   00008A   8C10         SWPB    R12
+   \   00008C   0BDC         BIS.W   R12, R11
+   \   00008E   3BD00044     BIS.W   #0x4400, R11
+   \   000092   824B2601     MOV.W   R11, &0x126
+    157          
+    158              // Wait until SVM, SVS low side is settled
+    159              while ((PMMIFG & SVSMLDLYIFG) == 0) ;
+   \                     ??SetVCoreUp_3:
+   \   000096   92B32C01     BIT.W   #0x1, &0x12c
+   \   00009A   FD2B         JNC     ??SetVCoreUp_3
+    160          
+    161              // Clear flag
+    162              PMMIFG &= ~SVSMLDLYIFG;
+   \   00009C   92C32C01     BIC.W   #0x1, &0x12c
+    163              // SVS, SVM core and high side are now set to protect for the new core level
+    164          
+    165              // Restore Low side settings
+    166              // Clear all other bits _except_ level settings
+    167              SVSMLCTL &= (SVSLRVL0 + SVSLRVL1 + SVSMLRRL0 + SVSMLRRL1 + SVSMLRRL2);
+   \   0000A0   B2F007032601 AND.W   #0x307, &0x126
+    168          
+    169              // Clear level settings in the backup register,keep all other bits
+    170              SVSMLCTL_backup &= ~(SVSLRVL0 + SVSLRVL1 + SVSMLRRL0 + SVSMLRRL1 + SVSMLRRL2);
+   \   0000A6   3AF0F8FC     AND.W   #0xfcf8, R10
+    171          
+    172              // Restore low-side SVS monitor settings
+    173              SVSMLCTL |= SVSMLCTL_backup;
+   \   0000AA   82DA2601     BIS.W   R10, &0x126
+    174          
+    175              // Restore High side settings
+    176              // Clear all other bits except level settings
+    177              SVSMHCTL &= (SVSHRVL0 + SVSHRVL1 + SVSMHRRL0 + SVSMHRRL1 + SVSMHRRL2);
+   \   0000AE   B2F007032401 AND.W   #0x307, &0x124
+    178          
+    179              // Clear level settings in the backup register,keep all other bits
+    180              SVSMHCTL_backup &= ~(SVSHRVL0 + SVSHRVL1 + SVSMHRRL0 + SVSMHRRL1 + SVSMHRRL2);
+   \   0000B4   3DF0F8FC     AND.W   #0xfcf8, R13
+    181          
+    182              // Restore backup
+    183              SVSMHCTL |= SVSMHCTL_backup;
+   \   0000B8   82DD2401     BIS.W   R13, &0x124
+    184          
+    185              // Wait until high side, low side settled
+    186              while (((PMMIFG & SVSMLDLYIFG) == 0) && ((PMMIFG & SVSMHDLYIFG) == 0)) ;
+   \                     ??SetVCoreUp_4:
+   \   0000BC   92B32C01     BIT.W   #0x1, &0x12c
+   \   0000C0   042C         JC      ??SetVCoreUp_7
+   \   0000C2   B2B010002C01 BIT.W   #0x10, &0x12c
+   \   0000C8   F92B         JNC     ??SetVCoreUp_4
+    187          
+    188              // Clear all Flags
+    189              PMMIFG &= ~(SVMHVLRIFG | SVMHIFG | SVSMHDLYIFG | SVMLVLRIFG | SVMLIFG | SVSMLDLYIFG);
+   \                     ??SetVCoreUp_7:
+   \   0000CA   B2F088FF2C01 AND.W   #0xff88, &0x12c
+    190          
+    191              PMMRIE = PMMRIE_backup;                 // Restore PMM interrupt enable register
+   \   0000D0   824F2E01     MOV.W   R15, &0x12e
+    192              PMMCTL0_H = 0x00;                       // Lock PMM registers for write access
+   \   0000D4   C2432101     MOV.B   #0x0, &0x121
+    193          
+    194              return PMM_STATUS_OK;
+   \   0000D8   0C43         MOV.W   #0x0, R12
+   \                     ??SetVCoreUp_6:
+   \   0000DA   3816         POPM.A  #0x4, R11
+   \   0000DC   1001         RETA
+   \   0000DE                REQUIRE _A_PMMCTL0_L
+   \   0000DE                REQUIRE _A_PMMRIE_L
+   \   0000DE                REQUIRE _A_SVSMHCTL_L
+   \   0000DE                REQUIRE _A_SVSMLCTL_L
+   \   0000DE                REQUIRE _A_PMMIFG_L
+    195          }
+    196          
+    197          /*******************************************************************************
+    198           * \brief  Decrease Vcore by one level
+    199           *
+    200           * \param  level    Level to which Vcore needs to be decreased
+    201           * \return status   Success/failure
+    202           ******************************************************************************/
+    203          
+
+   \                                 In  segment CODE, align 2
+    204          static uint16_t SetVCoreDown(uint8_t level)
+   \                     SetVCoreDown:
+    205          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   4E4C         MOV.B   R12, R14
+    206              uint16_t PMMRIE_backup, SVSMHCTL_backup, SVSMLCTL_backup;
+    207          
+    208              // The code flow for decreasing the Vcore has been altered to work around
+    209              // the erratum FLASH37.
+    210              // Please refer to the Errata sheet to know if a specific device is affected
+    211              // DO NOT ALTER THIS FUNCTION
+    212          
+    213              // Open PMM registers for write access
+    214              PMMCTL0_H = 0xA5;
+   \   000004   F240A5002101 MOV.B   #0xa5, &0x121
+    215          
+    216              // Disable dedicated Interrupts
+    217              // Backup all registers
+    218              PMMRIE_backup = PMMRIE;
+   \   00000A   1F422E01     MOV.W   &0x12e, R15
+    219              PMMRIE &= ~(SVMHVLRPE | SVSHPE | SVMLVLRPE | SVSLPE | SVMHVLRIE |
+    220                          SVMHIE | SVSMHDLYIE | SVMLVLRIE | SVMLIE | SVSMLDLYIE);
+   \   00000E   B2F088CC2E01 AND.W   #0xcc88, &0x12e
+    221              SVSMHCTL_backup = SVSMHCTL;
+   \   000014   1D422401     MOV.W   &0x124, R13
+    222              SVSMLCTL_backup = SVSMLCTL;
+   \   000018   1A422601     MOV.W   &0x126, R10
+    223          
+    224              // Clear flags
+    225              PMMIFG &= ~(SVMHIFG | SVSMHDLYIFG | SVMLIFG | SVSMLDLYIFG);
+   \   00001C   B2F0CCFF2C01 AND.W   #0xffcc, &0x12c
+    226          
+    227              // Set SVM, SVS high & low side to new settings in normal mode
+    228              SVSMHCTL = SVMHE | (SVSMHRRL0 * level) | SVSHE | (SVSHRVL0 * level);
+   \   000022   4C4E         MOV.B   R14, R12
+   \   000024   4B4E         MOV.B   R14, R11
+   \   000026   3BF0FF00     AND.W   #0xff, R11
+   \   00002A   8B10         SWPB    R11
+   \   00002C   0CDB         BIS.W   R11, R12
+   \   00002E   3CD00044     BIS.W   #0x4400, R12
+   \   000032   824C2401     MOV.W   R12, &0x124
+    229              SVSMLCTL = SVMLE | (SVSMLRRL0 * level) | SVSLE | (SVSLRVL0 * level);
+   \   000036   4B4E         MOV.B   R14, R11
+   \   000038   484E         MOV.B   R14, R8
+   \   00003A   38F0FF00     AND.W   #0xff, R8
+   \   00003E   8810         SWPB    R8
+   \   000040   0BD8         BIS.W   R8, R11
+   \   000042   3BD00044     BIS.W   #0x4400, R11
+   \   000046   824B2601     MOV.W   R11, &0x126
+    230          
+    231              // Wait until SVM high side and SVM low side is settled
+    232              while ((PMMIFG & SVSMHDLYIFG) == 0 || (PMMIFG & SVSMLDLYIFG) == 0) ;
+   \                     ??SetVCoreDown_0:
+   \   00004A   B2B010002C01 BIT.W   #0x10, &0x12c
+   \   000050   FC2B         JNC     ??SetVCoreDown_0
+   \   000052   92B32C01     BIT.W   #0x1, &0x12c
+   \   000056   F92B         JNC     ??SetVCoreDown_0
+    233          
+    234              // Clear flags
+    235              PMMIFG &= ~(SVSMHDLYIFG + SVSMLDLYIFG);
+   \   000058   B2F0EEFF2C01 AND.W   #0xffee, &0x12c
+    236              // SVS, SVM core and high side are now set to protect for the new core level
+    237          
+    238              // Set VCore to new level
+    239              PMMCTL0_L = PMMCOREV0 * level;
+   \   00005E   C24E2001     MOV.B   R14, &0x120
+    240          
+    241              // Restore Low side settings
+    242              // Clear all other bits _except_ level settings
+    243              SVSMLCTL &= (SVSLRVL0 + SVSLRVL1 + SVSMLRRL0 + SVSMLRRL1 + SVSMLRRL2);
+   \   000062   B2F007032601 AND.W   #0x307, &0x126
+    244          
+    245              // Clear level settings in the backup register,keep all other bits
+    246              SVSMLCTL_backup &= ~(SVSLRVL0 + SVSLRVL1 + SVSMLRRL0 + SVSMLRRL1 + SVSMLRRL2);
+   \   000068   3AF0F8FC     AND.W   #0xfcf8, R10
+    247          
+    248              // Restore low-side SVS monitor settings
+    249              SVSMLCTL |= SVSMLCTL_backup;
+   \   00006C   82DA2601     BIS.W   R10, &0x126
+    250          
+    251              // Restore High side settings
+    252              // Clear all other bits except level settings
+    253              SVSMHCTL &= (SVSHRVL0 + SVSHRVL1 + SVSMHRRL0 + SVSMHRRL1 + SVSMHRRL2);
+   \   000070   B2F007032401 AND.W   #0x307, &0x124
+    254          
+    255              // Clear level settings in the backup register, keep all other bits
+    256              SVSMHCTL_backup &= ~(SVSHRVL0 + SVSHRVL1 + SVSMHRRL0 + SVSMHRRL1 + SVSMHRRL2);
+   \   000076   3DF0F8FC     AND.W   #0xfcf8, R13
+    257          
+    258              // Restore backup
+    259              SVSMHCTL |= SVSMHCTL_backup;
+   \   00007A   82DD2401     BIS.W   R13, &0x124
+    260          
+    261              // Wait until high side, low side settled
+    262              while (((PMMIFG & SVSMLDLYIFG) == 0) && ((PMMIFG & SVSMHDLYIFG) == 0)) ;
+   \                     ??SetVCoreDown_1:
+   \   00007E   92B32C01     BIT.W   #0x1, &0x12c
+   \   000082   042C         JC      ??SetVCoreDown_2
+   \   000084   B2B010002C01 BIT.W   #0x10, &0x12c
+   \   00008A   F92B         JNC     ??SetVCoreDown_1
+    263          
+    264              // Clear all Flags
+    265              PMMIFG &= ~(SVMHVLRIFG | SVMHIFG | SVSMHDLYIFG | SVMLVLRIFG | SVMLIFG | SVSMLDLYIFG);
+   \                     ??SetVCoreDown_2:
+   \   00008C   B2F088FF2C01 AND.W   #0xff88, &0x12c
+    266          
+    267              PMMRIE = PMMRIE_backup;                // Restore PMM interrupt enable register
+   \   000092   824F2E01     MOV.W   R15, &0x12e
+    268              PMMCTL0_H = 0x00;                      // Lock PMM registers for write access
+   \   000096   C2432101     MOV.B   #0x0, &0x121
+    269              return PMM_STATUS_OK;                  // Return: OK
+   \   00009A   0C43         MOV.W   #0x0, R12
+   \   00009C   3816         POPM.A  #0x4, R11
+   \   00009E   1001         RETA
+   \   0000A0                REQUIRE _A_PMMCTL0_L
+   \   0000A0                REQUIRE _A_PMMRIE_L
+   \   0000A0                REQUIRE _A_SVSMHCTL_L
+   \   0000A0                REQUIRE _A_SVSMLCTL_L
+   \   0000A0                REQUIRE _A_PMMIFG_L
+    270          }
+    271          
+
+   \                                 In  segment CODE, align 2
+    272          uint16_t SetVCore(uint8_t level)
+   \                     SetVCore:
+    273          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   4B4C         MOV.B   R12, R11
+    274              uint16_t actlevel;
+    275              uint16_t status = 0;
+   \   000004   0843         MOV.W   #0x0, R8
+    276          
+    277              level &= PMMCOREV_3;                   // Set Mask for Max. level
+   \   000006   7BF00300     AND.B   #0x3, R11
+    278              actlevel = (PMMCTL0 & PMMCOREV_3);     // Get actual VCore
+   \   00000A   1F422001     MOV.W   &0x120, R15
+   \   00000E   3FF00300     AND.W   #0x3, R15
+   \   000012   0A4F         MOV.W   R15, R10
+    279                                                     // step by step increase or decrease
+    280              while ((level != actlevel) && (status == 0)) {
+   \                     ??SetVCore_0:
+   \   000014   4B4B         MOV.B   R11, R11
+   \   000016   0B9A         CMP.W   R10, R11
+   \   000018   1724         JEQ     ??SetVCore_1
+   \   00001A   0893         CMP.W   #0x0, R8
+   \   00001C   1520         JNE     ??SetVCore_1
+    281                  if (level > actlevel){
+   \   00001E   4B4B         MOV.B   R11, R11
+   \   000020   0A9B         CMP.W   R11, R10
+   \   000022   092C         JC      ??SetVCore_2
+    282                      status = SetVCoreUp(++actlevel);
+   \   000024   1A53         ADD.W   #0x1, R10
+   \   000026   0C12         PUSH.W  R12
+   \   000028   C14A0000     MOV.B   R10, 0(SP)
+   \   00002C   3C41         POP.W   R12
+   \   00002E   ........     CALLA   #SetVCoreUp
+   \   000032   084C         MOV.W   R12, R8
+   \   000034   EF3F         JMP     ??SetVCore_0
+    283                  }
+    284                  else {
+    285                      status = SetVCoreDown(--actlevel);
+   \                     ??SetVCore_2:
+   \   000036   3A53         ADD.W   #0xffff, R10
+   \   000038   0C12         PUSH.W  R12
+   \   00003A   C14A0000     MOV.B   R10, 0(SP)
+   \   00003E   3C41         POP.W   R12
+   \   000040   ........     CALLA   #SetVCoreDown
+   \   000044   084C         MOV.W   R12, R8
+   \   000046   E63F         JMP     ??SetVCore_0
+    286                  }
+    287              }
+    288          
+    289              return status;
+   \                     ??SetVCore_1:
+   \   000048   0C48         MOV.W   R8, R12
+   \   00004A   3816         POPM.A  #0x4, R11
+   \   00004C   1001         RETA
+   \   00004E                REQUIRE _A_PMMCTL0_L
+    290          }
+    291          ///////////////////////////////////////////////////////////////////// End //////
+    292          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_PMM_Init
+             4 -> SetVCore
+      20  SetVCore
+            20 -> SetVCoreDown
+            20 -> SetVCoreUp
+      20  SetVCoreDown
+      20  SetVCoreUp
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      84  HAL_PMM_Init
+      78  SetVCore
+     160  SetVCoreDown
+     222  SetVCoreUp
+       2  SysRstIv
+       2  _A_PMMCTL0_L
+       2  _A_PMMIFG_L
+       2  _A_PMMRIE_L
+       2  _A_SVSMHCTL_L
+       2  _A_SVSMLCTL_L
+       2  _A_SYSRSTIV_L
+
+ 
+ 544 bytes in segment CODE
+  12 bytes in segment DATA16_AN
+   2 bytes in segment DATA20_Z
+ 
+ 544 bytes of CODE memory
+   2 bytes of DATA memory (+ 12 bytes shared)
+
+Errors: none
+Warnings: none

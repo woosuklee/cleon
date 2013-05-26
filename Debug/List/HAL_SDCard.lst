@@ -1,0 +1,120 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.1.50592/W32 for MSP430       17/Nov/2012  00:39:13 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\fs\HAL_SDCar #
+#                     d.c                                                     #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\fs\HAL_SDCar #
+#                     d.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.            #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ESL\ #
+#                     3. Research\7. Fall 2012\4_CLEON\3_software\1_developin #
+#                     g\cleon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develop #
+#                     ing\cleon\Debug\Obj\" --debug -D__MSP430F5338__ -e      #
+#                     --double=64 --dlib_config "C:\Program Files (x86)\IAR   #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\platform\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -Oh --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\H #
+#                     AL_SDCard.lst                                           #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\HA #
+#                     L_SDCard.r43                                            #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\HAL_SDCard.c
+      1          /* --COPYRIGHT--,BSD
+      2           * Copyright (c) 2012, Texas Instruments Incorporated
+      3           * All rights reserved.
+      4           *
+      5           * Redistribution and use in source and binary forms, with or without
+      6           * modification, are permitted provided that the following conditions
+      7           * are met:
+      8           *
+      9           * *  Redistributions of source code must retain the above copyright
+     10           *    notice, this list of conditions and the following disclaimer.
+     11           *
+     12           * *  Redistributions in binary form must reproduce the above copyright
+     13           *    notice, this list of conditions and the following disclaimer in the
+     14           *    documentation and/or other materials provided with the distribution.
+     15           *
+     16           * *  Neither the name of Texas Instruments Incorporated nor the names of
+     17           *    its contributors may be used to endorse or promote products derived
+     18           *    from this software without specific prior written permission.
+     19           *
+     20           * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+     21           * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+     22           * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+     23           * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+     24           * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+     25           * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+     26           * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+     27           * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+     28           * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+     29           * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+     30           * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+     31           * --/COPYRIGHT--*/
+     32          /* 
+     33           * ======== HAL_SDCard.c ========
+     34           */
+     35          
+     36          /***************************************************************************//**
+     37           * @file       HAL_SDCard.c
+     38           * @addtogroup HAL_SDCard
+     39           * @{
+     40           ******************************************************************************/
+     41          #include "msp430.h"
+     42          #include "HAL_SDCard.h"
+     43          
+     44          //Pins from MSP430 connected to the SD Card
+     45          #define SPI_SIMO        BIT5
+     46          #define SPI_SOMI        BIT6
+     47          #define SPI_CLK         BIT4
+     48          #define SD_CS           BIT6
+     49          
+     50          //Ports
+     51          #define SPI_SEL         P8SEL
+     52          #define SPI_DIR         P8DIR
+     53          #define SD_CS_SEL       P1SEL
+     54          #define SD_CS_OUT       P1OUT
+     55          #define SD_CS_DIR       P1DIR
+     56          
+     57          //KLQ
+     58          #define SPI_REN         P8REN
+     59          #define SPI_OUT         P8OUT
+     60          //KLQ
+     61          
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none

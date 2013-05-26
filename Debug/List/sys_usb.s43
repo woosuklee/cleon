@@ -1,0 +1,589 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      20/Feb/2013  20:57:36 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\sys\sys_usb.c            /
+//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\sys_usb.c"    /
+//                     -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.    /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -la  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -o   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\Obj\"       /
+//                     --no_cse --no_unroll --no_inline --no_code_motion      /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\intro\" -I        /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\rtclib\" -I   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\platform\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\" -I           /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\FatFs\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\app\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\" --core=430X     /
+//                     --data_model=large -On --multiplier=32                 /
+//                     --multiplier_location=4C0 --hw_workaround=CPU40        /
+//                     --hw_workaround=CPU42                                  /
+//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\Debug\List\sys_usb.s43   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sys_usb
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__iar_require _Printf", "unknown"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?cstart_init_zero20
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC SYS_USB_BuildCRC
+        FUNCTION SYS_USB_BuildCRC,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_USB_Init
+        FUNCTION SYS_USB_Init,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_USB_Printf
+        FUNCTION SYS_USB_Printf,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 278, STACK
+        PUBLIC SYS_USB_ReceiveFrame
+        FUNCTION SYS_USB_ReceiveFrame,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC SYS_USB_SendACK
+        FUNCTION SYS_USB_SendACK,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC SYS_USB_TransmitSingleByte
+        FUNCTION SYS_USB_TransmitSingleByte,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBWEAK UCA1TXBUF
+        PUBWEAK _A_PADIR_L
+        PUBWEAK _A_PAIES_L
+        PUBWEAK _A_PAIE_L
+        PUBWEAK _A_PAIN_L
+        PUBWEAK _A_PDSEL_L
+        PUBWEAK _A_UCA1ICTL_L
+        PUBLIC bFLAG_USBConnected
+        PUBLIC bFLAG_USBFrameReceived
+        PUBLIC ucUSBFrameByteCount
+        PUBLIC uniUSBRecvFrame
+        PUBLIC uniUSBSendFrame
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN vsprintf
+        FUNCTION vsprintf,010202H
+        EXTERN memset
+        FUNCTION memset,010202H
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0200H
+// union <unnamed> __data16 _A_PAIN_L
+_A_PAIN_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0204H
+// union <unnamed> __data16 _A_PADIR_L
+_A_PADIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0218H
+// union <unnamed> __data16 _A_PAIES_L
+_A_PAIES_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,021aH
+// union <unnamed> __data16 _A_PAIE_L
+_A_PAIE_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,026aH
+// union <unnamed> __data16 _A_PDSEL_L
+_A_PDSEL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,060eH
+// unsigned char volatile __data16 UCA1TXBUF
+UCA1TXBUF:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,061cH
+// union <unnamed> __data16 _A_UCA1ICTL_L
+_A_UCA1ICTL_L:
+        DS8 2
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+bFLAG_USBFrameReceived:
+        DS8 1
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+bFLAG_USBConnected:
+        DS8 1
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+uniUSBRecvFrame:
+        DS8 36
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+uniUSBSendFrame:
+        DS8 36
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+ucUSBFrameByteCount:
+        DS8 1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_USB_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function SYS_USB_Init
+        BIS.B   #0x4, &0x26b
+        BIS.B   #0x8, &0x26b
+        BIC.B   #0x8, &0x204
+        BIC.B   #0x8, &0x218
+        BIS.B   #0x8, &0x21a
+        BIT.B   #0x8, &0x200
+        JNC     ??SYS_USB_Init_0
+        MOVX.B  #0x1, &bFLAG_USBConnected
+??SYS_USB_Init_0:
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PDSEL_L
+        REQUIRE _A_PADIR_L
+        REQUIRE _A_PAIES_L
+        REQUIRE _A_PAIE_L
+        REQUIRE _A_PAIN_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_USB_SendACK:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function SYS_USB_SendACK
+        FUNCALL SYS_USB_SendACK, memset
+        LOCFRAME CSTACK, 8, STACK
+        FUNCALL SYS_USB_SendACK, SYS_USB_BuildCRC
+        LOCFRAME CSTACK, 8, STACK
+        FUNCALL SYS_USB_SendACK, SYS_USB_TransmitSingleByte
+        LOCFRAME CSTACK, 8, STACK
+        PUSHM.A #0x1, R10
+          CFI R10L Frame(CFA, -8)
+          CFI R10H Frame(CFA, -6)
+          CFI CFA SP+8
+        MOV.B   R12, R10
+        MOV.W   #0x24, R14
+        MOV.W   #0x0, R15
+        MOV.W   #0x0, R13
+        MOVA    #uniUSBSendFrame, R12
+        CALLA   #memset
+        MOVX.B  #0x55, &uniUSBSendFrame
+        MOVX.B  #0x55, &uniUSBSendFrame + 1
+        MOVX.B  #0x2, &uniUSBSendFrame + 2
+        MOVX.B  #0xff, &uniUSBSendFrame + 3
+        MOVX.B  R10, &uniUSBSendFrame + 4
+        CALLA   #SYS_USB_BuildCRC
+        MOVX.B  R12, &uniUSBSendFrame + 33
+        MOVX.B  #0xaa, &uniUSBSendFrame + 34
+        MOVX.B  #0xaa, &uniUSBSendFrame + 35
+        MOV.W   #0x0, R15
+??SYS_USB_SendACK_0:
+        CMP.W   #0x24, R15
+        JGE     ??SYS_USB_SendACK_1
+        MOV.W   R15, R14
+        MOVX.B  uniUSBSendFrame(R14), R12
+        CALLA   #SYS_USB_TransmitSingleByte
+        ADD.W   #0x1, R15
+        JMP     ??SYS_USB_SendACK_0
+??SYS_USB_SendACK_1:
+        POPM.A  #0x1, R10
+          CFI R10H SameValue
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_USB_Printf:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function SYS_USB_Printf
+        FUNCALL SYS_USB_Printf, vsprintf
+        LOCFRAME CSTACK, 278, STACK
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        SUB.W   #0xfe, SP
+          CFI CFA SP+274
+        MOVA    R12, R10
+        MOV.W   #0x0, R8
+        MOV.B   #0x0, R11
+        MOV.B   #0x0, 0x4(SP)
+        MOV.W   SP, R15
+        ADD.W   #0x112, R15
+        MOVA    R15, 0(SP)
+        PUSH.W  0x4(SP)
+          CFI CFA SP+276
+        PUSH.W  0x4(SP)
+          CFI CFA SP+278
+        MOVA    R10, R13
+        MOV.W   SP, R12
+        ADD.W   #0x8, R12
+        CALLA   #vsprintf
+        MOV.W   R8, R15
+        ADD.W   SP, R15
+        MOV.B   0x8(R15), R11
+        ADD.W   #0x1, R8
+        ADD.W   #0x4, SP
+          CFI CFA SP+274
+??SYS_USB_Printf_1:
+        CMP.B   #0x0, R11
+        JEQ     ??SYS_USB_Printf_2
+??SYS_USB_Printf_0:
+        BIT.B   #0x2, &0x61d
+        JNC     ??SYS_USB_Printf_0
+        MOV.B   R11, &0x60e
+        MOV.W   R8, R15
+        ADD.W   SP, R15
+        MOV.B   0x4(R15), R11
+        ADD.W   #0x1, R8
+        JMP     ??SYS_USB_Printf_1
+??SYS_USB_Printf_2:
+        MOV.W   R8, R12
+        ADD.W   #0xfe, SP
+          CFI CFA SP+20
+        POPM.A  #0x4, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_UCA1ICTL_L
+        REQUIRE UCA1TXBUF
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_USB_TransmitSingleByte:
+??SYS_USB_TransmitSingleByte_0:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function SYS_USB_TransmitSingleByte
+        BIT.B   #0x2, &0x61d
+        JNC     ??SYS_USB_TransmitSingleByte_0
+        MOV.B   R12, &0x60e
+        RETA
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_UCA1ICTL_L
+        REQUIRE UCA1TXBUF
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_USB_ReceiveFrame:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function SYS_USB_ReceiveFrame
+        FUNCALL SYS_USB_ReceiveFrame, SYS_USB_BuildCRC
+        LOCFRAME CSTACK, 8, STACK
+        PUSHM.A #0x1, R10
+          CFI R10L Frame(CFA, -8)
+          CFI R10H Frame(CFA, -6)
+          CFI CFA SP+8
+        MOV.B   R12, R10
+        CMPX.B  #0x0, &bFLAG_USBFrameReceived
+        JNE     ??SYS_USB_ReceiveFrame_5
+        MOVX.B  &ucUSBFrameByteCount, R14
+        SXT     R14
+        CMP.W   #0x24, R14
+        JC      ??SYS_USB_ReceiveFrame_5
+        RLAM.W  #0x2, R14
+        MOVX.A  `?<Jumptable for SYS_USB_ReceiveFrame>_0`(R14), PC
+`?<Jumptable for SYS_USB_ReceiveFrame>_0`:
+        DC32    ??SYS_USB_ReceiveFrame_11
+        DC32    ??SYS_USB_ReceiveFrame_11
+        DC32    ??SYS_USB_ReceiveFrame_12
+        DC32    ??SYS_USB_ReceiveFrame_13
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_14
+        DC32    ??SYS_USB_ReceiveFrame_15
+        DC32    ??SYS_USB_ReceiveFrame_16
+        DC32    ??SYS_USB_ReceiveFrame_17
+??SYS_USB_ReceiveFrame_11:
+        CMP.B   #0x55, R10
+        JNE     ??SYS_USB_ReceiveFrame_6
+        MOVX.B  &ucUSBFrameByteCount, R15
+        MOV.B   R15, R15
+        MOVX.B  R10, uniUSBRecvFrame(R15)
+        ADDX.B  #0x1, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_6:
+        MOVX.B  #0x0, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_12:
+        CMPX.B  #0x55, &uniUSBRecvFrame
+        JNE     ??SYS_USB_ReceiveFrame_7
+        CMPX.B  #0x55, &uniUSBRecvFrame + 1
+        JNE     ??SYS_USB_ReceiveFrame_7
+        CMP.B   #0x1, R10
+        JNC     ??SYS_USB_ReceiveFrame_7
+        CMP.B   #0x1e, R10
+        JC      ??SYS_USB_ReceiveFrame_7
+        MOVX.B  R10, &uniUSBRecvFrame + 2
+        ADDX.B  #0x1, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_7:
+        MOVX.B  #0x0, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_13:
+        MOVX.B  R10, &uniUSBRecvFrame + 3
+        ADDX.B  #0x1, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_14:
+        MOVX.B  &ucUSBFrameByteCount, R15
+        MOV.B   R15, R15
+        ADD.W   #0xfffc, R15
+        XOR.W   #0x8000, R15
+        MOVX.B  R10, uniUSBRecvFrame - 32764(R15)
+        ADDX.B  #0x1, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_15:
+        MOVA    #uniUSBRecvFrame, R12
+        CALLA   #SYS_USB_BuildCRC
+        CMP.B   R12, R10
+        JNE     ??SYS_USB_ReceiveFrame_8
+        MOVX.B  R10, &uniUSBRecvFrame + 33
+        ADDX.B  #0x1, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_8:
+        MOVX.B  #0x0, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_16:
+        CMP.B   #0xaa, R10
+        JNE     ??SYS_USB_ReceiveFrame_9
+        MOVX.B  &ucUSBFrameByteCount, R15
+        MOV.B   R15, R15
+        ADD.W   #0xffde, R15
+        XOR.W   #0x8000, R15
+        MOVX.B  R10, uniUSBRecvFrame - 32734(R15)
+        ADDX.B  #0x1, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_9:
+        MOVX.B  #0x0, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_17:
+        CMP.B   #0xaa, R10
+        JNE     ??SYS_USB_ReceiveFrame_10
+        MOVX.B  &ucUSBFrameByteCount, R15
+        MOV.B   R15, R15
+        ADD.W   #0xffde, R15
+        XOR.W   #0x8000, R15
+        MOVX.B  R10, uniUSBRecvFrame - 32734(R15)
+        MOVX.B  #0x1, &bFLAG_USBFrameReceived
+        MOVX.B  #0x0, &ucUSBFrameByteCount
+        JMP     ??SYS_USB_ReceiveFrame_5
+??SYS_USB_ReceiveFrame_10:
+        MOVX.B  #0x0, &ucUSBFrameByteCount
+??SYS_USB_ReceiveFrame_5:
+        POPM.A  #0x1, R10
+          CFI R10H SameValue
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_USB_BuildCRC:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function SYS_USB_BuildCRC
+        MOVA    R12, R15
+        MOV.B   #0x0, R12
+        MOV.W   #0x3, R14
+??SYS_USB_BuildCRC_0:
+        CMP.W   #0x21, R14
+        JGE     ??SYS_USB_BuildCRC_1
+        CMP.W   #0x0, R14
+        JNE     ??SYS_USB_BuildCRC_2
+        MOV.W   R14, R13
+        XOR.W   #0x8000, R13
+        ADDA    R15, R13
+        MOVX.B  0xf8000(R13), R12
+??SYS_USB_BuildCRC_2:
+        CMP.W   #0x1, R14
+        JL      ??SYS_USB_BuildCRC_3
+        MOV.W   R14, R13
+        XOR.W   #0x8000, R13
+        ADDA    R15, R13
+        XORX.B  0xf8000(R13), R12
+??SYS_USB_BuildCRC_3:
+        ADD.W   #0x1, R14
+        JMP     ??SYS_USB_BuildCRC_0
+??SYS_USB_BuildCRC_1:
+        XOR.B   #0xff, R12
+        RETA
+          CFI EndBlock cfiBlock5
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+// 744 bytes in segment CODE
+//  13 bytes in segment DATA16_AN
+//  75 bytes in segment DATA20_Z
+// 
+// 744 bytes of CODE memory
+//  75 bytes of DATA memory (+ 13 bytes shared)
+//
+//Errors: none
+//Warnings: none

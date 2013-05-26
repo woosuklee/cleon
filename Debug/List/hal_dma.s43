@@ -1,0 +1,367 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      20/Feb/2013  20:57:37 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\hal\hal_dma.c            /
+//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\hal_dma.c"    /
+//                     -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.    /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -la  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -o   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\Obj\"       /
+//                     --no_cse --no_unroll --no_inline --no_code_motion      /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\intro\" -I        /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\rtclib\" -I   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\platform\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\" -I           /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\FatFs\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\app\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\" --core=430X     /
+//                     --data_model=large -On --multiplier=32                 /
+//                     --multiplier_location=4C0 --hw_workaround=CPU40        /
+//                     --hw_workaround=CPU42                                  /
+//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\Debug\List\hal_dma.s43   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_dma
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?cstart_init_zero20
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK `??DMA_VECTOR_ISR??INTVEC 100`
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBWEAK DMA0SZ
+        PUBLIC DMA_VECTOR_ISR
+        FUNCTION DMA_VECTOR_ISR,0233H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        PUBLIC HAL_DMA_Init
+        FUNCTION HAL_DMA_Init,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBWEAK _A_DMA0CTL_L
+        PUBWEAK _A_DMA0DA_L
+        PUBWEAK _A_DMA0SA_L
+        PUBWEAK _A_DMACTL0_L
+        PUBWEAK _A_DMACTL4_L
+        PUBWEAK _A_DMAIV_L
+        PUBWEAK _A_P2MAP01_L
+        PUBWEAK _A_PADIR_L
+        PUBWEAK _A_PASEL_L
+        PUBWEAK _A_PMAPKEYID_L
+        PUBLIC bFLAG_DMATransferCompleted
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC or(load(2, DATA, add(CFA, literal(-2))), lshift(and(load(2, DATA, add(CFA, literal(-4))), 61440), 4))
+          CFI SR Frame(CFA, -4)
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H SameValue
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H SameValue
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H SameValue
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H SameValue
+          CFI R15 Concat
+          CFI EndCommon cfiCommon1
+        
+DMA_VECTOR_ISR      SYMBOL "DMA_VECTOR_ISR"
+`??DMA_VECTOR_ISR??INTVEC 100` SYMBOL "??INTVEC 100", DMA_VECTOR_ISR
+
+        EXTERN uniCLEONGPSData
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0500H
+// union <unnamed> __data16 _A_DMACTL0_L
+_A_DMACTL0_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0508H
+// union <unnamed> __data16 _A_DMACTL4_L
+_A_DMACTL4_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,050eH
+// union <unnamed> __data16 _A_DMAIV_L
+_A_DMAIV_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0510H
+// union <unnamed> __data16 _A_DMA0CTL_L
+_A_DMA0CTL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0512H
+// union <unnamed> __data16 _A_DMA0SA_L
+_A_DMA0SA_L:
+        DS8 4
+
+        ASEGN DATA16_AN:DATA:NOROOT,0516H
+// union <unnamed> __data16 _A_DMA0DA_L
+_A_DMA0DA_L:
+        DS8 4
+
+        ASEGN DATA16_AN:DATA:NOROOT,051aH
+// unsigned short volatile __data16 DMA0SZ
+DMA0SZ:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0204H
+// union <unnamed> __data16 _A_PADIR_L
+_A_PADIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,020aH
+// union <unnamed> __data16 _A_PASEL_L
+_A_PASEL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,01c0H
+// union <unnamed> __data16 _A_PMAPKEYID_L
+_A_PMAPKEYID_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,01d0H
+// union <unnamed> __data16 _A_P2MAP01_L
+_A_P2MAP01_L:
+        DS8 2
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+bFLAG_DMATransferCompleted:
+        DS8 1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+HAL_DMA_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function HAL_DMA_Init
+        BIS.B   #0x2, &0x20b
+        BIC.B   #0x2, &0x205
+        MOV.W   #0x2d52, &0x1c0
+        MOV.B   #0x2, &0x1d1
+        MOV.W   #0x1f, &0x500
+        MOV.W   #0x4, &0x508
+        BIC.W   #0x8, &0x510
+        MOV.W   #0xc00, &0x510
+        MOV.W   #0xffc, &0x51a
+        MOVX.A  #0x240, &0x512
+        MOVX.A  #uniCLEONGPSData, &0x516
+        BIS.W   #0x4, &0x510
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PASEL_L
+        REQUIRE _A_PADIR_L
+        REQUIRE _A_PMAPKEYID_L
+        REQUIRE _A_P2MAP01_L
+        REQUIRE _A_DMACTL0_L
+        REQUIRE _A_DMACTL4_L
+        REQUIRE _A_DMA0CTL_L
+        REQUIRE DMA0SZ
+        REQUIRE _A_DMA0SA_L
+        REQUIRE _A_DMA0DA_L
+
+        RSEG ISR_CODE:CODE:REORDER:NOROOT(1)
+DMA_VECTOR_ISR:
+          CFI Block cfiBlock1 Using cfiCommon1
+          CFI Function DMA_VECTOR_ISR
+        PUSHM.A #0x1, R15
+          CFI R15L Frame(CFA, -8)
+          CFI R15H Frame(CFA, -6)
+          CFI CFA SP+8
+        MOV.W   &0x50e, R15
+        ADDA    R15, PC
+`?<Jumptable for DMA_VECTOR_ISR>_0`:
+        JMP     ??DMA_VECTOR_ISR_1
+        JMP     ??DMA_VECTOR_ISR_2
+        JMP     ??DMA_VECTOR_ISR_1
+        JMP     ??DMA_VECTOR_ISR_1
+        JMP     ??DMA_VECTOR_ISR_1
+        JMP     ??DMA_VECTOR_ISR_1
+        JMP     ??DMA_VECTOR_ISR_1
+        JMP     ??DMA_VECTOR_ISR_1
+        JMP     ??DMA_VECTOR_ISR_1
+??DMA_VECTOR_ISR_2:
+        MOVX.B  #0x1, &bFLAG_DMATransferCompleted
+??DMA_VECTOR_ISR_1:
+        POPM.A  #0x1, R15
+          CFI R15H SameValue
+          CFI R15L SameValue
+          CFI CFA SP+4
+        RETI
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_DMAIV_L
+
+        COMMON INTVEC:CONST:ROOT(1)
+        ORG 100
+`??DMA_VECTOR_ISR??INTVEC 100`:
+        DC16    DMA_VECTOR_ISR
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+// 66 bytes in segment CODE
+// 26 bytes in segment DATA16_AN
+//  1 byte  in segment DATA20_Z
+//  2 bytes in segment INTVEC
+// 36 bytes in segment ISR_CODE
+// 
+// 102 bytes of CODE  memory
+//   0 bytes of CONST memory (+  2 bytes shared)
+//   1 byte  of DATA  memory (+ 26 bytes shared)
+//
+//Errors: none
+//Warnings: none

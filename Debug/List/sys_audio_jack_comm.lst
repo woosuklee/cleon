@@ -1,0 +1,550 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       03/Dec/2012  06:22:06 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_audi #
+#                     o_jack_comm.c                                           #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_audi #
+#                     o_jack_comm.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.  #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ESL\ #
+#                     3. Research\7. Fall 2012\4_CLEON\3_software\1_developin #
+#                     g\cleon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develop #
+#                     ing\cleon\Debug\Obj\" --no_cse --no_unroll --no_inline  #
+#                     --no_code_motion --no_tbaa --debug -D__MSP430F5338__    #
+#                     -e --double=64 --dlib_config "C:\Program Files\IAR      #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\intro\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib\" #
+#                      -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfor #
+#                     m\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\FatF #
+#                     s\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\app\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -On --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\s #
+#                     ys_audio_jack_comm.lst                                  #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\sy #
+#                     s_audio_jack_comm.r43                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\sys\sys_audio_jack_comm.c
+      1          /**
+      2          @file       sys_audio_jack_comm.c
+      3          
+      4          @brief      Initializing audio jack communication
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x202
+   \   union <unnamed> __data16 _A_PAOUT_L
+   \                     _A_PAOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x204
+   \   union <unnamed> __data16 _A_PADIR_L
+   \                     _A_PADIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x3d2
+   \   unsigned short volatile __data16 TB0CCR0
+   \                     TB0CCR0:
+   \   000000                DS8 2
+      9          #include "hal_define.h"
+     10          
+     11          extern bool bFLAG_TimerB0Tick;
+     12          
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     13          bool bIdleAudioJackUARTCommunicationChannel = _CLEAR_;
+   \                     bIdleAudioJackUARTCommunicationChannel:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     14          bool bAudioJackUARTStartTransmission = _CLEAR_;
+   \                     bAudioJackUARTStartTransmission:
+   \   000000                DS8 1
+     15          
+     16          /*----------------------------------------------------------------------------*/
+     17          /**
+     18          @brief    Initializing audio jack communication
+     19          
+     20          @return   void 
+     21          
+     22          @param    void
+     23          */
+
+   \                                 In  segment CODE, align 2
+     24          void SYS_AUDIO_JACK_COMM_Init(void)
+   \                     SYS_AUDIO_JACK_COMM_Init:
+     25          {
+     26              AUDIO_JACK_COMM_LEFT_OUT_PORT(DIR) |=  BV(AUDIO_JACK_COMM_LEFT_OUT_PIN);
+   \   000000   D2D30502     BIS.B   #0x1, &0x205
+     27              AUDIO_JACK_COMM_MIC_IN_PORT(DIR)   &= ~BV(AUDIO_JACK_COMM_MIC_IN_PIN);
+   \   000004   E2C30402     BIC.B   #0x2, &0x204
+     28            
+     29              SYS_AUDIO_JACK_COMM_InitTimer();
+   \   000008   ........     BRA     #SYS_AUDIO_JACK_COMM_InitTimer
+   \   00000C                REQUIRE _A_PADIR_L
+     30          }
+     31          
+     32          /*----------------------------------------------------------------------------*/
+     33          /**
+     34          @brief    Initializing timer for audio jack communication
+     35          
+     36          @return   void 
+     37          
+     38          @param    void
+     39          */
+
+   \                                 In  segment CODE, align 2
+     40          void SYS_AUDIO_JACK_COMM_InitTimer(void)
+   \                     SYS_AUDIO_JACK_COMM_InitTimer:
+     41          {
+     42              HAL_TIMER_TimerB0Init();
+   \   000000   ........     BRA     #HAL_TIMER_TimerB0Init
+     43          }
+     44          
+     45          /*----------------------------------------------------------------------------*/
+     46          /**
+     47          @brief    Initiate audio jack communication
+     48          
+     49          @return   void 
+     50          
+     51          @param    void
+     52          */
+
+   \                                 In  segment CODE, align 2
+     53          void SYS_AUDIO_JACK_COMM_InitiateCommunication(void)
+   \                     SYS_AUDIO_JACK_COMM_InitiateCommunication:
+     54          {
+     55              if((bIdleAudioJackUARTCommunicationChannel == _CLEAR_)&&(bAudioJackUARTStartTransmission == _CLEAR_)){
+   \   000000   ....5E42.... MOVX.B  &bIdleAudioJackUARTCommunicationChannel, R14
+   \   000006   ....5ED2.... BISX.B  &bAudioJackUARTStartTransmission, R14
+   \   00000C   4E93         CMP.B   #0x0, R14
+   \   00000E   0620         JNE     ??SYS_AUDIO_JACK_COMM_InitiateCommunication_0
+     56                  HAL_TIMER_TimerB0CCR0(750);
+   \   000010   B240EE02D203 MOV.W   #0x2ee, &0x3d2
+     57                  bIdleAudioJackUARTCommunicationChannel = _SET_;
+   \   000016   ....D243.... MOVX.B  #0x1, &bIdleAudioJackUARTCommunicationChannel
+     58              }
+     59          }
+   \                     ??SYS_AUDIO_JACK_COMM_InitiateCommunication_0:
+   \   00001C   1001         RETA
+   \   00001E                REQUIRE TB0CCR0
+     60          
+     61          /*----------------------------------------------------------------------------*/
+     62          /**
+     63          @brief    Start transmission for audio jack communication
+     64          
+     65          @return   void 
+     66          
+     67          @param    uiSize - size of data to be transmitted
+     68          @param    *ptrulData - base address of data to be transmitted
+     69          */
+
+   \                                 In  segment CODE, align 2
+     70          void SYS_AUDIO_JACK_COMM_StartTransmission(unsigned int uiSize, unsigned long *ptrulData)
+   \                     SYS_AUDIO_JACK_COMM_StartTransmission:
+     71          {
+   \   000000   1B14         PUSHM.A #0x2, R11
+   \   000002   0A4C         MOV.W   R12, R10
+   \   000004   CB0D         MOVA    R13, R11
+     72              if((bIdleAudioJackUARTCommunicationChannel == _SET_)&&(bAudioJackUARTStartTransmission == _CLEAR_)){
+   \   000006   ....5E42.... MOVX.B  &bIdleAudioJackUARTCommunicationChannel, R14
+   \   00000C   5F43         MOV.B   #0x1, R15
+   \   00000E   ....5FE2.... XORX.B  &bAudioJackUARTStartTransmission, R15
+   \   000014   4EBF         BIT.B   R15, R14
+   \   000016   1124         JEQ     ??SYS_AUDIO_JACK_COMM_StartTransmission_1
+     73                  while (uiSize > 0) {
+   \                     ??SYS_AUDIO_JACK_COMM_StartTransmission_0:
+   \   000018   0A93         CMP.W   #0x0, R10
+   \   00001A   0D24         JEQ     ??SYS_AUDIO_JACK_COMM_StartTransmission_2
+     74                      bIdleAudioJackUARTCommunicationChannel = _CLEAR_;  
+   \   00001C   ....C243.... MOVX.B  #0x0, &bIdleAudioJackUARTCommunicationChannel
+     75                      bAudioJackUARTStartTransmission = _SET_;
+   \   000022   ....D243.... MOVX.B  #0x1, &bAudioJackUARTStartTransmission
+     76                      
+     77                      SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack(*ptrulData++);
+   \   000028   6C4B         MOV.B   @R11, R12
+   \   00002A   ........     CALLA   #SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+   \   00002E   AB000400     ADDA    #0x4, R11
+     78                      uiSize--;
+   \   000032   3A53         ADD.W   #0xffff, R10
+   \   000034   F13F         JMP     ??SYS_AUDIO_JACK_COMM_StartTransmission_0
+     79                  }
+     80                  SYS_AUDIO_JACK_COMM_StopTransmission();        
+   \                     ??SYS_AUDIO_JACK_COMM_StartTransmission_2:
+   \   000036   ........     CALLA   #SYS_AUDIO_JACK_COMM_StopTransmission
+     81              }
+     82          }
+   \                     ??SYS_AUDIO_JACK_COMM_StartTransmission_1:
+   \   00003A   1A16         POPM.A  #0x2, R11
+   \   00003C   1001         RETA
+     83          
+     84          /*----------------------------------------------------------------------------*/
+     85          /**
+     86          @brief    Idle the audio jack communication channel
+     87          
+     88          @return   void 
+     89          
+     90          @param    void
+     91          */
+
+   \                                 In  segment CODE, align 2
+     92          void SYS_AUDIO_JACK_COMM_MakeIdle(void)
+   \                     SYS_AUDIO_JACK_COMM_MakeIdle:
+     93          {
+     94              if((bIdleAudioJackUARTCommunicationChannel == _CLEAR_)&&(bAudioJackUARTStartTransmission == _SET_)){
+   \   000000   5E43         MOV.B   #0x1, R14
+   \   000002   ....5EE2.... XORX.B  &bAudioJackUARTStartTransmission, R14
+   \   000008   ....5ED2.... BISX.B  &bIdleAudioJackUARTCommunicationChannel, R14
+   \   00000E   4E93         CMP.B   #0x0, R14
+   \   000010   0620         JNE     ??SYS_AUDIO_JACK_COMM_MakeIdle_0
+     95                  HAL_TIMER_TimerB0CCR0(350);
+   \   000012   B2405E01D203 MOV.W   #0x15e, &0x3d2
+     96                  bIdleAudioJackUARTCommunicationChannel = _SET_;
+   \   000018   ....D243.... MOVX.B  #0x1, &bIdleAudioJackUARTCommunicationChannel
+     97              }
+     98          }
+   \                     ??SYS_AUDIO_JACK_COMM_MakeIdle_0:
+   \   00001E   1001         RETA
+   \   000020                REQUIRE TB0CCR0
+     99          
+    100          /*----------------------------------------------------------------------------*/
+    101          /**
+    102          @brief    Stop transmission for audio jack communication
+    103          
+    104          @return   void 
+    105          
+    106          @param    void
+    107          */
+
+   \                                 In  segment CODE, align 2
+    108          void SYS_AUDIO_JACK_COMM_StopTransmission(void)
+   \                     SYS_AUDIO_JACK_COMM_StopTransmission:
+    109          {   
+    110              if(bAudioJackUARTStartTransmission == _SET_){
+   \   000000   ....C293.... CMPX.B  #0x0, &bAudioJackUARTStartTransmission
+   \   000006   0924         JEQ     ??SYS_AUDIO_JACK_COMM_StopTransmission_0
+    111                  HAL_TIMER_TimerB0CCR0(350);
+   \   000008   B2405E01D203 MOV.W   #0x15e, &0x3d2
+    112                  bIdleAudioJackUARTCommunicationChannel = _SET_;
+   \   00000E   ....D243.... MOVX.B  #0x1, &bIdleAudioJackUARTCommunicationChannel
+    113                  bAudioJackUARTStartTransmission = _CLEAR_;
+   \   000014   ....C243.... MOVX.B  #0x0, &bAudioJackUARTStartTransmission
+    114              }
+    115          }
+   \                     ??SYS_AUDIO_JACK_COMM_StopTransmission_0:
+   \   00001A   1001         RETA
+   \   00001C                REQUIRE TB0CCR0
+    116          
+    117          
+    118          /*----------------------------------------------------------------------------*/
+    119          /**
+    120          @brief    Terminate audio jack communication
+    121          
+    122          @return   void 
+    123          
+    124          @param    void
+    125          */
+
+   \                                 In  segment CODE, align 2
+    126          void SYS_AUDIO_JACK_COMM_TerminateCommunication(void)
+   \                     SYS_AUDIO_JACK_COMM_TerminateCommunication:
+    127          {
+    128              HAL_TIMER_TimerB0CCR0(0);
+   \   000000   8243D203     MOV.W   #0x0, &0x3d2
+    129              bIdleAudioJackUARTCommunicationChannel = _CLEAR_;
+   \   000004   ....C243.... MOVX.B  #0x0, &bIdleAudioJackUARTCommunicationChannel
+    130              bAudioJackUARTStartTransmission = _CLEAR_;
+   \   00000A   ....C243.... MOVX.B  #0x0, &bAudioJackUARTStartTransmission
+    131          }
+   \   000010   1001         RETA
+   \   000012                REQUIRE TB0CCR0
+    132          
+    133          /*----------------------------------------------------------------------------*/
+    134          /**
+    135          @brief    Transmit a byte via audio jack 
+    136          
+    137          @return   void 
+    138          
+    139          @param    ucAudioJackUARTData - single byte to be transmitted via audio jack
+    140          */
+
+   \                                 In  segment CODE, align 2
+    141          void SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack(unsigned char ucAudioJackUARTData)
+   \                     SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack:
+    142          {
+   \   000000   0A14         PUSHM.A #0x1, R10
+   \   000002   31801600     SUB.W   #0x16, SP
+   \   000006   4D4C         MOV.B   R12, R13
+    143            unsigned char ucAudioJackUARTFrame[22] = {0};
+   \   000008   0C41         MOV.W   SP, R12
+   \   00000A   0C53         ADD.W   #0x0, R12
+   \   00000C   3E401600     MOV.W   #0x16, R14
+   \   000010   ........     CALLA   #?ClearMemoryBytes
+    144                
+    145              // Construct AudioJackUART data
+    146              for( int i = 0 ; i < 8 ; i++){
+   \   000014   0E43         MOV.W   #0x0, R14
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_0:
+   \   000016   3E92         CMP.W   #0x8, R14
+   \   000018   2734         JGE     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_5
+    147                  if(((ucAudioJackUARTData >> i)& 0x01) == 0x01){
+   \   00001A   4F4D         MOV.B   R13, R15
+   \   00001C   5E83         SUB.B   #0x1, R14
+   \   00001E   0230         JN      ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_6
+   \   000020                RPT     R14
+   \   000020   CE180F11     RRAX.W  R15
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_6:
+   \   000024   5E53         ADD.B   #0x1, R14
+   \   000026   5FB3         BIT.B   #0x1, R15
+   \   000028   0F24         JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_7
+    148                      ucAudioJackUARTFrame[2+i*2] = 0;
+   \   00002A   0C41         MOV.W   SP, R12
+   \   00002C   0C53         ADD.W   #0x0, R12
+   \   00002E   0F4E         MOV.W   R14, R15
+   \   000030   0F5F         RLA.W   R15
+   \   000032   0C5F         ADD.W   R15, R12
+   \   000034   CC430200     MOV.B   #0x0, 0x2(R12)
+    149                      ucAudioJackUARTFrame[3+i*2] = 1;
+   \   000038   0A41         MOV.W   SP, R10
+   \   00003A   0A53         ADD.W   #0x0, R10
+   \   00003C   0F4E         MOV.W   R14, R15
+   \   00003E   0F5F         RLA.W   R15
+   \   000040   0A5F         ADD.W   R15, R10
+   \   000042   DA430300     MOV.B   #0x1, 0x3(R10)
+   \   000046   0E3C         JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_8
+    150                  }else{
+    151                      ucAudioJackUARTFrame[2+i*2] = 1;
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_7:
+   \   000048   0A41         MOV.W   SP, R10
+   \   00004A   0A53         ADD.W   #0x0, R10
+   \   00004C   0F4E         MOV.W   R14, R15
+   \   00004E   0F5F         RLA.W   R15
+   \   000050   0A5F         ADD.W   R15, R10
+   \   000052   DA430200     MOV.B   #0x1, 0x2(R10)
+    152                      ucAudioJackUARTFrame[3+i*2] = 0;
+   \   000056   0A41         MOV.W   SP, R10
+   \   000058   0A53         ADD.W   #0x0, R10
+   \   00005A   0F4E         MOV.W   R14, R15
+   \   00005C   0F5F         RLA.W   R15
+   \   00005E   0A5F         ADD.W   R15, R10
+   \   000060   CA430300     MOV.B   #0x0, 0x3(R10)
+    153                  }
+    154              }
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_8:
+   \   000064   1E53         ADD.W   #0x1, R14
+   \   000066   D73F         JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_0
+    155              if( SYS_AUDIO_JACK_COMM_GetParity(ucAudioJackUARTData) == 0x01 ){
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_5:
+   \   000068   4C4D         MOV.B   R13, R12
+   \   00006A   ........     CALLA   #SYS_AUDIO_JACK_COMM_GetParity
+   \   00006E   4C93         CMP.B   #0x0, R12
+   \   000070   0524         JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_9
+    156                  ucAudioJackUARTFrame[18] = 0;
+   \   000072   C1431200     MOV.B   #0x0, 0x12(SP)
+    157                  ucAudioJackUARTFrame[19] = 1;
+   \   000076   D1431300     MOV.B   #0x1, 0x13(SP)
+   \   00007A   043C         JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_10
+    158              }else{
+    159                  ucAudioJackUARTFrame[18] = 1;
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_9:
+   \   00007C   D1431200     MOV.B   #0x1, 0x12(SP)
+    160                  ucAudioJackUARTFrame[19] = 0;
+   \   000080   C1431300     MOV.B   #0x0, 0x13(SP)
+    161              }
+    162              
+    163              // Transmit a AudioJackUART byte via AudioJack channel
+    164              HAL_TIMER_TimerB0CCR0(0);       // Clear TB0CCR0    
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_10:
+   \   000084   8243D203     MOV.W   #0x0, &0x3d2
+    165              HAL_TIMER_TimerB0CCR0(3000);    // Set TB0CCR0 to 3000
+   \   000088   B240B80BD203 MOV.W   #0xbb8, &0x3d2
+    166              for( int i = 0 ; i < 23 ; i++){
+   \   00008E   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_2:
+   \   000090   3F901700     CMP.W   #0x17, R15
+   \   000094   1634         JGE     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_4
+    167                  while(!bFLAG_TimerB0Tick);
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_1:
+   \   000096   ....C293.... CMPX.B  #0x0, &bFLAG_TimerB0Tick
+   \   00009C   FC27         JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_1
+    168                  bFLAG_TimerB0Tick =0;
+   \   00009E   ....C243.... MOVX.B  #0x0, &bFLAG_TimerB0Tick
+    169                  
+    170                  if(i==22){
+   \   0000A4   3F901600     CMP.W   #0x16, R15
+   \   0000A8   0C24         JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_4
+    171                      break;
+    172                  }
+    173                  
+    174                  if(ucAudioJackUARTFrame[i] == 0x01){
+   \   0000AA   0E4F         MOV.W   R15, R14
+   \   0000AC   0E51         ADD.W   SP, R14
+   \   0000AE   DE930000     CMP.B   #0x1, 0(R14)
+   \   0000B2   0320         JNE     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_11
+    175                      AUDIO_JACK_COMM_LEFT_OUT_HIGH();
+   \   0000B4   D2D30302     BIS.B   #0x1, &0x203
+   \   0000B8   023C         JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_12
+    176                  }else{
+    177                      AUDIO_JACK_COMM_LEFT_OUT_LOW();
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_11:
+   \   0000BA   D2C30302     BIC.B   #0x1, &0x203
+    178                  }
+    179              }
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_12:
+   \   0000BE   1F53         ADD.W   #0x1, R15
+   \   0000C0   E73F         JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_2
+    180              SYS_AUDIO_JACK_COMM_MakeIdle();
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_4:
+   \   0000C2   ........     CALLA   #SYS_AUDIO_JACK_COMM_MakeIdle
+    181              __delay_cycles(7500);
+   \   0000C6                ////////////// Start of 7500 cycles delay.
+   \   0000C6   0343         NOP
+   \   0000C8   3F40C209     MOV.W   #0x9c2, R15
+   \                     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_13:
+   \   0000CC   3F53         ADD.W   #0xffff, R15
+   \   0000CE   FE2F         JC      ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_13
+   \   0000D0                ////////////// End of delay code.
+    182          }
+   \   0000D0   31501600     ADD.W   #0x16, SP
+   \   0000D4   0A16         POPM.A  #0x1, R10
+   \   0000D6   1001         RETA
+   \   0000D8                REQUIRE TB0CCR0
+   \   0000D8                REQUIRE _A_PAOUT_L
+    183          
+    184          
+    185          /*----------------------------------------------------------------------------*/
+    186          /**
+    187          @brief    Get parity of UART data to be sent
+    188          
+    189          @return   bool bParity 
+    190          
+    191          @param    ucUARTData - data which we want to get parity from
+    192          */
+
+   \                                 In  segment CODE, align 2
+    193          bool SYS_AUDIO_JACK_COMM_GetParity(unsigned char ucUARTData)
+   \                     SYS_AUDIO_JACK_COMM_GetParity:
+    194          {
+   \   000000   4F4C         MOV.B   R12, R15
+    195              bool bParity = 0;
+   \   000002   4C43         MOV.B   #0x0, R12
+    196              
+    197              while(ucUARTData)
+   \                     ??SYS_AUDIO_JACK_COMM_GetParity_0:
+   \   000004   4F93         CMP.B   #0x0, R15
+   \   000006   0524         JEQ     ??SYS_AUDIO_JACK_COMM_GetParity_1
+    198              {
+    199                  bParity   = !bParity;
+   \   000008   5CE3         XOR.B   #0x1, R12
+    200                  ucUARTData = ucUARTData & (ucUARTData - 1);
+   \   00000A   4E4F         MOV.B   R15, R14
+   \   00000C   7E53         ADD.B   #0xff, R14
+   \   00000E   4FFE         AND.B   R14, R15
+   \   000010   F93F         JMP     ??SYS_AUDIO_JACK_COMM_GetParity_0
+    201              }
+    202              
+    203              return bParity;
+   \                     ??SYS_AUDIO_JACK_COMM_GetParity_1:
+   \   000012   1001         RETA
+    204          }
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \   000000   000000000000 DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \            000000000000
+   \            000000000000
+   \            00000000    
+    205          
+    206          
+    207          
+    208          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_AUDIO_JACK_COMM_GetParity
+       4  SYS_AUDIO_JACK_COMM_Init
+             4 -> SYS_AUDIO_JACK_COMM_InitTimer
+       4  SYS_AUDIO_JACK_COMM_InitTimer
+             4 -> HAL_TIMER_TimerB0Init
+       4  SYS_AUDIO_JACK_COMM_InitiateCommunication
+       4  SYS_AUDIO_JACK_COMM_MakeIdle
+      12  SYS_AUDIO_JACK_COMM_StartTransmission
+            12 -> SYS_AUDIO_JACK_COMM_StopTransmission
+            12 -> SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+       4  SYS_AUDIO_JACK_COMM_StopTransmission
+       4  SYS_AUDIO_JACK_COMM_TerminateCommunication
+      30  SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+            30 -> SYS_AUDIO_JACK_COMM_GetParity
+            30 -> SYS_AUDIO_JACK_COMM_MakeIdle
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      22  ?<Constant {0}>
+      20  SYS_AUDIO_JACK_COMM_GetParity
+      12  SYS_AUDIO_JACK_COMM_Init
+       4  SYS_AUDIO_JACK_COMM_InitTimer
+      30  SYS_AUDIO_JACK_COMM_InitiateCommunication
+      32  SYS_AUDIO_JACK_COMM_MakeIdle
+      62  SYS_AUDIO_JACK_COMM_StartTransmission
+      28  SYS_AUDIO_JACK_COMM_StopTransmission
+      18  SYS_AUDIO_JACK_COMM_TerminateCommunication
+     216  SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+       2  TB0CCR0
+       2  _A_PADIR_L
+       2  _A_PAOUT_L
+       1  bAudioJackUARTStartTransmission
+       1  bIdleAudioJackUARTCommunicationChannel
+
+ 
+ 422 bytes in segment CODE
+   6 bytes in segment DATA16_AN
+  22 bytes in segment DATA20_C
+   2 bytes in segment DATA20_Z
+ 
+ 422 bytes of CODE  memory
+  22 bytes of CONST memory
+   2 bytes of DATA  memory (+ 6 bytes shared)
+
+Errors: none
+Warnings: none

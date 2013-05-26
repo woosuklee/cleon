@@ -1,0 +1,492 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:37 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_gpio.c            #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_gpio.c" -lC       #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_gpio.lst   #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_gpio.r43    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_gpio.c
+      1          /**
+      2          @file       hal_gpio.c
+      3          
+      4          @brief      GPIO configuration
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x200
+   \   union <unnamed> __data16 _A_PAIN_L
+   \                     _A_PAIN_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x202
+   \   union <unnamed> __data16 _A_PAOUT_L
+   \                     _A_PAOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x204
+   \   union <unnamed> __data16 _A_PADIR_L
+   \                     _A_PADIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x218
+   \   union <unnamed> __data16 _A_PAIES_L
+   \                     _A_PAIES_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x21a
+   \   union <unnamed> __data16 _A_PAIE_L
+   \                     _A_PAIE_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x20e
+   \   unsigned short volatile __data16 P1IV
+   \                     P1IV:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x262
+   \   union <unnamed> __data16 _A_PDOUT_L
+   \                     _A_PDOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x264
+   \   union <unnamed> __data16 _A_PDDIR_L
+   \                     _A_PDDIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x282
+   \   union <unnamed> __data16 _A_PEOUT_L
+   \                     _A_PEOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x284
+   \   union <unnamed> __data16 _A_PEDIR_L
+   \                     _A_PEDIR_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          // File system variables
+     14          extern FATFS Fatfs;     
+     15          extern FIL   fileObject;
+     16          extern char  sFilename[50];
+     17          
+     18          // Flags
+     19          extern bool bFLAG_CLEONSampleIntervalConuter;
+     20          extern bool bFLAG_MicroSDInserted;
+     21          extern bool bFLAG_USBConnected;
+     22          extern bool bFLAG_ISLoggingRequested;
+     23          extern bool bFLAG_IsTimeSynced;;
+     24          
+     25          // Second and millisecond time tick
+     26          extern milliseoncd_time_tick_u uniMillisecondTimeTick;
+     27          extern seoncd_time_tick_u      uniSecondTimeTick;
+     28          
+     29          // User parameters
+     30          extern unsigned long   ulSampleCount;
+     31          extern unsigned long   ulSampleGap;
+     32          extern unsigned long   ulChunkCount;
+     33          extern unsigned long   ulChunkGap;
+     34          
+     35          // Counting number of seconds
+     36          extern unsigned char ucRTCNumberOfSecondCounter;
+     37          
+     38          // Counting number of samples stored in a file
+     39          extern unsigned long ulNumberOfCLEONSamplesInAFileCount;
+     40          
+     41          // Measuring time taken by each step of CLEON data logging
+     42          extern time_measurement_s  stTimeMeasurement[NUMBER_OF_TIME_MEASUREMENT_TEST];
+     43          
+     44          
+     45          /*----------------------------------------------------------------------------*/
+     46          /**
+     47          @brief    Initializing GPIO
+     48          
+     49          @return   void 
+     50          
+     51          @param    void
+     52          */
+
+   \                                 In  segment CODE, align 2
+     53          void HAL_GPIO_Init(void)
+   \                     HAL_GPIO_Init:
+     54          { 
+     55              // User swtich
+     56              USER_SW_PORT(DIR) &= ~BV(USER_SW_PIN);
+   \   000000   D2C30402     BIC.B   #0x1, &0x204
+     57              USER_SW_PORT(IES) |=  BV(USER_SW_PIN);
+   \   000004   D2D31802     BIS.B   #0x1, &0x218
+     58              USER_SW_PORT(IE)  |=  BV(USER_SW_PIN);
+   \   000008   D2D31A02     BIS.B   #0x1, &0x21a
+     59              
+     60              // LEDs
+     61              LED1_PORT(OUT)    |=  BV(LED1_PIN);
+   \   00000C   F2D080008202 BIS.B   #0x80, &0x282
+     62              LED1_PORT(DIR)    |=  BV(LED1_PIN);
+   \   000012   F2D080008402 BIS.B   #0x80, &0x284
+     63              LED2_PORT(OUT)    |=  BV(LED2_PIN);
+   \   000018   F2D040008202 BIS.B   #0x40, &0x282
+     64              LED2_PORT(DIR)    |=  BV(LED2_PIN);
+   \   00001E   F2D040008402 BIS.B   #0x40, &0x284
+     65              LED3_PORT(OUT)    |=  BV(LED3_PIN);
+   \   000024   F2D020008202 BIS.B   #0x20, &0x282
+     66              LED3_PORT(DIR)    |=  BV(LED3_PIN);
+   \   00002A   F2D020008402 BIS.B   #0x20, &0x284
+     67              LED4_PORT(OUT)    |=  BV(LED4_PIN);
+   \   000030   E2D36302     BIS.B   #0x2, &0x263
+     68              LED4_PORT(DIR)    |=  BV(LED4_PIN);
+   \   000034   E2D36502     BIS.B   #0x2, &0x265
+     69              LED5_PORT(OUT)    |=  BV(LED5_PIN);
+   \   000038   D2D36302     BIS.B   #0x1, &0x263
+     70              LED5_PORT(DIR)    |=  BV(LED5_PIN);
+   \   00003C   D2D36502     BIS.B   #0x1, &0x265
+     71              LED6_PORT(OUT)    |=  BV(LED6_PIN);
+   \   000040   F2D020000202 BIS.B   #0x20, &0x202
+     72              LED6_PORT(DIR)    |=  BV(LED6_PIN);
+   \   000046   F2D020000402 BIS.B   #0x20, &0x204
+     73          }
+   \   00004C   1001         RETA
+   \   00004E                REQUIRE _A_PADIR_L
+   \   00004E                REQUIRE _A_PAIES_L
+   \   00004E                REQUIRE _A_PAIE_L
+   \   00004E                REQUIRE _A_PEOUT_L
+   \   00004E                REQUIRE _A_PEDIR_L
+   \   00004E                REQUIRE _A_PDOUT_L
+   \   00004E                REQUIRE _A_PDDIR_L
+   \   00004E                REQUIRE _A_PAOUT_L
+     74          
+     75          //------------------------------------------------------------------------------
+     76          // PORT1 Interrupt Service Routine
+     77          //------------------------------------------------------------------------------
+     78          #pragma vector=PORT1_VECTOR
+
+   \                                 In  segment ISR_CODE, align 2
+     79          __interrupt void PORT1_VECTOR_ISR (void)
+   \                     PORT1_VECTOR_ISR:
+     80          {
+   \   000000   3F14         PUSHM.A #0x4, R15
+     81              switch(__even_in_range(P1IV,16))
+   \   000002   1F420E02     MOV.W   &0x20e, R15
+   \   000006   E00F         ADDA    R15, PC
+   \                     `?<Jumptable for PORT1_VECTOR_ISR>_0`:
+   \   000008   AC3C         JMP     ??PORT1_VECTOR_ISR_4
+   \   00000A   073C         JMP     ??PORT1_VECTOR_ISR_8
+   \   00000C   AA3C         JMP     ??PORT1_VECTOR_ISR_4
+   \   00000E   1F3C         JMP     ??PORT1_VECTOR_ISR_9
+   \   000010   973C         JMP     ??PORT1_VECTOR_ISR_10
+   \   000012   A73C         JMP     ??PORT1_VECTOR_ISR_4
+   \   000014   A63C         JMP     ??PORT1_VECTOR_ISR_4
+   \   000016   A53C         JMP     ??PORT1_VECTOR_ISR_4
+   \   000018   A43C         JMP     ??PORT1_VECTOR_ISR_4
+     82              {
+     83                  case 0: break;                
+     84                  case 2: 
+     85                      if(bFLAG_IsTimeSynced == _SET_){
+   \                     ??PORT1_VECTOR_ISR_8:
+   \   00001A   ....C293.... CMPX.B  #0x0, &bFLAG_IsTimeSynced
+   \   000020   A024         JEQ     ??PORT1_VECTOR_ISR_4
+     86                          if(bFLAG_ISLoggingRequested == _CLEAR_){
+   \   000022   ....C293.... CMPX.B  #0x0, &bFLAG_ISLoggingRequested
+   \   000028   9C20         JNE     ??PORT1_VECTOR_ISR_4
+     87                              // This flag is set only when time has been synchronized
+     88                              bFLAG_ISLoggingRequested = _SET_;
+   \   00002A   ....D243.... MOVX.B  #0x1, &bFLAG_ISLoggingRequested
+     89          #if TIME_MEASUREMENT == _ENABLE_                    
+     90                              // Logging current system time tick
+     91                              if(ulNumberOfCLEONSamplesInAFileCount < NUMBER_OF_TIME_MEASUREMENT_TEST){
+     92                                  stTimeMeasurement[ulNumberOfCLEONSamplesInAFileCount].ullTimeAtUserButtonPressed = uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick;
+     93                              }
+     94          #endif                    
+     95                              if(ulSampleCount == 1){
+   \   000030   ....9293.... CMPX.W  #0x1, &ulSampleCount
+   \   000036   9520         JNE     ??PORT1_VECTOR_ISR_4
+   \   000038   ....8293.... CMPX.W  #0x0, &ulSampleCount + 2
+   \   00003E   9120         JNE     ??PORT1_VECTOR_ISR_4
+     96                                  bFLAG_CLEONSampleIntervalConuter = _SET_;
+   \   000040   ....D243.... MOVX.B  #0x1, &bFLAG_CLEONSampleIntervalConuter
+     97                                  __low_power_mode_off_on_exit();
+   \   000046   B1C0F0001000 BIC.W   #0xf0, 0x10(SP)
+     98                              }
+     99                          }
+    100                      }
+    101                      break;                                     
+   \   00004C   8A3C         JMP     ??PORT1_VECTOR_ISR_4
+    102                  case 4: break;                
+    103                  case 6: 
+    104                      if(SYS_MMC_IsMicroSDInserted() == _TRUE_){
+   \                     ??PORT1_VECTOR_ISR_9:
+   \   00004E   E2B20002     BIT.B   #0x4, &0x200
+   \   000052   4B2C         JC      ??PORT1_VECTOR_ISR_5
+    105                          // Mount FatFs moudle
+    106                          FS_Mount(0, &Fatfs);
+   \   000054   ........     MOVA    #Fatfs, R13
+   \   000058   4C43         MOV.B   #0x0, R12
+   \   00005A   ........     CALLA   #f_mount
+    107                          // Create directory
+    108                          FS_MakeDir("CLEON");
+   \   00005E   ........     MOVA    #`?<Constant "CLEON">`, R12
+   \   000062   ........     CALLA   #f_mkdir
+    109                          // Change directory
+    110                          FS_ChangeDir("/CLEON");
+   \   000066   ........     MOVA    #`?<Constant "/CLEON">`, R12
+   \   00006A   ........     CALLA   #f_chdir
+    111                          
+    112                          if(ulSampleCount == 1){
+   \   00006E   ....9293.... CMPX.W  #0x1, &ulSampleCount
+   \   000074   3120         JNE     ??PORT1_VECTOR_ISR_6
+   \   000076   ....8293.... CMPX.W  #0x0, &ulSampleCount + 2
+   \   00007C   2D20         JNE     ??PORT1_VECTOR_ISR_6
+    113                              // Initailize filename
+    114                              memset(sFilename, 0, sizeof(sFilename));
+   \   00007E   3E403200     MOV.W   #0x32, R14
+   \   000082   0F43         MOV.W   #0x0, R15
+   \   000084   0D43         MOV.W   #0x0, R13
+   \   000086   ........     MOVA    #sFilename, R12
+   \   00008A   ........     CALLA   #memset
+    115                              // File name will start with CLEON's current system time
+    116          #if (APP_LOG_TEMP_AND_HUM_SENSORS == _ENABLE_) || (APP_LOG_LIGHT_SENSORS == _ENABLE_)                    
+    117                              sprintf(sFilename, "%lld_s16368_if4092000_m2_i2_s8.bin", uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick);
+   \   00008E   ........     MOVA    #uniSecondTimeTick, R15
+   \   000092   3C4F         MOV.W   @R15+, R12
+   \   000094   3D4F         MOV.W   @R15+, R13
+   \   000096   3E4F         MOV.W   @R15+, R14
+   \   000098   3F4F         MOV.W   @R15+, R15
+   \   00009A   ....1C52.... ADDX.W  &uniMillisecondTimeTick, R12
+   \   0000A0   ....1D62.... ADDCX.W &uniMillisecondTimeTick + 2, R13
+   \   0000A6   ....1E62.... ADDCX.W &uniMillisecondTimeTick + 4, R14
+   \   0000AC   ....1F62.... ADDCX.W &uniMillisecondTimeTick + 6, R15
+   \   0000B2   0F12         PUSH.W  R15
+   \   0000B4   0E12         PUSH.W  R14
+   \   0000B6   0D12         PUSH.W  R13
+   \   0000B8   0C12         PUSH.W  R12
+   \   0000BA   ........     MOVA    #`?<Constant "%lld_s16368_if4092000...">`, R13
+   \   0000BE   ........     MOVA    #sFilename, R12
+   \   0000C2   ........     CALLA   #sprintf
+    118          #else
+    119                              sprintf(sFilename, "%lld_s16368_if4092000_m2_i2_s0.bin", uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick);
+    120          #endif                                                
+    121                              // The created file will remain openned until the number of samples defined in 'APP_LOG_SAMPLES_IN_A_FILE' are captured
+    122                              FS_Open(&fileObject, sFilename, FA_WRITE | FA_CREATE_ALWAYS);
+   \   0000C6   7E400A00     MOV.B   #0xa, R14
+   \   0000CA   ........     MOVA    #sFilename, R13
+   \   0000CE   ........     MOVA    #fileObject, R12
+   \   0000D2   ........     CALLA   #f_open
+   \   0000D6   3152         ADD.W   #0x8, SP
+    123                          }
+    124                          // Micro SD is inserted
+    125                          bFLAG_MicroSDInserted = _SET_;
+   \                     ??PORT1_VECTOR_ISR_6:
+   \   0000D8   ....D243.... MOVX.B  #0x1, &bFLAG_MicroSDInserted
+    126                          // Turn LED1 off if Micro SD is inserted
+    127                          MICRO_SD_ERROR_LED_OFF();
+   \   0000DE   F2D080008202 BIS.B   #0x80, &0x282
+    128                          // Change interrupt edge to low-to-high
+    129                          MICROSD_STATUS_PORT(IES) &= ~BV(MICROSD_STATUS_PIN);
+   \   0000E4   E2C21802     BIC.B   #0x4, &0x218
+   \   0000E8   3C3C         JMP     ??PORT1_VECTOR_ISR_4
+    130                      }else{
+    131                          // Micro SD is missing
+    132                          bFLAG_MicroSDInserted = _CLEAR_;
+   \                     ??PORT1_VECTOR_ISR_5:
+   \   0000EA   ....C243.... MOVX.B  #0x0, &bFLAG_MicroSDInserted
+    133                          // Disable logging
+    134                          bFLAG_ISLoggingRequested = _CLEAR_;
+   \   0000F0   ....C243.... MOVX.B  #0x0, &bFLAG_ISLoggingRequested
+    135                          // Set number of seconds counter to zero
+    136                          ucRTCNumberOfSecondCounter = 0;
+   \   0000F6   ....C243.... MOVX.B  #0x0, &ucRTCNumberOfSecondCounter
+    137                          // Move pointer to the end of file to append
+    138                          FS_Lseek(&fileObject, FS_GetSizeOfFile(&fileObject));
+   \   0000FC   ....1E42.... MOVX.W  &fileObject + 12, R14
+   \   000102   ....1F42.... MOVX.W  &fileObject + 14, R15
+   \   000108   ........     MOVA    #fileObject, R12
+   \   00010C   ........     CALLA   #f_lseek
+    139                          // Flush cached information of a writing file
+    140                          FS_Sync(&fileObject);
+   \   000110   ........     MOVA    #fileObject, R12
+   \   000114   ........     CALLA   #f_sync
+    141                          // Close file
+    142                          FS_Close(&fileObject);
+   \   000118   ........     MOVA    #fileObject, R12
+   \   00011C   ........     CALLA   #f_close
+    143                          // Unmount file system
+    144                          FS_Mount(0, NULL);
+   \   000120   4D43         MOVA    #0x0, R13
+   \   000122   4C43         MOV.B   #0x0, R12
+   \   000124   ........     CALLA   #f_mount
+    145                          // Set counter value to zero to start over the logging process
+    146                          ulNumberOfCLEONSamplesInAFileCount = 0;
+   \   000128   ....8243.... MOVX.W  #0x0, &ulNumberOfCLEONSamplesInAFileCount
+   \   00012E   ....8243.... MOVX.W  #0x0, &ulNumberOfCLEONSamplesInAFileCount + 2
+    147                          // Turn LED1 on if Micro SD is not inserted
+    148                          MICRO_SD_ERROR_LED_ON();
+   \   000134   F2C080008202 BIC.B   #0x80, &0x282
+    149                          // Change interrupt edge to high-to-low
+    150                          MICROSD_STATUS_PORT(IES) |=  BV(MICROSD_STATUS_PIN);
+   \   00013A   E2D21802     BIS.B   #0x4, &0x218
+    151                      }
+    152                      break;                
+   \   00013E   113C         JMP     ??PORT1_VECTOR_ISR_4
+    153                  case 8: 
+    154                      if(SYS_USB_IsUSBConnected() == _TRUE_){
+   \                     ??PORT1_VECTOR_ISR_10:
+   \   000140   F2B20002     BIT.B   #0x8, &0x200
+   \   000144   0928         JNC     ??PORT1_VECTOR_ISR_7
+    155                          // USB is connected
+    156                          bFLAG_USBConnected = _SET_;
+   \   000146   ....D243.... MOVX.B  #0x1, &bFLAG_USBConnected
+    157                          // Change interrupt edge to low-to-high
+    158                          USB_STATUS_PORT(IES) |=  BV(USB_STATUS_PIN);
+   \   00014C   F2D21802     BIS.B   #0x8, &0x218
+    159                          // Exit low power mode
+    160                          __low_power_mode_off_on_exit();
+   \   000150   B1C0F0001000 BIC.W   #0xf0, 0x10(SP)
+   \   000156   053C         JMP     ??PORT1_VECTOR_ISR_4
+    161                      }else{
+    162                          // USB is disconnected
+    163                          bFLAG_USBConnected = _CLEAR_;
+   \                     ??PORT1_VECTOR_ISR_7:
+   \   000158   ....C243.... MOVX.B  #0x0, &bFLAG_USBConnected
+    164                          // Change interrupt edge to high-to-low
+    165                          USB_STATUS_PORT(IES) &= ~BV(USB_STATUS_PIN);
+   \   00015E   F2C21802     BIC.B   #0x8, &0x218
+    166                      }
+    167                      break;                
+    168                  case 10: break;                
+    169                  case 12: break;                
+    170                  case 14: break;                
+    171                  case 16: break;                
+    172                  default: break;
+    173              }
+    174          }
+   \                     ??PORT1_VECTOR_ISR_4:
+   \   000162   3C16         POPM.A  #0x4, R15
+   \   000164   0013         RETI
+   \   000166                REQUIRE _A_PAIN_L
+   \   000166                REQUIRE _A_PEOUT_L
+   \   000166                REQUIRE _A_PAIES_L
+   \   000166                REQUIRE P1IV
+
+   \                                 In  segment INTVEC, offset 0x5e, root
+   \                     `??PORT1_VECTOR_ISR??INTVEC 94`:
+   \   00005E   ....         DC16    PORT1_VECTOR_ISR
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "CLEON">`:
+   \   000000   434C454F4E00 DC8 "CLEON"
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "/CLEON">`:
+   \   000000   2F434C454F4E DC8 "/CLEON"
+   \            00          
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "%lld_s16368_if4092000...">`:
+   \   000000   256C6C645F73 DC8 "%lld_s16368_if4092000_m2_i2_s8.bin"
+   \            31363336385F
+   \            696634303932
+   \            3030305F6D32
+   \            5F69325F7338
+   \            2E62696E00  
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_GPIO_Init
+      28  PORT1_VECTOR_ISR
+            20 -> f_chdir
+            20 -> f_close
+            20 -> f_lseek
+            20 -> f_mkdir
+            20 -> f_mount
+            28 -> f_open
+            20 -> f_sync
+            20 -> memset
+            28 -> sprintf
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      35  ?<Constant "%lld_s16368_if4092000...">
+       7  ?<Constant "/CLEON">
+       6  ?<Constant "CLEON">
+       2  ??PORT1_VECTOR_ISR??INTVEC 94
+      78  HAL_GPIO_Init
+       2  P1IV
+     358  PORT1_VECTOR_ISR
+       2  _A_PADIR_L
+       2  _A_PAIES_L
+       2  _A_PAIE_L
+       2  _A_PAIN_L
+       2  _A_PAOUT_L
+       2  _A_PDDIR_L
+       2  _A_PDOUT_L
+       2  _A_PEDIR_L
+       2  _A_PEOUT_L
+
+ 
+  78 bytes in segment CODE
+  20 bytes in segment DATA16_AN
+  48 bytes in segment DATA20_C
+   2 bytes in segment INTVEC
+ 358 bytes in segment ISR_CODE
+ 
+ 436 bytes of CODE  memory
+  48 bytes of CONST memory (+  2 bytes shared)
+   0 bytes of DATA  memory (+ 20 bytes shared)
+
+Errors: none
+Warnings: none

@@ -1,0 +1,493 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      20/Feb/2013  20:57:34 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\hal\hal_pmm.c            /
+//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\hal_pmm.c"    /
+//                     -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.    /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -la  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -o   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\Obj\"       /
+//                     --no_cse --no_unroll --no_inline --no_code_motion      /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\intro\" -I        /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\rtclib\" -I   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\platform\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\" -I           /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\FatFs\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\app\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\" --core=430X     /
+//                     --data_model=large -On --multiplier=32                 /
+//                     --multiplier_location=4C0 --hw_workaround=CPU40        /
+//                     --hw_workaround=CPU42                                  /
+//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\Debug\List\hal_pmm.s43   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME hal_pmm
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?cstart_init_zero20
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC HAL_PMM_Init
+        FUNCTION HAL_PMM_Init,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SetVCore
+        FUNCTION SetVCore,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 20, STACK
+        FUNCTION SetVCoreDown,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 20, STACK
+        FUNCTION SetVCoreUp,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 20, STACK
+        PUBLIC SysRstIv
+        PUBWEAK _A_PMMCTL0_L
+        PUBWEAK _A_PMMIFG_L
+        PUBWEAK _A_PMMRIE_L
+        PUBWEAK _A_SVSMHCTL_L
+        PUBWEAK _A_SVSMLCTL_L
+        PUBWEAK _A_SYSRSTIV_L
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+
+        ASEGN DATA16_AN:DATA:NOROOT,0120H
+// union <unnamed> __data16 _A_PMMCTL0_L
+_A_PMMCTL0_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0124H
+// union <unnamed> __data16 _A_SVSMHCTL_L
+_A_SVSMHCTL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0126H
+// union <unnamed> __data16 _A_SVSMLCTL_L
+_A_SVSMLCTL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,012cH
+// union <unnamed> __data16 _A_PMMIFG_L
+_A_PMMIFG_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,012eH
+// union <unnamed> __data16 _A_PMMRIE_L
+_A_PMMRIE_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,019eH
+// union <unnamed> __data16 _A_SYSRSTIV_L
+_A_SYSRSTIV_L:
+        DS8 2
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero20
+SysRstIv:
+        DS8 2
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+HAL_PMM_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function HAL_PMM_Init
+        FUNCALL HAL_PMM_Init, SetVCore
+        LOCFRAME CSTACK, 4, STACK
+        MOVX.W  &0x19e, &SysRstIv
+        MOV.B   #0x2, R12
+        CALLA   #SetVCore
+        MOV.B   #0xa5, &0x121
+        BIS.W   #0x4400, &0x124
+        MOV.B   #0x0, &0x121
+        MOV.B   #0xa5, &0x121
+        BIS.W   #0x1000, &0x12e
+        MOV.B   #0x0, &0x121
+        MOV.B   #0xa5, &0x121
+        BIS.W   #0x10, &0x124
+        AND.W   #0xf77f, &0x124
+        MOV.B   #0x0, &0x121
+        MOV.B   #0xa5, &0x121
+        MOV.W   #0x0, &0x12c
+        MOV.B   #0x0, &0x121
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_SYSRSTIV_L
+        REQUIRE _A_PMMCTL0_L
+        REQUIRE _A_SVSMHCTL_L
+        REQUIRE _A_PMMRIE_L
+        REQUIRE _A_PMMIFG_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SetVCoreUp:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function SetVCoreUp
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        MOV.B   R12, R14
+        MOV.B   #0xa5, &0x121
+        MOV.W   &0x12e, R15
+        AND.W   #0xcc88, &0x12e
+        MOV.W   &0x124, R13
+        MOV.W   &0x126, R10
+        MOV.W   #0x0, &0x12c
+        MOV.B   R14, R12
+        BIS.W   #0x4400, R12
+        MOV.W   R12, &0x124
+??SetVCoreUp_0:
+        BIT.W   #0x10, &0x12c
+        JNC     ??SetVCoreUp_0
+        BIC.W   #0x10, &0x12c
+        BIT.W   #0x20, &0x12c
+        JNC     ??SetVCoreUp_5
+        BIC.W   #0x10, &0x12c
+        MOV.W   R13, &0x124
+??SetVCoreUp_1:
+        BIT.W   #0x10, &0x12c
+        JNC     ??SetVCoreUp_1
+        AND.W   #0xff88, &0x12c
+        MOV.W   R15, &0x12e
+        MOV.B   #0x0, &0x121
+        MOV.W   #0x1, R12
+        JMP     ??SetVCoreUp_6
+??SetVCoreUp_5:
+        MOV.B   R14, R12
+        AND.W   #0xff, R12
+        SWPB    R12
+        BIS.W   R12, &0x124
+??SetVCoreUp_2:
+        BIT.W   #0x10, &0x12c
+        JNC     ??SetVCoreUp_2
+        BIC.W   #0x10, &0x12c
+        MOV.B   R14, &0x120
+        MOV.B   R14, R11
+        MOV.B   R14, R12
+        AND.W   #0xff, R12
+        SWPB    R12
+        BIS.W   R12, R11
+        BIS.W   #0x4400, R11
+        MOV.W   R11, &0x126
+??SetVCoreUp_3:
+        BIT.W   #0x1, &0x12c
+        JNC     ??SetVCoreUp_3
+        BIC.W   #0x1, &0x12c
+        AND.W   #0x307, &0x126
+        AND.W   #0xfcf8, R10
+        BIS.W   R10, &0x126
+        AND.W   #0x307, &0x124
+        AND.W   #0xfcf8, R13
+        BIS.W   R13, &0x124
+??SetVCoreUp_4:
+        BIT.W   #0x1, &0x12c
+        JC      ??SetVCoreUp_7
+        BIT.W   #0x10, &0x12c
+        JNC     ??SetVCoreUp_4
+??SetVCoreUp_7:
+        AND.W   #0xff88, &0x12c
+        MOV.W   R15, &0x12e
+        MOV.B   #0x0, &0x121
+        MOV.W   #0x0, R12
+??SetVCoreUp_6:
+        POPM.A  #0x4, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_PMMCTL0_L
+        REQUIRE _A_PMMRIE_L
+        REQUIRE _A_SVSMHCTL_L
+        REQUIRE _A_SVSMLCTL_L
+        REQUIRE _A_PMMIFG_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SetVCoreDown:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function SetVCoreDown
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        MOV.B   R12, R14
+        MOV.B   #0xa5, &0x121
+        MOV.W   &0x12e, R15
+        AND.W   #0xcc88, &0x12e
+        MOV.W   &0x124, R13
+        MOV.W   &0x126, R10
+        AND.W   #0xffcc, &0x12c
+        MOV.B   R14, R12
+        MOV.B   R14, R11
+        AND.W   #0xff, R11
+        SWPB    R11
+        BIS.W   R11, R12
+        BIS.W   #0x4400, R12
+        MOV.W   R12, &0x124
+        MOV.B   R14, R11
+        MOV.B   R14, R8
+        AND.W   #0xff, R8
+        SWPB    R8
+        BIS.W   R8, R11
+        BIS.W   #0x4400, R11
+        MOV.W   R11, &0x126
+??SetVCoreDown_0:
+        BIT.W   #0x10, &0x12c
+        JNC     ??SetVCoreDown_0
+        BIT.W   #0x1, &0x12c
+        JNC     ??SetVCoreDown_0
+        AND.W   #0xffee, &0x12c
+        MOV.B   R14, &0x120
+        AND.W   #0x307, &0x126
+        AND.W   #0xfcf8, R10
+        BIS.W   R10, &0x126
+        AND.W   #0x307, &0x124
+        AND.W   #0xfcf8, R13
+        BIS.W   R13, &0x124
+??SetVCoreDown_1:
+        BIT.W   #0x1, &0x12c
+        JC      ??SetVCoreDown_2
+        BIT.W   #0x10, &0x12c
+        JNC     ??SetVCoreDown_1
+??SetVCoreDown_2:
+        AND.W   #0xff88, &0x12c
+        MOV.W   R15, &0x12e
+        MOV.B   #0x0, &0x121
+        MOV.W   #0x0, R12
+        POPM.A  #0x4, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_PMMCTL0_L
+        REQUIRE _A_PMMRIE_L
+        REQUIRE _A_SVSMHCTL_L
+        REQUIRE _A_SVSMLCTL_L
+        REQUIRE _A_PMMIFG_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SetVCore:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function SetVCore
+        FUNCALL SetVCore, SetVCoreUp
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SetVCore, SetVCoreDown
+        LOCFRAME CSTACK, 20, STACK
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        MOV.B   R12, R11
+        MOV.W   #0x0, R8
+        AND.B   #0x3, R11
+        MOV.W   &0x120, R15
+        AND.W   #0x3, R15
+        MOV.W   R15, R10
+??SetVCore_0:
+        MOV.B   R11, R11
+        CMP.W   R10, R11
+        JEQ     ??SetVCore_1
+        CMP.W   #0x0, R8
+        JNE     ??SetVCore_1
+        MOV.B   R11, R11
+        CMP.W   R11, R10
+        JC      ??SetVCore_2
+        ADD.W   #0x1, R10
+        PUSH.W  R12
+          CFI CFA SP+22
+        MOV.B   R10, 0(SP)
+        POP.W   R12
+          CFI CFA SP+20
+        CALLA   #SetVCoreUp
+        MOV.W   R12, R8
+        JMP     ??SetVCore_0
+??SetVCore_2:
+        ADD.W   #0xffff, R10
+        PUSH.W  R12
+          CFI CFA SP+22
+        MOV.B   R10, 0(SP)
+        POP.W   R12
+          CFI CFA SP+20
+        CALLA   #SetVCoreDown
+        MOV.W   R12, R8
+        JMP     ??SetVCore_0
+??SetVCore_1:
+        MOV.W   R8, R12
+        POPM.A  #0x4, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_PMMCTL0_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+// 544 bytes in segment CODE
+//  12 bytes in segment DATA16_AN
+//   2 bytes in segment DATA20_Z
+// 
+// 544 bytes of CODE memory
+//   2 bytes of DATA memory (+ 12 bytes shared)
+//
+//Errors: none
+//Warnings: none

@@ -1,0 +1,298 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.1.50592/W32 for MSP430      17/Nov/2012  12:52:07 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\fs\FatFs\un /
+//                     icode.c                                                /
+//    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\fs\FatFs\un /
+//                     icode.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.       /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ES /
+//                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develo /
+//                     ping\cleon\Debug\List\" -o                             /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\" /
+//                      --debug -D__MSP430F5338__ -e --double=64              /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\platform\"  /
+//                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     /
+//                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"   /
+//                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     /
+//                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\Fat /
+//                     Fs\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.            /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\" --core=430X --data_model=large -Oh             /
+//                     --multiplier=32 --multiplier_location=4C0              /
+//                     --hw_workaround=CPU40                                  /
+//    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\ /
+//                     unicode.s43                                            /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME unicode
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC ff_convert
+        FUNCTION ff_convert,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC ff_wtoupper
+        FUNCTION ff_wtoupper,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(1)
+// static unsigned short const Tbl[128]
+Tbl:
+        DC16 199, 252, 233, 226, 228, 224, 229, 231, 234, 235, 232, 239, 238
+        DC16 236, 196, 197, 201, 230, 198, 244, 246, 242, 251, 249, 255, 214
+        DC16 220, 162, 163, 165, 8359, 402, 225, 237, 243, 250, 241, 209, 170
+        DC16 186, 191, 8976, 172, 189, 188, 161, 171, 187, 9617, 9618, 9619
+        DC16 9474, 9508, 9569, 9570, 9558, 9557, 9571, 9553, 9559, 9565, 9564
+        DC16 9563, 9488, 9492, 9524, 9516, 9500, 9472, 9532, 9566, 9567, 9562
+        DC16 9556, 9577, 9574, 9568, 9552, 9580, 9575, 9576, 9572, 9573, 9561
+        DC16 9560, 9554, 9555, 9579, 9578, 9496, 9484, 9608, 9604, 9612, 9616
+        DC16 9600, 945, 223, 915, 960, 931, 963, 181, 964, 934, 920, 937, 948
+        DC16 8734, 966, 949, 8745, 8801, 177, 8805, 8804, 8992, 8993, 247, 8776
+        DC16 176, 8729, 183, 8730, 8319, 178, 9632, 160
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+// __cc_version2 WCHAR ff_convert(WCHAR, UINT)
+ff_convert:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function ff_convert
+        CMP.W   #0x80, R12
+        JC      ??ff_convert_1
+        MOV.W   R12, R15
+        JMP     ??ff_convert_2
+??ff_convert_1:
+        CMP.W   #0x0, R13
+        JEQ     ??ff_convert_3
+        CMP.W   #0x100, R12
+        JNC     ??ff_convert_4
+        MOV.W   #0x0, R15
+        JMP     ??ff_convert_2
+??ff_convert_4:
+        ADD.W   #0xff80, R12
+        MOV.W   R12, R15
+        ADDA    R15, R15
+        MOVX.W  Tbl(R15), R15
+        JMP     ??ff_convert_2
+??ff_convert_3:
+        MOV.W   #0x0, R15
+        MOVA    #Tbl, R14
+??ff_convert_0:
+        CMP.W   @R14+, R12
+        JEQ     ??ff_convert_5
+        ADD.W   #0x1, R15
+        CMP.W   @R14+, R12
+        JEQ     ??ff_convert_5
+        ADD.W   #0x1, R15
+        CMP.W   #0x80, R15
+        JNC     ??ff_convert_0
+??ff_convert_5:
+        ADD.B   #0x80, R15
+??ff_convert_2:
+        MOV.W   R15, R12
+        RETA
+          CFI EndBlock cfiBlock0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+// __cc_version2 WCHAR ff_wtoupper(WCHAR)
+ff_wtoupper:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function ff_wtoupper
+        MOV.W   #0x0, R15
+        MOVA    #??tbl_lower, R14
+        JMP     ??ff_wtoupper_2
+??ff_wtoupper_0:
+        ADD.W   #0x1, R15
+??ff_wtoupper_2:
+        CMP.W   #0x0, 0(R14)
+        JEQ     ??ff_wtoupper_3
+        CMP.W   @R14+, R12
+        JNE     ??ff_wtoupper_0
+??ff_wtoupper_3:
+        XOR.W   #0x8000, R15
+        ADDA    R15, R15
+        MOVA    R15, R14
+        ADDA    #0xf0000, R14
+        CMPX.W  #0x0, ??tbl_lower(R14)
+        JEQ     ??ff_wtoupper_1
+        MOVX.W  ??tbl_upper(R14), R12
+??ff_wtoupper_1:
+        RETA
+          CFI EndBlock cfiBlock1
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(1)
+// unsigned short const ff_wtoupper::tbl_lower[240]
+??tbl_lower:
+        DC16 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110
+        DC16 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 161
+        DC16 162, 163, 165, 172, 175, 224, 225, 226, 227, 228, 229, 230, 231
+        DC16 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244
+        DC16 245, 246, 248, 249, 250, 251, 252, 253, 254, 255, 257, 259, 261
+        DC16 263, 265, 267, 269, 271, 273, 275, 277, 279, 281, 283, 285, 287
+        DC16 289, 291, 293, 295, 297, 299, 301, 303, 305, 307, 309, 311, 314
+        DC16 316, 318, 320, 322, 324, 326, 328, 331, 333, 335, 337, 339, 341
+        DC16 343, 345, 347, 349, 351, 353, 355, 357, 359, 361, 363, 365, 367
+        DC16 369, 371, 373, 375, 378, 380, 382, 402, 945, 946, 947, 948, 949
+        DC16 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 963
+        DC16 964, 965, 966, 967, 968, 969, 970, 1072, 1073, 1074, 1075, 1076
+        DC16 1077, 1078, 1079, 1080, 1081, 1082, 1083, 1084, 1085, 1086, 1087
+        DC16 1088, 1089, 1090, 1091, 1092, 1093, 1094, 1095, 1096, 1097, 1098
+        DC16 1099, 1100, 1101, 1102, 1103, 1105, 1106, 1107, 1108, 1109, 1110
+        DC16 1111, 1112, 1113, 1114, 1115, 1116, 1118, 1119, 8560, 8561, 8562
+        DC16 8563, 8564, 8565, 8566, 8567, 8568, 8569, 8570, 8571, 8572, 8573
+        DC16 8574, 8575, 65345, 65346, 65347, 65348, 65349, 65350, 65351, 65352
+        DC16 65353, 65354, 65355, 65356, 65357, 65358, 65359, 65360, 65361
+        DC16 65362, 65363, 65364, 65365, 65366, 65367, 65368, 65369, 65370, 0
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(1)
+// unsigned short const ff_wtoupper::tbl_upper[240]
+??tbl_upper:
+        DC16 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81
+        DC16 82, 83, 84, 85, 86, 87, 88, 89, 90, 33, 65504, 65505, 65509, 65506
+        DC16 65507, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203
+        DC16 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 216, 217
+        DC16 218, 219, 220, 221, 222, 376, 256, 258, 260, 262, 264, 266, 268
+        DC16 270, 272, 274, 276, 278, 280, 282, 284, 286, 288, 290, 292, 294
+        DC16 296, 298, 300, 302, 304, 306, 308, 310, 313, 315, 317, 319, 321
+        DC16 323, 325, 327, 330, 332, 334, 336, 338, 340, 342, 344, 346, 348
+        DC16 350, 352, 354, 356, 358, 360, 362, 364, 366, 368, 370, 372, 374
+        DC16 377, 379, 381, 401, 913, 914, 915, 916, 917, 918, 919, 920, 921
+        DC16 922, 923, 924, 925, 926, 927, 928, 929, 931, 932, 933, 934, 935
+        DC16 936, 937, 938, 1040, 1041, 1042, 1043, 1044, 1045, 1046, 1047
+        DC16 1048, 1049, 1050, 1051, 1052, 1053, 1054, 1055, 1056, 1057, 1058
+        DC16 1059, 1060, 1061, 1062, 1063, 1064, 1065, 1066, 1067, 1068, 1069
+        DC16 1070, 1071, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033
+        DC16 1034, 1035, 1036, 1038, 1039, 8544, 8545, 8546, 8547, 8548, 8549
+        DC16 8550, 8551, 8552, 8553, 8554, 8555, 8556, 8557, 8558, 8559, 65313
+        DC16 65314, 65315, 65316, 65317, 65318, 65319, 65320, 65321, 65322
+        DC16 65323, 65324, 65325, 65326, 65327, 65328, 65329, 65330, 65331
+        DC16 65332, 65333, 65334, 65335, 65336, 65337, 65338, 0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+//   120 bytes in segment CODE
+// 1 216 bytes in segment DATA20_C
+// 
+//   120 bytes of CODE  memory
+// 1 216 bytes of CONST memory
+//
+//Errors: none
+//Warnings: none

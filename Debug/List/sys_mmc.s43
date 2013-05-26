@@ -1,0 +1,484 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      20/Feb/2013  20:57:35 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\sys\sys_mmc.c            /
+//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\sys_mmc.c"    /
+//                     -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.    /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -la  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -o   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\Obj\"       /
+//                     --no_cse --no_unroll --no_inline --no_code_motion      /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\intro\" -I        /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\rtclib\" -I   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\platform\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\" -I           /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\FatFs\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\app\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\" --core=430X     /
+//                     --data_model=large -On --multiplier=32                 /
+//                     --multiplier_location=4C0 --hw_workaround=CPU40        /
+//                     --hw_workaround=CPU42                                  /
+//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\Debug\List\sys_mmc.s43   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sys_mmc
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?cstart_init_zero20
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC SYS_MMC_DeselectCard
+        FUNCTION SYS_MMC_DeselectCard,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_MMC_FastMode
+        FUNCTION SYS_MMC_FastMode,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_MMC_Init
+        FUNCTION SYS_MMC_Init,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_MMC_InitIO
+        FUNCTION SYS_MMC_InitIO,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_MMC_ReadFrame
+        FUNCTION SYS_MMC_ReadFrame,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_MMC_SelectCard
+        FUNCTION SYS_MMC_SelectCard,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_MMC_SendFrame
+        FUNCTION SYS_MMC_SendFrame,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBWEAK UCB1RXBUF
+        PUBWEAK UCB1STAT
+        PUBWEAK UCB1TXBUF
+        PUBWEAK _A_PADIR_L
+        PUBWEAK _A_PAIES_L
+        PUBWEAK _A_PAIE_L
+        PUBWEAK _A_PAIN_L
+        PUBWEAK _A_PAOUT_L
+        PUBWEAK _A_PASEL_L
+        PUBWEAK _A_PDDIR_L
+        PUBWEAK _A_PDOUT_L
+        PUBWEAK _A_PDREN_L
+        PUBWEAK _A_PDSEL_L
+        PUBWEAK _A_PEOUT_L
+        PUBWEAK _A_UCB1BRW_L
+        PUBWEAK _A_UCB1CTLW0_L
+        PUBWEAK _A_UCB1ICTL_L
+        PUBLIC bFLAG_MicroSDInserted
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN FS_Init
+        FUNCTION FS_Init,0202H
+        EXTERN Fatfs
+        EXTERN f_mount
+        FUNCTION f_mount,0202H
+        EXTERN f_mkdir
+        FUNCTION f_mkdir,0202H
+        EXTERN f_chdir
+        FUNCTION f_chdir,0202H
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0200H
+// union <unnamed> __data16 _A_PAIN_L
+_A_PAIN_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0202H
+// union <unnamed> __data16 _A_PAOUT_L
+_A_PAOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0204H
+// union <unnamed> __data16 _A_PADIR_L
+_A_PADIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,020aH
+// union <unnamed> __data16 _A_PASEL_L
+_A_PASEL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0218H
+// union <unnamed> __data16 _A_PAIES_L
+_A_PAIES_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,021aH
+// union <unnamed> __data16 _A_PAIE_L
+_A_PAIE_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0262H
+// union <unnamed> __data16 _A_PDOUT_L
+_A_PDOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0264H
+// union <unnamed> __data16 _A_PDDIR_L
+_A_PDDIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0266H
+// union <unnamed> __data16 _A_PDREN_L
+_A_PDREN_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,026aH
+// union <unnamed> __data16 _A_PDSEL_L
+_A_PDSEL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0282H
+// union <unnamed> __data16 _A_PEOUT_L
+_A_PEOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0620H
+// union <unnamed> __data16 _A_UCB1CTLW0_L
+_A_UCB1CTLW0_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0626H
+// union <unnamed> __data16 _A_UCB1BRW_L
+_A_UCB1BRW_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,062aH
+// unsigned char volatile __data16 UCB1STAT
+UCB1STAT:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,062cH
+// unsigned char const volatile __data16 UCB1RXBUF
+UCB1RXBUF:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,062eH
+// unsigned char volatile __data16 UCB1TXBUF
+UCB1TXBUF:
+        DS8 1
+
+        ASEGN DATA16_AN:DATA:NOROOT,063cH
+// union <unnamed> __data16 _A_UCB1ICTL_L
+_A_UCB1ICTL_L:
+        DS8 2
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+bFLAG_MicroSDInserted:
+        DS8 1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_MMC_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function SYS_MMC_Init
+        FUNCALL SYS_MMC_Init, SYS_MMC_InitIO
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_MMC_Init, FS_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_MMC_Init, f_mount
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_MMC_Init, f_mkdir
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_MMC_Init, f_chdir
+        LOCFRAME CSTACK, 4, STACK
+        CALLA   #SYS_MMC_InitIO
+        BIT.B   #0x4, &0x200
+        JC      ??SYS_MMC_Init_0
+        MOVX.B  #0x1, &bFLAG_MicroSDInserted
+        BIS.B   #0x80, &0x282
+        CALLA   #FS_Init
+        MOVA    #Fatfs, R13
+        MOV.B   #0x0, R12
+        CALLA   #f_mount
+        MOVA    #`?<Constant "CLEON">`, R12
+        CALLA   #f_mkdir
+        MOVA    #`?<Constant "/CLEON">`, R12
+        BRA     #f_chdir
+??SYS_MMC_Init_0:
+        BIC.B   #0x80, &0x282
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PAIN_L
+        REQUIRE _A_PEOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_MMC_InitIO:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function SYS_MMC_InitIO
+        BIS.B   #0x20, &0x26b
+        BIS.B   #0x40, &0x26b
+        BIS.B   #0x10, &0x26b
+        BIS.B   #0x20, &0x265
+        BIS.B   #0x10, &0x265
+        BIC.B   #0x40, &0x20a
+        BIS.B   #0x40, &0x202
+        BIS.B   #0x40, &0x204
+        BIS.B   #0x20, &0x267
+        BIS.B   #0x40, &0x267
+        BIS.B   #0x20, &0x263
+        BIS.B   #0x40, &0x263
+        BIC.B   #0x4, &0x204
+        BIC.B   #0x4, &0x218
+        BIS.B   #0x4, &0x21a
+        RETA
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_PDSEL_L
+        REQUIRE _A_PDDIR_L
+        REQUIRE _A_PASEL_L
+        REQUIRE _A_PAOUT_L
+        REQUIRE _A_PADIR_L
+        REQUIRE _A_PDREN_L
+        REQUIRE _A_PDOUT_L
+        REQUIRE _A_PAIES_L
+        REQUIRE _A_PAIE_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_MMC_FastMode:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function SYS_MMC_FastMode
+        BIS.B   #0x1, &0x620
+        MOV.B   #0x2, &0x626
+        MOV.B   #0x0, &0x627
+        BIC.B   #0x1, &0x620
+        RETA
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_UCB1CTLW0_L
+        REQUIRE _A_UCB1BRW_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_MMC_ReadFrame:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function SYS_MMC_ReadFrame
+        MOV.W   SR, R14
+        AND.W   #0x8, R14
+        DINT
+        NOP
+        BIC.B   #0x1, &0x63d
+??SYS_MMC_ReadFrame_2:
+        MOV.W   R13, R15
+        MOV.W   R15, R13
+        ADD.W   #0xffff, R13
+        CMP.W   #0x0, R15
+        JEQ     ??SYS_MMC_ReadFrame_3
+??SYS_MMC_ReadFrame_0:
+        BIT.B   #0x2, &0x63d
+        JNC     ??SYS_MMC_ReadFrame_0
+        MOV.B   #0xff, &0x62e
+??SYS_MMC_ReadFrame_1:
+        BIT.B   #0x1, &0x63d
+        JNC     ??SYS_MMC_ReadFrame_1
+        MOV.B   &0x62c, 0(R12)
+        ADDA    #0x1, R12
+        JMP     ??SYS_MMC_ReadFrame_2
+??SYS_MMC_ReadFrame_3:
+        BIS.W   R14, SR
+        RETA
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_UCB1ICTL_L
+        REQUIRE UCB1TXBUF
+        REQUIRE UCB1RXBUF
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_MMC_SendFrame:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function SYS_MMC_SendFrame
+        MOV.W   SR, R14
+        AND.W   #0x8, R14
+        DINT
+        NOP
+??SYS_MMC_SendFrame_1:
+        MOV.W   R13, R15
+        MOV.W   R15, R13
+        ADD.W   #0xffff, R13
+        CMP.W   #0x0, R15
+        JEQ     ??SYS_MMC_SendFrame_2
+??SYS_MMC_SendFrame_0:
+        BIT.B   #0x2, &0x63d
+        JNC     ??SYS_MMC_SendFrame_0
+        MOV.B   @R12, &0x62e
+        ADDA    #0x1, R12
+        JMP     ??SYS_MMC_SendFrame_1
+??SYS_MMC_SendFrame_2:
+        BIT.B   #0x1, &0x62a
+        JC      ??SYS_MMC_SendFrame_2
+        MOV.B   &0x62c, R15
+        BIS.W   R14, SR
+        RETA
+          CFI EndBlock cfiBlock4
+        REQUIRE _A_UCB1ICTL_L
+        REQUIRE UCB1TXBUF
+        REQUIRE UCB1STAT
+        REQUIRE UCB1RXBUF
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_MMC_DeselectCard:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function SYS_MMC_DeselectCard
+        BIS.B   #0x40, &0x202
+        RETA
+          CFI EndBlock cfiBlock5
+        REQUIRE _A_PAOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_MMC_SelectCard:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function SYS_MMC_SelectCard
+        BIC.B   #0x40, &0x202
+        RETA
+          CFI EndBlock cfiBlock6
+        REQUIRE _A_PAOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "CLEON">`:
+        DC8 "CLEON"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "/CLEON">`:
+        DC8 "/CLEON"
+
+        END
+// 
+// 282 bytes in segment CODE
+//  31 bytes in segment DATA16_AN
+//  13 bytes in segment DATA20_C
+//   1 byte  in segment DATA20_Z
+// 
+// 282 bytes of CODE  memory
+//  13 bytes of CONST memory
+//   1 byte  of DATA  memory (+ 31 bytes shared)
+//
+//Errors: none
+//Warnings: none

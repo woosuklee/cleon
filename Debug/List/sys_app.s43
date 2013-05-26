@@ -1,0 +1,1427 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.1.50592/W32 for MSP430      17/Nov/2012  15:04:40 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_app /
+//                     .c                                                     /
+//    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_app /
+//                     .c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.            /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ES /
+//                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develo /
+//                     ping\cleon\Debug\List\" -o                             /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\" /
+//                      --debug -D__MSP430F5338__ -e --double=64              /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\platform\"  /
+//                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     /
+//                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"   /
+//                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     /
+//                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\Fat /
+//                     Fs\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.            /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\" --core=430X --data_model=large -Oh             /
+//                     --multiplier=32 --multiplier_location=4C0              /
+//                     --hw_workaround=CPU40                                  /
+//    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\ /
+//                     sys_app.s43                                            /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sys_app
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__iar_require _Printf", "long_longs,qualifiers"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?ClearMemoryBytes
+        EXTERN ?cstart_init_zero20
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC SYS_APP_BoardLivenessLED
+        FUNCTION SYS_APP_BoardLivenessLED,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_APP_CollectThreeSamples
+        FUNCTION SYS_APP_CollectThreeSamples,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 96, STACK
+        PUBLIC SYS_APP_LoggingForTest
+        FUNCTION SYS_APP_LoggingForTest,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 20, STACK
+        PUBLIC SYS_APP_PostProcessing
+        FUNCTION SYS_APP_PostProcessing,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 32, STACK
+        PUBLIC SYS_APP_ProcessingReceivedUSBFrame
+        FUNCTION SYS_APP_ProcessingReceivedUSBFrame,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 14, STACK
+        PUBWEAK _A_ADC12CTL0_L
+        PUBWEAK _A_DMA0CTL_L
+        PUBWEAK _A_PDOUT_L
+        PUBWEAK _A_PEOUT_L
+        PUBLIC bFLAG_USBFrameIsBeingProcessed
+        PUBLIC ucChunkInCollectionSampleGroupCount
+        PUBLIC ucCollectionSampleGroupCount
+        PUBLIC ucRTCDelayCountForGPS
+        PUBLIC ucRTCTwoSecondsCounter
+        PUBLIC uiNumberOfGPSData
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        
+          CFI Common cfiCommon1 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L SameValue
+          CFI R12H SameValue
+          CFI R12 Concat
+          CFI R13L SameValue
+          CFI R13H SameValue
+          CFI R13 Concat
+          CFI R14L SameValue
+          CFI R14H SameValue
+          CFI R14 Concat
+          CFI R15L SameValue
+          CFI R15H SameValue
+          CFI R15 Concat
+          CFI EndCommon cfiCommon1
+        
+        EXTERN SYS_USB_Printf
+        FUNCTION SYS_USB_Printf,0202H
+        EXTERN bFLAG_RTCTimeTickOfSecond
+        EXTERN SYS_SENSORS_SHT11_On
+        FUNCTION SYS_SENSORS_SHT11_On,0202H
+        EXTERN uniCLEON
+        EXTERN SYS_SENSORS_SHT11_ReadTemperature
+        FUNCTION SYS_SENSORS_SHT11_ReadTemperature,0202H
+        EXTERN SYS_SENSORS_SHT11_ReadHumidity
+        FUNCTION SYS_SENSORS_SHT11_ReadHumidity,0202H
+        EXTERN SYS_SENSORS_SHT11_Off
+        FUNCTION SYS_SENSORS_SHT11_Off,0202H
+        EXTERN SYS_SENSORS_S1087_Read
+        FUNCTION SYS_SENSORS_S1087_Read,0202H
+        EXTERN SYS_SENSORS_S108701_Read
+        FUNCTION SYS_SENSORS_S108701_Read,0202H
+        EXTERN HAL_ReadCurrentTimeTick
+        FUNCTION HAL_ReadCurrentTimeTick,0202H
+        EXTERN bFLAG_DMATransferCompleted
+        EXTERN HAL_FLASH_Write
+        FUNCTION HAL_FLASH_Write,0202H
+        EXTERN bFLAG_USBFrameReceived
+        EXTERN uniUSBRecvFrame
+        EXTERN uniTimeTick
+        EXTERN bFLAG_IsTimeSynced
+        EXTERN memset
+        FUNCTION memset,010202H
+        EXTERN bFLAG_GPIOUserBtnPressed
+        EXTERN bFLAG_GPSSignalIsBeingCaptured
+        EXTERN sprintf
+        FUNCTION sprintf,010202H
+        EXTERN Fatfs
+        EXTERN f_mount
+        FUNCTION f_mount,0202H
+        EXTERN f_mkdir
+        FUNCTION f_mkdir,0202H
+        EXTERN f_chdir
+        FUNCTION f_chdir,0202H
+        EXTERN fileObject
+        EXTERN f_open
+        FUNCTION f_open,0202H
+        EXTERN f_write
+        FUNCTION f_write,0202H
+        EXTERN f_close
+        FUNCTION f_close,0202H
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0700H
+// union <unnamed> __data16 _A_ADC12CTL0_L
+_A_ADC12CTL0_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0510H
+// union <unnamed> __data16 _A_DMA0CTL_L
+_A_DMA0CTL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0262H
+// union <unnamed> __data16 _A_PDOUT_L
+_A_PDOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0282H
+// union <unnamed> __data16 _A_PEOUT_L
+_A_PEOUT_L:
+        DS8 2
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+bFLAG_USBFrameIsBeingProcessed:
+        DS8 1
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+ucRTCDelayCountForGPS:
+        DS8 1
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+ucRTCTwoSecondsCounter:
+        DS8 1
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(1)
+        REQUIRE ?cstart_init_zero20
+uiNumberOfGPSData:
+        DS8 2
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+ucCollectionSampleGroupCount:
+        DS8 1
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+ucChunkInCollectionSampleGroupCount:
+        DS8 1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_APP_BoardLivenessLED:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function SYS_APP_BoardLivenessLED
+        CMPX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+        JEQ     ??SYS_APP_BoardLivenessLED_0
+        MOVX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+        XOR.B   #0x80, &0x282
+??SYS_APP_BoardLivenessLED_0:
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PEOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine1:
+          CFI Block cfiCond1 Using cfiCommon0
+          CFI Function SYS_APP_PostProcessing
+          CFI Conditional ??CrossCallReturnLabel_3
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+32
+          CFI Block cfiCond2 Using cfiCommon0
+          CFI (cfiCond2) Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI (cfiCond2) Conditional ??CrossCallReturnLabel_2
+          CFI (cfiCond2) R10L Frame(CFA, -12)
+          CFI (cfiCond2) R10H Frame(CFA, -10)
+          CFI (cfiCond2) R11L Frame(CFA, -8)
+          CFI (cfiCond2) R11H Frame(CFA, -6)
+          CFI (cfiCond2) CFA SP+16
+          CFI Block cfiCond3 Using cfiCommon0
+          CFI (cfiCond3) Function SYS_APP_CollectThreeSamples
+          CFI (cfiCond3) Conditional ??SYS_APP_CollectThreeSamples_5
+          CFI (cfiCond3) R4L Frame(CFA, -36)
+          CFI (cfiCond3) R4H Frame(CFA, -34)
+          CFI (cfiCond3) R5L Frame(CFA, -32)
+          CFI (cfiCond3) R5H Frame(CFA, -30)
+          CFI (cfiCond3) R6L Frame(CFA, -28)
+          CFI (cfiCond3) R6H Frame(CFA, -26)
+          CFI (cfiCond3) R7L Frame(CFA, -24)
+          CFI (cfiCond3) R7H Frame(CFA, -22)
+          CFI (cfiCond3) R8L Frame(CFA, -20)
+          CFI (cfiCond3) R8H Frame(CFA, -18)
+          CFI (cfiCond3) R9L Frame(CFA, -16)
+          CFI (cfiCond3) R9H Frame(CFA, -14)
+          CFI (cfiCond3) R10L Frame(CFA, -12)
+          CFI (cfiCond3) R10H Frame(CFA, -10)
+          CFI (cfiCond3) R11L Frame(CFA, -8)
+          CFI (cfiCond3) R11H Frame(CFA, -6)
+          CFI (cfiCond3) CFA SP+92
+          CFI Block cfiPicker4 Using cfiCommon1
+          CFI (cfiPicker4) NoFunction
+          CFI (cfiPicker4) Picker
+        MOVA    #`?<Constant "\\r\\n">`, R12
+        BRA     #SYS_USB_Printf
+          CFI EndBlock cfiCond1
+          CFI EndBlock cfiCond2
+          CFI EndBlock cfiCond3
+          CFI EndBlock cfiPicker4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_APP_CollectThreeSamples:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function SYS_APP_CollectThreeSamples
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_USB_Printf
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_USB_Printf
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_USB_Printf
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_SENSORS_SHT11_On
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_SENSORS_SHT11_ReadTemperature
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_SENSORS_SHT11_ReadHumidity
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_SENSORS_SHT11_Off
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_SENSORS_S1087_Read
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_SENSORS_S108701_Read
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_USB_Printf
+        LOCFRAME CSTACK, 92, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_USB_Printf
+        LOCFRAME CSTACK, 88, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_USB_Printf
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, sprintf
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, f_mount
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, f_mkdir
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, f_chdir
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, f_open
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, f_write
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, f_close
+        LOCFRAME CSTACK, 96, STACK
+        FUNCALL SYS_APP_CollectThreeSamples, SYS_USB_Printf
+        LOCFRAME CSTACK, 92, STACK
+        PUSHM.A #0x8, R11
+          CFI R4L Frame(CFA, -36)
+          CFI R4H Frame(CFA, -34)
+          CFI R5L Frame(CFA, -32)
+          CFI R5H Frame(CFA, -30)
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+36
+        SUB.W   #0x34, SP
+          CFI CFA SP+88
+        CMPX.B  #0x0, &bFLAG_GPIOUserBtnPressed
+        JEQ     ??SYS_APP_CollectThreeSamples_4
+        MOVX.B  #0x0, &bFLAG_GPIOUserBtnPressed
+        CMPX.B  #0x0, &bFLAG_USBFrameIsBeingProcessed
+        JNE     ??SYS_APP_CollectThreeSamples_4
+        CMPX.B  #0x0, &bFLAG_IsTimeSynced
+        JNE     ??SYS_APP_CollectThreeSamples_5
+        MOVA    #`?<Constant "\\r\\n===> (warning!) CLE...">`, R12
+        CALLA   #SYS_USB_Printf
+        CALLA   #?Subroutine1
+??SYS_APP_CollectThreeSamples_5:
+        MOVA    #`?<Constant "===> Logging started\\r\\n">`, R12
+        CALLA   #SYS_USB_Printf
+        CALLA   #?Subroutine0
+??CrossCallReturnLabel_1:
+        MOVA    #ucCollectionSampleGroupCount, R9
+        MOV.B   @R9, R15
+        MOV.W   R15, R10
+        RPT     #0x2
+        ADDX.W  R15, R10
+        MOV.W   R10, R11
+        XOR.W   #0xffff, R11
+        RLA.W   R11
+        SUBC.W  R11, R11
+        MOV.W   SP, R4
+        ADD.W   #0x2, R4
+        MOV.W   SP, R5
+        ADD.W   #0x0, R5
+        MOVA    #bFLAG_GPSSignalIsBeingCaptured, R7
+        MOVA    #ucChunkInCollectionSampleGroupCount, R6
+        JMP     ??SYS_APP_CollectThreeSamples_6
+??SYS_APP_CollectThreeSamples_2:
+        ADD.B   #0x1, 0(R6)
+        PUSH.W  R13
+          CFI CFA SP+90
+        MOV.B   @R6, R15
+        PUSH.W  R15
+          CFI CFA SP+92
+        MOVA    #`?<Constant "===> Start logging ch...">`, R12
+        CALLA   #SYS_USB_Printf
+        ADD.W   #0x4, SP
+          CFI CFA SP+88
+        CMP.B   #0x0, 0(R7)
+        JNE     ??SYS_APP_CollectThreeSamples_7
+        MOV.B   #0x1, 0(R7)
+        MOV.W   #0x1, 0x1c(R8)
+        MOV.W   #0x0, 0x1e(R8)
+        MOV.W   #0x3e8, 0x24(R8)
+        MOV.W   #0x0, 0x26(R8)
+??SYS_APP_CollectThreeSamples_0:
+        CMPX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+        JEQ     ??SYS_APP_CollectThreeSamples_0
+        MOVX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+        MOVA    #uniTimeTick, R15
+        MOV.W   @R15+, 0x8(R8)
+        MOV.W   @R15+, 0xa(R8)
+        MOV.W   @R15+, 0xc(R8)
+        MOV.W   @R15+, 0xe(R8)
+        BIS.W   #0x10, &0x510
+        MOVA    #`?<Constant "===> Logging started ...">`, R12
+        CALLA   #SYS_USB_Printf
+        PUSHX.W &uniTimeTick + 6
+          CFI CFA SP+90
+        PUSHX.W &uniTimeTick + 4
+          CFI CFA SP+92
+        PUSHX.W &uniTimeTick + 2
+          CFI CFA SP+94
+        PUSHX.W &uniTimeTick
+          CFI CFA SP+96
+        MOVA    #`?<Constant "%lld\\r\\n">`, R12
+        CALLA   #SYS_USB_Printf
+        ADD.W   #0x8, SP
+          CFI CFA SP+88
+        CALLA   #?Subroutine3
+??CrossCallReturnLabel_9:
+        MOV.W   SP, R12
+        ADD.W   #0x2, R12
+        MOV.W   #0x32, R14
+        CALLA   #?ClearMemoryBytes
+        PUSH.W  0xe(R8)
+          CFI CFA SP+90
+        PUSH.W  0xc(R8)
+          CFI CFA SP+92
+        PUSH.W  0xa(R8)
+          CFI CFA SP+94
+        PUSH.W  0x8(R8)
+          CFI CFA SP+96
+        MOVA    #`?<Constant "%lld_s16368_if4092000...">`, R13
+        MOVA    R4, R12
+        CALLA   #sprintf
+        MOVA    #Fatfs, R13
+        MOV.B   #0x0, R12
+        CALLA   #f_mount
+        MOVA    #`?<Constant "log">`, R12
+        CALLA   #f_mkdir
+        MOVA    #`?<Constant "/log">`, R12
+        CALLA   #f_chdir
+        MOV.B   #0xa, R14
+        MOVA    R4, R13
+        MOVA    #fileObject, R12
+        CALLA   #f_open
+        MOVA    R5, R15
+        MOV.W   #0x202c, R14
+        MOVA    R8, R13
+        MOVA    #fileObject, R12
+        CALLA   #f_write
+        MOVA    #fileObject, R12
+        CALLA   #f_close
+        ADDX.W  #0x1, &uiNumberOfGPSData
+        MOV.B   #0x0, 0(R7)
+        ADD.W   #0x8, SP
+          CFI CFA SP+88
+??SYS_APP_CollectThreeSamples_7:
+        MOV.B   @R9, R15
+        PUSH.W  R15
+          CFI CFA SP+90
+        MOV.B   @R6, R15
+        PUSH.W  R15
+          CFI CFA SP+92
+        MOVA    #`?<Constant "===> Chunk #%d in gro...">`, R12
+        CALLA   #SYS_USB_Printf
+        ADD.W   #0x1, R10
+        ADDC.W  #0x0, R11
+        ADD.W   #0x4, SP
+          CFI CFA SP+88
+??SYS_APP_CollectThreeSamples_6:
+        MOV.B   @R9, R13
+        MOV.W   R13, R15
+        ADD.W   #0x1, R15
+        MOV.W   R15, R14
+        RPT     #0x2
+        ADDX.W  R15, R14
+        MOV.W   R14, R15
+        XOR.W   #0xffff, R15
+        RLA.W   R15
+        SUBC.W  R15, R15
+        CMP.W   R15, R11
+        JNC     ??SYS_APP_CollectThreeSamples_2
+        JNE     ??SYS_APP_CollectThreeSamples_8
+        CMP.W   R14, R10
+        JNC     ??SYS_APP_CollectThreeSamples_2
+??SYS_APP_CollectThreeSamples_8:
+        ADD.B   #0x1, 0(R9)
+        MOV.B   #0x0, 0(R6)
+        CMPX.W  #0xd, &uiNumberOfGPSData
+        JNC     ??SYS_APP_CollectThreeSamples_9
+        MOVX.W  #0xc, &uiNumberOfGPSData
+??SYS_APP_CollectThreeSamples_9:
+        CMP.B   #0x4, 0(R9)
+        JNC     ??SYS_APP_CollectThreeSamples_10
+        MOV.B   #0x0, 0(R9)
+??SYS_APP_CollectThreeSamples_10:
+        BIS.B   #0x40, &0x282
+??SYS_APP_CollectThreeSamples_4:
+        ADD.W   #0x34, SP
+          CFI CFA SP+36
+        POPM.A  #0x8, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R4H SameValue
+          CFI R5H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R4L SameValue
+          CFI R5L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock5
+        REQUIRE _A_PEOUT_L
+        REQUIRE _A_ADC12CTL0_L
+        REQUIRE _A_DMA0CTL_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine3:
+          CFI Block cfiCond6 Using cfiCommon0
+          CFI Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI Conditional ??CrossCallReturnLabel_8
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+16
+          CFI Block cfiCond7 Using cfiCommon0
+          CFI (cfiCond7) Function SYS_APP_CollectThreeSamples
+          CFI (cfiCond7) Conditional ??CrossCallReturnLabel_9
+          CFI (cfiCond7) R4L Frame(CFA, -36)
+          CFI (cfiCond7) R4H Frame(CFA, -34)
+          CFI (cfiCond7) R5L Frame(CFA, -32)
+          CFI (cfiCond7) R5H Frame(CFA, -30)
+          CFI (cfiCond7) R6L Frame(CFA, -28)
+          CFI (cfiCond7) R6H Frame(CFA, -26)
+          CFI (cfiCond7) R7L Frame(CFA, -24)
+          CFI (cfiCond7) R7H Frame(CFA, -22)
+          CFI (cfiCond7) R8L Frame(CFA, -20)
+          CFI (cfiCond7) R8H Frame(CFA, -18)
+          CFI (cfiCond7) R9L Frame(CFA, -16)
+          CFI (cfiCond7) R9H Frame(CFA, -14)
+          CFI (cfiCond7) R10L Frame(CFA, -12)
+          CFI (cfiCond7) R10H Frame(CFA, -10)
+          CFI (cfiCond7) R11L Frame(CFA, -8)
+          CFI (cfiCond7) R11H Frame(CFA, -6)
+          CFI (cfiCond7) CFA SP+92
+          CFI Block cfiPicker8 Using cfiCommon1
+          CFI (cfiPicker8) NoFunction
+          CFI (cfiPicker8) Picker
+        CMPX.B  #0x0, &bFLAG_DMATransferCompleted
+        JEQ     ?Subroutine3
+        MOVX.B  #0x0, &bFLAG_DMATransferCompleted
+        RETA
+          CFI EndBlock cfiCond6
+          CFI EndBlock cfiCond7
+          CFI EndBlock cfiPicker8
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine0:
+          CFI Block cfiCond9 Using cfiCommon0
+          CFI Function SYS_APP_LoggingForTest
+          CFI Conditional ??CrossCallReturnLabel_0
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+24
+          CFI Block cfiCond10 Using cfiCommon0
+          CFI (cfiCond10) Function SYS_APP_CollectThreeSamples
+          CFI (cfiCond10) Conditional ??CrossCallReturnLabel_1
+          CFI (cfiCond10) R4L Frame(CFA, -36)
+          CFI (cfiCond10) R4H Frame(CFA, -34)
+          CFI (cfiCond10) R5L Frame(CFA, -32)
+          CFI (cfiCond10) R5H Frame(CFA, -30)
+          CFI (cfiCond10) R6L Frame(CFA, -28)
+          CFI (cfiCond10) R6H Frame(CFA, -26)
+          CFI (cfiCond10) R7L Frame(CFA, -24)
+          CFI (cfiCond10) R7H Frame(CFA, -22)
+          CFI (cfiCond10) R8L Frame(CFA, -20)
+          CFI (cfiCond10) R8H Frame(CFA, -18)
+          CFI (cfiCond10) R9L Frame(CFA, -16)
+          CFI (cfiCond10) R9H Frame(CFA, -14)
+          CFI (cfiCond10) R10L Frame(CFA, -12)
+          CFI (cfiCond10) R10H Frame(CFA, -10)
+          CFI (cfiCond10) R11L Frame(CFA, -8)
+          CFI (cfiCond10) R11H Frame(CFA, -6)
+          CFI (cfiCond10) CFA SP+92
+          CFI Block cfiPicker11 Using cfiCommon1
+          CFI (cfiPicker11) NoFunction
+          CFI (cfiPicker11) Picker
+        CALLA   #?Subroutine5
+??CrossCallReturnLabel_12:
+        MOVA    #uniCLEON, R8
+        CALLA   #SYS_SENSORS_SHT11_ReadTemperature
+        MOV.W   R12, 0x2024(R8)
+        CALLA   #SYS_SENSORS_SHT11_ReadHumidity
+        MOV.W   R12, 0x2026(R8)
+        CALLA   #?Subroutine4
+??CrossCallReturnLabel_10:
+        MOV.W   R12, 0x202a(R8)
+        CALLA   #SYS_SENSORS_S108701_Read
+        MOV.W   R12, 0x2028(R8)
+        BIC.W   #0x1, &0x700
+        RETA
+          CFI EndBlock cfiCond9
+          CFI EndBlock cfiCond10
+          CFI EndBlock cfiPicker11
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine5:
+          CFI Block cfiCond12 Using cfiCommon0
+          CFI Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI Conditional ??CrossCallReturnLabel_13
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+16
+          CFI Block cfiCond13 Using cfiCommon0
+          CFI (cfiCond13) Function SYS_APP_LoggingForTest
+          CFI (cfiCond13) Conditional ??CrossCallReturnLabel_12, ??CrossCallReturnLabel_0
+          CFI (cfiCond13) R8L Frame(CFA, -20)
+          CFI (cfiCond13) R8H Frame(CFA, -18)
+          CFI (cfiCond13) R9L Frame(CFA, -16)
+          CFI (cfiCond13) R9H Frame(CFA, -14)
+          CFI (cfiCond13) R10L Frame(CFA, -12)
+          CFI (cfiCond13) R10H Frame(CFA, -10)
+          CFI (cfiCond13) R11L Frame(CFA, -8)
+          CFI (cfiCond13) R11H Frame(CFA, -6)
+          CFI (cfiCond13) CFA SP+28
+          CFI Block cfiCond14 Using cfiCommon0
+          CFI (cfiCond14) Function SYS_APP_CollectThreeSamples
+          CFI (cfiCond14) Conditional ??CrossCallReturnLabel_12, ??CrossCallReturnLabel_1
+          CFI (cfiCond14) R4L Frame(CFA, -36)
+          CFI (cfiCond14) R4H Frame(CFA, -34)
+          CFI (cfiCond14) R5L Frame(CFA, -32)
+          CFI (cfiCond14) R5H Frame(CFA, -30)
+          CFI (cfiCond14) R6L Frame(CFA, -28)
+          CFI (cfiCond14) R6H Frame(CFA, -26)
+          CFI (cfiCond14) R7L Frame(CFA, -24)
+          CFI (cfiCond14) R7H Frame(CFA, -22)
+          CFI (cfiCond14) R8L Frame(CFA, -20)
+          CFI (cfiCond14) R8H Frame(CFA, -18)
+          CFI (cfiCond14) R9L Frame(CFA, -16)
+          CFI (cfiCond14) R9H Frame(CFA, -14)
+          CFI (cfiCond14) R10L Frame(CFA, -12)
+          CFI (cfiCond14) R10H Frame(CFA, -10)
+          CFI (cfiCond14) R11L Frame(CFA, -8)
+          CFI (cfiCond14) R11H Frame(CFA, -6)
+          CFI (cfiCond14) CFA SP+96
+          CFI Block cfiPicker15 Using cfiCommon1
+          CFI (cfiPicker15) NoFunction
+          CFI (cfiPicker15) Picker
+        BIC.B   #0x40, &0x282
+        BRA     #SYS_SENSORS_SHT11_On
+          CFI EndBlock cfiCond12
+          CFI EndBlock cfiCond13
+          CFI EndBlock cfiCond14
+          CFI EndBlock cfiPicker15
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine4:
+          CFI Block cfiCond16 Using cfiCommon0
+          CFI Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI Conditional ??CrossCallReturnLabel_11
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+16
+          CFI Block cfiCond17 Using cfiCommon0
+          CFI (cfiCond17) Function SYS_APP_LoggingForTest
+          CFI (cfiCond17) Conditional ??CrossCallReturnLabel_10, ??CrossCallReturnLabel_0
+          CFI (cfiCond17) R8L Frame(CFA, -20)
+          CFI (cfiCond17) R8H Frame(CFA, -18)
+          CFI (cfiCond17) R9L Frame(CFA, -16)
+          CFI (cfiCond17) R9H Frame(CFA, -14)
+          CFI (cfiCond17) R10L Frame(CFA, -12)
+          CFI (cfiCond17) R10H Frame(CFA, -10)
+          CFI (cfiCond17) R11L Frame(CFA, -8)
+          CFI (cfiCond17) R11H Frame(CFA, -6)
+          CFI (cfiCond17) CFA SP+28
+          CFI Block cfiCond18 Using cfiCommon0
+          CFI (cfiCond18) Function SYS_APP_CollectThreeSamples
+          CFI (cfiCond18) Conditional ??CrossCallReturnLabel_10, ??CrossCallReturnLabel_1
+          CFI (cfiCond18) R4L Frame(CFA, -36)
+          CFI (cfiCond18) R4H Frame(CFA, -34)
+          CFI (cfiCond18) R5L Frame(CFA, -32)
+          CFI (cfiCond18) R5H Frame(CFA, -30)
+          CFI (cfiCond18) R6L Frame(CFA, -28)
+          CFI (cfiCond18) R6H Frame(CFA, -26)
+          CFI (cfiCond18) R7L Frame(CFA, -24)
+          CFI (cfiCond18) R7H Frame(CFA, -22)
+          CFI (cfiCond18) R8L Frame(CFA, -20)
+          CFI (cfiCond18) R8H Frame(CFA, -18)
+          CFI (cfiCond18) R9L Frame(CFA, -16)
+          CFI (cfiCond18) R9H Frame(CFA, -14)
+          CFI (cfiCond18) R10L Frame(CFA, -12)
+          CFI (cfiCond18) R10H Frame(CFA, -10)
+          CFI (cfiCond18) R11L Frame(CFA, -8)
+          CFI (cfiCond18) R11H Frame(CFA, -6)
+          CFI (cfiCond18) CFA SP+96
+          CFI Block cfiPicker19 Using cfiCommon1
+          CFI (cfiPicker19) NoFunction
+          CFI (cfiPicker19) Picker
+        CALLA   #SYS_SENSORS_SHT11_Off
+        BIS.W   #0x1, &0x700
+        BRA     #SYS_SENSORS_S1087_Read
+          CFI EndBlock cfiCond16
+          CFI EndBlock cfiCond17
+          CFI EndBlock cfiCond18
+          CFI EndBlock cfiPicker19
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_APP_ProcessingReceivedUSBFrame:
+          CFI Block cfiBlock20 Using cfiCommon0
+          CFI Function SYS_APP_ProcessingReceivedUSBFrame
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_On
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_ReadTemperature
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_ReadHumidity
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_Off
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_S1087_Read
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_S108701_Read
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, HAL_ReadCurrentTimeTick
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, HAL_ReadCurrentTimeTick
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, HAL_ReadCurrentTimeTick
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, HAL_ReadCurrentTimeTick
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_On
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_ReadTemperature
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_ReadHumidity
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_SHT11_Off
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_S1087_Read
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_SENSORS_S108701_Read
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_USB_Printf
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, SYS_APP_PostProcessing
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_APP_ProcessingReceivedUSBFrame, memset
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.A #0x2, R11
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+12
+        CMPX.B  #0x0, &bFLAG_USBFrameReceived
+        JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_5
+        MOVX.B  #0x0, &bFLAG_USBFrameReceived
+        MOVX.B  #0x1, &bFLAG_USBFrameIsBeingProcessed
+        MOVA    #uniUSBRecvFrame, R10
+        MOV.B   0x3(R10), R14
+        SUB.B   #0x1, R14
+        JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_6
+        SUB.B   #0x1, R14
+        JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_7
+        SUB.B   #0x1, R14
+        JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_8
+        SUB.B   #0x1, R14
+        JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_9
+        SUB.B   #0x1, R14
+        JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_10
+        SUB.B   #0x1, R14
+        JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_11
+        SUB.B   #0x1, R14
+        JNE     ??SYS_APP_ProcessingReceivedUSBFrame_3
+        MOVA    #`?<Constant "===> Logging started\\r\\n">`, R12
+        CALLA   #SYS_USB_Printf
+        CALLA   #?Subroutine5
+??CrossCallReturnLabel_13:
+        MOVA    #uniCLEON, R11
+        CALLA   #SYS_SENSORS_SHT11_ReadTemperature
+        MOV.W   R12, 0x2024(R11)
+        CALLA   #SYS_SENSORS_SHT11_ReadHumidity
+        MOV.W   R12, 0x2026(R11)
+        CALLA   #?Subroutine4
+??CrossCallReturnLabel_11:
+        MOV.W   R12, 0x202a(R11)
+        CALLA   #SYS_SENSORS_S108701_Read
+        MOV.W   R12, 0x2028(R11)
+        BIC.W   #0x1, &0x700
+        CALLA   #HAL_ReadCurrentTimeTick
+        BIS.W   #0x10, &0x510
+        CALLA   #?Subroutine3
+??CrossCallReturnLabel_8:
+        MOVA    #`?<Constant "Stored GPS data\\r\\n">`, R12
+        CALLA   #SYS_USB_Printf
+??SYS_APP_ProcessingReceivedUSBFrame_1:
+        MOV.B   @R11+, R15
+        PUSH.W  R15
+          CFI CFA SP+14
+        MOVA    #`?<Constant "%.2x ">`, R12
+        CALLA   #SYS_USB_Printf
+        ADD.W   #0x2, SP
+          CFI CFA SP+12
+        CMPA    #uniCLEON + 8236, R11
+        JNE     ??SYS_APP_ProcessingReceivedUSBFrame_1
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_2:
+        BIS.B   #0x40, &0x282
+        JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+??SYS_APP_ProcessingReceivedUSBFrame_9:
+        MOVA    #`?<Constant "===> Welcome to CLEON\\n">`, R12
+        CALLA   #SYS_USB_Printf
+        MOVA    #`?<Constant "===> You are now conn...">`, R12
+        CALLA   #SYS_USB_Printf
+        MOVA    #`?<Constant "===> - CLCOK SETTING\\r\\n">`, R12
+        CALLA   #SYS_USB_Printf
+        MOVA    #`?<Constant "===>       MCLK  = 12...">`, R12
+        CALLA   #SYS_USB_Printf
+        MOVA    #`?<Constant "===>       ACLK  = 32...">`, R12
+        CALLA   #SYS_USB_Printf
+        MOVA    #`?<Constant "===>       SMCLK = 12...">`, R12
+        CALLA   #SYS_USB_Printf
+        PUSHX.W &uiNumberOfGPSData
+          CFI CFA SP+14
+        MOVA    #`?<Constant "===> - Number of stor...">`, R12
+        CALLA   #SYS_USB_Printf
+        MOVA    #`?<Constant "===> - Current CLEON ...">`, R12
+        CALLA   #SYS_USB_Printf
+        CALLA   #HAL_ReadCurrentTimeTick
+        JMP     ??SYS_APP_ProcessingReceivedUSBFrame_12
+          CFI CFA SP+12
+??SYS_APP_ProcessingReceivedUSBFrame_7:
+        MOVA    #`?<Constant "===> - Current CLEON ...">`, R12
+        JMP     ??SYS_APP_ProcessingReceivedUSBFrame_13
+??SYS_APP_ProcessingReceivedUSBFrame_6:
+        MOVA    #uniTimeTick, R15
+        MOV.B   0x4(R10), 0(R15)
+        MOV.B   0x5(R10), 0x1(R15)
+        MOV.B   0x6(R10), 0x2(R15)
+        MOV.B   0x7(R10), 0x3(R15)
+        MOV.B   0x8(R10), 0x4(R15)
+        MOV.B   0x9(R10), 0x5(R15)
+        MOV.B   0xa(R10), 0x6(R15)
+        MOV.B   0xb(R10), 0x7(R15)
+        MOVX.B  #0x1, &bFLAG_IsTimeSynced
+        MOVA    #`?<Constant "===> - Current CLEON ...">_1`, R12
+??SYS_APP_ProcessingReceivedUSBFrame_13:
+        CALLA   #SYS_USB_Printf
+        CALLA   #HAL_ReadCurrentTimeTick
+        JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+??SYS_APP_ProcessingReceivedUSBFrame_10:
+        CALLA   #SYS_SENSORS_SHT11_On
+        MOVA    #`?<Constant "===> ">`, R11
+        CALLA   #?Subroutine2
+??CrossCallReturnLabel_7:
+        CALLA   #SYS_SENSORS_SHT11_ReadTemperature
+        CALLA   #?Subroutine2
+??CrossCallReturnLabel_6:
+        CALLA   #SYS_SENSORS_SHT11_ReadHumidity
+        CALLA   #SYS_SENSORS_SHT11_Off
+        BIS.W   #0x1, &0x700
+        CALLA   #?Subroutine2
+??CrossCallReturnLabel_5:
+        CALLA   #SYS_SENSORS_S1087_Read
+        CALLA   #?Subroutine2
+??CrossCallReturnLabel_4:
+        CALLA   #SYS_SENSORS_S108701_Read
+        BIC.W   #0x1, &0x700
+        JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+??SYS_APP_ProcessingReceivedUSBFrame_11:
+        PUSHX.W &uiNumberOfGPSData
+          CFI CFA SP+14
+        MOVA    #`?<Constant "===> - Number of stor...">_1`, R12
+        CALLA   #SYS_USB_Printf
+??SYS_APP_ProcessingReceivedUSBFrame_12:
+        ADD.W   #0x2, SP
+          CFI CFA SP+12
+        JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+??SYS_APP_ProcessingReceivedUSBFrame_8:
+        CALLA   #SYS_APP_PostProcessing
+??SYS_APP_ProcessingReceivedUSBFrame_3:
+        MOV.W   #0x24, R14
+        MOV.W   #0x0, R15
+        MOV.W   #0x0, R13
+        MOVA    R10, R12
+        CALLA   #memset
+        MOVX.B  #0x0, &bFLAG_USBFrameIsBeingProcessed
+??SYS_APP_ProcessingReceivedUSBFrame_5:
+        POPM.A  #0x2, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock20
+        REQUIRE _A_PEOUT_L
+        REQUIRE _A_ADC12CTL0_L
+        REQUIRE _A_DMA0CTL_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?Subroutine2:
+          CFI Block cfiCond21 Using cfiCommon0
+          CFI Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI Conditional ??CrossCallReturnLabel_7
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+16
+          CFI Block cfiCond22 Using cfiCommon0
+          CFI (cfiCond22) Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI (cfiCond22) Conditional ??CrossCallReturnLabel_6
+          CFI (cfiCond22) R10L Frame(CFA, -12)
+          CFI (cfiCond22) R10H Frame(CFA, -10)
+          CFI (cfiCond22) R11L Frame(CFA, -8)
+          CFI (cfiCond22) R11H Frame(CFA, -6)
+          CFI (cfiCond22) CFA SP+16
+          CFI Block cfiCond23 Using cfiCommon0
+          CFI (cfiCond23) Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI (cfiCond23) Conditional ??CrossCallReturnLabel_5
+          CFI (cfiCond23) R10L Frame(CFA, -12)
+          CFI (cfiCond23) R10H Frame(CFA, -10)
+          CFI (cfiCond23) R11L Frame(CFA, -8)
+          CFI (cfiCond23) R11H Frame(CFA, -6)
+          CFI (cfiCond23) CFA SP+16
+          CFI Block cfiCond24 Using cfiCommon0
+          CFI (cfiCond24) Function SYS_APP_ProcessingReceivedUSBFrame
+          CFI (cfiCond24) Conditional ??CrossCallReturnLabel_4
+          CFI (cfiCond24) R10L Frame(CFA, -12)
+          CFI (cfiCond24) R10H Frame(CFA, -10)
+          CFI (cfiCond24) R11L Frame(CFA, -8)
+          CFI (cfiCond24) R11H Frame(CFA, -6)
+          CFI (cfiCond24) CFA SP+16
+          CFI Block cfiPicker25 Using cfiCommon1
+          CFI (cfiPicker25) NoFunction
+          CFI (cfiPicker25) Picker
+        MOVA    R11, R12
+        BRA     #SYS_USB_Printf
+          CFI EndBlock cfiCond21
+          CFI EndBlock cfiCond22
+          CFI EndBlock cfiCond23
+          CFI EndBlock cfiCond24
+          CFI EndBlock cfiPicker25
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_APP_LoggingForTest:
+          CFI Block cfiBlock26 Using cfiCommon0
+          CFI Function SYS_APP_LoggingForTest
+        FUNCALL SYS_APP_LoggingForTest, SYS_SENSORS_SHT11_On
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SYS_APP_LoggingForTest, SYS_SENSORS_SHT11_ReadTemperature
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SYS_APP_LoggingForTest, SYS_SENSORS_SHT11_ReadHumidity
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SYS_APP_LoggingForTest, SYS_SENSORS_SHT11_Off
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SYS_APP_LoggingForTest, SYS_SENSORS_S1087_Read
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SYS_APP_LoggingForTest, SYS_SENSORS_S108701_Read
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SYS_APP_LoggingForTest, HAL_ReadCurrentTimeTick
+        LOCFRAME CSTACK, 20, STACK
+        FUNCALL SYS_APP_LoggingForTest, HAL_FLASH_Write
+        LOCFRAME CSTACK, 20, STACK
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        CMPX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+        JEQ     ??SYS_APP_LoggingForTest_1
+        MOVX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+        MOVA    #ucRTCTwoSecondsCounter, R10
+        CMP.B   #0x2, 0(R10)
+        JNE     ??SYS_APP_LoggingForTest_2
+        XOR.B   #0x80, &0x282
+        MOVA    #ucRTCDelayCountForGPS, R11
+        MOV.B   #0xfc, R14
+        ADD.B   @R11, R14
+        CMP.B   #0xc, R14
+        JC      ??SYS_APP_LoggingForTest_3
+        CALLA   #?Subroutine0
+??CrossCallReturnLabel_0:
+        CALLA   #HAL_ReadCurrentTimeTick
+        BIS.W   #0x10, &0x510
+        MOVX.W  &uiNumberOfGPSData, R14
+        CMPX.B  #0x0, &bFLAG_DMATransferCompleted
+        JNE     ??SYS_APP_LoggingForTest_4
+??SYS_APP_LoggingForTest_0:
+        CMP.W   #0xc, R14
+        JNC     ??SYS_APP_LoggingForTest_0
+??SYS_APP_LoggingForTest_4:
+        MOVX.B  #0x0, &bFLAG_DMATransferCompleted
+        CMP.W   #0xc, R14
+        JC      ??SYS_APP_LoggingForTest_3
+        RPT     #0x6
+        RLAX.B  R14
+        SWPB    R14
+        MOV.W   #0x0, R15
+        ADD.W   #0x8000, R14
+        ADDC.W  #0x1, R15
+        PUSHM.W #0x2, R15
+          CFI CFA SP+24
+        POPM.A  #0x1, R14
+          CFI CFA SP+20
+        MOVA    R8, R13
+        MOV.W   #0x202c, R12
+        CALLA   #HAL_FLASH_Write
+        ADDX.W  #0x1, &uiNumberOfGPSData
+??SYS_APP_LoggingForTest_3:
+        CMP.B   #0x11, 0(R11)
+        JC      ??SYS_APP_LoggingForTest_5
+        ADD.B   #0x1, 0(R11)
+        JMP     ??SYS_APP_LoggingForTest_6
+??SYS_APP_LoggingForTest_5:
+        JNE     ??SYS_APP_LoggingForTest_6
+        BIC.B   #0x2, &0x263
+??SYS_APP_LoggingForTest_6:
+        MOV.B   #0x0, 0(R10)
+        JMP     ??SYS_APP_LoggingForTest_1
+??SYS_APP_LoggingForTest_2:
+        ADD.B   #0x1, 0(R10)
+??SYS_APP_LoggingForTest_1:
+        POPM.A  #0x4, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock26
+        REQUIRE _A_PEOUT_L
+        REQUIRE _A_ADC12CTL0_L
+        REQUIRE _A_DMA0CTL_L
+        REQUIRE _A_PDOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_APP_PostProcessing:
+          CFI Block cfiBlock27 Using cfiCommon0
+          CFI Function SYS_APP_PostProcessing
+        FUNCALL SYS_APP_PostProcessing, SYS_USB_Printf
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL SYS_APP_PostProcessing, SYS_USB_Printf
+        LOCFRAME CSTACK, 30, STACK
+        FUNCALL SYS_APP_PostProcessing, SYS_USB_Printf
+        LOCFRAME CSTACK, 28, STACK
+        PUSHM.A #0x6, R11
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+28
+        MOV.W   #0x0, R6
+        MOV.W   #0x0, R7
+        MOV.W   #0x8000, R10
+        MOV.W   #0x1, R11
+        JMP     ??SYS_APP_PostProcessing_2
+??SYS_APP_PostProcessing_1:
+        ADD.W   #0x1, R6
+        ADDC.W  #0x0, R7
+        PUSH.W  R7
+          CFI CFA SP+30
+        PUSH.W  R6
+          CFI CFA SP+32
+        MOVA    #`?<Constant "Stored GPS data #%2d\\r\\n">`, R12
+        CALLA   #SYS_USB_Printf
+        MOV.W   R10, R8
+        MOV.W   R11, R9
+        ADD.W   #0x202c, R8
+        ADDC.W  #0x0, R9
+        ADD.W   #0x4, SP
+          CFI CFA SP+28
+??SYS_APP_PostProcessing_0:
+        PUSHM.W #0x2, R11
+          CFI CFA SP+32
+        POPM.A  #0x1, R15
+          CFI CFA SP+28
+        MOV.B   @R15, R15
+        PUSH.W  R15
+          CFI CFA SP+30
+        MOVA    #`?<Constant "%.2x ">`, R12
+        CALLA   #SYS_USB_Printf
+        ADD.W   #0x1, R10
+        ADDC.W  #0x0, R11
+        ADD.W   #0x2, SP
+          CFI CFA SP+28
+        CMP.W   R8, R10
+        JNE     ??SYS_APP_PostProcessing_0
+        CMP.W   R9, R11
+        JNE     ??SYS_APP_PostProcessing_0
+        CALLA   #?Subroutine1
+??CrossCallReturnLabel_3:
+        ADD.W   #0x1fd4, R10
+        ADDC.W  #0x0, R11
+??SYS_APP_PostProcessing_2:
+        MOVX.W  &uiNumberOfGPSData, R14
+        CMP.W   #0x0, R7
+        JNE     ??SYS_APP_PostProcessing_3
+        CMP.W   R14, R6
+        JNC     ??SYS_APP_PostProcessing_1
+??SYS_APP_PostProcessing_3:
+        POPM.A  #0x6, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock27
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "\\r\\n===> (warning!) CLE...">`:
+        DC8 0DH, 0AH, 3DH, 3DH, 3DH, 3EH, 20H, 28H
+        DC8 77H, 61H, 72H, 6EH, 69H, 6EH, 67H, 21H
+        DC8 29H, 20H, 43H, 4CH, 45H, 4FH, 4EH, 20H
+        DC8 74H, 69H, 6DH, 65H, 20H, 74H, 69H, 63H
+        DC8 6BH, 20H, 69H, 73H, 20H, 6EH, 6FH, 74H
+        DC8 20H, 79H, 65H, 74H, 20H, 73H, 79H, 6EH
+        DC8 63H, 68H, 72H, 6FH, 6EH, 69H, 7AH, 65H
+        DC8 64H, 0DH, 0AH, 0
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "\\r\\n">`:
+        DC8 "\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> Logging started\\r\\n">`:
+        DC8 "===> Logging started\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> Start logging ch...">`:
+        DC8 "===> Start logging chunk #%d in group #%d\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> Logging started ...">`:
+        DC8 "===> Logging started at ms time tick of "
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "%lld\\r\\n">`:
+        DC8 "%lld\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "%lld_s16368_if4092000...">`:
+        DC8 "%lld_s16368_if4092000_m2_i2.txt"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "log">`:
+        DC8 "log"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "/log">`:
+        DC8 "/log"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> Chunk #%d in gro...">`:
+        DC8 "===> Chunk #%d in group #%d has been captured\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "Stored GPS data\\r\\n">`:
+        DC8 "Stored GPS data\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "%.2x ">`:
+        DC8 "%.2x "
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> Welcome to CLEON\\n">`:
+        DC8 "===> Welcome to CLEON\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> You are now conn...">`:
+        DC8 "===> You are now connected to CLEON\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> - CLCOK SETTING\\r\\n">`:
+        DC8 "===> - CLCOK SETTING\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===>       MCLK  = 12...">`:
+        DC8 "===>       MCLK  = 12MHz\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===>       ACLK  = 32...">`:
+        DC8 "===>       ACLK  = 32768Hz\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===>       SMCLK = 12...">`:
+        DC8 "===>       SMCLK = 12MHz\015\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> - Number of stor...">`:
+        DC8 "===> - Number of stored CLEON samples: %d\012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> - Current CLEON ...">`:
+        DC8 "===> - Current CLEON time (or ms tick) is "
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> - Current CLEON ...">_1`:
+        DC8 "===> - Current CLEON time is "
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> ">`:
+        DC8 "===> "
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "===> - Number of stor...">_1`:
+        DC8 "===> - Number of stored CLEON sample: %d \012"
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+`?<Constant "Stored GPS data #%2d\\r\\n">`:
+        DC8 "Stored GPS data #%2d\015\012"
+
+        END
+// 
+// 1 248 bytes in segment CODE
+//     8 bytes in segment DATA16_AN
+//   695 bytes in segment DATA20_C
+//     7 bytes in segment DATA20_Z
+// 
+// 1 248 bytes of CODE  memory
+//   695 bytes of CONST memory
+//     7 bytes of DATA  memory (+ 8 bytes shared)
+//
+//Errors: none
+//Warnings: none

@@ -1,0 +1,1212 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      20/Feb/2013  20:57:35 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\sys\sys_sensors.c        /
+//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\sys_sensors.c /
+//                     " -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.  /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -la  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -o   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\Obj\"       /
+//                     --no_cse --no_unroll --no_inline --no_code_motion      /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\intro\" -I        /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\rtclib\" -I   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\platform\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\" -I           /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\FatFs\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\app\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\" --core=430X     /
+//                     --data_model=large -On --multiplier=32                 /
+//                     --multiplier_location=4C0 --hw_workaround=CPU40        /
+//                     --hw_workaround=CPU42                                  /
+//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\Debug\List\sys_sensors.s /
+//                     43                                                     /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sys_sensors
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC SYS_SENSORS_Init
+        FUNCTION SYS_SENSORS_Init,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_S108701_Init
+        FUNCTION SYS_SENSORS_S108701_Init,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_S108701_Read
+        FUNCTION SYS_SENSORS_S108701_Read,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 36, STACK
+        PUBLIC SYS_SENSORS_S1087_Init
+        FUNCTION SYS_SENSORS_S1087_Init,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_S1087_Read
+        FUNCTION SYS_SENSORS_S1087_Read,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 36, STACK
+        PUBLIC SYS_SENSORS_SHT11_Command
+        FUNCTION SYS_SENSORS_SHT11_Command,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 28, STACK
+        PUBLIC SYS_SENSORS_SHT11_Init
+        FUNCTION SYS_SENSORS_SHT11_Init,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_SHT11_Off
+        FUNCTION SYS_SENSORS_SHT11_Off,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_SHT11_On
+        FUNCTION SYS_SENSORS_SHT11_On,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_SHT11_Read
+        FUNCTION SYS_SENSORS_SHT11_Read,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_SHT11_ReadHumidity
+        FUNCTION SYS_SENSORS_SHT11_ReadHumidity,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 50, STACK
+        PUBLIC SYS_SENSORS_SHT11_ReadTemperature
+        FUNCTION SYS_SENSORS_SHT11_ReadTemperature,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 28, STACK
+        PUBLIC SYS_SENSORS_SHT11_Reset
+        FUNCTION SYS_SENSORS_SHT11_Reset,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_SHT11_Start
+        FUNCTION SYS_SENSORS_SHT11_Start,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_SENSORS_SHT11_Write
+        FUNCTION SYS_SENSORS_SHT11_Write,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBWEAK _A_ADC12MEM0_L
+        PUBWEAK _A_ADC12MEM1_L
+        PUBWEAK _A_PADIR_L
+        PUBWEAK _A_PAIN_L
+        PUBWEAK _A_PAOUT_L
+        PUBWEAK _A_PDDIR_L
+        PUBWEAK _A_PDOUT_L
+        PUBWEAK _A_PDSEL_L
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN _Cast32uto64f
+        FUNCTION _Cast32uto64f,0202H
+        EXTERN _Mul64f
+        FUNCTION _Mul64f,0202H
+        EXTERN _Add64f
+        FUNCTION _Add64f,0202H
+        EXTERN _Sub64f
+        FUNCTION _Sub64f,0202H
+        EXTERN _Cast64fto32u
+        FUNCTION _Cast64fto32u,0202H
+        EXTERN _Div64f
+        FUNCTION _Div64f,0202H
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0720H
+// union <unnamed> __data16 _A_ADC12MEM0_L
+_A_ADC12MEM0_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0722H
+// union <unnamed> __data16 _A_ADC12MEM1_L
+_A_ADC12MEM1_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0200H
+// union <unnamed> __data16 _A_PAIN_L
+_A_PAIN_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0202H
+// union <unnamed> __data16 _A_PAOUT_L
+_A_PAOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0204H
+// union <unnamed> __data16 _A_PADIR_L
+_A_PADIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0262H
+// union <unnamed> __data16 _A_PDOUT_L
+_A_PDOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0264H
+// union <unnamed> __data16 _A_PDDIR_L
+_A_PDDIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,026aH
+// union <unnamed> __data16 _A_PDSEL_L
+_A_PDSEL_L:
+        DS8 2
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_S1087_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function SYS_SENSORS_S1087_Init
+        BIS.B   #0x80, &0x26a
+        BIS.B   #0x80, &0x264
+        BIC.B   #0x80, &0x262
+        RETA
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PDSEL_L
+        REQUIRE _A_PDDIR_L
+        REQUIRE _A_PDOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_S1087_Read:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function SYS_SENSORS_S1087_Read
+        FUNCALL SYS_SENSORS_S1087_Read, _Cast32uto64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S1087_Read, _Sub64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S1087_Read, _Div64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S1087_Read, _Mul64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S1087_Read, _Mul64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S1087_Read, _Cast64fto32u
+        LOCFRAME CSTACK, 36, STACK
+        PUSHM.A #0x8, R11
+          CFI R4L Frame(CFA, -36)
+          CFI R4H Frame(CFA, -34)
+          CFI R5L Frame(CFA, -32)
+          CFI R5H Frame(CFA, -30)
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+36
+        MOV.W   #0x0, R4
+        MOV.W   #0x0, R5
+        MOV.W   #0x0, R6
+        MOV.W   #0x0, R7
+        MOV.W   &0x720, R12
+        MOV.W   #0x0, R13
+        CALLA   #_Cast32uto64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   R4, R8
+        MOV.W   R5, R9
+        MOV.W   R6, R10
+        MOV.W   R7, R11
+        MOV.W   #0x0, R12
+        MOV.W   #0x0, R13
+        MOV.W   #0x0, R14
+        MOV.W   #0x40b0, R15
+        CALLA   #_Sub64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   #0x0, R8
+        MOV.W   #0x0, R9
+        MOV.W   #0x0, R10
+        MOV.W   #0x40b0, R11
+        MOV.W   R4, R12
+        MOV.W   R5, R13
+        MOV.W   R6, R14
+        MOV.W   R7, R15
+        CALLA   #_Div64f
+        MOV.W   #0xd70a, R8
+        MOV.W   #0x70a3, R9
+        MOV.W   #0xa3d, R10
+        MOV.W   #0x4007, R11
+        CALLA   #_Mul64f
+        MOV.W   #0x0, R8
+        MOV.W   #0x0, R9
+        MOV.W   #0x4000, R10
+        MOV.W   #0x409f, R11
+        CALLA   #_Mul64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   R4, R12
+        MOV.W   R5, R13
+        MOV.W   R6, R14
+        MOV.W   R7, R15
+        CALLA   #_Cast64fto32u
+        POPM.A  #0x8, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R4H SameValue
+          CFI R5H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R4L SameValue
+          CFI R5L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_ADC12MEM0_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_S108701_Init:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function SYS_SENSORS_S108701_Init
+        BIS.B   #0x40, &0x26a
+        BIS.B   #0x40, &0x264
+        BIC.B   #0x40, &0x262
+        RETA
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_PDSEL_L
+        REQUIRE _A_PDDIR_L
+        REQUIRE _A_PDOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_S108701_Read:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function SYS_SENSORS_S108701_Read
+        FUNCALL SYS_SENSORS_S108701_Read, _Cast32uto64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S108701_Read, _Sub64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S108701_Read, _Div64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S108701_Read, _Mul64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S108701_Read, _Mul64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S108701_Read, _Mul64f
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL SYS_SENSORS_S108701_Read, _Cast64fto32u
+        LOCFRAME CSTACK, 36, STACK
+        PUSHM.A #0x8, R11
+          CFI R4L Frame(CFA, -36)
+          CFI R4H Frame(CFA, -34)
+          CFI R5L Frame(CFA, -32)
+          CFI R5H Frame(CFA, -30)
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+36
+        MOV.W   #0x0, R4
+        MOV.W   #0x0, R5
+        MOV.W   #0x0, R6
+        MOV.W   #0x0, R7
+        MOV.W   &0x722, R12
+        MOV.W   #0x0, R13
+        CALLA   #_Cast32uto64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   R4, R8
+        MOV.W   R5, R9
+        MOV.W   R6, R10
+        MOV.W   R7, R11
+        MOV.W   #0x0, R12
+        MOV.W   #0x0, R13
+        MOV.W   #0x0, R14
+        MOV.W   #0x40b0, R15
+        CALLA   #_Sub64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   #0x0, R8
+        MOV.W   #0x0, R9
+        MOV.W   #0x0, R10
+        MOV.W   #0x40b0, R11
+        MOV.W   R4, R12
+        MOV.W   R5, R13
+        MOV.W   R6, R14
+        MOV.W   R7, R15
+        CALLA   #_Div64f
+        MOV.W   #0xd70a, R8
+        MOV.W   #0x70a3, R9
+        MOV.W   #0xa3d, R10
+        MOV.W   #0x4007, R11
+        CALLA   #_Mul64f
+        MOV.W   #0x0, R8
+        MOV.W   #0x0, R9
+        MOV.W   #0x0, R10
+        MOV.W   #0x4069, R11
+        CALLA   #_Mul64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   #0x0, R8
+        MOV.W   #0x0, R9
+        MOV.W   #0x0, R10
+        MOV.W   #0x4020, R11
+        MOV.W   R4, R12
+        MOV.W   R5, R13
+        MOV.W   R6, R14
+        MOV.W   R7, R15
+        CALLA   #_Mul64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   R4, R12
+        MOV.W   R5, R13
+        MOV.W   R6, R14
+        MOV.W   R7, R15
+        CALLA   #_Cast64fto32u
+        POPM.A  #0x8, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R4H SameValue
+          CFI R5H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R4L SameValue
+          CFI R5L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_ADC12MEM1_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_Init:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function SYS_SENSORS_Init
+        FUNCALL SYS_SENSORS_Init, SYS_SENSORS_SHT11_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_SENSORS_Init, SYS_SENSORS_S1087_Init
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_SENSORS_Init, SYS_SENSORS_S108701_Init
+        LOCFRAME CSTACK, 4, STACK
+        CALLA   #SYS_SENSORS_SHT11_Init
+        CALLA   #SYS_SENSORS_S1087_Init
+        BRA     #SYS_SENSORS_S108701_Init
+          CFI EndBlock cfiBlock4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_Init:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_Init
+        FUNCALL SYS_SENSORS_SHT11_Init, SYS_SENSORS_SHT11_Off
+        LOCFRAME CSTACK, 4, STACK
+        BRA     #SYS_SENSORS_SHT11_Off
+          CFI EndBlock cfiBlock5
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_ReadTemperature:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_ReadTemperature
+        FUNCALL SYS_SENSORS_SHT11_ReadTemperature, SYS_SENSORS_SHT11_Command
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadTemperature, _Cast32uto64f
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadTemperature, _Mul64f
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadTemperature, _Add64f
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadTemperature, _Cast64fto32u
+        LOCFRAME CSTACK, 28, STACK
+        PUSHM.A #0x6, R11
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+28
+        MOV.W   #0x0, R6
+        MOV.B   #0x3, R12
+        CALLA   #SYS_SENSORS_SHT11_Command
+        MOV.W   #0x0, R13
+        CALLA   #_Cast32uto64f
+        MOV.W   #0xdf3b, R8
+        MOV.W   #0x8d4f, R9
+        MOV.W   #0x6e97, R10
+        MOV.W   #0x3f92, R11
+        CALLA   #_Mul64f
+        MOV.W   #0x0, R8
+        MOV.W   #0x0, R9
+        MOV.W   #0x0, R10
+        MOV.W   #0xc044, R11
+        CALLA   #_Add64f
+        CALLA   #_Cast64fto32u
+        MOV.W   R12, R6
+        MOV.W   R6, R12
+        POPM.A  #0x6, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock6
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_ReadHumidity:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_ReadHumidity
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, SYS_SENSORS_SHT11_Command
+        LOCFRAME CSTACK, 48, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, _Cast32uto64f
+        LOCFRAME CSTACK, 48, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, _Mul64f
+        LOCFRAME CSTACK, 48, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, _Cast32uto64f
+        LOCFRAME CSTACK, 48, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, _Mul64f
+        LOCFRAME CSTACK, 48, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, _Add64f
+        LOCFRAME CSTACK, 48, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, _Sub64f
+        LOCFRAME CSTACK, 48, STACK
+        FUNCALL SYS_SENSORS_SHT11_ReadHumidity, _Cast64fto32u
+        LOCFRAME CSTACK, 48, STACK
+        PUSHM.A #0x8, R11
+          CFI R4L Frame(CFA, -36)
+          CFI R4H Frame(CFA, -34)
+          CFI R5L Frame(CFA, -32)
+          CFI R5H Frame(CFA, -30)
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+36
+        SUB.W   #0xc, SP
+          CFI CFA SP+48
+        MOV.W   #0x0, 0(SP)
+        MOV.W   #0x0, 0x2(SP)
+        MOV.B   #0x5, R12
+        CALLA   #SYS_SENSORS_SHT11_Command
+        MOV.W   R12, 0(SP)
+        MOV.W   @SP, R12
+        MOV.W   #0x0, R13
+        CALLA   #_Cast32uto64f
+        MOV.W   #0xdb23, R8
+        MOV.W   #0x7ef9, R9
+        MOV.W   #0xbc6a, R10
+        MOV.W   #0x3fa4, R11
+        CALLA   #_Mul64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        PUSH.W  SR
+          CFI CFA SP+50
+        DINT
+        NOP
+        MOV.W   0x2(SP), &0x4c0
+        MOV.W   0x2(SP), &0x4c8
+        MOV.W   &0x4ca, R12
+        POP.W   SR
+          CFI CFA SP+48
+        MOV.W   #0x0, R13
+        CALLA   #_Cast32uto64f
+        MOV.W   #0x195f, R8
+        MOV.W   #0x4765, R9
+        MOV.W   #0x7cf4, R10
+        MOV.W   #0x3ec7, R11
+        CALLA   #_Mul64f
+        MOV.W   R12, 0x4(SP)
+        MOV.W   R13, 0x6(SP)
+        MOV.W   R14, 0x8(SP)
+        MOV.W   R15, 0xa(SP)
+        MOV.W   #0x0, R8
+        MOV.W   #0x0, R9
+        MOV.W   #0x0, R10
+        MOV.W   #0xc010, R11
+        MOV.W   R4, R12
+        MOV.W   R5, R13
+        MOV.W   R6, R14
+        MOV.W   R7, R15
+        CALLA   #_Add64f
+        MOV.W   SP, R11
+        ADD.W   #0x4, R11
+        MOV.W   @R11+, R8
+        MOV.W   @R11+, R9
+        MOV.W   @R11+, R10
+        MOV.W   @R11+, R11
+        CALLA   #_Sub64f
+        MOV.W   R12, R4
+        MOV.W   R13, R5
+        MOV.W   R14, R6
+        MOV.W   R15, R7
+        MOV.W   R4, R12
+        MOV.W   R5, R13
+        MOV.W   R6, R14
+        MOV.W   R7, R15
+        CALLA   #_Cast64fto32u
+        MOV.W   R12, 0x2(SP)
+        MOV.W   0x2(SP), R12
+        ADD.W   #0xc, SP
+          CFI CFA SP+36
+        POPM.A  #0x8, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R4H SameValue
+          CFI R5H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R4L SameValue
+          CFI R5L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock7
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_On:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_On
+        BIS.B   #0x80, &0x203
+        AND.B   #0x9f, &0x203
+        BIS.B   #0xc0, &0x205
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_On_0:
+        CMP.W   #0x14, R15
+        JGE     ??SYS_SENSORS_SHT11_On_1
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R14
+??SYS_SENSORS_SHT11_On_2:
+        ADD.W   #0xffff, R14
+        JC      ??SYS_SENSORS_SHT11_On_2
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_On_0
+??SYS_SENSORS_SHT11_On_1:
+        RETA
+          CFI EndBlock cfiBlock8
+        REQUIRE _A_PAOUT_L
+        REQUIRE _A_PADIR_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_Off:
+          CFI Block cfiBlock9 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_Off
+        BIC.B   #0x80, &0x203
+        AND.B   #0x9f, &0x203
+        BIS.B   #0xc0, &0x205
+        RETA
+          CFI EndBlock cfiBlock9
+        REQUIRE _A_PAOUT_L
+        REQUIRE _A_PADIR_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_Start:
+          CFI Block cfiBlock10 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_Start
+        BIC.B   #0x20, &0x205
+        BIC.B   #0x40, &0x203
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Start_0:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Start_6
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R14
+??SYS_SENSORS_SHT11_Start_12:
+        ADD.W   #0xffff, R14
+        JC      ??SYS_SENSORS_SHT11_Start_12
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Start_0
+??SYS_SENSORS_SHT11_Start_6:
+        BIS.B   #0x40, &0x203
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Start_1:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Start_7
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R14
+??SYS_SENSORS_SHT11_Start_13:
+        ADD.W   #0xffff, R14
+        JC      ??SYS_SENSORS_SHT11_Start_13
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Start_1
+??SYS_SENSORS_SHT11_Start_7:
+        BIS.B   #0x20, &0x205
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Start_2:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Start_8
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R14
+??SYS_SENSORS_SHT11_Start_14:
+        ADD.W   #0xffff, R14
+        JC      ??SYS_SENSORS_SHT11_Start_14
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Start_2
+??SYS_SENSORS_SHT11_Start_8:
+        BIC.B   #0x40, &0x203
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Start_3:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Start_9
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R14
+??SYS_SENSORS_SHT11_Start_15:
+        ADD.W   #0xffff, R14
+        JC      ??SYS_SENSORS_SHT11_Start_15
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Start_3
+??SYS_SENSORS_SHT11_Start_9:
+        BIS.B   #0x40, &0x203
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Start_4:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Start_10
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R14
+??SYS_SENSORS_SHT11_Start_16:
+        ADD.W   #0xffff, R14
+        JC      ??SYS_SENSORS_SHT11_Start_16
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Start_4
+??SYS_SENSORS_SHT11_Start_10:
+        BIC.B   #0x20, &0x205
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Start_5:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Start_11
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R14
+??SYS_SENSORS_SHT11_Start_17:
+        ADD.W   #0xffff, R14
+        JC      ??SYS_SENSORS_SHT11_Start_17
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Start_5
+??SYS_SENSORS_SHT11_Start_11:
+        BIC.B   #0x40, &0x203
+        RETA
+          CFI EndBlock cfiBlock10
+        REQUIRE _A_PADIR_L
+        REQUIRE _A_PAOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_Reset:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_Reset
+        FUNCALL SYS_SENSORS_SHT11_Reset, SYS_SENSORS_SHT11_Start
+        LOCFRAME CSTACK, 4, STACK
+        BIC.B   #0x20, &0x205
+        BIC.B   #0x40, &0x203
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Reset_2:
+        CMP.W   #0x9, R15
+        JGE     ??SYS_SENSORS_SHT11_Reset_3
+        BIS.B   #0x40, &0x203
+        MOV.W   #0x0, R14
+??SYS_SENSORS_SHT11_Reset_0:
+        CMP.W   #0x1, R14
+        JGE     ??SYS_SENSORS_SHT11_Reset_4
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R13
+??SYS_SENSORS_SHT11_Reset_6:
+        ADD.W   #0xffff, R13
+        JC      ??SYS_SENSORS_SHT11_Reset_6
+        ////////////// End of delay code.
+        ADD.W   #0x1, R14
+        JMP     ??SYS_SENSORS_SHT11_Reset_0
+??SYS_SENSORS_SHT11_Reset_4:
+        BIC.B   #0x40, &0x203
+        MOV.W   #0x0, R14
+??SYS_SENSORS_SHT11_Reset_1:
+        CMP.W   #0x1, R14
+        JGE     ??SYS_SENSORS_SHT11_Reset_5
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R13
+??SYS_SENSORS_SHT11_Reset_7:
+        ADD.W   #0xffff, R13
+        JC      ??SYS_SENSORS_SHT11_Reset_7
+        ////////////// End of delay code.
+        ADD.W   #0x1, R14
+        JMP     ??SYS_SENSORS_SHT11_Reset_1
+??SYS_SENSORS_SHT11_Reset_5:
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Reset_2
+??SYS_SENSORS_SHT11_Reset_3:
+        BRA     #SYS_SENSORS_SHT11_Start
+          CFI EndBlock cfiBlock11
+        REQUIRE _A_PADIR_L
+        REQUIRE _A_PAOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_Write:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_Write
+        MOV.B   R12, R14
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Write_2:
+        CMP.W   #0x8, R15
+        JGE     ??SYS_SENSORS_SHT11_Write_4
+        CMP.B   #0x0, R14
+        JGE     ??SYS_SENSORS_SHT11_Write_5
+        BIC.B   #0x20, &0x205
+        JMP     ??SYS_SENSORS_SHT11_Write_6
+??SYS_SENSORS_SHT11_Write_5:
+        BIS.B   #0x20, &0x205
+??SYS_SENSORS_SHT11_Write_6:
+        BIS.B   #0x40, &0x203
+        MOV.W   #0x0, R13
+??SYS_SENSORS_SHT11_Write_0:
+        CMP.W   #0x1, R13
+        JGE     ??SYS_SENSORS_SHT11_Write_7
+        ////////////// Start of 12000 cycles delay.
+        JMP     ??SYS_SENSORS_SHT11_Write_15
+??SYS_SENSORS_SHT11_Write_15:
+        PUSHM.A #0x1, R8
+          CFI CFA SP+8
+        MOV.W   #0xf9b, R8
+??SYS_SENSORS_SHT11_Write_12:
+        ADD.W   #0xffff, R8
+        JC      ??SYS_SENSORS_SHT11_Write_12
+        POPM.A  #0x1, R8
+          CFI CFA SP+4
+        ////////////// End of delay code.
+        ADD.W   #0x1, R13
+        JMP     ??SYS_SENSORS_SHT11_Write_0
+??SYS_SENSORS_SHT11_Write_7:
+        BIC.B   #0x40, &0x203
+        MOV.W   #0x0, R13
+??SYS_SENSORS_SHT11_Write_1:
+        CMP.W   #0x1, R13
+        JGE     ??SYS_SENSORS_SHT11_Write_8
+        ////////////// Start of 12000 cycles delay.
+        JMP     ??SYS_SENSORS_SHT11_Write_16
+??SYS_SENSORS_SHT11_Write_16:
+        PUSHM.A #0x1, R8
+          CFI CFA SP+8
+        MOV.W   #0xf9b, R8
+??SYS_SENSORS_SHT11_Write_13:
+        ADD.W   #0xffff, R8
+        JC      ??SYS_SENSORS_SHT11_Write_13
+        POPM.A  #0x1, R8
+          CFI CFA SP+4
+        ////////////// End of delay code.
+        ADD.W   #0x1, R13
+        JMP     ??SYS_SENSORS_SHT11_Write_1
+??SYS_SENSORS_SHT11_Write_8:
+        ADD.W   #0x1, R15
+        RLA.B   R14
+        JMP     ??SYS_SENSORS_SHT11_Write_2
+??SYS_SENSORS_SHT11_Write_4:
+        BIC.B   #0x20, &0x205
+        BIS.B   #0x40, &0x203
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Write_3:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Write_9
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R13
+??SYS_SENSORS_SHT11_Write_14:
+        ADD.W   #0xffff, R13
+        JC      ??SYS_SENSORS_SHT11_Write_14
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Write_3
+??SYS_SENSORS_SHT11_Write_9:
+        BIT.B   #0x20, &0x201
+        JC      ??SYS_SENSORS_SHT11_Write_10
+        MOV.B   #0x1, R12
+        JMP     ??SYS_SENSORS_SHT11_Write_11
+??SYS_SENSORS_SHT11_Write_10:
+        MOV.B   #0x0, R12
+??SYS_SENSORS_SHT11_Write_11:
+        BIC.B   #0x40, &0x203
+        RETA
+          CFI EndBlock cfiBlock12
+        REQUIRE _A_PADIR_L
+        REQUIRE _A_PAOUT_L
+        REQUIRE _A_PAIN_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_Read:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_Read
+        MOV.B   R12, R14
+        MOV.B   #0x0, R12
+        BIC.B   #0x20, &0x205
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Read_2:
+        CMP.W   #0x8, R15
+        JGE     ??SYS_SENSORS_SHT11_Read_4
+        RLA.B   R12
+        BIS.B   #0x40, &0x203
+        MOV.W   #0x0, R13
+??SYS_SENSORS_SHT11_Read_0:
+        CMP.W   #0x1, R13
+        JGE     ??SYS_SENSORS_SHT11_Read_5
+        ////////////// Start of 12000 cycles delay.
+        JMP     ??SYS_SENSORS_SHT11_Read_13
+??SYS_SENSORS_SHT11_Read_13:
+        PUSHM.A #0x1, R8
+          CFI CFA SP+8
+        MOV.W   #0xf9b, R8
+??SYS_SENSORS_SHT11_Read_10:
+        ADD.W   #0xffff, R8
+        JC      ??SYS_SENSORS_SHT11_Read_10
+        POPM.A  #0x1, R8
+          CFI CFA SP+4
+        ////////////// End of delay code.
+        ADD.W   #0x1, R13
+        JMP     ??SYS_SENSORS_SHT11_Read_0
+??SYS_SENSORS_SHT11_Read_5:
+        BIT.B   #0x20, &0x201
+        JNC     ??SYS_SENSORS_SHT11_Read_6
+        BIS.B   #0x1, R12
+??SYS_SENSORS_SHT11_Read_6:
+        BIC.B   #0x40, &0x203
+        MOV.W   #0x0, R13
+??SYS_SENSORS_SHT11_Read_1:
+        CMP.W   #0x1, R13
+        JGE     ??SYS_SENSORS_SHT11_Read_7
+        ////////////// Start of 12000 cycles delay.
+        JMP     ??SYS_SENSORS_SHT11_Read_14
+??SYS_SENSORS_SHT11_Read_14:
+        PUSHM.A #0x1, R8
+          CFI CFA SP+8
+        MOV.W   #0xf9b, R8
+??SYS_SENSORS_SHT11_Read_11:
+        ADD.W   #0xffff, R8
+        JC      ??SYS_SENSORS_SHT11_Read_11
+        POPM.A  #0x1, R8
+          CFI CFA SP+4
+        ////////////// End of delay code.
+        ADD.W   #0x1, R13
+        JMP     ??SYS_SENSORS_SHT11_Read_1
+??SYS_SENSORS_SHT11_Read_7:
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Read_2
+??SYS_SENSORS_SHT11_Read_4:
+        CMP.B   #0x0, R14
+        JEQ     ??SYS_SENSORS_SHT11_Read_8
+        BIS.B   #0x20, &0x205
+??SYS_SENSORS_SHT11_Read_8:
+        BIS.B   #0x40, &0x203
+        MOV.W   #0x0, R15
+??SYS_SENSORS_SHT11_Read_3:
+        CMP.W   #0x1, R15
+        JGE     ??SYS_SENSORS_SHT11_Read_9
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R13
+??SYS_SENSORS_SHT11_Read_12:
+        ADD.W   #0xffff, R13
+        JC      ??SYS_SENSORS_SHT11_Read_12
+        ////////////// End of delay code.
+        ADD.W   #0x1, R15
+        JMP     ??SYS_SENSORS_SHT11_Read_3
+??SYS_SENSORS_SHT11_Read_9:
+        BIC.B   #0x40, &0x203
+        BIC.B   #0x20, &0x205
+        RETA
+          CFI EndBlock cfiBlock13
+        REQUIRE _A_PADIR_L
+        REQUIRE _A_PAOUT_L
+        REQUIRE _A_PAIN_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_SENSORS_SHT11_Command:
+          CFI Block cfiBlock14 Using cfiCommon0
+          CFI Function SYS_SENSORS_SHT11_Command
+        FUNCALL SYS_SENSORS_SHT11_Command, SYS_SENSORS_SHT11_Start
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_Command, SYS_SENSORS_SHT11_Write
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_Command, SYS_SENSORS_SHT11_Reset
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_Command, SYS_SENSORS_SHT11_Read
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_Command, SYS_SENSORS_SHT11_Read
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL SYS_SENSORS_SHT11_Command, SYS_SENSORS_SHT11_Read
+        LOCFRAME CSTACK, 28, STACK
+        PUSHM.A #0x6, R11
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+28
+        MOV.B   R12, R9
+        CALLA   #SYS_SENSORS_SHT11_Start
+        MOV.B   R9, R12
+        CALLA   #SYS_SENSORS_SHT11_Write
+        CMP.B   #0x0, R12
+        JNE     ??SYS_SENSORS_SHT11_Command_2
+        CALLA   #SYS_SENSORS_SHT11_Reset
+        MOV.W   #0x0, R12
+        JMP     ??SYS_SENSORS_SHT11_Command_1
+??SYS_SENSORS_SHT11_Command_2:
+        MOV.W   #0x0, R10
+        MOV.W   #0x0, R11
+??SYS_SENSORS_SHT11_Command_0:
+        CMP.W   #0x3, R11
+        JNC     ??SYS_SENSORS_SHT11_Command_3
+        JNE     ??SYS_SENSORS_SHT11_Command_1
+        CMP.W   #0xd090, R10
+        JC      ??SYS_SENSORS_SHT11_Command_1
+??SYS_SENSORS_SHT11_Command_3:
+        BIT.B   #0x20, &0x201
+        JC      ??SYS_SENSORS_SHT11_Command_4
+        MOV.B   #0x1, R12
+        CALLA   #SYS_SENSORS_SHT11_Read
+        MOV.B   R12, R8
+        MOV.B   #0x1, R12
+        CALLA   #SYS_SENSORS_SHT11_Read
+        MOV.B   R12, R7
+        MOV.B   #0x0, R12
+        CALLA   #SYS_SENSORS_SHT11_Read
+        MOV.B   R12, R6
+        MOV.B   R7, R7
+        MOV.B   R8, R12
+        AND.W   #0xff, R12
+        SWPB    R12
+        BIS.W   R7, R12
+        JMP     ??SYS_SENSORS_SHT11_Command_1
+??SYS_SENSORS_SHT11_Command_4:
+        ADD.W   #0x1, R10
+        ADDC.W  #0x0, R11
+        JMP     ??SYS_SENSORS_SHT11_Command_0
+??SYS_SENSORS_SHT11_Command_1:
+        POPM.A  #0x6, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock14
+        REQUIRE _A_PAIN_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+// 1 330 bytes in segment CODE
+//    16 bytes in segment DATA16_AN
+// 
+// 1 330 bytes of CODE memory
+//     0 bytes of DATA memory (+ 16 bytes shared)
+//
+//Errors: none
+//Warnings: none

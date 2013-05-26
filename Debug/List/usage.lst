@@ -1,0 +1,162 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       30/Jan/2013  03:24:42 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\4_cleon\3_software\cleon2\doc\usage.c              #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\doc\usage.c" -lC         #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\Debug\List\" -la         #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\Debug\List\" -o          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\Debug\Obj\" --no_cse     #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\intro\" -I               #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\sys\" -I                 #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\hal\" -I                 #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\hal\rtclib\" -I          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\platform\" -I            #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\fs\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\fs\FatFs\" -I            #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\app\" -I                 #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\4_cleon\3_software\cleon2\" --core=430X            #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\4_cleon\3_software\cleon2\Debug\List\usage.lst     #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\4_cleon\3_software\cleon2\Debug\Obj\usage.r43      #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\4_cleon\3_software\cleon2\doc\usage.c
+      1          /** 
+      2          @file       usage.c
+      3          
+      4          @brief      Documentation for CLEON usage
+      5          
+      6          @page       USAGE       Usage
+      7          
+      8          @section    QUICK       Quick start guide
+      9                                  - Below are a few steps to help you get started
+     10                                      -# Turn on the CLEON device
+     11                                      -# Connect CLEON to PC using USB cable
+     12                                      -# Launch PC based software 'CLEON_Connector' for time sychronization and user parameter update
+     13                                      -# In the 'CLEON_Connetor', change user paramters to desired values\n
+     14                                      	 (If there's an error for the value of parameter, it is impossible to update user parameters)\n
+     15                                      	 (Although battery capacity is used as parameter, this is used only to calculate rough estimate whether desired number of samples can be captured with the capacity)
+     16                                      -# Select the COM port that CLEON is connected to
+     17                                      -# Then, press 'Connect' button                            
+     18                                      -# Once COM port is successfully opened, 'Connect to CLEON (1/3)' button will be enabled
+     19                                      -# Once CLEON is successfully connected, 'Connect to CLEON (1/3)' button will be changed to 'Update parameters (2/3)'
+     20                                      -# Press 'Update parameters (2/3)' to update CLEON with user parameters (sample count, sample gap, chunk count, chunk gap)
+     21                                      -# Once user parameters are successfully updated, 'Update parameters (2/3)' button will be changed to 'Update CLEON time tick (3/3)'
+     22                                      -# Press 'Update CLEON time tick (3/3)' to update CLEON system time (RTC time and millisecond time tick)
+     23                                      -# 'CLEON_Connector' will notify of successful update by showing 'Time tick sent successfully' in status bar
+     24                                      -# Now that user parameters are updated and CLEON system time is synchronized, CLEON is ready to capture GPS and sensor data
+     25                                      -# Press user-button on CLEON to start logging
+     26                                      -# If MicroSD is properly inserted, CLEON starts to log GPS and sensor data repeatedly as defined\n
+     27                                      -# At the first time, CLEON creates directory named 'CLEON' in MicroSD card and creates log file whose name is starting with current time tick under the directory 'CLEON'
+     28                                      -# The file will remain opened until defined number of GPS and sensor data is logged and written \n
+     29                                         (meaning that data will be appended to the opened file)\n
+     30                                         (This is to save energy consumed by seeking access to MicroSD)
+     31                                      -# If defined number of samples are captured, new file will be created for next logging
+     32                                      -# If MicroSD card is suddenly removed, MicroSD error LED will be turned on (however, data captured until error will remain uncorrupted)\n
+     33                                      -# If MicroSD is inserted back to the slot again, CLEON will initialze the file system again
+     34                                      
+     35          @section    TIME        System time
+     36                                  - CLEON maintains two distinct system time: \b Time \b tick and \b RTC \b time
+     37                                      + Time tick
+     38                                          - Mainly used for GPS and sensor data time stamp
+     39                                          - Set to zero when initial power-up 
+     40                                          - Need to be synchronized with UTC time tick in DateTime format (http://msdn.microsoft.com/en-us/library/system.datetime.ticks.aspx)\n
+     41                                            (10,000 tick is equal to 1 millisecond)
+     42                                          - Variables used: uniSecondTimeTick, uniMillisecondTimeTick                                  
+     43                                              + 'uniMillisecondTimeTick' is incremented by 10,000 in every millisecond
+     44                                              + 'uniSecondTimeTick' is incremented by 10,000,000 in every second
+     45                                              + By combining those two, it is possible to get current CLEON UTC time tick
+     46                                      + RTC time 
+     47                                          - Mainly used for FAT file system time stamp
+     48                                          - Set to 00:00:00 of 1-Jan-1980 when initial power-up (Time synchronization required)
+     49                                          - Generates an interrupt in every second
+     50                                              + In this ISR, 'uniSecondTimeTick' is incremented by 10,000,000 and 'uniMillisecondTimeTick' is reset to zero
+     51                                  - Maintaining synchronized time
+     52                                      + Once time synchronization message is received, CLEON stores the pair of RTC time and time tick to internal FLASH for future use
+     53                                      + The synchronized time (both RTC time and time tick) is maintained even when primary power supply (in our case, LiPo battery) is drained out
+     54                                          - MSP430 has SVSH, which supervises the primary supply (in our case, LiPo battery)
+     55                                          - When the primary supply falls below the configured SVSH level, SVSH initiates backup system and puts MSP430 into reset state (SVSH(POR))\n
+     56                                            (Currently, SVSH voltage is set to 2.04V)
+     57                                          - When backup system is in place, RTC is powered by backup battery (VBAT) and kept running even when the primary supply fails\n
+     58                                            \b (WARNING!!) (Note that this scenario is NOT applicable to sudden battery removal becuase MSP430 requires some time to initiate backup system)
+     59                                          - Once CLEON is powered up again, CLEON retrieves the time information, which was stored into internal FLASH when synchronization message was received
+     60                                          - CLEON restores current UTC time tick by adding the difference between current and stored RTC time to previously stored UTC time tick\n
+     61                                            (Note that time synchronization error LED will be turned on if there's a problem in time synchronization or restoration)
+     62          
+     63          @section    USB         USB frame
+     64                                  - USB frame is used for exchanging data between CLEON and USB host (typically, PC)
+     65                                  - USB frame is 36 bytes in total
+     66                                  - USB frame starts with 2 bytes(0x55) of header and ends with 2 bytes(0xAA) of footer
+     67                                  - Length fields includes the length of data plus one (meaning that length field itself is considered as data)
+     68                                  - There should be an ACK for every data frame exchanged
+     69                                  - The figure below decribes the format of the USB frame 
+     70                                      + USB data frame
+     71                                      @image html usb_data_frame.jpg 
+     72                                      + USB ack frame
+     73                                      @image html usb_ack_frame.jpg 
+     74                                  
+     75                                  - Currently, time synchronization message is exchanged by using USB
+     76                                  - The sequence chart below describes the communication between CLEON and PC
+     77                                      @msc
+     78                                    				hscale="1.5", arcgradient="12";
+     79                                          			CLEON,PC;
+     80                                                CLEON<=PC [label="CONNECTION_REQUEST"];
+     81                                                CLEON=>PC [label="ACK(CONNECTION_REQUEST)"];
+     82                                                |||;
+     83                                                CLEON<=PC [label="SAMPLE_COUNT_UPDATE"];
+     84                                                CLEON=>PC [label="ACK(SAMPLE_COUNT_UPDATE)"];
+     85                                                CLEON<=PC [label="SAMPLE_GAP_UPDATE"];
+     86                                                CLEON=>PC [label="ACK(SAMPLE_GAP_UPDATE)"];
+     87                                                CLEON<=PC [label="CHUNK_COUNT_UPDATE"];
+     88                                                CLEON=>PC [label="ACK(CHUNK_COUNT_UPDATE)"];
+     89                                                CLEON<=PC [label="CHUNK_GAP_UPDATE"];
+     90                                                CLEON=>PC [label="ACK(CHUNK_GAP_UPDATE)"];
+     91                                                |||;
+     92                                                CLEON<=PC [label="RTC_UPDATE"];
+     93                                                CLEON=>PC [label="ACK(RTC_UPDATE)"];
+     94                                                CLEON<=PC [label="TIME_TICK_UPDATE"];
+     95                                                CLEON=>PC [label="ACK(TIME_TICK_UPDATE)"];
+     96                                      @endmsc
+     97          */
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none

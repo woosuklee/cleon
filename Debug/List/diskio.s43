@@ -1,0 +1,1561 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      06/Feb/2013  16:40:17 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon2.1\fs\FatFs\diskio.c     /
+//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\fs\FatFs\diski /
+//                     o.c" -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3.           /
+//                     Research\8. Spring 2013\3_cleon\3_software\cleon2.1\De /
+//                     bug\List\" -la "C:\Users\Woosuk\Dropbox\lws\ESL\3.     /
+//                     Research\8. Spring 2013\3_cleon\3_software\cleon2.1\De /
+//                     bug\List\" -o "C:\Users\Woosuk\Dropbox\lws\ESL\3.      /
+//                     Research\8. Spring 2013\3_cleon\3_software\cleon2.1\De /
+//                     bug\Obj\" --no_cse --no_unroll --no_inline             /
+//                     --no_code_motion --no_tbaa --debug -D__MSP430F5338__   /
+//                     -e --double=64 --dlib_config "C:\Program Files         /
+//                     (x86)\IAR Systems\Embedded Workbench                   /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\intro\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\sys\" -I       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\hal\" -I       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\hal\rtclib\"   /
+//                     -I "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.     /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\platform\" -I  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\fs\" -I        /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\fs\FatFs\" -I  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\app\" -I       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon2.1\" --core=430X  /
+//                     --data_model=large -On --multiplier=32                 /
+//                     --multiplier_location=4C0 --hw_workaround=CPU40        /
+//                     --hw_workaround=CPU42                                  /
+//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon2.1\Debug\List\diskio.s43 /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME diskio
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?ShiftLeft32_10
+        EXTERN ?ShiftLeft32
+        EXTERN ?ShiftLeft32_9
+        EXTERN ?Mul32
+        EXTERN ?cstart_init_copy20
+        EXTERN ?cstart_init_zero20
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC INS
+        FUNCTION deselect,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 6, STACK
+        PUBLIC detectCard
+        FUNCTION detectCard,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC disk_initialize
+        FUNCTION disk_initialize,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 32, STACK
+        PUBLIC disk_ioctl
+        FUNCTION disk_ioctl,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 44, STACK
+        PUBLIC disk_read
+        FUNCTION disk_read,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 28, STACK
+        PUBLIC disk_status
+        FUNCTION disk_status,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC disk_write
+        FUNCTION disk_write,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 28, STACK
+        PUBLIC get_fattime
+        FUNCTION get_fattime,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 36, STACK
+        FUNCTION rcvr_datablock,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 22, STACK
+        FUNCTION rcvr_mmc,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        FUNCTION select,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        FUNCTION send_cmd,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 28, STACK
+        PUBLIC validateCSD
+        FUNCTION validateCSD,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 44, STACK
+        FUNCTION wait_ready,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 10, STACK
+        FUNCTION xmit_datablock,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 14, STACK
+        FUNCTION xmit_mmc,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN SYS_MMC_ReadFrame
+        FUNCTION SYS_MMC_ReadFrame,0202H
+        EXTERN SYS_MMC_SendFrame
+        FUNCTION SYS_MMC_SendFrame,0202H
+        EXTERN SYS_MMC_DeselectCard
+        FUNCTION SYS_MMC_DeselectCard,0202H
+        EXTERN SYS_MMC_SelectCard
+        FUNCTION SYS_MMC_SelectCard,0202H
+        EXTERN HAL_SPI_Init
+        FUNCTION HAL_SPI_Init,0202H
+        EXTERN SYS_MMC_FastMode
+        FUNCTION SYS_MMC_FastMode,0202H
+        EXTERN HAL_GetRTCYear
+        FUNCTION HAL_GetRTCYear,0202H
+        EXTERN HAL_GetRTCMon
+        FUNCTION HAL_GetRTCMon,0202H
+        EXTERN HAL_GetRTCDay
+        FUNCTION HAL_GetRTCDay,0202H
+        EXTERN HAL_GetRTCHour
+        FUNCTION HAL_GetRTCHour,0202H
+        EXTERN HAL_GetRTCMin
+        FUNCTION HAL_GetRTCMin,0202H
+        EXTERN HAL_GetRTCSec
+        FUNCTION HAL_GetRTCSec,0202H
+
+
+        RSEG DATA20_I:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_copy20
+INS:
+        DS8 1
+        REQUIRE `?<Initializer for INS>`
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+get_fattime:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function get_fattime
+        FUNCALL get_fattime, HAL_GetRTCYear
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL get_fattime, HAL_GetRTCMon
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL get_fattime, HAL_GetRTCDay
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL get_fattime, HAL_GetRTCHour
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL get_fattime, HAL_GetRTCMin
+        LOCFRAME CSTACK, 36, STACK
+        FUNCALL get_fattime, HAL_GetRTCSec
+        LOCFRAME CSTACK, 36, STACK
+        PUSHM.A #0x8, R11
+          CFI R4L Frame(CFA, -36)
+          CFI R4H Frame(CFA, -34)
+          CFI R5L Frame(CFA, -32)
+          CFI R5H Frame(CFA, -30)
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+36
+        CALLA   #HAL_GetRTCYear
+        MOV.W   R12, R8
+        CALLA   #HAL_GetRTCMon
+        MOV.W   R12, R9
+        CALLA   #HAL_GetRTCDay
+        MOV.W   R12, R7
+        CALLA   #HAL_GetRTCHour
+        MOV.W   R12, R6
+        CALLA   #HAL_GetRTCMin
+        MOV.W   R12, R4
+        CALLA   #HAL_GetRTCSec
+        RRUX.B  R12
+        MOV.B   R12, R5
+        MOV.B   R4, R13
+        RPT     #0x5
+        RLAX.W  R13
+        RPT     #0x3
+        RLAX.B  R6
+        AND.W   #0xff, R6
+        SWPB    R6
+        MOV.W   R6, R12
+        MOV.W   R7, R14
+        MOV.W   #0x0, R15
+        MOV.W   R14, R15
+        MOV.W   #0x0, R14
+        MOV.W   R9, R6
+        MOV.W   #0x0, R7
+        RPT     #0x5
+        RLAX.W  R6
+        MOV.W   R6, R7
+        MOV.W   #0x0, R6
+        ADD.W   #0xf844, R8
+        MOV.W   #0x0, R9
+        RLA.B   R8
+        AND.W   #0xff, R8
+        SWPB    R8
+        MOV.W   R8, R9
+        MOV.W   #0x0, R8
+        BIS.W   R6, R8
+        BIS.W   R7, R9
+        BIS.W   R14, R8
+        BIS.W   R15, R9
+        BIS.W   R12, R8
+        BIS.W   R13, R8
+        BIS.W   R5, R8
+        MOV.W   R8, R10
+        MOV.W   R9, R11
+        MOV.W   R10, R12
+        MOV.W   R11, R13
+        POPM.A  #0x8, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R4H SameValue
+          CFI R5H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R4L SameValue
+          CFI R5L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock0
+
+        RSEG DATA20_I:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_copy20
+Stat:
+        DS8 1
+        REQUIRE `?<Initializer for Stat>`
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+CardType:
+        DS8 1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+xmit_mmc:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function xmit_mmc
+        FUNCALL xmit_mmc, SYS_MMC_SendFrame
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.A #0x2, R11
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+12
+        MOVA    R12, R10
+        MOV.W   R13, R11
+        MOV.W   R11, R13
+        MOVA    R10, R12
+        CALLA   #SYS_MMC_SendFrame
+        POPM.A  #0x2, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+rcvr_mmc:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function rcvr_mmc
+        FUNCALL rcvr_mmc, SYS_MMC_ReadFrame
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.A #0x2, R11
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+12
+        MOVA    R12, R10
+        MOV.W   R13, R11
+        MOV.W   R11, R13
+        MOVA    R10, R12
+        CALLA   #SYS_MMC_ReadFrame
+        POPM.A  #0x2, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock2
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+wait_ready:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function wait_ready
+        FUNCALL wait_ready, rcvr_mmc
+        LOCFRAME CSTACK, 10, STACK
+        PUSHM.A #0x1, R10
+          CFI R10L Frame(CFA, -8)
+          CFI R10H Frame(CFA, -6)
+          CFI CFA SP+8
+        SUB.W   #0x2, SP
+          CFI CFA SP+10
+        MOV.W   #0x1388, R10
+??wait_ready_0:
+        CMP.W   #0x0, R10
+        JEQ     ??wait_ready_1
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        CMP.B   #0xff, 0(SP)
+        JNE     ??wait_ready_2
+        MOV.W   #0x1, R12
+        JMP     ??wait_ready_3
+??wait_ready_2:
+        ////////////// Start of 1200 cycles delay.
+        NOP
+        MOV.W   #0x18e, R15
+??wait_ready_4:
+        ADD.W   #0xffff, R15
+        JC      ??wait_ready_4
+        ////////////// End of delay code.
+        ADD.W   #0xffff, R10
+        JMP     ??wait_ready_0
+??wait_ready_1:
+        MOV.W   #0x0, R12
+??wait_ready_3:
+        ADD.W   #0x2, SP
+          CFI CFA SP+8
+        POPM.A  #0x1, R10
+          CFI R10H SameValue
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock3
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+deselect:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function deselect
+        FUNCALL deselect, SYS_MMC_DeselectCard
+        LOCFRAME CSTACK, 6, STACK
+        FUNCALL deselect, rcvr_mmc
+        LOCFRAME CSTACK, 6, STACK
+        SUB.W   #0x2, SP
+          CFI CFA SP+6
+        CALLA   #SYS_MMC_DeselectCard
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        ADD.W   #0x2, SP
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+select:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function select
+        FUNCALL select, SYS_MMC_SelectCard
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL select, wait_ready
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL select, deselect
+        LOCFRAME CSTACK, 4, STACK
+        CALLA   #SYS_MMC_SelectCard
+        CALLA   #wait_ready
+        CMP.W   #0x0, R12
+        JNE     ??select_0
+        CALLA   #deselect
+        MOV.W   #0x0, R12
+        RETA
+??select_0:
+        MOV.W   #0x1, R12
+        RETA
+          CFI EndBlock cfiBlock5
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+rcvr_datablock:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function rcvr_datablock
+        FUNCALL rcvr_datablock, rcvr_mmc
+        LOCFRAME CSTACK, 22, STACK
+        FUNCALL rcvr_datablock, rcvr_mmc
+        LOCFRAME CSTACK, 22, STACK
+        FUNCALL rcvr_datablock, rcvr_mmc
+        LOCFRAME CSTACK, 22, STACK
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        SUB.W   #0x2, SP
+          CFI CFA SP+22
+        MOVA    R12, R10
+        MOV.W   R13, R11
+        MOV.W   #0x3e8, R8
+??rcvr_datablock_0:
+        CMP.W   #0x0, R8
+        JEQ     ??rcvr_datablock_2
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        CMP.B   #0xff, 0(SP)
+        JNE     ??rcvr_datablock_2
+        ////////////// Start of 1200 cycles delay.
+        NOP
+        MOV.W   #0x18e, R15
+??rcvr_datablock_5:
+        ADD.W   #0xffff, R15
+        JC      ??rcvr_datablock_5
+        ////////////// End of delay code.
+        ADD.W   #0xffff, R8
+        JMP     ??rcvr_datablock_0
+??rcvr_datablock_2:
+        CMP.B   #0xfe, 0(SP)
+        JEQ     ??rcvr_datablock_3
+        MOV.W   #0x0, R12
+        JMP     ??rcvr_datablock_4
+??rcvr_datablock_3:
+        MOV.W   R11, R13
+        MOVA    R10, R12
+        CALLA   #rcvr_mmc
+        MOV.W   #0x2, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        MOV.W   #0x1, R12
+??rcvr_datablock_4:
+        ADD.W   #0x2, SP
+          CFI CFA SP+20
+        POPM.A  #0x4, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock6
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+xmit_datablock:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function xmit_datablock
+        FUNCALL xmit_datablock, wait_ready
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL xmit_datablock, xmit_mmc
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL xmit_datablock, xmit_mmc
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL xmit_datablock, rcvr_mmc
+        LOCFRAME CSTACK, 14, STACK
+        FUNCALL xmit_datablock, rcvr_mmc
+        LOCFRAME CSTACK, 14, STACK
+        PUSHM.A #0x2, R11
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+12
+        SUB.W   #0x2, SP
+          CFI CFA SP+14
+        MOVA    R12, R11
+        MOV.B   R13, R10
+        CALLA   #wait_ready
+        CMP.W   #0x0, R12
+        JNE     ??xmit_datablock_0
+        MOV.W   #0x0, R12
+        JMP     ??xmit_datablock_1
+??xmit_datablock_0:
+        MOV.B   R10, 0(SP)
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #xmit_mmc
+        CMP.B   #0xfd, R10
+        JEQ     ??xmit_datablock_2
+        MOV.W   #0x200, R13
+        MOVA    R11, R12
+        CALLA   #xmit_mmc
+        MOV.W   #0x2, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        MOV.B   @SP, R14
+        AND.B   #0x1f, R14
+        CMP.B   #0x5, R14
+        JEQ     ??xmit_datablock_2
+        MOV.W   #0x0, R12
+        JMP     ??xmit_datablock_1
+??xmit_datablock_2:
+        MOV.W   #0x1, R12
+??xmit_datablock_1:
+        ADD.W   #0x2, SP
+          CFI CFA SP+12
+        POPM.A  #0x2, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock7
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+send_cmd:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI Function send_cmd
+        FUNCALL send_cmd, send_cmd
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL send_cmd, deselect
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL send_cmd, select
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL send_cmd, xmit_mmc
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL send_cmd, rcvr_mmc
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL send_cmd, rcvr_mmc
+        LOCFRAME CSTACK, 28, STACK
+        PUSHM.A #0x4, R11
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+20
+        SUB.W   #0x8, SP
+          CFI CFA SP+28
+        MOV.B   R12, R9
+        MOV.W   R14, R10
+        MOV.W   R15, R11
+        CMP.B   #0x0, R9
+        JGE     ??send_cmd_1
+        BIC.B   #0x80, R9
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x37, R12
+        CALLA   #send_cmd
+        MOV.B   R12, R8
+        CMP.B   #0x2, R8
+        JNC     ??send_cmd_1
+        MOV.B   R8, R12
+        JMP     ??send_cmd_2
+??send_cmd_1:
+        CALLA   #deselect
+        CALLA   #select
+        CMP.W   #0x0, R12
+        JNE     ??send_cmd_3
+        MOV.B   #0xff, R12
+        JMP     ??send_cmd_2
+??send_cmd_3:
+        MOV.B   R9, R14
+        BIS.B   #0x40, R14
+        MOV.B   R14, 0x1(SP)
+        MOV.W   R10, R14
+        MOV.W   R11, R15
+        SWPB    R15
+        MOV.B   R15, R14
+        MOV.W   #0x0, R15
+        MOV.B   R14, 0x2(SP)
+        MOV.B   R11, 0x3(SP)
+        MOV.W   R10, R15
+        SWPB    R15
+        AND.W   #0xff, R15
+        MOV.B   R15, 0x4(SP)
+        MOV.B   R10, 0x5(SP)
+        MOV.B   #0x1, R8
+        CMP.B   #0x0, R9
+        JNE     ??send_cmd_4
+        MOV.B   #0x95, R8
+??send_cmd_4:
+        CMP.B   #0x8, R9
+        JNE     ??send_cmd_5
+        MOV.B   #0x87, R8
+??send_cmd_5:
+        MOV.B   R8, 0x6(SP)
+        MOV.W   #0x6, R13
+        MOV.W   SP, R12
+        ADD.W   #0x1, R12
+        CALLA   #xmit_mmc
+        CMP.B   #0xc, R9
+        JNE     ??send_cmd_6
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+??send_cmd_6:
+        MOV.B   #0xa, R8
+??send_cmd_0:
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        CMP.B   #0x0, 0(SP)
+        JGE     ??send_cmd_7
+        ADD.B   #0xff, R8
+        CMP.B   #0x0, R8
+        JNE     ??send_cmd_0
+??send_cmd_7:
+        MOV.B   @SP, R12
+??send_cmd_2:
+        ADD.W   #0x8, SP
+          CFI CFA SP+20
+        POPM.A  #0x4, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock8
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+disk_status:
+          CFI Block cfiBlock9 Using cfiCommon0
+          CFI Function disk_status
+        MOV.B   R12, R14
+        MOVX.B  &Stat, R12
+        CMP.B   #0x0, R14
+        JNE     ??disk_status_0
+        CMPX.B  #0x0, &INS
+        JNE     ??disk_status_1
+??disk_status_0:
+        MOV.B   #0x3, R12
+        JMP     ??disk_status_2
+??disk_status_1:
+        BIC.B   #0x2, R12
+        BIC.B   #0x4, R12
+??disk_status_2:
+        MOVX.B  R12, &Stat
+        RETA
+          CFI EndBlock cfiBlock9
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+validateCSD:
+          CFI Block cfiBlock10 Using cfiCommon0
+          CFI Function validateCSD
+        FUNCALL validateCSD, send_cmd
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL validateCSD, rcvr_datablock
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL validateCSD, send_cmd
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL validateCSD, rcvr_datablock
+        LOCFRAME CSTACK, 44, STACK
+        PUSHM.A #0x2, R11
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+12
+        SUB.W   #0x20, SP
+          CFI CFA SP+44
+        MOV.W   #0x0, R11
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x9, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??validateCSD_4
+        MOV.W   #0x10, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_datablock
+        CMP.W   #0x0, R12
+        JEQ     ??validateCSD_4
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x9, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??validateCSD_4
+        MOV.W   #0x10, R13
+        MOV.W   SP, R12
+        ADD.W   #0x10, R12
+        CALLA   #rcvr_datablock
+        CMP.W   #0x0, R12
+        JEQ     ??validateCSD_4
+        MOV.B   #0x0, R10
+??validateCSD_0:
+        CMP.B   #0x10, R10
+        JC      ??validateCSD_5
+        MOV.B   R10, R15
+        ADD.W   SP, R15
+        MOV.B   @R15, R15
+        MOV.B   R15, R15
+        ADD.W   R15, R11
+        ADD.B   #0x1, R10
+        JMP     ??validateCSD_0
+??validateCSD_5:
+        CMP.W   #0x0, R11
+        JEQ     ??validateCSD_4
+        CMP.W   #0x1000, R11
+        JEQ     ??validateCSD_4
+        MOV.B   #0x0, R10
+??validateCSD_1:
+        CMP.B   #0x10, R10
+        JC      ??validateCSD_3
+        MOV.B   R10, R14
+        ADD.W   SP, R14
+        MOV.B   R10, R15
+        ADD.W   SP, R15
+        CMP.B   0x10(R15), 0(R14)
+        JNE     ??validateCSD_3
+        ADD.B   #0x1, R10
+        JMP     ??validateCSD_1
+??validateCSD_3:
+        CMP.B   #0x10, R10
+        JNC     ??validateCSD_4
+        MOV.B   #0x1, R12
+        JMP     ??validateCSD_6
+??validateCSD_4:
+        MOV.B   #0x0, R12
+??validateCSD_6:
+        ADD.W   #0x20, SP
+          CFI CFA SP+12
+        POPM.A  #0x2, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock10
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+detectCard:
+          CFI Block cfiBlock11 Using cfiCommon0
+          CFI Function detectCard
+        FUNCALL detectCard, validateCSD
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL detectCard, disk_status
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL detectCard, disk_initialize
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL detectCard, validateCSD
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL detectCard, disk_status
+        LOCFRAME CSTACK, 4, STACK
+        CALLA   #validateCSD
+        CMP.B   #0x0, R12
+        JEQ     ??detectCard_0
+        MOV.B   #0x0, R12
+        CALLA   #disk_status
+        MOV.B   #0x1, R12
+        RETA
+??detectCard_0:
+        MOVX.B  #0x1, &INS
+        MOV.B   #0x0, R12
+        CALLA   #disk_initialize
+        CALLA   #validateCSD
+        MOVX.B  R12, &INS
+        MOV.B   #0x0, R12
+        CALLA   #disk_status
+        MOVX.B  &INS, R12
+        RETA
+          CFI EndBlock cfiBlock11
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+disk_initialize:
+          CFI Block cfiBlock12 Using cfiCommon0
+          CFI Function disk_initialize
+        FUNCALL disk_initialize, HAL_SPI_Init
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, disk_status
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, SYS_MMC_DeselectCard
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, rcvr_mmc
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, send_cmd
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, send_cmd
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, rcvr_mmc
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, send_cmd
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, send_cmd
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, rcvr_mmc
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, send_cmd
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, send_cmd
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, send_cmd
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, deselect
+        LOCFRAME CSTACK, 32, STACK
+        FUNCALL disk_initialize, SYS_MMC_FastMode
+        LOCFRAME CSTACK, 32, STACK
+        PUSHM.A #0x6, R11
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+28
+        SUB.W   #0x4, SP
+          CFI CFA SP+32
+        MOV.B   R12, R7
+        CALLA   #HAL_SPI_Init
+        MOV.B   R7, R12
+        CALLA   #disk_status
+        MOV.B   R12, R9
+        BIT.B   #0x2, R9
+        JNC     ??disk_initialize_9
+        MOV.B   R9, R12
+        JMP     ??disk_initialize_10
+??disk_initialize_9:
+        CALLA   #SYS_MMC_DeselectCard
+        MOV.B   #0xa, R10
+??disk_initialize_0:
+        CMP.B   #0x0, R10
+        JEQ     ??disk_initialize_11
+        MOV.W   #0x1, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        ADD.B   #0xff, R10
+        JMP     ??disk_initialize_0
+??disk_initialize_11:
+        MOV.B   #0x0, R11
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x0, R12
+        CALLA   #send_cmd
+        CMP.B   #0x1, R12
+        JNE     ??disk_initialize_6
+        MOV.W   #0x1aa, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x8, R12
+        CALLA   #send_cmd
+        CMP.B   #0x1, R12
+        JNE     ??disk_initialize_12
+        MOV.W   #0x4, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        CMP.B   #0x1, 0x2(SP)
+        JNE     ??disk_initialize_6
+        CMP.B   #0xaa, 0x3(SP)
+        JNE     ??disk_initialize_6
+        MOV.W   #0x3e8, R8
+??disk_initialize_1:
+        CMP.W   #0x0, R8
+        JEQ     ??disk_initialize_4
+        MOV.W   #0x0, R14
+        MOV.W   #0x4000, R15
+        MOV.B   #0xa9, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JEQ     ??disk_initialize_4
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R15
+??disk_initialize_19:
+        ADD.W   #0xffff, R15
+        JC      ??disk_initialize_19
+        ////////////// End of delay code.
+        ADD.W   #0xffff, R8
+        JMP     ??disk_initialize_1
+??disk_initialize_4:
+        CMP.W   #0x0, R8
+        JEQ     ??disk_initialize_6
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x3a, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??disk_initialize_6
+        MOV.W   #0x4, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_mmc
+        BIT.B   #0x40, 0(SP)
+        JNC     ??disk_initialize_13
+        MOV.B   #0xc, R11
+        JMP     ??disk_initialize_6
+??disk_initialize_13:
+        MOV.B   #0x4, R11
+        JMP     ??disk_initialize_6
+??disk_initialize_12:
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0xa9, R12
+        CALLA   #send_cmd
+        CMP.B   #0x2, R12
+        JC      ??disk_initialize_14
+        MOV.B   #0x2, R11
+        MOV.B   #0xa9, R6
+        JMP     ??disk_initialize_15
+??disk_initialize_14:
+        MOV.B   #0x1, R11
+        MOV.B   #0x1, R6
+??disk_initialize_15:
+        MOV.W   #0x3e8, R8
+??disk_initialize_2:
+        CMP.W   #0x0, R8
+        JEQ     ??disk_initialize_8
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0xa9, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JEQ     ??disk_initialize_8
+        ////////////// Start of 12000 cycles delay.
+        NOP
+        MOV.W   #0xf9e, R15
+??disk_initialize_20:
+        ADD.W   #0xffff, R15
+        JC      ??disk_initialize_20
+        ////////////// End of delay code.
+        ADD.W   #0xffff, R8
+        JMP     ??disk_initialize_2
+??disk_initialize_8:
+        CMP.W   #0x0, R8
+        JEQ     ??disk_initialize_16
+        MOV.W   #0x200, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x10, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JEQ     ??disk_initialize_6
+??disk_initialize_16:
+        MOV.B   #0x0, R11
+??disk_initialize_6:
+        MOVX.B  R11, &CardType
+        CALLA   #deselect
+        CMP.B   #0x0, R11
+        JEQ     ??disk_initialize_17
+        CALLA   #SYS_MMC_FastMode
+        BIC.B   #0x1, R9
+        JMP     ??disk_initialize_18
+??disk_initialize_17:
+        BIS.B   #0x1, R9
+??disk_initialize_18:
+        MOVX.B  R9, &Stat
+        MOV.B   R9, R12
+??disk_initialize_10:
+        ADD.W   #0x4, SP
+          CFI CFA SP+28
+        POPM.A  #0x6, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock12
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+disk_read:
+          CFI Block cfiBlock13 Using cfiCommon0
+          CFI Function disk_read
+        FUNCALL disk_read, disk_status
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_read, send_cmd
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_read, rcvr_datablock
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_read, send_cmd
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_read, rcvr_datablock
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_read, send_cmd
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_read, deselect
+        LOCFRAME CSTACK, 28, STACK
+        PUSHM.A #0x6, R11
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+28
+        MOV.B   R12, R7
+        MOVA    R13, R9
+        MOV.W   R14, R10
+        MOV.W   R15, R11
+        MOV.B   0x1c(SP), R8
+        MOV.B   R7, R12
+        CALLA   #disk_status
+        MOV.B   R12, R6
+        BIT.B   #0x1, R6
+        JNC     ??disk_read_4
+        MOV.B   #0x3, R12
+        JMP     ??disk_read_1
+??disk_read_4:
+        CMP.B   #0x0, R8
+        JNE     ??disk_read_5
+        MOV.B   #0x4, R12
+        JMP     ??disk_read_1
+??disk_read_5:
+        BITX.B  #0x8, &CardType
+        JC      ??disk_read_6
+        MOV.W   R10, R12
+        MOV.W   R11, R13
+        MOV.W   #0x200, R14
+        MOV.W   #0x0, R15
+        CALLA   #?Mul32
+        MOV.W   R12, R10
+        MOV.W   R13, R11
+??disk_read_6:
+        CMP.B   #0x1, R8
+        JNE     ??disk_read_7
+        MOV.W   R10, R14
+        MOV.W   R11, R15
+        MOV.B   #0x11, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??disk_read_8
+        MOV.W   #0x200, R13
+        MOVA    R9, R12
+        CALLA   #rcvr_datablock
+        CMP.W   #0x0, R12
+        JEQ     ??disk_read_8
+        MOV.B   #0x0, R8
+        JMP     ??disk_read_8
+??disk_read_7:
+        MOV.W   R10, R14
+        MOV.W   R11, R15
+        MOV.B   #0x12, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??disk_read_8
+??disk_read_0:
+        MOV.W   #0x200, R13
+        MOVA    R9, R12
+        CALLA   #rcvr_datablock
+        CMP.W   #0x0, R12
+        JEQ     ??disk_read_3
+        ADDA    #0x200, R9
+        ADD.B   #0xff, R8
+        CMP.B   #0x0, R8
+        JNE     ??disk_read_0
+??disk_read_3:
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0xc, R12
+        CALLA   #send_cmd
+??disk_read_8:
+        CALLA   #deselect
+        CMP.B   #0x0, R8
+        JEQ     ??disk_read_9
+        MOV.B   #0x1, R12
+        JMP     ??disk_read_1
+??disk_read_9:
+        MOV.B   #0x0, R12
+??disk_read_1:
+        POPM.A  #0x6, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock13
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+disk_write:
+          CFI Block cfiBlock14 Using cfiCommon0
+          CFI Function disk_write
+        FUNCALL disk_write, disk_status
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_write, send_cmd
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_write, xmit_datablock
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_write, send_cmd
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_write, send_cmd
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_write, xmit_datablock
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_write, xmit_datablock
+        LOCFRAME CSTACK, 28, STACK
+        FUNCALL disk_write, deselect
+        LOCFRAME CSTACK, 28, STACK
+        PUSHM.A #0x6, R11
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+28
+        MOV.B   R12, R7
+        MOVA    R13, R9
+        MOV.W   R14, R10
+        MOV.W   R15, R11
+        MOV.B   0x1c(SP), R8
+        MOV.B   R7, R12
+        CALLA   #disk_status
+        MOV.B   R12, R6
+        BIT.B   #0x1, R6
+        JNC     ??disk_write_4
+        MOV.B   #0x3, R12
+        JMP     ??disk_write_1
+??disk_write_4:
+        BIT.B   #0x4, R6
+        JNC     ??disk_write_5
+        MOV.B   #0x2, R12
+        JMP     ??disk_write_1
+??disk_write_5:
+        CMP.B   #0x0, R8
+        JNE     ??disk_write_6
+        MOV.B   #0x4, R12
+        JMP     ??disk_write_1
+??disk_write_6:
+        BITX.B  #0x8, &CardType
+        JC      ??disk_write_7
+        MOV.W   R10, R12
+        MOV.W   R11, R13
+        MOV.W   #0x200, R14
+        MOV.W   #0x0, R15
+        CALLA   #?Mul32
+        MOV.W   R12, R10
+        MOV.W   R13, R11
+??disk_write_7:
+        CMP.B   #0x1, R8
+        JNE     ??disk_write_8
+        MOV.W   R10, R14
+        MOV.W   R11, R15
+        MOV.B   #0x18, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??disk_write_9
+        MOV.B   #0xfe, R13
+        MOVA    R9, R12
+        CALLA   #xmit_datablock
+        CMP.W   #0x0, R12
+        JEQ     ??disk_write_9
+        MOV.B   #0x0, R8
+        JMP     ??disk_write_9
+??disk_write_8:
+        MOVX.B  &CardType, R14
+        BIT.B   #0x6, R14
+        JEQ     ??disk_write_10
+        MOV.B   R8, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x97, R12
+        CALLA   #send_cmd
+??disk_write_10:
+        MOV.W   R10, R14
+        MOV.W   R11, R15
+        MOV.B   #0x19, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??disk_write_9
+??disk_write_0:
+        MOV.B   #0xfc, R13
+        MOVA    R9, R12
+        CALLA   #xmit_datablock
+        CMP.W   #0x0, R12
+        JEQ     ??disk_write_3
+        ADDA    #0x200, R9
+        ADD.B   #0xff, R8
+        CMP.B   #0x0, R8
+        JNE     ??disk_write_0
+??disk_write_3:
+        MOV.B   #0xfd, R13
+        MOVA    #0x0, R12
+        CALLA   #xmit_datablock
+        CMP.W   #0x0, R12
+        JNE     ??disk_write_9
+        MOV.B   #0x1, R8
+??disk_write_9:
+        CALLA   #deselect
+        CMP.B   #0x0, R8
+        JEQ     ??disk_write_11
+        MOV.B   #0x1, R12
+        JMP     ??disk_write_1
+??disk_write_11:
+        MOV.B   #0x0, R12
+??disk_write_1:
+        POPM.A  #0x6, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock14
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+disk_ioctl:
+          CFI Block cfiBlock15 Using cfiCommon0
+          CFI Function disk_ioctl
+        FUNCALL disk_ioctl, disk_status
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL disk_ioctl, select
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL disk_ioctl, deselect
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL disk_ioctl, send_cmd
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL disk_ioctl, rcvr_datablock
+        LOCFRAME CSTACK, 44, STACK
+        FUNCALL disk_ioctl, deselect
+        LOCFRAME CSTACK, 44, STACK
+        PUSHM.A #0x6, R11
+          CFI R6L Frame(CFA, -28)
+          CFI R6H Frame(CFA, -26)
+          CFI R7L Frame(CFA, -24)
+          CFI R7H Frame(CFA, -22)
+          CFI R8L Frame(CFA, -20)
+          CFI R8H Frame(CFA, -18)
+          CFI R9L Frame(CFA, -16)
+          CFI R9H Frame(CFA, -14)
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+28
+        SUB.W   #0x10, SP
+          CFI CFA SP+44
+        MOV.B   R12, R7
+        MOV.B   R13, R6
+        MOVA    R14, R11
+        MOV.B   R7, R12
+        CALLA   #disk_status
+        BIT.B   #0x1, R12
+        JNC     ??disk_ioctl_3
+        MOV.B   #0x3, R12
+        JMP     ??disk_ioctl_4
+??disk_ioctl_3:
+        MOV.B   #0x1, R10
+        MOV.B   R6, R14
+        SUB.B   #0x0, R14
+        JEQ     ??disk_ioctl_5
+        SUB.B   #0x1, R14
+        JEQ     ??disk_ioctl_6
+        SUB.B   #0x2, R14
+        JEQ     ??disk_ioctl_7
+        JMP     ??disk_ioctl_8
+??disk_ioctl_5:
+        CALLA   #select
+        CMP.W   #0x0, R12
+        JEQ     ??disk_ioctl_1
+        CALLA   #deselect
+        MOV.B   #0x0, R10
+        JMP     ??disk_ioctl_1
+??disk_ioctl_6:
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R15
+        MOV.B   #0x9, R12
+        CALLA   #send_cmd
+        CMP.B   #0x0, R12
+        JNE     ??disk_ioctl_1
+        MOV.W   #0x10, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        CALLA   #rcvr_datablock
+        CMP.W   #0x0, R12
+        JEQ     ??disk_ioctl_1
+        MOV.B   @SP, R14
+        AND.B   #0xc0, R14
+        CMP.B   #0x40, R14
+        JNE     ??disk_ioctl_9
+        MOV.B   0x9(SP), R14
+        MOV.B   R14, R14
+        MOV.B   0x8(SP), R15
+        MOV.B   R15, R15
+        AND.W   #0xff, R15
+        SWPB    R15
+        ADD.W   R15, R14
+        ADD.W   #0x1, R14
+        MOV.W   R14, R8
+        MOV.W   R8, R12
+        MOV.W   #0x0, R13
+        CALLA   #?ShiftLeft32_10
+        MOV.W   R12, 0(R11)
+        MOV.W   R13, 0x2(R11)
+        JMP     ??disk_ioctl_10
+??disk_ioctl_9:
+        MOV.B   0x5(SP), R14
+        AND.B   #0xf, R14
+        BIT.B   #0x80, 0xa(SP)
+        SUBC.B  R15, R15
+        ADD.B   #0x1, R15
+        ADD.B   R15, R14
+        MOV.B   0x9(SP), R15
+        AND.B   #0x3, R15
+        RLA.B   R15
+        ADD.B   R15, R14
+        ADD.B   #0x2, R14
+        MOV.B   R14, R9
+        MOV.B   0x8(SP), R14
+        RPT     #0x6
+        RRUX.B  R14
+        MOV.B   R14, R14
+        MOV.B   0x7(SP), R15
+        MOV.B   R15, R15
+        RLAM.W  #0x2, R15
+        ADD.W   R15, R14
+        MOV.B   0x6(SP), R15
+        MOV.B   R15, R15
+        AND.W   #0x3, R15
+        RPT     #0x2
+        RLAX.B  R15
+        AND.W   #0xff, R15
+        SWPB    R15
+        ADD.W   R15, R14
+        ADD.W   #0x1, R14
+        MOV.W   R14, R8
+        MOV.W   R8, R12
+        MOV.W   #0x0, R13
+        MOV.B   R9, R14
+        ADD.B   #0xf7, R14
+        CALLA   #?ShiftLeft32
+        MOV.W   R12, 0(R11)
+        MOV.W   R13, 0x2(R11)
+??disk_ioctl_10:
+        MOV.B   #0x0, R10
+        JMP     ??disk_ioctl_1
+??disk_ioctl_7:
+        MOV.W   #0x80, 0(R11)
+        MOV.W   #0x0, 0x2(R11)
+        MOV.B   #0x0, R10
+        JMP     ??disk_ioctl_1
+??disk_ioctl_8:
+        MOV.B   #0x4, R10
+??disk_ioctl_1:
+        CALLA   #deselect
+        MOV.B   R10, R12
+??disk_ioctl_4:
+        ADD.W   #0x10, SP
+          CFI CFA SP+28
+        POPM.A  #0x6, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R6H SameValue
+          CFI R7H SameValue
+          CFI R8H SameValue
+          CFI R9H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI R6L SameValue
+          CFI R7L SameValue
+          CFI R8L SameValue
+          CFI R9L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock15
+
+        RSEG DATA20_ID:CONST:SORT:NOROOT(0)
+`?<Initializer for INS>`:
+        DC8 1
+
+        RSEG DATA20_ID:CONST:SORT:NOROOT(0)
+`?<Initializer for Stat>`:
+        DC8 1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+// 1 860 bytes in segment CODE
+//     2 bytes in segment DATA20_I
+//     2 bytes in segment DATA20_ID
+//     1 byte  in segment DATA20_Z
+// 
+// 1 860 bytes of CODE  memory
+//     2 bytes of CONST memory
+//     3 bytes of DATA  memory
+//
+//Errors: none
+//Warnings: none

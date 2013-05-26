@@ -1,0 +1,239 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:40 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_uart.c            #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_uart.c" -lC       #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_uart.lst   #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_uart.r43    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_uart.c
+      1          /**
+      2          @file       hal_uart.c
+      3          
+      4          @brief      UART configuration
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x26a
+   \   union <unnamed> __data16 _A_PDSEL_L
+   \                     _A_PDSEL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x600
+   \   union <unnamed> __data16 _A_UCA1CTLW0_L
+   \                     _A_UCA1CTLW0_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x606
+   \   union <unnamed> __data16 _A_UCA1BRW_L
+   \                     _A_UCA1BRW_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x608
+   \   unsigned char volatile __data16 UCA1MCTL
+   \                     UCA1MCTL:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x60c
+   \   unsigned char const volatile __data16 UCA1RXBUF
+   \                     UCA1RXBUF:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x61c
+   \   union <unnamed> __data16 _A_UCA1ICTL_L
+   \                     _A_UCA1ICTL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x61e
+   \   unsigned short volatile __data16 UCA1IV
+   \                     UCA1IV:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          // Flags
+     14          extern bool bFLAG_USBFrameReceived;
+     15          
+     16          /*----------------------------------------------------------------------------*/
+     17          /**
+     18          @brief    Initializing UART
+     19          
+     20          @return   void 
+     21          
+     22          @param    void
+     23          */
+
+   \                                 In  segment CODE, align 2
+     24          void HAL_UART_Init()
+   \                     HAL_UART_Init:
+     25          { 
+     26              USB_PORT(SEL) |= BV(USB_TXD_PIN);
+   \   000000   E2D26B02     BIS.B   #0x4, &0x26b
+     27              USB_PORT(SEL) |= BV(USB_RXD_PIN);
+   \   000004   F2D26B02     BIS.B   #0x8, &0x26b
+     28          
+     29              // UART, which is used for USB, is set to 57600 bps
+     30              // (see, pp909 of 'MSP430x5xx and MSP430x6xx family user's guide')    
+     31              UCA1CTL1 |=  UCSWRST;       // **Put state machine in reset**
+   \   000008   D2D30006     BIS.B   #0x1, &0x600
+     32              UCA1CTL1 |=  UCSSEL_2;      // Set SMCLK as clock source
+   \   00000C   F2D080000006 BIS.B   #0x80, &0x600
+     33              UCA1BRW   =  208;           // 12MHz 57600 bps (see User's Guide)
+   \   000012   B240D0000606 MOV.W   #0xd0, &0x606
+     34              UCA1MCTL  =  UCBRS_2;       // Modln UCBRSx=2, UCBRFx=0,
+   \   000018   E2420806     MOV.B   #0x4, &0x608
+     35          
+     36              UCA1CTL1 &= ~UCSWRST;       // **Initialize USCI state machine**
+   \   00001C   D2C30006     BIC.B   #0x1, &0x600
+     37              UCA1IE   |=  UCRXIE;        // Enable USCI_A1 RX interrupt
+   \   000020   D2D31C06     BIS.B   #0x1, &0x61c
+     38          }
+   \   000024   1001         RETA
+   \   000026                REQUIRE _A_PDSEL_L
+   \   000026                REQUIRE _A_UCA1CTLW0_L
+   \   000026                REQUIRE _A_UCA1BRW_L
+   \   000026                REQUIRE UCA1MCTL
+   \   000026                REQUIRE _A_UCA1ICTL_L
+     39          
+     40          //------------------------------------------------------------------------------
+     41          // USCI_A1 Interrupt Service Routine
+     42          //------------------------------------------------------------------------------
+     43          #pragma vector = USCI_A1_VECTOR
+
+   \                                 In  segment ISR_CODE, align 2
+     44          __interrupt void USCI_A1_VECTOR_ISR(void)
+   \                     USCI_A1_VECTOR_ISR:
+     45          {
+   \   000000   5F14         PUSHM.A #0x6, R15
+     46              unsigned char ucRxData;
+     47              switch(__even_in_range(UCA1IV,12)){
+   \   000002   1F421E06     MOV.W   &0x61e, R15
+   \   000006   E00F         ADDA    R15, PC
+   \                     `?<Jumptable for USCI_A1_VECTOR_ISR>_0`:
+   \   000008   123C         JMP     ??USCI_A1_VECTOR_ISR_2
+   \   00000A   053C         JMP     ??USCI_A1_VECTOR_ISR_3
+   \   00000C   103C         JMP     ??USCI_A1_VECTOR_ISR_2
+   \   00000E   0F3C         JMP     ??USCI_A1_VECTOR_ISR_2
+   \   000010   0E3C         JMP     ??USCI_A1_VECTOR_ISR_2
+   \   000012   0D3C         JMP     ??USCI_A1_VECTOR_ISR_2
+   \   000014   0C3C         JMP     ??USCI_A1_VECTOR_ISR_2
+     48                  case  0: break;
+     49                  case  2: 
+     50                      ucRxData = UCA1RXBUF;
+   \                     ??USCI_A1_VECTOR_ISR_3:
+   \   000016   5A420C06     MOV.B   &0x60c, R10
+     51                      SYS_USB_ReceiveFrame(ucRxData);
+   \   00001A   4C4A         MOV.B   R10, R12
+   \   00001C   ........     CALLA   #SYS_USB_ReceiveFrame
+     52                      // If a complete USB frame has received successfully, exit low-power-mode
+     53                      if(bFLAG_USBFrameReceived == _SET_){
+   \   000020   ....C293.... CMPX.B  #0x0, &bFLAG_USBFrameReceived
+   \   000026   0324         JEQ     ??USCI_A1_VECTOR_ISR_2
+     54                          __low_power_mode_off_on_exit();
+   \   000028   B1C0F0001800 BIC.W   #0xf0, 0x18(SP)
+     55                      }
+     56                      break;     
+     57                  case  4: break;
+     58                  case  6: break;
+     59                  case  8: break;
+     60                  case 10: break;
+     61                  case 12: break;
+     62                  default: break;
+     63              }
+     64          }
+   \                     ??USCI_A1_VECTOR_ISR_2:
+   \   00002E   5A16         POPM.A  #0x6, R15
+   \   000030   0013         RETI
+   \   000032                REQUIRE UCA1RXBUF
+   \   000032                REQUIRE UCA1IV
+
+   \                                 In  segment INTVEC, offset 0x5c, root
+   \                     `??USCI_A1_VECTOR_ISR??INTVEC 92`:
+   \   00005C   ....         DC16    USCI_A1_VECTOR_ISR
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_UART_Init
+      28  USCI_A1_VECTOR_ISR
+            28 -> SYS_USB_ReceiveFrame
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       2  ??USCI_A1_VECTOR_ISR??INTVEC 92
+      38  HAL_UART_Init
+       2  UCA1IV
+       1  UCA1MCTL
+       1  UCA1RXBUF
+      50  USCI_A1_VECTOR_ISR
+       2  _A_PDSEL_L
+       2  _A_UCA1BRW_L
+       2  _A_UCA1CTLW0_L
+       2  _A_UCA1ICTL_L
+
+ 
+ 38 bytes in segment CODE
+ 12 bytes in segment DATA16_AN
+  2 bytes in segment INTVEC
+ 50 bytes in segment ISR_CODE
+ 
+ 88 bytes of CODE  memory
+  0 bytes of CONST memory (+  2 bytes shared)
+  0 bytes of DATA  memory (+ 12 bytes shared)
+
+Errors: none
+Warnings: none

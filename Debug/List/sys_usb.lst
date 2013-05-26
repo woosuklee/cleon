@@ -1,0 +1,692 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:36 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\sys\sys_usb.c             #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\sys_usb.c" -lC        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\sys_usb.lst    #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_usb.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_usb.c
+      1          /**
+      2          @file       sys_usb.c
+      3          
+      4          @brief      USB related functions
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x200
+   \   union <unnamed> __data16 _A_PAIN_L
+   \                     _A_PAIN_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x204
+   \   union <unnamed> __data16 _A_PADIR_L
+   \                     _A_PADIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x218
+   \   union <unnamed> __data16 _A_PAIES_L
+   \                     _A_PAIES_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x21a
+   \   union <unnamed> __data16 _A_PAIE_L
+   \                     _A_PAIE_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x26a
+   \   union <unnamed> __data16 _A_PDSEL_L
+   \                     _A_PDSEL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x60e
+   \   unsigned char volatile __data16 UCA1TXBUF
+   \                     UCA1TXBUF:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x61c
+   \   union <unnamed> __data16 _A_UCA1ICTL_L
+   \                     _A_UCA1ICTL_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          // CLEON data structure
+     14          extern cleon_header_u      uniCLEONHeader;
+     15          extern cleon_gps_data_u    uniCLEONGPSData;
+     16          extern cleon_sensor_data_u uniCLEONSensorData;
+     17          
+     18          // Flags
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     19          bool bFLAG_USBFrameReceived = _CLEAR_;
+   \                     bFLAG_USBFrameReceived:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     20          bool bFLAG_USBConnected = _CLEAR_;
+   \                     bFLAG_USBConnected:
+   \   000000                DS8 1
+     21          
+     22          // USB frames
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     23          usb_frame_u uniUSBRecvFrame = {0};
+   \                     uniUSBRecvFrame:
+   \   000000                DS8 36
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     24          usb_frame_u uniUSBSendFrame = {0};
+   \                     uniUSBSendFrame:
+   \   000000                DS8 36
+     25          
+     26          // Counting received number of USB frame bytes for state transition
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     27          unsigned char ucUSBFrameByteCount = 0;
+   \                     ucUSBFrameByteCount:
+   \   000000                DS8 1
+     28          
+     29          /*----------------------------------------------------------------------------*/
+     30          /**
+     31          @brief    Initializing USB
+     32          
+     33          @return   void
+     34          
+     35          @param    void
+     36          */
+
+   \                                 In  segment CODE, align 2
+     37          void SYS_USB_Init()
+   \                     SYS_USB_Init:
+     38          {
+     39              USB_PORT(SEL) |= BV(USB_TXD_PIN);
+   \   000000   E2D26B02     BIS.B   #0x4, &0x26b
+     40              USB_PORT(SEL) |= BV(USB_RXD_PIN);
+   \   000004   F2D26B02     BIS.B   #0x8, &0x26b
+     41              
+     42              USB_STATUS_PORT(DIR) &= ~BV(USB_STATUS_PIN);
+   \   000008   F2C20402     BIC.B   #0x8, &0x204
+     43              USB_STATUS_PORT(IES) &= ~BV(USB_STATUS_PIN);
+   \   00000C   F2C21802     BIC.B   #0x8, &0x218
+     44              USB_STATUS_PORT(IE)  |=  BV(USB_STATUS_PIN);
+   \   000010   F2D21A02     BIS.B   #0x8, &0x21a
+     45              
+     46              if(SYS_USB_IsUSBConnected() == _TRUE_){
+   \   000014   F2B20002     BIT.B   #0x8, &0x200
+   \   000018   0328         JNC     ??SYS_USB_Init_0
+     47                  bFLAG_USBConnected = _TRUE_;
+   \   00001A   ....D243.... MOVX.B  #0x1, &bFLAG_USBConnected
+     48              }
+     49          }
+   \                     ??SYS_USB_Init_0:
+   \   000020   1001         RETA
+   \   000022                REQUIRE _A_PDSEL_L
+   \   000022                REQUIRE _A_PADIR_L
+   \   000022                REQUIRE _A_PAIES_L
+   \   000022                REQUIRE _A_PAIE_L
+   \   000022                REQUIRE _A_PAIN_L
+     50          
+     51          /*----------------------------------------------------------------------------*/
+     52          /**
+     53          @brief		Sending USB frame ACK
+     54          
+     55          @return		void
+     56          
+     57          @param		ucCommand - command to be sent
+     58          */
+
+   \                                 In  segment CODE, align 2
+     59          void SYS_USB_SendACK(unsigned char ucCommand)
+   \                     SYS_USB_SendACK:
+     60          {
+   \   000000   0A14         PUSHM.A #0x1, R10
+   \   000002   4A4C         MOV.B   R12, R10
+     61              memset(&uniUSBSendFrame, 0 , sizeof(uniUSBSendFrame));
+   \   000004   3E402400     MOV.W   #0x24, R14
+   \   000008   0F43         MOV.W   #0x0, R15
+   \   00000A   0D43         MOV.W   #0x0, R13
+   \   00000C   ........     MOVA    #uniUSBSendFrame, R12
+   \   000010   ........     CALLA   #memset
+     62              
+     63              uniUSBSendFrame.stUSBFrame.ucHeader[0] = USB_FRAME_HEADER;
+   \   000014   ....F2405500 MOVX.B  #0x55, &uniUSBSendFrame
+   \            ....        
+     64              uniUSBSendFrame.stUSBFrame.ucHeader[1] = USB_FRAME_HEADER;
+   \   00001C   ....F2405500 MOVX.B  #0x55, &uniUSBSendFrame + 1
+   \            ....        
+     65              
+     66              uniUSBSendFrame.stUSBFrame.ucLength = 0x02;
+   \   000024   ....E243.... MOVX.B  #0x2, &uniUSBSendFrame + 2
+     67              
+     68              uniUSBSendFrame.stUSBFrame.ucCommand = USB_FRAME_COMMAND_ACK;
+   \   00002A   ....F243.... MOVX.B  #0xff, &uniUSBSendFrame + 3
+     69              
+     70              uniUSBSendFrame.stUSBFrame.ucData[0] = ucCommand;
+   \   000030   ....C24A.... MOVX.B  R10, &uniUSBSendFrame + 4
+     71              
+     72              uniUSBSendFrame.stUSBFrame.ucCRC = SYS_USB_BuildCRC(&uniUSBSendFrame);
+   \   000036   ........     CALLA   #SYS_USB_BuildCRC
+   \   00003A   ....C24C.... MOVX.B  R12, &uniUSBSendFrame + 33
+     73              
+     74              uniUSBSendFrame.stUSBFrame.ucFooter[0] = USB_FRAME_FOOTER;
+   \   000040   ....F240AA00 MOVX.B  #0xaa, &uniUSBSendFrame + 34
+   \            ....        
+     75              uniUSBSendFrame.stUSBFrame.ucFooter[1] = USB_FRAME_FOOTER;
+   \   000048   ....F240AA00 MOVX.B  #0xaa, &uniUSBSendFrame + 35
+   \            ....        
+     76              
+     77              for(int i = 0; i < USB_FRAME_LENGTH ; i++){
+   \   000050   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_USB_SendACK_0:
+   \   000052   3F902400     CMP.W   #0x24, R15
+   \   000056   0834         JGE     ??SYS_USB_SendACK_1
+     78                  SYS_USB_TransmitSingleByte(uniUSBSendFrame.ucSingleByte[i]);
+   \   000058   0E4F         MOV.W   R15, R14
+   \   00005A   ....5C4E.... MOVX.B  uniUSBSendFrame(R14), R12
+   \   000060   ........     CALLA   #SYS_USB_TransmitSingleByte
+     79              }
+   \   000064   1F53         ADD.W   #0x1, R15
+   \   000066   F53F         JMP     ??SYS_USB_SendACK_0
+     80          }
+   \                     ??SYS_USB_SendACK_1:
+   \   000068   0A16         POPM.A  #0x1, R10
+   \   00006A   1001         RETA
+     81          
+     82          /*----------------------------------------------------------------------------*/
+     83          /**
+     84          @brief    Mimic the standard 'printf' with USB as output device
+     85                    - Sending a byte (stream) to USB
+     86          
+     87          @return   index - number of bytes sent
+     88          
+     89          @param    data  - a byte to be sent to USB
+     90          */
+
+   \                                 In  segment CODE, align 2
+     91          int SYS_USB_Printf(char *format, ... )
+   \                     SYS_USB_Printf:
+     92          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   3180FE00     SUB.W   #0xfe, SP
+   \   000006   CA0C         MOVA    R12, R10
+     93              // Maximum length of data is 255
+     94              char            buff[250];
+     95              int             index = 0;
+   \   000008   0843         MOV.W   #0x0, R8
+     96              unsigned char   data = 0;
+   \   00000A   4B43         MOV.B   #0x0, R11
+     97              va_list         argptr;         // Argument list
+     98          
+     99              buff[0] = 0x00;
+   \   00000C   C1430400     MOV.B   #0x0, 0x4(SP)
+    100              va_start( argptr,format);       // Initializing the function
+   \   000010   0F41         MOV.W   SP, R15
+   \   000012   3F501201     ADD.W   #0x112, R15
+   \   000016   710F0000     MOVA    R15, 0(SP)
+    101              vsprintf(buff,format,argptr );  // Copying buffer
+   \   00001A   11120400     PUSH.W  0x4(SP)
+   \   00001E   11120400     PUSH.W  0x4(SP)
+   \   000022   CD0A         MOVA    R10, R13
+   \   000024   0C41         MOV.W   SP, R12
+   \   000026   3C52         ADD.W   #0x8, R12
+   \   000028   ........     CALLA   #vsprintf
+    102              va_end( argptr );               // Finalizing the function
+    103          
+    104              data = buff[index++];               // Loading data
+   \   00002C   0F48         MOV.W   R8, R15
+   \   00002E   0F51         ADD.W   SP, R15
+   \   000030   5B4F0800     MOV.B   0x8(R15), R11
+   \   000034   1853         ADD.W   #0x1, R8
+   \   000036   2152         ADD.W   #0x4, SP
+    105              
+    106              while(data != 0x00){
+   \                     ??SYS_USB_Printf_1:
+   \   000038   4B93         CMP.B   #0x0, R11
+   \   00003A   0B24         JEQ     ??SYS_USB_Printf_2
+    107                  //USCI_A1 TX buffer ready?
+    108                  while (!(UCA1IFG&UCTXIFG));     // USCI_A1 TX buffer ready?
+   \                     ??SYS_USB_Printf_0:
+   \   00003C   E2B31D06     BIT.B   #0x2, &0x61d
+   \   000040   FD2B         JNC     ??SYS_USB_Printf_0
+    109                  UCA1TXBUF = data;               
+   \   000042   C24B0E06     MOV.B   R11, &0x60e
+    110                  data = buff[index++];
+   \   000046   0F48         MOV.W   R8, R15
+   \   000048   0F51         ADD.W   SP, R15
+   \   00004A   5B4F0400     MOV.B   0x4(R15), R11
+   \   00004E   1853         ADD.W   #0x1, R8
+   \   000050   F33F         JMP     ??SYS_USB_Printf_1
+    111              }
+    112              return(index);
+   \                     ??SYS_USB_Printf_2:
+   \   000052   0C48         MOV.W   R8, R12
+   \   000054   3150FE00     ADD.W   #0xfe, SP
+   \   000058   3816         POPM.A  #0x4, R11
+   \   00005A   1001         RETA
+   \   00005C                REQUIRE _A_UCA1ICTL_L
+   \   00005C                REQUIRE UCA1TXBUF
+    113          }
+    114          
+    115          /*----------------------------------------------------------------------------*/
+    116          /**
+    117          @brief    Transmit a byte vis USB
+    118          
+    119          @return   void
+    120          
+    121          @param    ucData - data to be transmitted
+    122          */
+
+   \                                 In  segment CODE, align 2
+    123          void SYS_USB_TransmitSingleByte(unsigned char ucData)
+   \                     SYS_USB_TransmitSingleByte:
+   \                     ??SYS_USB_TransmitSingleByte_0:
+    124          {
+    125              //USCI_A1 TX buffer ready?
+    126              while (!(UCA1IFG&UCTXIFG));     // USCI_A1 TX buffer ready?
+   \   000000   E2B31D06     BIT.B   #0x2, &0x61d
+   \   000004   FD2B         JNC     ??SYS_USB_TransmitSingleByte_0
+    127              UCA1TXBUF = ucData;
+   \   000006   C24C0E06     MOV.B   R12, &0x60e
+    128          }
+   \   00000A   1001         RETA
+   \   00000C                REQUIRE _A_UCA1ICTL_L
+   \   00000C                REQUIRE UCA1TXBUF
+    129          
+    130          /*----------------------------------------------------------------------------*/
+    131          /**
+    132          @brief		Receiving a bayte and test whether correct frame has been received
+    133          
+    134          @return		void
+    135          
+    136          @param		ucData - recived single byte from USB
+    137          */
+
+   \                                 In  segment CODE, align 2
+    138          void SYS_USB_ReceiveFrame(unsigned char ucData)
+   \                     SYS_USB_ReceiveFrame:
+    139          {
+   \   000000   0A14         PUSHM.A #0x1, R10
+   \   000002   4A4C         MOV.B   R12, R10
+    140              if(bFLAG_USBFrameReceived == _CLEAR_){
+   \   000004   ....C293.... CMPX.B  #0x0, &bFLAG_USBFrameReceived
+   \   00000A   D420         JNE     ??SYS_USB_ReceiveFrame_5
+    141                  switch (ucUSBFrameByteCount){
+   \   00000C   ....5E42.... MOVX.B  &ucUSBFrameByteCount, R14
+   \   000012   8E11         SXT     R14
+   \   000014   3E902400     CMP.W   #0x24, R14
+   \   000018   CD2C         JC      ??SYS_USB_ReceiveFrame_5
+   \   00001A   5E06         RLAM.W  #0x2, R14
+   \   00001C   ....504E.... MOVX.A  `?<Jumptable for SYS_USB_ReceiveFrame>_0`(R14), PC
+   \                     `?<Jumptable for SYS_USB_ReceiveFrame>_0`:
+   \   000022   ........     DC32    ??SYS_USB_ReceiveFrame_11
+   \   000026   ........     DC32    ??SYS_USB_ReceiveFrame_11
+   \   00002A   ........     DC32    ??SYS_USB_ReceiveFrame_12
+   \   00002E   ........     DC32    ??SYS_USB_ReceiveFrame_13
+   \   000032   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000036   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00003A   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00003E   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000042   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000046   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00004A   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00004E   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000052   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000056   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00005A   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00005E   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000062   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000066   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00006A   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00006E   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000072   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000076   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00007A   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00007E   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000082   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000086   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00008A   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00008E   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000092   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   000096   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00009A   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   00009E   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   0000A2   ........     DC32    ??SYS_USB_ReceiveFrame_14
+   \   0000A6   ........     DC32    ??SYS_USB_ReceiveFrame_15
+   \   0000AA   ........     DC32    ??SYS_USB_ReceiveFrame_16
+   \   0000AE   ........     DC32    ??SYS_USB_ReceiveFrame_17
+    142                      case 0: case 1:
+    143                          if(ucData == USB_FRAME_HEADER){
+   \                     ??SYS_USB_ReceiveFrame_11:
+   \   0000B2   7A905500     CMP.B   #0x55, R10
+   \   0000B6   0B20         JNE     ??SYS_USB_ReceiveFrame_6
+    144                              uniUSBRecvFrame.stUSBFrame.ucHeader[ucUSBFrameByteCount] = ucData;
+   \   0000B8   ....5F42.... MOVX.B  &ucUSBFrameByteCount, R15
+   \   0000BE   4F4F         MOV.B   R15, R15
+   \   0000C0   ....CF4A.... MOVX.B  R10, uniUSBRecvFrame(R15)
+    145                              ucUSBFrameByteCount++;
+   \   0000C6   ....D253.... ADDX.B  #0x1, &ucUSBFrameByteCount
+   \   0000CC   733C         JMP     ??SYS_USB_ReceiveFrame_5
+    146                          }else{
+    147                              ucUSBFrameByteCount = 0;
+   \                     ??SYS_USB_ReceiveFrame_6:
+   \   0000CE   ....C243.... MOVX.B  #0x0, &ucUSBFrameByteCount
+    148                              // request retransmission
+    149                          }
+    150                          break;
+   \   0000D4   6F3C         JMP     ??SYS_USB_ReceiveFrame_5
+    151                      case 2:
+    152                          if((uniUSBRecvFrame.stUSBFrame.ucHeader[0] == USB_FRAME_HEADER)&&(uniUSBRecvFrame.stUSBFrame.ucHeader[1] == USB_FRAME_HEADER) &&
+    153                             (ucData > 0) && (ucData < USB_FRAME_COMMAND_AND_DATA_FIELD_LENGTH)){
+   \                     ??SYS_USB_ReceiveFrame_12:
+   \   0000D6   ....F2905500 CMPX.B  #0x55, &uniUSBRecvFrame
+   \            ....        
+   \   0000DE   1120         JNE     ??SYS_USB_ReceiveFrame_7
+   \   0000E0   ....F2905500 CMPX.B  #0x55, &uniUSBRecvFrame + 1
+   \            ....        
+   \   0000E8   0C20         JNE     ??SYS_USB_ReceiveFrame_7
+   \   0000EA   5A93         CMP.B   #0x1, R10
+   \   0000EC   0A28         JNC     ??SYS_USB_ReceiveFrame_7
+   \   0000EE   7A901E00     CMP.B   #0x1e, R10
+   \   0000F2   072C         JC      ??SYS_USB_ReceiveFrame_7
+    154                              uniUSBRecvFrame.stUSBFrame.ucLength = ucData;
+   \   0000F4   ....C24A.... MOVX.B  R10, &uniUSBRecvFrame + 2
+    155                              ucUSBFrameByteCount++;
+   \   0000FA   ....D253.... ADDX.B  #0x1, &ucUSBFrameByteCount
+   \   000100   593C         JMP     ??SYS_USB_ReceiveFrame_5
+    156                          }else{
+    157                              ucUSBFrameByteCount = 0;
+   \                     ??SYS_USB_ReceiveFrame_7:
+   \   000102   ....C243.... MOVX.B  #0x0, &ucUSBFrameByteCount
+    158                              // request retransmission
+    159                          }
+    160                          break;
+   \   000108   553C         JMP     ??SYS_USB_ReceiveFrame_5
+    161                      case 3:
+    162                          uniUSBRecvFrame.stUSBFrame.ucCommand = ucData;
+   \                     ??SYS_USB_ReceiveFrame_13:
+   \   00010A   ....C24A.... MOVX.B  R10, &uniUSBRecvFrame + 3
+    163                          ucUSBFrameByteCount++;
+   \   000110   ....D253.... ADDX.B  #0x1, &ucUSBFrameByteCount
+    164                          
+    165                          break;
+   \   000116   4E3C         JMP     ??SYS_USB_ReceiveFrame_5
+    166                      case 4:  case 5:  case 6:  case 7:  case 8:  case 9:  case 10: case 11: case 12: case 13: 
+    167                      case 14: case 15: case 16: case 17: case 18: case 19: case 20: case 21: case 22: case 23: 
+    168                      case 24: case 25: case 26: case 27: case 28: case 29: case 30: case 31: case 32:
+    169                          uniUSBRecvFrame.stUSBFrame.ucData[ucUSBFrameByteCount - 4] = ucData;
+   \                     ??SYS_USB_ReceiveFrame_14:
+   \   000118   ....5F42.... MOVX.B  &ucUSBFrameByteCount, R15
+   \   00011E   4F4F         MOV.B   R15, R15
+   \   000120   3F50FCFF     ADD.W   #0xfffc, R15
+   \   000124   3FE00080     XOR.W   #0x8000, R15
+   \   000128   ....CF4A.... MOVX.B  R10, uniUSBRecvFrame - 32764(R15)
+    170                          ucUSBFrameByteCount++;
+   \   00012E   ....D253.... ADDX.B  #0x1, &ucUSBFrameByteCount
+    171                          break;
+   \   000134   3F3C         JMP     ??SYS_USB_ReceiveFrame_5
+    172                      case 33:
+    173                          if(ucData == SYS_USB_BuildCRC(&uniUSBRecvFrame)){
+   \                     ??SYS_USB_ReceiveFrame_15:
+   \   000136   ........     MOVA    #uniUSBRecvFrame, R12
+   \   00013A   ........     CALLA   #SYS_USB_BuildCRC
+   \   00013E   4A9C         CMP.B   R12, R10
+   \   000140   0720         JNE     ??SYS_USB_ReceiveFrame_8
+    174                              uniUSBRecvFrame.stUSBFrame.ucCRC = ucData;
+   \   000142   ....C24A.... MOVX.B  R10, &uniUSBRecvFrame + 33
+    175                              ucUSBFrameByteCount++;
+   \   000148   ....D253.... ADDX.B  #0x1, &ucUSBFrameByteCount
+   \   00014E   323C         JMP     ??SYS_USB_ReceiveFrame_5
+    176                          }else{
+    177                              ucUSBFrameByteCount = 0;
+   \                     ??SYS_USB_ReceiveFrame_8:
+   \   000150   ....C243.... MOVX.B  #0x0, &ucUSBFrameByteCount
+    178                              // request retransmission
+    179                          }
+    180                          break;
+   \   000156   2E3C         JMP     ??SYS_USB_ReceiveFrame_5
+    181                      case 34:
+    182                          if(ucData == USB_FRAME_FOOTER){
+   \                     ??SYS_USB_ReceiveFrame_16:
+   \   000158   7A90AA00     CMP.B   #0xaa, R10
+   \   00015C   0F20         JNE     ??SYS_USB_ReceiveFrame_9
+    183                              uniUSBRecvFrame.stUSBFrame.ucFooter[ucUSBFrameByteCount - 34] = ucData;
+   \   00015E   ....5F42.... MOVX.B  &ucUSBFrameByteCount, R15
+   \   000164   4F4F         MOV.B   R15, R15
+   \   000166   3F50DEFF     ADD.W   #0xffde, R15
+   \   00016A   3FE00080     XOR.W   #0x8000, R15
+   \   00016E   ....CF4A.... MOVX.B  R10, uniUSBRecvFrame - 32734(R15)
+    184                              ucUSBFrameByteCount++;
+   \   000174   ....D253.... ADDX.B  #0x1, &ucUSBFrameByteCount
+   \   00017A   1C3C         JMP     ??SYS_USB_ReceiveFrame_5
+    185                          }else{
+    186                              ucUSBFrameByteCount = 0;
+   \                     ??SYS_USB_ReceiveFrame_9:
+   \   00017C   ....C243.... MOVX.B  #0x0, &ucUSBFrameByteCount
+    187                              // request retransmission
+    188                          }
+    189                          break;
+   \   000182   183C         JMP     ??SYS_USB_ReceiveFrame_5
+    190                      case 35:
+    191                          if(ucData == USB_FRAME_FOOTER){
+   \                     ??SYS_USB_ReceiveFrame_17:
+   \   000184   7A90AA00     CMP.B   #0xaa, R10
+   \   000188   1220         JNE     ??SYS_USB_ReceiveFrame_10
+    192                              uniUSBRecvFrame.stUSBFrame.ucFooter[ucUSBFrameByteCount - 34] = ucData;
+   \   00018A   ....5F42.... MOVX.B  &ucUSBFrameByteCount, R15
+   \   000190   4F4F         MOV.B   R15, R15
+   \   000192   3F50DEFF     ADD.W   #0xffde, R15
+   \   000196   3FE00080     XOR.W   #0x8000, R15
+   \   00019A   ....CF4A.... MOVX.B  R10, uniUSBRecvFrame - 32734(R15)
+    193                              bFLAG_USBFrameReceived = _SET_;
+   \   0001A0   ....D243.... MOVX.B  #0x1, &bFLAG_USBFrameReceived
+    194                              ucUSBFrameByteCount = 0;
+   \   0001A6   ....C243.... MOVX.B  #0x0, &ucUSBFrameByteCount
+   \   0001AC   033C         JMP     ??SYS_USB_ReceiveFrame_5
+    195                          }else{
+    196                              ucUSBFrameByteCount = 0;
+   \                     ??SYS_USB_ReceiveFrame_10:
+   \   0001AE   ....C243.... MOVX.B  #0x0, &ucUSBFrameByteCount
+    197                              // request retransmission
+    198                          }
+    199                          break;
+    200                      default:
+    201                          // request retransmission
+    202                          break;
+    203                  }
+    204              }
+    205          }
+   \                     ??SYS_USB_ReceiveFrame_5:
+   \   0001B4   0A16         POPM.A  #0x1, R10
+   \   0001B6   1001         RETA
+    206          
+    207          /*----------------------------------------------------------------------------*/
+    208          /**
+    209          @brief		Building CRC out of USB frame
+    210          
+    211          @return		ucCheckOctet - generated CRC
+    212          
+    213          @param		void
+    214          */
+
+   \                                 In  segment CODE, align 2
+    215          unsigned char SYS_USB_BuildCRC(usb_frame_u *uniUSBFrame)
+   \                     SYS_USB_BuildCRC:
+    216          {	
+   \   000000   CF0C         MOVA    R12, R15
+    217              unsigned char ucCheckOctet = 0;
+   \   000002   4C43         MOV.B   #0x0, R12
+    218              
+    219              for ( int i = 3 ; i < (USB_FRAME_LENGTH - 3) ; i++ ){
+   \   000004   3E400300     MOV.W   #0x3, R14
+   \                     ??SYS_USB_BuildCRC_0:
+   \   000008   3E902100     CMP.W   #0x21, R14
+   \   00000C   1434         JGE     ??SYS_USB_BuildCRC_1
+    220          		if( i == 0 ){
+   \   00000E   0E93         CMP.W   #0x0, R14
+   \   000010   0720         JNE     ??SYS_USB_BuildCRC_2
+    221          			ucCheckOctet = (*uniUSBFrame).ucSingleByte[i];
+   \   000012   0D4E         MOV.W   R14, R13
+   \   000014   3DE00080     XOR.W   #0x8000, R13
+   \   000018   ED0F         ADDA    R15, R13
+   \   00001A   C01F5C4D0080 MOVX.B  0xf8000(R13), R12
+    222          		}
+    223          		if (i >= 1)
+   \                     ??SYS_USB_BuildCRC_2:
+   \   000020   1E93         CMP.W   #0x1, R14
+   \   000022   0738         JL      ??SYS_USB_BuildCRC_3
+    224          		{
+    225          			ucCheckOctet ^= (*uniUSBFrame).ucSingleByte[i];
+   \   000024   0D4E         MOV.W   R14, R13
+   \   000026   3DE00080     XOR.W   #0x8000, R13
+   \   00002A   ED0F         ADDA    R15, R13
+   \   00002C   C01F5CED0080 XORX.B  0xf8000(R13), R12
+    226          		}
+    227          	}
+   \                     ??SYS_USB_BuildCRC_3:
+   \   000032   1E53         ADD.W   #0x1, R14
+   \   000034   E93F         JMP     ??SYS_USB_BuildCRC_0
+    228                  
+    229              ucCheckOctet = ~ucCheckOctet;
+   \                     ??SYS_USB_BuildCRC_1:
+   \   000036   7CE3         XOR.B   #0xff, R12
+    230                  
+    231          	return ucCheckOctet;
+   \   000038   1001         RETA
+    232          }
+    233          
+    234          
+    235          
+    236          
+    237          
+    238          
+    239          
+    240          
+    241          
+    242          
+    243          
+    244          
+    245          
+    246          
+    247          
+    248          
+    249          
+    250          
+    251          
+    252          
+    253          
+    254          
+    255          
+    256          
+    257          
+    258          
+    259          
+    260          
+    261          
+    262          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_USB_BuildCRC
+       4  SYS_USB_Init
+     278  SYS_USB_Printf
+            278 -> vsprintf
+       8  SYS_USB_ReceiveFrame
+              8 -> SYS_USB_BuildCRC
+       8  SYS_USB_SendACK
+              8 -> SYS_USB_BuildCRC
+              8 -> SYS_USB_TransmitSingleByte
+              8 -> memset
+       4  SYS_USB_TransmitSingleByte
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      58  SYS_USB_BuildCRC
+      34  SYS_USB_Init
+      92  SYS_USB_Printf
+     440  SYS_USB_ReceiveFrame
+     108  SYS_USB_SendACK
+      12  SYS_USB_TransmitSingleByte
+       1  UCA1TXBUF
+       2  _A_PADIR_L
+       2  _A_PAIES_L
+       2  _A_PAIE_L
+       2  _A_PAIN_L
+       2  _A_PDSEL_L
+       2  _A_UCA1ICTL_L
+       1  bFLAG_USBConnected
+       1  bFLAG_USBFrameReceived
+       1  ucUSBFrameByteCount
+      36  uniUSBRecvFrame
+      36  uniUSBSendFrame
+
+ 
+ 744 bytes in segment CODE
+  13 bytes in segment DATA16_AN
+  75 bytes in segment DATA20_Z
+ 
+ 744 bytes of CODE memory
+  75 bytes of DATA memory (+ 13 bytes shared)
+
+Errors: none
+Warnings: none

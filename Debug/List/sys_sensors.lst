@@ -1,0 +1,1201 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:35 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\sys\sys_sensors.c         #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\sys_sensors.c" -lC    #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\sys_sensors.ls #
+#                     t                                                       #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_sensors.r43 #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_sensors.c
+      1          /**
+      2          @file       sys_sensors.c
+      3          
+      4          @brief      Sensors related functions
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x720
+   \   union <unnamed> __data16 _A_ADC12MEM0_L
+   \                     _A_ADC12MEM0_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x722
+   \   union <unnamed> __data16 _A_ADC12MEM1_L
+   \                     _A_ADC12MEM1_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x200
+   \   union <unnamed> __data16 _A_PAIN_L
+   \                     _A_PAIN_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x202
+   \   union <unnamed> __data16 _A_PAOUT_L
+   \                     _A_PAOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x204
+   \   union <unnamed> __data16 _A_PADIR_L
+   \                     _A_PADIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x262
+   \   union <unnamed> __data16 _A_PDOUT_L
+   \                     _A_PDOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x264
+   \   union <unnamed> __data16 _A_PDDIR_L
+   \                     _A_PDDIR_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x26a
+   \   union <unnamed> __data16 _A_PDSEL_L
+   \                     _A_PDSEL_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          ////////////////////////////////////////////////////////////////////////////////
+     14          /////////       Light sensor : For visible range (S1087) (PAR)        //////////
+     15          ////////////////////////////////////////////////////////////////////////////////
+     16          /*----------------------------------------------------------------------------*/
+     17          /**
+     18          @brief    Initializing light sensor S1087 (PAR)
+     19          
+     20          @return   void 
+     21          
+     22          @param    void
+     23          */
+
+   \                                 In  segment CODE, align 2
+     24          void SYS_SENSORS_S1087_Init(void)
+   \                     SYS_SENSORS_S1087_Init:
+     25          { 
+     26              SENSOR_S1087_PORT(SEL) |=  BV(SENSOR_S1087_PIN);
+   \   000000   F2D080006A02 BIS.B   #0x80, &0x26a
+     27              SENSOR_S1087_PORT(DIR) |=  BV(SENSOR_S1087_PIN);
+   \   000006   F2D080006402 BIS.B   #0x80, &0x264
+     28              SENSOR_S1087_PORT(OUT) &= ~BV(SENSOR_S1087_PIN);
+   \   00000C   F2C080006202 BIC.B   #0x80, &0x262
+     29          }
+   \   000012   1001         RETA
+   \   000014                REQUIRE _A_PDSEL_L
+   \   000014                REQUIRE _A_PDDIR_L
+   \   000014                REQUIRE _A_PDOUT_L
+     30          
+     31          /*----------------------------------------------------------------------------*/
+     32          /**
+     33          @brief    Read sensor value of S1087 (PAR)
+     34          
+     35          @return   void 
+     36          
+     37          @param    void
+     38          */
+
+   \                                 In  segment CODE, align 2
+     39          unsigned int SYS_SENSORS_S1087_Read(void)
+   \                     SYS_SENSORS_S1087_Read:
+     40          { 
+   \   000000   7B14         PUSHM.A #0x8, R11
+     41              double dLight = 0;
+   \   000002   0443         MOV.W   #0x0, R4
+   \   000004   0543         MOV.W   #0x0, R5
+   \   000006   0643         MOV.W   #0x0, R6
+   \   000008   0743         MOV.W   #0x0, R7
+     42                
+     43              // Sensor value (in 12-bit ADC-representation)
+     44              dLight = (double) ADC12MEM0;
+   \   00000A   1C422007     MOV.W   &0x720, R12
+   \   00000E   0D43         MOV.W   #0x0, R13
+   \   000010   ........     CALLA   #_Cast32uto64f
+   \   000014   044C         MOV.W   R12, R4
+   \   000016   054D         MOV.W   R13, R5
+   \   000018   064E         MOV.W   R14, R6
+   \   00001A   074F         MOV.W   R15, R7
+     45          
+     46              // Voltage difference (in 12-bit ADC-representation)
+     47              dLight = 4096 - dLight;
+   \   00001C   0844         MOV.W   R4, R8
+   \   00001E   0945         MOV.W   R5, R9
+   \   000020   0A46         MOV.W   R6, R10
+   \   000022   0B47         MOV.W   R7, R11
+   \   000024   0C43         MOV.W   #0x0, R12
+   \   000026   0D43         MOV.W   #0x0, R13
+   \   000028   0E43         MOV.W   #0x0, R14
+   \   00002A   3F40B040     MOV.W   #0x40b0, R15
+   \   00002E   ........     CALLA   #_Sub64f
+   \   000032   044C         MOV.W   R12, R4
+   \   000034   054D         MOV.W   R13, R5
+   \   000036   064E         MOV.W   R14, R6
+   \   000038   074F         MOV.W   R15, R7
+     48              
+     49              // For S1087, it gives 1nA upon sensing 1 lux
+     50              // It means that 0.5mV appears across 500k resistor
+     51              // Therefore, light intensity (lux) = Vsense (V) * 1 (lux) / 0.5m (V)
+     52              // That is, Vsense * 2000;
+     53              dLight = dLight / 4096 * 2.88 * 2000;
+   \   00003A   0843         MOV.W   #0x0, R8
+   \   00003C   0943         MOV.W   #0x0, R9
+   \   00003E   0A43         MOV.W   #0x0, R10
+   \   000040   3B40B040     MOV.W   #0x40b0, R11
+   \   000044   0C44         MOV.W   R4, R12
+   \   000046   0D45         MOV.W   R5, R13
+   \   000048   0E46         MOV.W   R6, R14
+   \   00004A   0F47         MOV.W   R7, R15
+   \   00004C   ........     CALLA   #_Div64f
+   \   000050   38400AD7     MOV.W   #0xd70a, R8
+   \   000054   3940A370     MOV.W   #0x70a3, R9
+   \   000058   3A403D0A     MOV.W   #0xa3d, R10
+   \   00005C   3B400740     MOV.W   #0x4007, R11
+   \   000060   ........     CALLA   #_Mul64f
+   \   000064   0843         MOV.W   #0x0, R8
+   \   000066   0943         MOV.W   #0x0, R9
+   \   000068   3A400040     MOV.W   #0x4000, R10
+   \   00006C   3B409F40     MOV.W   #0x409f, R11
+   \   000070   ........     CALLA   #_Mul64f
+   \   000074   044C         MOV.W   R12, R4
+   \   000076   054D         MOV.W   R13, R5
+   \   000078   064E         MOV.W   R14, R6
+   \   00007A   074F         MOV.W   R15, R7
+     54              
+     55          #if (DEBUG_MODE) && (DUMP_SENSOR_VALUE_VIA_USB)
+     56              SYS_USB_Printf("Light1(PAR): %.4d    \r\n", (unsigned int) dLight);
+     57          #endif
+     58              
+     59              return (unsigned int) dLight;
+   \   00007C   0C44         MOV.W   R4, R12
+   \   00007E   0D45         MOV.W   R5, R13
+   \   000080   0E46         MOV.W   R6, R14
+   \   000082   0F47         MOV.W   R7, R15
+   \   000084   ........     CALLA   #_Cast64fto32u
+   \   000088   7416         POPM.A  #0x8, R11
+   \   00008A   1001         RETA
+   \   00008C                REQUIRE _A_ADC12MEM0_L
+     60          }
+     61          
+     62          ////////////////////////////////////////////////////////////////////////////////
+     63          /////////   Light sensor : For visible to IR range (S1087-01) (TSR)   //////////
+     64          ////////////////////////////////////////////////////////////////////////////////
+     65          /*----------------------------------------------------------------------------*/
+     66          /**
+     67          @brief    Initializing light sensor S1087-01 (TSR)
+     68          
+     69          @return   void 
+     70          
+     71          @param    void
+     72          */
+
+   \                                 In  segment CODE, align 2
+     73          void SYS_SENSORS_S108701_Init(void)
+   \                     SYS_SENSORS_S108701_Init:
+     74          { 
+     75              SENSOR_S108701_PORT(SEL) |=  BV(SENSOR_S108701_PIN);
+   \   000000   F2D040006A02 BIS.B   #0x40, &0x26a
+     76              SENSOR_S108701_PORT(DIR) |=  BV(SENSOR_S108701_PIN);
+   \   000006   F2D040006402 BIS.B   #0x40, &0x264
+     77              SENSOR_S108701_PORT(OUT) &= ~BV(SENSOR_S108701_PIN);
+   \   00000C   F2C040006202 BIC.B   #0x40, &0x262
+     78          }
+   \   000012   1001         RETA
+   \   000014                REQUIRE _A_PDSEL_L
+   \   000014                REQUIRE _A_PDDIR_L
+   \   000014                REQUIRE _A_PDOUT_L
+     79          
+     80          /*----------------------------------------------------------------------------*/
+     81          /**
+     82          @brief    Read sensor value of S1087-01 (TSR)
+     83          
+     84          @return   void 
+     85          
+     86          @param    void
+     87          */
+
+   \                                 In  segment CODE, align 2
+     88          unsigned int SYS_SENSORS_S108701_Read(void)
+   \                     SYS_SENSORS_S108701_Read:
+     89          { 
+   \   000000   7B14         PUSHM.A #0x8, R11
+     90              double dLight = 0;
+   \   000002   0443         MOV.W   #0x0, R4
+   \   000004   0543         MOV.W   #0x0, R5
+   \   000006   0643         MOV.W   #0x0, R6
+   \   000008   0743         MOV.W   #0x0, R7
+     91                
+     92              // Sensor value (in 12-bit ADC-representation)
+     93              dLight = (double) ADC12MEM1;
+   \   00000A   1C422207     MOV.W   &0x722, R12
+   \   00000E   0D43         MOV.W   #0x0, R13
+   \   000010   ........     CALLA   #_Cast32uto64f
+   \   000014   044C         MOV.W   R12, R4
+   \   000016   054D         MOV.W   R13, R5
+   \   000018   064E         MOV.W   R14, R6
+   \   00001A   074F         MOV.W   R15, R7
+     94          
+     95              // Voltage difference (in 12-bit ADC-representation) 3890
+     96              dLight = 4096 - dLight;
+   \   00001C   0844         MOV.W   R4, R8
+   \   00001E   0945         MOV.W   R5, R9
+   \   000020   0A46         MOV.W   R6, R10
+   \   000022   0B47         MOV.W   R7, R11
+   \   000024   0C43         MOV.W   #0x0, R12
+   \   000026   0D43         MOV.W   #0x0, R13
+   \   000028   0E43         MOV.W   #0x0, R14
+   \   00002A   3F40B040     MOV.W   #0x40b0, R15
+   \   00002E   ........     CALLA   #_Sub64f
+   \   000032   044C         MOV.W   R12, R4
+   \   000034   054D         MOV.W   R13, R5
+   \   000036   064E         MOV.W   R14, R6
+   \   000038   074F         MOV.W   R15, R7
+     97              
+     98              // For S1087-01, it gives 10nA upon sensing 1 lux
+     99              // It means that 5mV appears across 500k resistor
+    100              // Therefore, light intensity (lux) = Vsense (V) * 1 (lux) / 5m (V)
+    101              // That is, Vsense * 200;
+    102              dLight = dLight / 4096 * 2.88 * 200;
+   \   00003A   0843         MOV.W   #0x0, R8
+   \   00003C   0943         MOV.W   #0x0, R9
+   \   00003E   0A43         MOV.W   #0x0, R10
+   \   000040   3B40B040     MOV.W   #0x40b0, R11
+   \   000044   0C44         MOV.W   R4, R12
+   \   000046   0D45         MOV.W   R5, R13
+   \   000048   0E46         MOV.W   R6, R14
+   \   00004A   0F47         MOV.W   R7, R15
+   \   00004C   ........     CALLA   #_Div64f
+   \   000050   38400AD7     MOV.W   #0xd70a, R8
+   \   000054   3940A370     MOV.W   #0x70a3, R9
+   \   000058   3A403D0A     MOV.W   #0xa3d, R10
+   \   00005C   3B400740     MOV.W   #0x4007, R11
+   \   000060   ........     CALLA   #_Mul64f
+   \   000064   0843         MOV.W   #0x0, R8
+   \   000066   0943         MOV.W   #0x0, R9
+   \   000068   0A43         MOV.W   #0x0, R10
+   \   00006A   3B406940     MOV.W   #0x4069, R11
+   \   00006E   ........     CALLA   #_Mul64f
+   \   000072   044C         MOV.W   R12, R4
+   \   000074   054D         MOV.W   R13, R5
+   \   000076   064E         MOV.W   R14, R6
+   \   000078   074F         MOV.W   R15, R7
+    103              
+    104              // Manually found calibration factor
+    105              dLight = dLight * 8;
+   \   00007A   0843         MOV.W   #0x0, R8
+   \   00007C   0943         MOV.W   #0x0, R9
+   \   00007E   0A43         MOV.W   #0x0, R10
+   \   000080   3B402040     MOV.W   #0x4020, R11
+   \   000084   0C44         MOV.W   R4, R12
+   \   000086   0D45         MOV.W   R5, R13
+   \   000088   0E46         MOV.W   R6, R14
+   \   00008A   0F47         MOV.W   R7, R15
+   \   00008C   ........     CALLA   #_Mul64f
+   \   000090   044C         MOV.W   R12, R4
+   \   000092   054D         MOV.W   R13, R5
+   \   000094   064E         MOV.W   R14, R6
+   \   000096   074F         MOV.W   R15, R7
+    106              
+    107          #if (DEBUG_MODE) && (DUMP_SENSOR_VALUE_VIA_USB)
+    108              SYS_USB_Printf("Light2(TSR): %.4d    \r\n", (unsigned int)dLight);
+    109          #endif
+    110              
+    111              return (unsigned int) dLight;
+   \   000098   0C44         MOV.W   R4, R12
+   \   00009A   0D45         MOV.W   R5, R13
+   \   00009C   0E46         MOV.W   R6, R14
+   \   00009E   0F47         MOV.W   R7, R15
+   \   0000A0   ........     CALLA   #_Cast64fto32u
+   \   0000A4   7416         POPM.A  #0x8, R11
+   \   0000A6   1001         RETA
+   \   0000A8                REQUIRE _A_ADC12MEM1_L
+    112          }
+    113          
+    114          
+    115          ////////////////////////////////////////////////////////////////////////////////
+    116          /////////            SHT11 (Humidity & Temperature sensor)            //////////
+    117          ////////////////////////////////////////////////////////////////////////////////
+    118          /*----------------------------------------------------------------------------*/
+    119          /**
+    120          @brief    Initializing sensors
+    121          
+    122          @return   void 
+    123          
+    124          @param    void
+    125          */
+
+   \                                 In  segment CODE, align 2
+    126          void SYS_SENSORS_Init(void)
+   \                     SYS_SENSORS_Init:
+    127          { 
+    128              SYS_SENSORS_SHT11_Init();
+   \   000000   ........     CALLA   #SYS_SENSORS_SHT11_Init
+    129              SYS_SENSORS_S1087_Init();
+   \   000004   ........     CALLA   #SYS_SENSORS_S1087_Init
+    130              SYS_SENSORS_S108701_Init();
+   \   000008   ........     BRA     #SYS_SENSORS_S108701_Init
+    131          }
+    132          
+    133          /*----------------------------------------------------------------------------*/
+    134          /**
+    135          @brief    Initializing SHT11 (Humidity & Temperature sensor)
+    136                    - SHT11 requires 11ms after power on
+    137          
+    138          @return   void 
+    139          
+    140          @param    void
+    141          */
+
+   \                                 In  segment CODE, align 2
+    142          void SYS_SENSORS_SHT11_Init(void)
+   \                     SYS_SENSORS_SHT11_Init:
+    143          { 
+    144              SYS_SENSORS_SHT11_Off();
+   \   000000   ........     BRA     #SYS_SENSORS_SHT11_Off
+    145          }
+    146          
+    147          /*----------------------------------------------------------------------------*/
+    148          /**
+    149          @brief    Read SHT11 temperature
+    150          
+    151          @return   void 
+    152          
+    153          @param    void
+    154          */
+
+   \                                 In  segment CODE, align 2
+    155          unsigned int SYS_SENSORS_SHT11_ReadTemperature(void)
+   \                     SYS_SENSORS_SHT11_ReadTemperature:
+    156          {
+   \   000000   5B14         PUSHM.A #0x6, R11
+    157              unsigned int uiTemp = 0;
+   \   000002   0643         MOV.W   #0x0, R6
+    158              
+    159              // Read temperature in Fahrenheit
+    160              uiTemp = (unsigned int) (-40.00 + 0.018 * SYS_SENSORS_SHT11_Command(MEASURE_TEMP));
+   \   000004   7C400300     MOV.B   #0x3, R12
+   \   000008   ........     CALLA   #SYS_SENSORS_SHT11_Command
+   \   00000C   0D43         MOV.W   #0x0, R13
+   \   00000E   ........     CALLA   #_Cast32uto64f
+   \   000012   38403BDF     MOV.W   #0xdf3b, R8
+   \   000016   39404F8D     MOV.W   #0x8d4f, R9
+   \   00001A   3A40976E     MOV.W   #0x6e97, R10
+   \   00001E   3B40923F     MOV.W   #0x3f92, R11
+   \   000022   ........     CALLA   #_Mul64f
+   \   000026   0843         MOV.W   #0x0, R8
+   \   000028   0943         MOV.W   #0x0, R9
+   \   00002A   0A43         MOV.W   #0x0, R10
+   \   00002C   3B4044C0     MOV.W   #0xc044, R11
+   \   000030   ........     CALLA   #_Add64f
+   \   000034   ........     CALLA   #_Cast64fto32u
+   \   000038   064C         MOV.W   R12, R6
+    161              
+    162          #if (DEBUG_MODE) && (DUMP_SENSOR_VALUE_VIA_USB)
+    163              SYS_USB_Printf("Temp(F)    : %.4d    \r\n", (unsigned int) uiTemp);
+    164          #endif    
+    165              
+    166              return uiTemp;
+   \   00003A   0C46         MOV.W   R6, R12
+   \   00003C   5616         POPM.A  #0x6, R11
+   \   00003E   1001         RETA
+    167          }
+    168          
+    169          /*----------------------------------------------------------------------------*/
+    170          /**
+    171          @brief    Read SHT11 humidity
+    172          
+    173          @return   void 
+    174          
+    175          @param    void
+    176          */
+
+   \                                 In  segment CODE, align 2
+    177          unsigned int SYS_SENSORS_SHT11_ReadHumidity(void)
+   \                     SYS_SENSORS_SHT11_ReadHumidity:
+    178          {
+   \   000000   7B14         PUSHM.A #0x8, R11
+   \   000002   31800C00     SUB.W   #0xc, SP
+    179              unsigned int uiRelativeHumidity = 0;
+   \   000006   81430000     MOV.W   #0x0, 0(SP)
+    180              unsigned int uiHumidity = 0;
+   \   00000A   81430200     MOV.W   #0x0, 0x2(SP)
+    181                      
+    182              uiRelativeHumidity = SYS_SENSORS_SHT11_Command(MEASURE_HUMI);
+   \   00000E   7C400500     MOV.B   #0x5, R12
+   \   000012   ........     CALLA   #SYS_SENSORS_SHT11_Command
+   \   000016   814C0000     MOV.W   R12, 0(SP)
+    183              uiHumidity = (unsigned int)( -4 + 0.0405 * uiRelativeHumidity - 2.8e-6 * (uiRelativeHumidity * uiRelativeHumidity));
+   \   00001A   2C41         MOV.W   @SP, R12
+   \   00001C   0D43         MOV.W   #0x0, R13
+   \   00001E   ........     CALLA   #_Cast32uto64f
+   \   000022   384023DB     MOV.W   #0xdb23, R8
+   \   000026   3940F97E     MOV.W   #0x7ef9, R9
+   \   00002A   3A406ABC     MOV.W   #0xbc6a, R10
+   \   00002E   3B40A43F     MOV.W   #0x3fa4, R11
+   \   000032   ........     CALLA   #_Mul64f
+   \   000036   044C         MOV.W   R12, R4
+   \   000038   054D         MOV.W   R13, R5
+   \   00003A   064E         MOV.W   R14, R6
+   \   00003C   074F         MOV.W   R15, R7
+   \   00003E   0212         PUSH.W  SR
+   \   000040   32C2         DINT
+   \   000042   0343         NOP
+   \   000044   92410200C004 MOV.W   0x2(SP), &0x4c0
+   \   00004A   92410200C804 MOV.W   0x2(SP), &0x4c8
+   \   000050   1C42CA04     MOV.W   &0x4ca, R12
+   \   000054   3241         POP.W   SR
+   \   000056   0D43         MOV.W   #0x0, R13
+   \   000058   ........     CALLA   #_Cast32uto64f
+   \   00005C   38405F19     MOV.W   #0x195f, R8
+   \   000060   39406547     MOV.W   #0x4765, R9
+   \   000064   3A40F47C     MOV.W   #0x7cf4, R10
+   \   000068   3B40C73E     MOV.W   #0x3ec7, R11
+   \   00006C   ........     CALLA   #_Mul64f
+   \   000070   814C0400     MOV.W   R12, 0x4(SP)
+   \   000074   814D0600     MOV.W   R13, 0x6(SP)
+   \   000078   814E0800     MOV.W   R14, 0x8(SP)
+   \   00007C   814F0A00     MOV.W   R15, 0xa(SP)
+   \   000080   0843         MOV.W   #0x0, R8
+   \   000082   0943         MOV.W   #0x0, R9
+   \   000084   0A43         MOV.W   #0x0, R10
+   \   000086   3B4010C0     MOV.W   #0xc010, R11
+   \   00008A   0C44         MOV.W   R4, R12
+   \   00008C   0D45         MOV.W   R5, R13
+   \   00008E   0E46         MOV.W   R6, R14
+   \   000090   0F47         MOV.W   R7, R15
+   \   000092   ........     CALLA   #_Add64f
+   \   000096   0B41         MOV.W   SP, R11
+   \   000098   2B52         ADD.W   #0x4, R11
+   \   00009A   384B         MOV.W   @R11+, R8
+   \   00009C   394B         MOV.W   @R11+, R9
+   \   00009E   3A4B         MOV.W   @R11+, R10
+   \   0000A0   3B4B         MOV.W   @R11+, R11
+   \   0000A2   ........     CALLA   #_Sub64f
+   \   0000A6   044C         MOV.W   R12, R4
+   \   0000A8   054D         MOV.W   R13, R5
+   \   0000AA   064E         MOV.W   R14, R6
+   \   0000AC   074F         MOV.W   R15, R7
+   \   0000AE   0C44         MOV.W   R4, R12
+   \   0000B0   0D45         MOV.W   R5, R13
+   \   0000B2   0E46         MOV.W   R6, R14
+   \   0000B4   0F47         MOV.W   R7, R15
+   \   0000B6   ........     CALLA   #_Cast64fto32u
+   \   0000BA   814C0200     MOV.W   R12, 0x2(SP)
+    184              
+    185          #if (DEBUG_MODE) && (DUMP_SENSOR_VALUE_VIA_USB)
+    186              SYS_USB_Printf("Humidity   : %.4d    \r\n", (unsigned int) uiHumidity);
+    187          #endif        
+    188                  
+    189              return uiHumidity;
+   \   0000BE   1C410200     MOV.W   0x2(SP), R12
+   \   0000C2   31500C00     ADD.W   #0xc, SP
+   \   0000C6   7416         POPM.A  #0x8, R11
+   \   0000C8   1001         RETA
+    190          }
+    191          
+    192          /*----------------------------------------------------------------------------*/
+    193          /**
+    194          @brief    Turn SHT11 on
+    195          
+    196          @return   void 
+    197          
+    198          @param    void
+    199          */
+
+   \                                 In  segment CODE, align 2
+    200          void SYS_SENSORS_SHT11_On(void)
+   \                     SYS_SENSORS_SHT11_On:
+    201          { 
+    202              SENSOR_SHT11_PORT(OUT) |=   BV(SENSOR_SHT11_PWR_PIN);                           
+   \   000000   F2D080000302 BIS.B   #0x80, &0x203
+    203              SENSOR_SHT11_PORT(OUT) &= ~(BV(SENSOR_SHT11_SDA_PIN) | BV(SENSOR_SHT11_SCL_PIN)); // Set pull-up register for DATA and SCK pins
+   \   000006   F2F09F000302 AND.B   #0x9f, &0x203
+    204              SENSOR_SHT11_PORT(DIR) |=   BV(SENSOR_SHT11_PWR_PIN) | BV(SENSOR_SHT11_SCL_PIN);  // SHT11 power on & Set SCK pin as output 
+   \   00000C   F2D0C0000502 BIS.B   #0xc0, &0x205
+    205              
+    206              SHT11_TIMING_DELAY(20);     // wait about 20ms for SHT11 stabilization
+   \   000012   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_On_0:
+   \   000014   3F901400     CMP.W   #0x14, R15
+   \   000018   0734         JGE     ??SYS_SENSORS_SHT11_On_1
+   \   00001A                ////////////// Start of 12000 cycles delay.
+   \   00001A   0343         NOP
+   \   00001C   3E409E0F     MOV.W   #0xf9e, R14
+   \                     ??SYS_SENSORS_SHT11_On_2:
+   \   000020   3E53         ADD.W   #0xffff, R14
+   \   000022   FE2F         JC      ??SYS_SENSORS_SHT11_On_2
+   \   000024                ////////////// End of delay code.
+   \   000024   1F53         ADD.W   #0x1, R15
+   \   000026   F63F         JMP     ??SYS_SENSORS_SHT11_On_0
+    207          }
+   \                     ??SYS_SENSORS_SHT11_On_1:
+   \   000028   1001         RETA
+   \   00002A                REQUIRE _A_PAOUT_L
+   \   00002A                REQUIRE _A_PADIR_L
+    208          
+    209          /*----------------------------------------------------------------------------*/
+    210          /**
+    211          @brief    Turn SHT11 off
+    212          
+    213          @return   void 
+    214          
+    215          @param    void
+    216          */
+
+   \                                 In  segment CODE, align 2
+    217          void SYS_SENSORS_SHT11_Off(void)
+   \                     SYS_SENSORS_SHT11_Off:
+    218          {
+    219              SENSOR_SHT11_PORT(OUT) &=  ~BV(SENSOR_SHT11_PWR_PIN);
+   \   000000   F2C080000302 BIC.B   #0x80, &0x203
+    220              SENSOR_SHT11_PORT(OUT) &= ~(BV(SENSOR_SHT11_SDA_PIN) | BV(SENSOR_SHT11_SCL_PIN));
+   \   000006   F2F09F000302 AND.B   #0x9f, &0x203
+    221              SENSOR_SHT11_PORT(DIR) |=   BV(SENSOR_SHT11_PWR_PIN) | BV(SENSOR_SHT11_SCL_PIN);
+   \   00000C   F2D0C0000502 BIS.B   #0xc0, &0x205
+    222          }
+   \   000012   1001         RETA
+   \   000014                REQUIRE _A_PAOUT_L
+   \   000014                REQUIRE _A_PADIR_L
+    223          
+    224          /*----------------------------------------------------------------------------*/
+    225          /**
+    226          @brief    Start SHT11
+    227          
+    228          @return   void 
+    229          
+    230          @param    void
+    231          */
+
+   \                                 In  segment CODE, align 2
+    232          void SYS_SENSORS_SHT11_Start(void)
+   \                     SYS_SENSORS_SHT11_Start:
+    233          {
+    234              SHT11_SDA_SET_TO_INPUT_PIN(); 
+   \   000000   F2C020000502 BIC.B   #0x20, &0x205
+    235              SHT11_SCL_LOW();
+   \   000006   F2C040000302 BIC.B   #0x40, &0x203
+    236              SHT11_TIMING_DELAY(1);
+   \   00000C   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Start_0:
+   \   00000E   1F93         CMP.W   #0x1, R15
+   \   000010   0734         JGE     ??SYS_SENSORS_SHT11_Start_6
+   \   000012                ////////////// Start of 12000 cycles delay.
+   \   000012   0343         NOP
+   \   000014   3E409E0F     MOV.W   #0xf9e, R14
+   \                     ??SYS_SENSORS_SHT11_Start_12:
+   \   000018   3E53         ADD.W   #0xffff, R14
+   \   00001A   FE2F         JC      ??SYS_SENSORS_SHT11_Start_12
+   \   00001C                ////////////// End of delay code.
+   \   00001C   1F53         ADD.W   #0x1, R15
+   \   00001E   F73F         JMP     ??SYS_SENSORS_SHT11_Start_0
+    237              SHT11_SCL_HIGH();
+   \                     ??SYS_SENSORS_SHT11_Start_6:
+   \   000020   F2D040000302 BIS.B   #0x40, &0x203
+    238              SHT11_TIMING_DELAY(1);
+   \   000026   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Start_1:
+   \   000028   1F93         CMP.W   #0x1, R15
+   \   00002A   0734         JGE     ??SYS_SENSORS_SHT11_Start_7
+   \   00002C                ////////////// Start of 12000 cycles delay.
+   \   00002C   0343         NOP
+   \   00002E   3E409E0F     MOV.W   #0xf9e, R14
+   \                     ??SYS_SENSORS_SHT11_Start_13:
+   \   000032   3E53         ADD.W   #0xffff, R14
+   \   000034   FE2F         JC      ??SYS_SENSORS_SHT11_Start_13
+   \   000036                ////////////// End of delay code.
+   \   000036   1F53         ADD.W   #0x1, R15
+   \   000038   F73F         JMP     ??SYS_SENSORS_SHT11_Start_1
+    239              SHT11_SDA_SET_TO_OUTPUT_PIN();
+   \                     ??SYS_SENSORS_SHT11_Start_7:
+   \   00003A   F2D020000502 BIS.B   #0x20, &0x205
+    240              SHT11_TIMING_DELAY(1);
+   \   000040   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Start_2:
+   \   000042   1F93         CMP.W   #0x1, R15
+   \   000044   0734         JGE     ??SYS_SENSORS_SHT11_Start_8
+   \   000046                ////////////// Start of 12000 cycles delay.
+   \   000046   0343         NOP
+   \   000048   3E409E0F     MOV.W   #0xf9e, R14
+   \                     ??SYS_SENSORS_SHT11_Start_14:
+   \   00004C   3E53         ADD.W   #0xffff, R14
+   \   00004E   FE2F         JC      ??SYS_SENSORS_SHT11_Start_14
+   \   000050                ////////////// End of delay code.
+   \   000050   1F53         ADD.W   #0x1, R15
+   \   000052   F73F         JMP     ??SYS_SENSORS_SHT11_Start_2
+    241              SHT11_SCL_LOW();
+   \                     ??SYS_SENSORS_SHT11_Start_8:
+   \   000054   F2C040000302 BIC.B   #0x40, &0x203
+    242              SHT11_TIMING_DELAY(1);
+   \   00005A   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Start_3:
+   \   00005C   1F93         CMP.W   #0x1, R15
+   \   00005E   0734         JGE     ??SYS_SENSORS_SHT11_Start_9
+   \   000060                ////////////// Start of 12000 cycles delay.
+   \   000060   0343         NOP
+   \   000062   3E409E0F     MOV.W   #0xf9e, R14
+   \                     ??SYS_SENSORS_SHT11_Start_15:
+   \   000066   3E53         ADD.W   #0xffff, R14
+   \   000068   FE2F         JC      ??SYS_SENSORS_SHT11_Start_15
+   \   00006A                ////////////// End of delay code.
+   \   00006A   1F53         ADD.W   #0x1, R15
+   \   00006C   F73F         JMP     ??SYS_SENSORS_SHT11_Start_3
+    243              SHT11_SCL_HIGH();
+   \                     ??SYS_SENSORS_SHT11_Start_9:
+   \   00006E   F2D040000302 BIS.B   #0x40, &0x203
+    244              SHT11_TIMING_DELAY(1);
+   \   000074   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Start_4:
+   \   000076   1F93         CMP.W   #0x1, R15
+   \   000078   0734         JGE     ??SYS_SENSORS_SHT11_Start_10
+   \   00007A                ////////////// Start of 12000 cycles delay.
+   \   00007A   0343         NOP
+   \   00007C   3E409E0F     MOV.W   #0xf9e, R14
+   \                     ??SYS_SENSORS_SHT11_Start_16:
+   \   000080   3E53         ADD.W   #0xffff, R14
+   \   000082   FE2F         JC      ??SYS_SENSORS_SHT11_Start_16
+   \   000084                ////////////// End of delay code.
+   \   000084   1F53         ADD.W   #0x1, R15
+   \   000086   F73F         JMP     ??SYS_SENSORS_SHT11_Start_4
+    245              SHT11_SDA_SET_TO_INPUT_PIN();
+   \                     ??SYS_SENSORS_SHT11_Start_10:
+   \   000088   F2C020000502 BIC.B   #0x20, &0x205
+    246              SHT11_TIMING_DELAY(1);
+   \   00008E   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Start_5:
+   \   000090   1F93         CMP.W   #0x1, R15
+   \   000092   0734         JGE     ??SYS_SENSORS_SHT11_Start_11
+   \   000094                ////////////// Start of 12000 cycles delay.
+   \   000094   0343         NOP
+   \   000096   3E409E0F     MOV.W   #0xf9e, R14
+   \                     ??SYS_SENSORS_SHT11_Start_17:
+   \   00009A   3E53         ADD.W   #0xffff, R14
+   \   00009C   FE2F         JC      ??SYS_SENSORS_SHT11_Start_17
+   \   00009E                ////////////// End of delay code.
+   \   00009E   1F53         ADD.W   #0x1, R15
+   \   0000A0   F73F         JMP     ??SYS_SENSORS_SHT11_Start_5
+    247              SHT11_SCL_LOW();
+   \                     ??SYS_SENSORS_SHT11_Start_11:
+   \   0000A2   F2C040000302 BIC.B   #0x40, &0x203
+    248          }
+   \   0000A8   1001         RETA
+   \   0000AA                REQUIRE _A_PADIR_L
+   \   0000AA                REQUIRE _A_PAOUT_L
+    249          
+    250          /*----------------------------------------------------------------------------*/
+    251          /**
+    252          @brief    Reset SHT11
+    253          
+    254          @return   void 
+    255          
+    256          @param    void
+    257          */
+
+   \                                 In  segment CODE, align 2
+    258          void SYS_SENSORS_SHT11_Reset(void)
+   \                     SYS_SENSORS_SHT11_Reset:
+    259          {
+    260              SHT11_SDA_SET_TO_INPUT_PIN();
+   \   000000   F2C020000502 BIC.B   #0x20, &0x205
+    261              SHT11_SCL_LOW();
+   \   000006   F2C040000302 BIC.B   #0x40, &0x203
+    262              for(int i = 0; i < 9 ; i++) {
+   \   00000C   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Reset_2:
+   \   00000E   3F900900     CMP.W   #0x9, R15
+   \   000012   1C34         JGE     ??SYS_SENSORS_SHT11_Reset_3
+    263                  SHT11_SCL_HIGH();
+   \   000014   F2D040000302 BIS.B   #0x40, &0x203
+    264                  SHT11_TIMING_DELAY(1);
+   \   00001A   0E43         MOV.W   #0x0, R14
+   \                     ??SYS_SENSORS_SHT11_Reset_0:
+   \   00001C   1E93         CMP.W   #0x1, R14
+   \   00001E   0734         JGE     ??SYS_SENSORS_SHT11_Reset_4
+   \   000020                ////////////// Start of 12000 cycles delay.
+   \   000020   0343         NOP
+   \   000022   3D409E0F     MOV.W   #0xf9e, R13
+   \                     ??SYS_SENSORS_SHT11_Reset_6:
+   \   000026   3D53         ADD.W   #0xffff, R13
+   \   000028   FE2F         JC      ??SYS_SENSORS_SHT11_Reset_6
+   \   00002A                ////////////// End of delay code.
+   \   00002A   1E53         ADD.W   #0x1, R14
+   \   00002C   F73F         JMP     ??SYS_SENSORS_SHT11_Reset_0
+    265                  SHT11_SCL_LOW();
+   \                     ??SYS_SENSORS_SHT11_Reset_4:
+   \   00002E   F2C040000302 BIC.B   #0x40, &0x203
+    266                  SHT11_TIMING_DELAY(1);
+   \   000034   0E43         MOV.W   #0x0, R14
+   \                     ??SYS_SENSORS_SHT11_Reset_1:
+   \   000036   1E93         CMP.W   #0x1, R14
+   \   000038   0734         JGE     ??SYS_SENSORS_SHT11_Reset_5
+   \   00003A                ////////////// Start of 12000 cycles delay.
+   \   00003A   0343         NOP
+   \   00003C   3D409E0F     MOV.W   #0xf9e, R13
+   \                     ??SYS_SENSORS_SHT11_Reset_7:
+   \   000040   3D53         ADD.W   #0xffff, R13
+   \   000042   FE2F         JC      ??SYS_SENSORS_SHT11_Reset_7
+   \   000044                ////////////// End of delay code.
+   \   000044   1E53         ADD.W   #0x1, R14
+   \   000046   F73F         JMP     ??SYS_SENSORS_SHT11_Reset_1
+    267              }
+   \                     ??SYS_SENSORS_SHT11_Reset_5:
+   \   000048   1F53         ADD.W   #0x1, R15
+   \   00004A   E13F         JMP     ??SYS_SENSORS_SHT11_Reset_2
+    268              SYS_SENSORS_SHT11_Start();	
+   \                     ??SYS_SENSORS_SHT11_Reset_3:
+   \   00004C   ........     BRA     #SYS_SENSORS_SHT11_Start
+   \   000050                REQUIRE _A_PADIR_L
+   \   000050                REQUIRE _A_PAOUT_L
+    269          }
+    270          
+    271          /*----------------------------------------------------------------------------*/
+    272          /**
+    273          @brief    Write to SHT11
+    274          
+    275          @return   bAck - return true if received OK otherwise false 
+    276          
+    277          @param    ucCommand - command to be transmitted
+    278          */
+
+   \                                 In  segment CODE, align 2
+    279          bool SYS_SENSORS_SHT11_Write(unsigned char ucCommand)
+   \                     SYS_SENSORS_SHT11_Write:
+    280          {
+   \   000000   4E4C         MOV.B   R12, R14
+    281              bool bAck;
+    282          
+    283              for(int i = 0; i < 8; i++, ucCommand <<= 1) {
+   \   000002   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Write_2:
+   \   000004   3F92         CMP.W   #0x8, R15
+   \   000006   2A34         JGE     ??SYS_SENSORS_SHT11_Write_4
+    284                  if(ucCommand & 0x80) {
+   \   000008   4E93         CMP.B   #0x0, R14
+   \   00000A   0434         JGE     ??SYS_SENSORS_SHT11_Write_5
+    285                      SHT11_SDA_SET_TO_INPUT_PIN();
+   \   00000C   F2C020000502 BIC.B   #0x20, &0x205
+   \   000012   033C         JMP     ??SYS_SENSORS_SHT11_Write_6
+    286                  }else{
+    287                      SHT11_SDA_SET_TO_OUTPUT_PIN();
+   \                     ??SYS_SENSORS_SHT11_Write_5:
+   \   000014   F2D020000502 BIS.B   #0x20, &0x205
+    288                  }
+    289                  SHT11_SCL_HIGH();
+   \                     ??SYS_SENSORS_SHT11_Write_6:
+   \   00001A   F2D040000302 BIS.B   #0x40, &0x203
+    290                  SHT11_TIMING_DELAY(1);
+   \   000020   0D43         MOV.W   #0x0, R13
+   \                     ??SYS_SENSORS_SHT11_Write_0:
+   \   000022   1D93         CMP.W   #0x1, R13
+   \   000024   0934         JGE     ??SYS_SENSORS_SHT11_Write_7
+   \   000026                ////////////// Start of 12000 cycles delay.
+   \   000026   003C         JMP     ??SYS_SENSORS_SHT11_Write_15
+   \                     ??SYS_SENSORS_SHT11_Write_15:
+   \   000028   0814         PUSHM.A #0x1, R8
+   \   00002A   38409B0F     MOV.W   #0xf9b, R8
+   \                     ??SYS_SENSORS_SHT11_Write_12:
+   \   00002E   3853         ADD.W   #0xffff, R8
+   \   000030   FE2F         JC      ??SYS_SENSORS_SHT11_Write_12
+   \   000032   0816         POPM.A  #0x1, R8
+   \   000034                ////////////// End of delay code.
+   \   000034   1D53         ADD.W   #0x1, R13
+   \   000036   F53F         JMP     ??SYS_SENSORS_SHT11_Write_0
+    291                  SHT11_SCL_LOW();
+   \                     ??SYS_SENSORS_SHT11_Write_7:
+   \   000038   F2C040000302 BIC.B   #0x40, &0x203
+    292                  SHT11_TIMING_DELAY(1);
+   \   00003E   0D43         MOV.W   #0x0, R13
+   \                     ??SYS_SENSORS_SHT11_Write_1:
+   \   000040   1D93         CMP.W   #0x1, R13
+   \   000042   0934         JGE     ??SYS_SENSORS_SHT11_Write_8
+   \   000044                ////////////// Start of 12000 cycles delay.
+   \   000044   003C         JMP     ??SYS_SENSORS_SHT11_Write_16
+   \                     ??SYS_SENSORS_SHT11_Write_16:
+   \   000046   0814         PUSHM.A #0x1, R8
+   \   000048   38409B0F     MOV.W   #0xf9b, R8
+   \                     ??SYS_SENSORS_SHT11_Write_13:
+   \   00004C   3853         ADD.W   #0xffff, R8
+   \   00004E   FE2F         JC      ??SYS_SENSORS_SHT11_Write_13
+   \   000050   0816         POPM.A  #0x1, R8
+   \   000052                ////////////// End of delay code.
+   \   000052   1D53         ADD.W   #0x1, R13
+   \   000054   F53F         JMP     ??SYS_SENSORS_SHT11_Write_1
+    293              }
+   \                     ??SYS_SENSORS_SHT11_Write_8:
+   \   000056   1F53         ADD.W   #0x1, R15
+   \   000058   4E5E         RLA.B   R14
+   \   00005A   D43F         JMP     ??SYS_SENSORS_SHT11_Write_2
+    294          
+    295              SHT11_SDA_SET_TO_INPUT_PIN();
+   \                     ??SYS_SENSORS_SHT11_Write_4:
+   \   00005C   F2C020000502 BIC.B   #0x20, &0x205
+    296              SHT11_SCL_HIGH();
+   \   000062   F2D040000302 BIS.B   #0x40, &0x203
+    297              SHT11_TIMING_DELAY(1);
+   \   000068   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Write_3:
+   \   00006A   1F93         CMP.W   #0x1, R15
+   \   00006C   0734         JGE     ??SYS_SENSORS_SHT11_Write_9
+   \   00006E                ////////////// Start of 12000 cycles delay.
+   \   00006E   0343         NOP
+   \   000070   3D409E0F     MOV.W   #0xf9e, R13
+   \                     ??SYS_SENSORS_SHT11_Write_14:
+   \   000074   3D53         ADD.W   #0xffff, R13
+   \   000076   FE2F         JC      ??SYS_SENSORS_SHT11_Write_14
+   \   000078                ////////////// End of delay code.
+   \   000078   1F53         ADD.W   #0x1, R15
+   \   00007A   F73F         JMP     ??SYS_SENSORS_SHT11_Write_3
+    298              
+    299              bAck = !SHT11_IS_SDA_HIGH;
+   \                     ??SYS_SENSORS_SHT11_Write_9:
+   \   00007C   F2B020000102 BIT.B   #0x20, &0x201
+   \   000082   022C         JC      ??SYS_SENSORS_SHT11_Write_10
+   \   000084   5C43         MOV.B   #0x1, R12
+   \   000086   013C         JMP     ??SYS_SENSORS_SHT11_Write_11
+   \                     ??SYS_SENSORS_SHT11_Write_10:
+   \   000088   4C43         MOV.B   #0x0, R12
+    300          
+    301              SHT11_SCL_LOW();
+   \                     ??SYS_SENSORS_SHT11_Write_11:
+   \   00008A   F2C040000302 BIC.B   #0x40, &0x203
+    302          
+    303              return bAck;
+   \   000090   1001         RETA
+   \   000092                REQUIRE _A_PADIR_L
+   \   000092                REQUIRE _A_PAOUT_L
+   \   000092                REQUIRE _A_PAIN_L
+    304          }
+    305          
+    306          /*----------------------------------------------------------------------------*/
+    307          /**
+    308          @brief    Read from SHT11
+    309          
+    310          @return   ucReceivedData - data received from SHT11
+    311          
+    312          @param    ucCommand - command to be transmitted
+    313          */
+
+   \                                 In  segment CODE, align 2
+    314          unsigned char SYS_SENSORS_SHT11_Read(bool bAckRequested)
+   \                     SYS_SENSORS_SHT11_Read:
+    315          {
+   \   000000   4E4C         MOV.B   R12, R14
+    316              unsigned char ucReceivedData = 0x00;
+   \   000002   4C43         MOV.B   #0x0, R12
+    317          
+    318              SHT11_SDA_SET_TO_INPUT_PIN();
+   \   000004   F2C020000502 BIC.B   #0x20, &0x205
+    319              
+    320              for(int i = 0; i < 8; i++) {
+   \   00000A   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Read_2:
+   \   00000C   3F92         CMP.W   #0x8, R15
+   \   00000E   2634         JGE     ??SYS_SENSORS_SHT11_Read_4
+    321                  ucReceivedData <<= 1;
+   \   000010   4C5C         RLA.B   R12
+    322                  SHT11_SCL_HIGH();
+   \   000012   F2D040000302 BIS.B   #0x40, &0x203
+    323                  SHT11_TIMING_DELAY(1);
+   \   000018   0D43         MOV.W   #0x0, R13
+   \                     ??SYS_SENSORS_SHT11_Read_0:
+   \   00001A   1D93         CMP.W   #0x1, R13
+   \   00001C   0934         JGE     ??SYS_SENSORS_SHT11_Read_5
+   \   00001E                ////////////// Start of 12000 cycles delay.
+   \   00001E   003C         JMP     ??SYS_SENSORS_SHT11_Read_13
+   \                     ??SYS_SENSORS_SHT11_Read_13:
+   \   000020   0814         PUSHM.A #0x1, R8
+   \   000022   38409B0F     MOV.W   #0xf9b, R8
+   \                     ??SYS_SENSORS_SHT11_Read_10:
+   \   000026   3853         ADD.W   #0xffff, R8
+   \   000028   FE2F         JC      ??SYS_SENSORS_SHT11_Read_10
+   \   00002A   0816         POPM.A  #0x1, R8
+   \   00002C                ////////////// End of delay code.
+   \   00002C   1D53         ADD.W   #0x1, R13
+   \   00002E   F53F         JMP     ??SYS_SENSORS_SHT11_Read_0
+    324                  if(SHT11_IS_SDA_HIGH) {
+   \                     ??SYS_SENSORS_SHT11_Read_5:
+   \   000030   F2B020000102 BIT.B   #0x20, &0x201
+   \   000036   0128         JNC     ??SYS_SENSORS_SHT11_Read_6
+    325                      ucReceivedData |= 0x1;
+   \   000038   5CD3         BIS.B   #0x1, R12
+    326                  }
+    327                  SHT11_SCL_LOW();
+   \                     ??SYS_SENSORS_SHT11_Read_6:
+   \   00003A   F2C040000302 BIC.B   #0x40, &0x203
+    328                  SHT11_TIMING_DELAY(1);
+   \   000040   0D43         MOV.W   #0x0, R13
+   \                     ??SYS_SENSORS_SHT11_Read_1:
+   \   000042   1D93         CMP.W   #0x1, R13
+   \   000044   0934         JGE     ??SYS_SENSORS_SHT11_Read_7
+   \   000046                ////////////// Start of 12000 cycles delay.
+   \   000046   003C         JMP     ??SYS_SENSORS_SHT11_Read_14
+   \                     ??SYS_SENSORS_SHT11_Read_14:
+   \   000048   0814         PUSHM.A #0x1, R8
+   \   00004A   38409B0F     MOV.W   #0xf9b, R8
+   \                     ??SYS_SENSORS_SHT11_Read_11:
+   \   00004E   3853         ADD.W   #0xffff, R8
+   \   000050   FE2F         JC      ??SYS_SENSORS_SHT11_Read_11
+   \   000052   0816         POPM.A  #0x1, R8
+   \   000054                ////////////// End of delay code.
+   \   000054   1D53         ADD.W   #0x1, R13
+   \   000056   F53F         JMP     ??SYS_SENSORS_SHT11_Read_1
+    329              }
+   \                     ??SYS_SENSORS_SHT11_Read_7:
+   \   000058   1F53         ADD.W   #0x1, R15
+   \   00005A   D83F         JMP     ??SYS_SENSORS_SHT11_Read_2
+    330          
+    331              if(bAckRequested) {
+   \                     ??SYS_SENSORS_SHT11_Read_4:
+   \   00005C   4E93         CMP.B   #0x0, R14
+   \   00005E   0324         JEQ     ??SYS_SENSORS_SHT11_Read_8
+    332                  SHT11_SDA_SET_TO_OUTPUT_PIN();
+   \   000060   F2D020000502 BIS.B   #0x20, &0x205
+    333              }
+    334              
+    335              SHT11_SCL_HIGH();
+   \                     ??SYS_SENSORS_SHT11_Read_8:
+   \   000066   F2D040000302 BIS.B   #0x40, &0x203
+    336              SHT11_TIMING_DELAY(1);
+   \   00006C   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_SENSORS_SHT11_Read_3:
+   \   00006E   1F93         CMP.W   #0x1, R15
+   \   000070   0734         JGE     ??SYS_SENSORS_SHT11_Read_9
+   \   000072                ////////////// Start of 12000 cycles delay.
+   \   000072   0343         NOP
+   \   000074   3D409E0F     MOV.W   #0xf9e, R13
+   \                     ??SYS_SENSORS_SHT11_Read_12:
+   \   000078   3D53         ADD.W   #0xffff, R13
+   \   00007A   FE2F         JC      ??SYS_SENSORS_SHT11_Read_12
+   \   00007C                ////////////// End of delay code.
+   \   00007C   1F53         ADD.W   #0x1, R15
+   \   00007E   F73F         JMP     ??SYS_SENSORS_SHT11_Read_3
+    337              SHT11_SCL_LOW();
+   \                     ??SYS_SENSORS_SHT11_Read_9:
+   \   000080   F2C040000302 BIC.B   #0x40, &0x203
+    338          
+    339              SHT11_SDA_SET_TO_INPUT_PIN();		
+   \   000086   F2C020000502 BIC.B   #0x20, &0x205
+    340          
+    341              return ucReceivedData;
+   \   00008C   1001         RETA
+   \   00008E                REQUIRE _A_PADIR_L
+   \   00008E                REQUIRE _A_PAOUT_L
+   \   00008E                REQUIRE _A_PAIN_L
+    342          }
+    343          
+    344          /*----------------------------------------------------------------------------*/
+    345          /**
+    346          @brief    Transmit command to SHT11
+    347          
+    348          @return   uiReceivedData - data received from SHT11 or _FAIL_ if command is unsuccessful
+    349          
+    350          @param    ucCommand - command to be transmitted
+    351          */
+
+   \                                 In  segment CODE, align 2
+    352          unsigned int SYS_SENSORS_SHT11_Command(unsigned char ucCommand)
+   \                     SYS_SENSORS_SHT11_Command:
+    353          {
+   \   000000   5B14         PUSHM.A #0x6, R11
+   \   000002   494C         MOV.B   R12, R9
+    354              unsigned long n;
+    355          
+    356              SYS_SENSORS_SHT11_Start();			
+   \   000004   ........     CALLA   #SYS_SENSORS_SHT11_Start
+    357              if(!SYS_SENSORS_SHT11_Write(ucCommand)) {
+   \   000008   4C49         MOV.B   R9, R12
+   \   00000A   ........     CALLA   #SYS_SENSORS_SHT11_Write
+   \   00000E   4C93         CMP.B   #0x0, R12
+   \   000010   0420         JNE     ??SYS_SENSORS_SHT11_Command_2
+    358                  SYS_SENSORS_SHT11_Reset();
+   \   000012   ........     CALLA   #SYS_SENSORS_SHT11_Reset
+    359                  return _FAIL_;
+   \   000016   0C43         MOV.W   #0x0, R12
+   \   000018   233C         JMP     ??SYS_SENSORS_SHT11_Command_1
+    360              }else{
+    361                  for(n = 0; n < 250000; n++) {
+   \                     ??SYS_SENSORS_SHT11_Command_2:
+   \   00001A   0A43         MOV.W   #0x0, R10
+   \   00001C   0B43         MOV.W   #0x0, R11
+   \                     ??SYS_SENSORS_SHT11_Command_0:
+   \   00001E   3B900300     CMP.W   #0x3, R11
+   \   000022   0428         JNC     ??SYS_SENSORS_SHT11_Command_3
+   \   000024   1D20         JNE     ??SYS_SENSORS_SHT11_Command_1
+   \   000026   3A9090D0     CMP.W   #0xd090, R10
+   \   00002A   1A2C         JC      ??SYS_SENSORS_SHT11_Command_1
+    362                      if(!SHT11_IS_SDA_HIGH) {
+   \                     ??SYS_SENSORS_SHT11_Command_3:
+   \   00002C   F2B020000102 BIT.B   #0x20, &0x201
+   \   000032   132C         JC      ??SYS_SENSORS_SHT11_Command_4
+    363          #pragma diag_suppress = Pe550
+    364                          unsigned char t0, t1, rcrc;
+    365                          t0 = SYS_SENSORS_SHT11_Read(1);
+   \   000034   5C43         MOV.B   #0x1, R12
+   \   000036   ........     CALLA   #SYS_SENSORS_SHT11_Read
+   \   00003A   484C         MOV.B   R12, R8
+    366                          t1 = SYS_SENSORS_SHT11_Read(1);
+   \   00003C   5C43         MOV.B   #0x1, R12
+   \   00003E   ........     CALLA   #SYS_SENSORS_SHT11_Read
+   \   000042   474C         MOV.B   R12, R7
+    367                          rcrc = SYS_SENSORS_SHT11_Read(0);
+   \   000044   4C43         MOV.B   #0x0, R12
+   \   000046   ........     CALLA   #SYS_SENSORS_SHT11_Read
+   \   00004A   464C         MOV.B   R12, R6
+    368          
+    369                          return (t0 << 8) | t1;
+   \   00004C   4747         MOV.B   R7, R7
+   \   00004E   4C48         MOV.B   R8, R12
+   \   000050   3CF0FF00     AND.W   #0xff, R12
+   \   000054   8C10         SWPB    R12
+   \   000056   0CD7         BIS.W   R7, R12
+   \   000058   033C         JMP     ??SYS_SENSORS_SHT11_Command_1
+    370                      }
+    371                  }
+   \                     ??SYS_SENSORS_SHT11_Command_4:
+   \   00005A   1A53         ADD.W   #0x1, R10
+   \   00005C   0B63         ADDC.W  #0x0, R11
+   \   00005E   DF3F         JMP     ??SYS_SENSORS_SHT11_Command_0
+    372              }
+    373          #pragma diag_suppress = Pe940
+    374          }
+   \                     ??SYS_SENSORS_SHT11_Command_1:
+   \   000060   5616         POPM.A  #0x6, R11
+   \   000062   1001         RETA
+   \   000064                REQUIRE _A_PAIN_L
+    375          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_SENSORS_Init
+             4 -> SYS_SENSORS_S108701_Init
+             4 -> SYS_SENSORS_S1087_Init
+             4 -> SYS_SENSORS_SHT11_Init
+       4  SYS_SENSORS_S108701_Init
+      36  SYS_SENSORS_S108701_Read
+            36 -> _Cast32uto64f
+            36 -> _Cast64fto32u
+            36 -> _Div64f
+            36 -> _Mul64f
+            36 -> _Sub64f
+       4  SYS_SENSORS_S1087_Init
+      36  SYS_SENSORS_S1087_Read
+            36 -> _Cast32uto64f
+            36 -> _Cast64fto32u
+            36 -> _Div64f
+            36 -> _Mul64f
+            36 -> _Sub64f
+      28  SYS_SENSORS_SHT11_Command
+            28 -> SYS_SENSORS_SHT11_Read
+            28 -> SYS_SENSORS_SHT11_Reset
+            28 -> SYS_SENSORS_SHT11_Start
+            28 -> SYS_SENSORS_SHT11_Write
+       4  SYS_SENSORS_SHT11_Init
+             4 -> SYS_SENSORS_SHT11_Off
+       4  SYS_SENSORS_SHT11_Off
+       4  SYS_SENSORS_SHT11_On
+       4  SYS_SENSORS_SHT11_Read
+      50  SYS_SENSORS_SHT11_ReadHumidity
+            48 -> SYS_SENSORS_SHT11_Command
+            48 -> _Add64f
+            48 -> _Cast32uto64f
+            48 -> _Cast64fto32u
+            48 -> _Mul64f
+            48 -> _Sub64f
+      28  SYS_SENSORS_SHT11_ReadTemperature
+            28 -> SYS_SENSORS_SHT11_Command
+            28 -> _Add64f
+            28 -> _Cast32uto64f
+            28 -> _Cast64fto32u
+            28 -> _Mul64f
+       4  SYS_SENSORS_SHT11_Reset
+             4 -> SYS_SENSORS_SHT11_Start
+       4  SYS_SENSORS_SHT11_Start
+       4  SYS_SENSORS_SHT11_Write
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      12  SYS_SENSORS_Init
+      20  SYS_SENSORS_S108701_Init
+     168  SYS_SENSORS_S108701_Read
+      20  SYS_SENSORS_S1087_Init
+     140  SYS_SENSORS_S1087_Read
+     100  SYS_SENSORS_SHT11_Command
+       4  SYS_SENSORS_SHT11_Init
+      20  SYS_SENSORS_SHT11_Off
+      42  SYS_SENSORS_SHT11_On
+     142  SYS_SENSORS_SHT11_Read
+     202  SYS_SENSORS_SHT11_ReadHumidity
+      64  SYS_SENSORS_SHT11_ReadTemperature
+      80  SYS_SENSORS_SHT11_Reset
+     170  SYS_SENSORS_SHT11_Start
+     146  SYS_SENSORS_SHT11_Write
+       2  _A_ADC12MEM0_L
+       2  _A_ADC12MEM1_L
+       2  _A_PADIR_L
+       2  _A_PAIN_L
+       2  _A_PAOUT_L
+       2  _A_PDDIR_L
+       2  _A_PDOUT_L
+       2  _A_PDSEL_L
+
+ 
+ 1 330 bytes in segment CODE
+    16 bytes in segment DATA16_AN
+ 
+ 1 330 bytes of CODE memory
+     0 bytes of DATA memory (+ 16 bytes shared)
+
+Errors: none
+Warnings: none

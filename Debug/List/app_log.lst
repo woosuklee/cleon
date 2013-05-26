@@ -1,0 +1,772 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  21:15:11 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\app\app_log.c             #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\app_log.c" -lC        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\app_log.lst    #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\app_log.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\app\app_log.c
+      1          /**
+      2          @file       app_log.c
+      3          
+      4          @brief      Logging CLEON data
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x700
+   \   union <unnamed> __data16 _A_ADC12CTL0_L
+   \                     _A_ADC12CTL0_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x510
+   \   union <unnamed> __data16 _A_DMA0CTL_L
+   \                     _A_DMA0CTL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x282
+   \   union <unnamed> __data16 _A_PEOUT_L
+   \                     _A_PEOUT_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          // CLEON data structure
+     14          extern cleon_header_u      uniCLEONHeader;
+     15          extern cleon_gps_data_u    uniCLEONGPSData;
+     16          extern cleon_sensor_data_u uniCLEONSensorData;
+     17          
+     18          // Second and millisecond time tick
+     19          extern milliseoncd_time_tick_u uniMillisecondTimeTick;
+     20          extern seoncd_time_tick_u      uniSecondTimeTick;
+     21          
+     22          // File system variables
+     23          extern FIL   fileObject;      
+     24          extern UINT  bw;
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     25          char   sFilename[50];
+   \                     sFilename:
+   \   000000                DS8 50
+     26          
+     27          // Flags
+     28          extern bool bFLAG_MicroSDInserted;
+     29          extern bool bFLAG_DMATransferCompleted;
+     30          extern bool bFLAG_IsTimeSynced;
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     31                 bool bFLAG_ISLoggingRequested = _CLEAR_;
+   \                     bFLAG_ISLoggingRequested:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     32                 bool bFLAG_GPSSignalIsBeingCaptured = _CLEAR_;
+   \                     bFLAG_GPSSignalIsBeingCaptured:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     33                 bool bFLAG_CLEONSampleIntervalConuter = _CLEAR_;
+   \                     bFLAG_CLEONSampleIntervalConuter:
+   \   000000                DS8 1
+     34          
+     35          // Measuring time taken by each step of CLEON data logging
+     36          extern time_measurement_s  stTimeMeasurement[NUMBER_OF_TIME_MEASUREMENT_TEST];       
+     37                 
+     38          // Counting number of samples stored in a file
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     39          unsigned long   ulNumberOfCLEONSamplesInAFileCount = 0;       
+   \                     ulNumberOfCLEONSamplesInAFileCount:
+   \   000000                DS8 4
+     40          
+     41          // User parameters
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     42          unsigned long   ulSampleCount = 0;
+   \                     ulSampleCount:
+   \   000000                DS8 4
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     43          unsigned long   ulSampleGap = 0;
+   \                     ulSampleGap:
+   \   000000                DS8 4
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     44          unsigned long   ulChunkCount = 0;
+   \                     ulChunkCount:
+   \   000000                DS8 4
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     45          unsigned long   ulChunkGap = 0;
+   \                     ulChunkGap:
+   \   000000                DS8 4
+     46                 
+     47          /*----------------------------------------------------------------------------*/
+     48          /**
+     49          @brief    Collect CLEON data sample(s)
+     50          
+     51          @return   void
+     52          
+     53          @param    void
+     54          */
+
+   \                                 In  segment CODE, align 2
+     55          void APP_Log(void)
+   \                     APP_Log:
+     56          {
+   \   000000   7B14         PUSHM.A #0x8, R11
+   \   000002   31800A00     SUB.W   #0xa, SP
+     57          ///////////////////////// CHECK IF CONDITIONS ARE MET //////////////////////////
+     58          #if TIME_MEASUREMENT == _ENABLE_                    
+     59              // Logging current system time tick
+     60              if(ulNumberOfCLEONSamplesInAFileCount < NUMBER_OF_TIME_MEASUREMENT_TEST){
+     61                  stTimeMeasurement[ulNumberOfCLEONSamplesInAFileCount].ullTimeAtStartAPPLog = uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick;
+     62              }
+     63          #endif                    
+     64              // Check if user button is pressed
+     65              if(bFLAG_ISLoggingRequested == _SET_){
+   \   000006   ....C293.... CMPX.B  #0x0, &bFLAG_ISLoggingRequested
+   \   00000C   E525         JEQ     ??APP_Log_4
+     66                  // Check if time information is synchorinized
+     67                  if(bFLAG_IsTimeSynced == _SET_){
+   \   00000E   ....C293.... CMPX.B  #0x0, &bFLAG_IsTimeSynced
+   \   000014   D625         JEQ     ??APP_Log_5
+     68                      // Check if MicroSD is inserted
+     69                      if(bFLAG_MicroSDInserted == _SET_){
+   \   000016   ....C293.... CMPX.B  #0x0, &bFLAG_MicroSDInserted
+   \   00001C   D225         JEQ     ??APP_Log_5
+     70                          // Check if defined interval period has passed
+     71                          if(bFLAG_CLEONSampleIntervalConuter == _SET_){
+   \   00001E   ....C293.... CMPX.B  #0x0, &bFLAG_CLEONSampleIntervalConuter
+   \   000024   CE25         JEQ     ??APP_Log_5
+     72                              bFLAG_CLEONSampleIntervalConuter = _CLEAR_;
+   \   000026   ....C243.... MOVX.B  #0x0, &bFLAG_CLEONSampleIntervalConuter
+     73          
+     74          /////////////////////////////// PREPARATION 1/2 ////////////////////////////////
+     75          #if APP_LOG_LED_INDICATION == _ENABLE_        
+     76                              // Turn LED2 on
+     77                              SAMPLING_IN_ACTION_LED_ON();     
+   \   00002C   F2C040008202 BIC.B   #0x40, &0x282
+     78          #endif // APP_LOG_LED_INDICATION            
+     79                              
+     80                              // Start GPS
+     81                              SYS_GPS_StartOperation();
+   \   000032   ........     CALLA   #SYS_GPS_StartOperation
+     82          
+     83          /////////////////////// SENSING HUMIDITY AND TEMPERATURE ///////////////////////
+     84          #if APP_LOG_TEMP_AND_HUM_SENSORS == _ENABLE_        
+     85                              // Turn SHT11 on
+     86                              SYS_SENSORS_SHT11_On();
+   \   000036   ........     CALLA   #SYS_SENSORS_SHT11_On
+     87                              uniCLEONSensorData.stSensors.uiTemperature = SYS_SENSORS_SHT11_ReadTemperature();
+   \   00003A   ........     CALLA   #SYS_SENSORS_SHT11_ReadTemperature
+   \   00003E   ....824C.... MOVX.W  R12, &uniCLEONSensorData
+     88                              uniCLEONSensorData.stSensors.uiHumidity    = SYS_SENSORS_SHT11_ReadHumidity();
+   \   000044   ........     CALLA   #SYS_SENSORS_SHT11_ReadHumidity
+   \   000048   ....824C.... MOVX.W  R12, &uniCLEONSensorData + 2
+     89                              // Turn SHT11 off
+     90                              SYS_SENSORS_SHT11_Off();
+   \   00004E   ........     CALLA   #SYS_SENSORS_SHT11_Off
+     91          #endif // APP_LOG_TEMP_AND_HUM_SENSORS        
+     92          
+     93          ////////////////////////// SENSING LIGHT SENSORS ///////////////////////////////
+     94          #if APP_LOG_LIGHT_SENSORS == _ENABLE_        
+     95                              // Start ADC conversion
+     96                              HAL_ADC_StartADC();   
+   \   000052   92D30007     BIS.W   #0x1, &0x700
+     97                              uniCLEONSensorData.stSensors.uiLightPAR    = SYS_SENSORS_S1087_Read(); 
+   \   000056   ........     CALLA   #SYS_SENSORS_S1087_Read
+   \   00005A   ....824C.... MOVX.W  R12, &uniCLEONSensorData + 6
+     98                              uniCLEONSensorData.stSensors.uiLightTSR    = SYS_SENSORS_S108701_Read();
+   \   000060   ........     CALLA   #SYS_SENSORS_S108701_Read
+   \   000064   ....824C.... MOVX.W  R12, &uniCLEONSensorData + 4
+     99                              // Stop ADC conversion
+    100                              HAL_ADC_StopADC();
+   \   00006A   92C30007     BIC.W   #0x1, &0x700
+    101          #endif  // APP_LOG_LIGHT_SENSORS        
+    102          
+    103          /////////////////////////////// PREPARATION 2/2 ////////////////////////////////
+    104                              // Declare variables for temporary time information
+    105                              unsigned long long ullPreviousTimeTick = 0;
+   \   00006E   81430200     MOV.W   #0x0, 0x2(SP)
+   \   000072   81430400     MOV.W   #0x0, 0x4(SP)
+   \   000076   81430600     MOV.W   #0x0, 0x6(SP)
+   \   00007A   81430800     MOV.W   #0x0, 0x8(SP)
+    106                              unsigned long long ullCurrentTimeTick = 0;
+   \   00007E   0443         MOV.W   #0x0, R4
+   \   000080   0543         MOV.W   #0x0, R5
+   \   000082   0643         MOV.W   #0x0, R6
+   \   000084   0743         MOV.W   #0x0, R7
+    107                              
+    108                              // Wait until GPS is fully up and running 
+    109                              SYS_GPS_TimingDealy(100);   // 100ms delay
+   \   000086   0F43         MOV.W   #0x0, R15
+   \                     ??APP_Log_0:
+   \   000088   3F906400     CMP.W   #0x64, R15
+   \   00008C   0734         JGE     ??APP_Log_6
+   \   00008E                ////////////// Start of 12000 cycles delay.
+   \   00008E   0343         NOP
+   \   000090   3B409E0F     MOV.W   #0xf9e, R11
+   \                     ??APP_Log_20:
+   \   000094   3B53         ADD.W   #0xffff, R11
+   \   000096   FE2F         JC      ??APP_Log_20
+   \   000098                ////////////// End of delay code.
+   \   000098   1F53         ADD.W   #0x1, R15
+   \   00009A   F63F         JMP     ??APP_Log_0
+    110                              
+    111                              // If this is the first time to log, create a file that captured samples will be written to
+    112                              if(ulNumberOfCLEONSamplesInAFileCount == 0){
+   \                     ??APP_Log_6:
+   \   00009C   ....1F42.... MOVX.W  &ulNumberOfCLEONSamplesInAFileCount, R15
+   \   0000A2   ....1FD2.... BISX.W  &ulNumberOfCLEONSamplesInAFileCount + 2, R15
+   \   0000A8   0F93         CMP.W   #0x0, R15
+   \   0000AA   2F20         JNE     ??APP_Log_7
+    113                                  if(ulSampleCount != 1){
+   \   0000AC   ....9293.... CMPX.W  #0x1, &ulSampleCount
+   \   0000B2   0420         JNE     ??APP_Log_8
+   \   0000B4   ....8293.... CMPX.W  #0x0, &ulSampleCount + 2
+   \   0000BA   2724         JEQ     ??APP_Log_7
+    114                                      // Initailize filename
+    115                                      memset(sFilename, 0, sizeof(sFilename));
+   \                     ??APP_Log_8:
+   \   0000BC   3E403200     MOV.W   #0x32, R14
+   \   0000C0   0F43         MOV.W   #0x0, R15
+   \   0000C2   0D43         MOV.W   #0x0, R13
+   \   0000C4   ........     MOVA    #sFilename, R12
+   \   0000C8   ........     CALLA   #memset
+    116                                      // File name will start with CLEON's current system time
+    117          #if (APP_LOG_TEMP_AND_HUM_SENSORS == _ENABLE_) || (APP_LOG_LIGHT_SENSORS == _ENABLE_)                    
+    118                                      sprintf(sFilename, "%lld_s16368_if4092000_m2_i2_s8.bin", uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick);
+   \   0000CC   ........     MOVA    #uniSecondTimeTick, R15
+   \   0000D0   384F         MOV.W   @R15+, R8
+   \   0000D2   394F         MOV.W   @R15+, R9
+   \   0000D4   3A4F         MOV.W   @R15+, R10
+   \   0000D6   3B4F         MOV.W   @R15+, R11
+   \   0000D8   ........     MOVA    #uniMillisecondTimeTick, R15
+   \   0000DC   385F         ADD.W   @R15+, R8
+   \   0000DE   396F         ADDC.W  @R15+, R9
+   \   0000E0   3A6F         ADDC.W  @R15+, R10
+   \   0000E2   3B6F         ADDC.W  @R15+, R11
+   \   0000E4   0B12         PUSH.W  R11
+   \   0000E6   0A12         PUSH.W  R10
+   \   0000E8   0912         PUSH.W  R9
+   \   0000EA   0812         PUSH.W  R8
+   \   0000EC   ........     MOVA    #`?<Constant "%lld_s16368_if4092000...">`, R13
+   \   0000F0   ........     MOVA    #sFilename, R12
+   \   0000F4   ........     CALLA   #sprintf
+    119          #else
+    120                                      sprintf(sFilename, "%lld_s16368_if4092000_m2_i2_s0.bin", uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick);
+    121          #endif                            
+    122                                      // The created file will remain openned until the number of samples defined in 'APP_LOG_SAMPLES_IN_A_FILE' are captured
+    123                                      FS_Open(&fileObject, sFilename, FA_WRITE | FA_CREATE_ALWAYS);
+   \   0000F8   7E400A00     MOV.B   #0xa, R14
+   \   0000FC   ........     MOVA    #sFilename, R13
+   \   000100   ........     MOVA    #fileObject, R12
+   \   000104   ........     CALLA   #f_open
+   \   000108   3152         ADD.W   #0x8, SP
+    124                                  }
+    125                              }
+    126                              
+    127                              // Number of GPS samples in a CLEON sample
+    128                              uniCLEONHeader.stCLEONHeader.uniChunkCount.ulOriginalVar = ulChunkCount;
+   \                     ??APP_Log_7:
+   \   00010A   ....9242.... MOVX.W  &ulChunkCount, &uniCLEONHeader + 28
+   \            ....        
+   \   000112   ....9242.... MOVX.W  &ulChunkCount + 2, &uniCLEONHeader + 30
+   \            ....        
+    129                              
+    130                              // Chunk gap information
+    131                              if(ulChunkCount == 1){
+   \   00011A   ....9293.... CMPX.W  #0x1, &ulChunkCount
+   \   000120   0B20         JNE     ??APP_Log_9
+   \   000122   ....8293.... CMPX.W  #0x0, &ulChunkCount + 2
+   \   000128   0720         JNE     ??APP_Log_9
+    132                                  uniCLEONHeader.stCLEONHeader.uniChunkGapMS.ulOriginalVar = 0;  
+   \   00012A   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 36
+   \   000130   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 38
+   \   000136   083C         JMP     ??APP_Log_10
+    133                              }else{
+    134                                  uniCLEONHeader.stCLEONHeader.uniChunkGapMS.ulOriginalVar = ulChunkGap;
+   \                     ??APP_Log_9:
+   \   000138   ....9242.... MOVX.W  &ulChunkGap, &uniCLEONHeader + 36
+   \            ....        
+   \   000140   ....9242.... MOVX.W  &ulChunkGap + 2, &uniCLEONHeader + 38
+   \            ....        
+    135                              }
+    136                              
+    137                              // Update time tick information
+    138                              uniCLEONHeader.stCLEONHeader.uniMillisecondTimeTick.ullMillisecondTimeTick = uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick;
+   \                     ??APP_Log_10:
+   \   000148   ........     MOVA    #uniSecondTimeTick, R15
+   \   00014C   384F         MOV.W   @R15+, R8
+   \   00014E   394F         MOV.W   @R15+, R9
+   \   000150   3A4F         MOV.W   @R15+, R10
+   \   000152   3B4F         MOV.W   @R15+, R11
+   \   000154   ........     MOVA    #uniMillisecondTimeTick, R15
+   \   000158   385F         ADD.W   @R15+, R8
+   \   00015A   396F         ADDC.W  @R15+, R9
+   \   00015C   3A6F         ADDC.W  @R15+, R10
+   \   00015E   3B6F         ADDC.W  @R15+, R11
+   \   000160   ....8248.... MOVX.W  R8, &uniCLEONHeader + 8
+   \   000166   ....8249.... MOVX.W  R9, &uniCLEONHeader + 10
+   \   00016C   ....824A.... MOVX.W  R10, &uniCLEONHeader + 12
+   \   000172   ....824B.... MOVX.W  R11, &uniCLEONHeader + 14
+    139                                          
+    140          #if TIME_MEASUREMENT == _ENABLE_                    
+    141                              // Logging current system time tick
+    142                              if(ulNumberOfCLEONSamplesInAFileCount < NUMBER_OF_TIME_MEASUREMENT_TEST){
+    143                                  stTimeMeasurement[ulNumberOfCLEONSamplesInAFileCount].ullTimeAtWriteHeaderToSDCard = uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick;
+    144                              }
+    145          #endif                                        
+    146                              // Move pointer to the end of file to append
+    147                              FS_Lseek(&fileObject, FS_GetSizeOfFile(&fileObject));
+   \   000178   ....1E42.... MOVX.W  &fileObject + 12, R14
+   \   00017E   ....1F42.... MOVX.W  &fileObject + 14, R15
+   \   000184   ........     MOVA    #fileObject, R12
+   \   000188   ........     CALLA   #f_lseek
+    148                              // Write captured CLEON header (44 bytes) to the openned file
+    149                              FS_Write(&fileObject, &uniCLEONHeader, sizeof(uniCLEONHeader), &bw);
+   \   00018C   ........     MOVA    #bw, R15
+   \   000190   3E402C00     MOV.W   #0x2c, R14
+   \   000194   ........     MOVA    #uniCLEONHeader, R13
+   \   000198   ........     MOVA    #fileObject, R12
+   \   00019C   ........     CALLA   #f_write
+    150                              // Flush cached information of a writing file
+    151                              FS_Sync(&fileObject);
+   \   0001A0   ........     MOVA    #fileObject, R12
+   \   0001A4   ........     CALLA   #f_sync
+    152          
+    153          ///////////////////////////// CAPTURING GPS SIGNAL /////////////////////////////              
+    154                              for(int i = 0 ; i < ulChunkCount ; i++){
+   \   0001A8   81430000     MOV.W   #0x0, 0(SP)
+   \                     ??APP_Log_3:
+   \   0001AC   2E41         MOV.W   @SP, R14
+   \   0001AE   0F4E         MOV.W   R14, R15
+   \   0001B0   3FE3         XOR.W   #0xffff, R15
+   \   0001B2   0F5F         RLA.W   R15
+   \   0001B4   0F7F         SUBC.W  R15, R15
+   \   0001B6   ....1F92.... CMPX.W  &ulChunkCount + 2, R15
+   \   0001BC   0528         JNC     ??APP_Log_11
+   \   0001BE   A120         JNE     ??APP_Log_12
+   \   0001C0   ....1E92.... CMPX.W  &ulChunkCount, R14
+   \   0001C6   9D2C         JC      ??APP_Log_12
+    155                                  // Check mutex for GPS DMA transfer 
+    156                                  if(bFLAG_GPSSignalIsBeingCaptured == _CLEAR_){
+   \                     ??APP_Log_11:
+   \   0001C8   ....C293.... CMPX.B  #0x0, &bFLAG_GPSSignalIsBeingCaptured
+   \   0001CE   9420         JNE     ??APP_Log_13
+    157                                      // P(bFLAG_GPSSignalIsBeingCaptured)
+    158                                      bFLAG_GPSSignalIsBeingCaptured = _SET_;
+   \   0001D0   ....D243.... MOVX.B  #0x1, &bFLAG_GPSSignalIsBeingCaptured
+    159                                      
+    160                                      if( i == 0 ){
+   \   0001D6   81930000     CMP.W   #0x0, 0(SP)
+   \   0001DA   1920         JNE     ??APP_Log_1
+    161          #if TIME_MEASUREMENT == _ENABLE_                    
+    162                                          // Logging current system time tick
+    163                                          if(ulNumberOfCLEONSamplesInAFileCount < NUMBER_OF_TIME_MEASUREMENT_TEST){
+    164                                              stTimeMeasurement[ulNumberOfCLEONSamplesInAFileCount].ullTimeAtFirstChunk = uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick;
+    165                                          }
+    166          #endif                                                                      
+    167                                          // First sample will be captured immediately 
+    168                                          ullCurrentTimeTick = uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick;
+   \   0001DC   ........     MOVA    #uniSecondTimeTick, R15
+   \   0001E0   384F         MOV.W   @R15+, R8
+   \   0001E2   394F         MOV.W   @R15+, R9
+   \   0001E4   3A4F         MOV.W   @R15+, R10
+   \   0001E6   3B4F         MOV.W   @R15+, R11
+   \   0001E8   ........     MOVA    #uniMillisecondTimeTick, R15
+   \   0001EC   385F         ADD.W   @R15+, R8
+   \   0001EE   396F         ADDC.W  @R15+, R9
+   \   0001F0   3A6F         ADDC.W  @R15+, R10
+   \   0001F2   3B6F         ADDC.W  @R15+, R11
+   \   0001F4   0448         MOV.W   R8, R4
+   \   0001F6   0549         MOV.W   R9, R5
+   \   0001F8   064A         MOV.W   R10, R6
+   \   0001FA   074B         MOV.W   R11, R7
+    169                                          ullPreviousTimeTick = ullCurrentTimeTick;
+   \   0001FC   81440200     MOV.W   R4, 0x2(SP)
+   \   000200   81450400     MOV.W   R5, 0x4(SP)
+   \   000204   81460600     MOV.W   R6, 0x6(SP)
+   \   000208   81470800     MOV.W   R7, 0x8(SP)
+   \   00020C   503C         JMP     ??APP_Log_14
+    170                                      }else{
+    171                                          while(1){
+    172                                              ullCurrentTimeTick = uniSecondTimeTick.ullSecondTimeTick + uniMillisecondTimeTick.ullMillisecondTimeTick;
+   \                     ??APP_Log_1:
+   \   00020E   ........     MOVA    #uniSecondTimeTick, R15
+   \   000212   384F         MOV.W   @R15+, R8
+   \   000214   394F         MOV.W   @R15+, R9
+   \   000216   3A4F         MOV.W   @R15+, R10
+   \   000218   3B4F         MOV.W   @R15+, R11
+   \   00021A   ........     MOVA    #uniMillisecondTimeTick, R15
+   \   00021E   385F         ADD.W   @R15+, R8
+   \   000220   396F         ADDC.W  @R15+, R9
+   \   000222   3A6F         ADDC.W  @R15+, R10
+   \   000224   3B6F         ADDC.W  @R15+, R11
+   \   000226   0448         MOV.W   R8, R4
+   \   000228   0549         MOV.W   R9, R5
+   \   00022A   064A         MOV.W   R10, R6
+   \   00022C   074B         MOV.W   R11, R7
+    173                                              // From second chunk, it will wait until time defined in 'uiChunkGap' has passed
+    174                                              if(((ullPreviousTimeTick/10000) + ulChunkGap) <= (ullCurrentTimeTick/10000)){
+   \   00022E   38401027     MOV.W   #0x2710, R8
+   \   000232   0943         MOV.W   #0x0, R9
+   \   000234   0A43         MOV.W   #0x0, R10
+   \   000236   0B43         MOV.W   #0x0, R11
+   \   000238   0C44         MOV.W   R4, R12
+   \   00023A   0D45         MOV.W   R5, R13
+   \   00023C   0E46         MOV.W   R6, R14
+   \   00023E   0F47         MOV.W   R7, R15
+   \   000240   ........     CALLA   #_Div64u
+   \   000244   0F12         PUSH.W  R15
+   \   000246   0E12         PUSH.W  R14
+   \   000248   0D12         PUSH.W  R13
+   \   00024A   0C12         PUSH.W  R12
+   \   00024C   38401027     MOV.W   #0x2710, R8
+   \   000250   0943         MOV.W   #0x0, R9
+   \   000252   0A43         MOV.W   #0x0, R10
+   \   000254   0B43         MOV.W   #0x0, R11
+   \   000256   0F41         MOV.W   SP, R15
+   \   000258   3F500A00     ADD.W   #0xa, R15
+   \   00025C   3C4F         MOV.W   @R15+, R12
+   \   00025E   3D4F         MOV.W   @R15+, R13
+   \   000260   3E4F         MOV.W   @R15+, R14
+   \   000262   3F4F         MOV.W   @R15+, R15
+   \   000264   ........     CALLA   #_Div64u
+   \   000268   ....1842.... MOVX.W  &ulChunkGap, R8
+   \   00026E   ....1942.... MOVX.W  &ulChunkGap + 2, R9
+   \   000274   0A43         MOV.W   #0x0, R10
+   \   000276   0B43         MOV.W   #0x0, R11
+   \   000278   0C58         ADD.W   R8, R12
+   \   00027A   0D69         ADDC.W  R9, R13
+   \   00027C   0E6A         ADDC.W  R10, R14
+   \   00027E   0F6B         ADDC.W  R11, R15
+   \   000280   3841         POP.W   R8
+   \   000282   3941         POP.W   R9
+   \   000284   3A41         POP.W   R10
+   \   000286   3B41         POP.W   R11
+   \   000288   0B9F         CMP.W   R15, R11
+   \   00028A   C12B         JNC     ??APP_Log_1
+   \   00028C   0820         JNE     ??APP_Log_15
+   \   00028E   0A9E         CMP.W   R14, R10
+   \   000290   BE2B         JNC     ??APP_Log_1
+   \   000292   0520         JNE     ??APP_Log_15
+   \   000294   099D         CMP.W   R13, R9
+   \   000296   BB2B         JNC     ??APP_Log_1
+   \   000298   0220         JNE     ??APP_Log_15
+   \   00029A   089C         CMP.W   R12, R8
+   \   00029C   B82B         JNC     ??APP_Log_1
+    175                                                  ullPreviousTimeTick = ullCurrentTimeTick;
+   \                     ??APP_Log_15:
+   \   00029E   81440200     MOV.W   R4, 0x2(SP)
+   \   0002A2   81450400     MOV.W   R5, 0x4(SP)
+   \   0002A6   81460600     MOV.W   R6, 0x6(SP)
+   \   0002AA   81470800     MOV.W   R7, 0x8(SP)
+    176                                                  break;
+    177                                              }
+    178                                          }
+    179                                      }
+    180                                                          
+    181                                      // Start DMA transfer
+    182                                      DMA0CTL |= DMAEN;  
+   \                     ??APP_Log_14:
+   \   0002AE   B2D010001005 BIS.W   #0x10, &0x510
+    183                                          
+    184                                      // Wait until DMA-transfer-complete-IF is set
+    185                                      while(!bFLAG_DMATransferCompleted);
+   \                     ??APP_Log_2:
+   \   0002B4   ....C293.... CMPX.B  #0x0, &bFLAG_DMATransferCompleted
+   \   0002BA   FC27         JEQ     ??APP_Log_2
+    186                                      bFLAG_DMATransferCompleted = _CLEAR_;
+   \   0002BC   ....C243.... MOVX.B  #0x0, &bFLAG_DMATransferCompleted
+    187                                      
+    188                                      // Move pointer to the end of file to append
+    189                                      FS_Lseek(&fileObject, FS_GetSizeOfFile(&fileObject));
+   \   0002C2   ....1E42.... MOVX.W  &fileObject + 12, R14
+   \   0002C8   ....1F42.... MOVX.W  &fileObject + 14, R15
+   \   0002CE   ........     MOVA    #fileObject, R12
+   \   0002D2   ........     CALLA   #f_lseek
+    190                                      // Write captured CLEON sample to the openned file
+    191                                      FS_Write(&fileObject, &uniCLEONGPSData, sizeof(uniCLEONGPSData), &bw);
+   \   0002D6   ........     MOVA    #bw, R15
+   \   0002DA   3E40F81F     MOV.W   #0x1ff8, R14
+   \   0002DE   ........     MOVA    #uniCLEONGPSData, R13
+   \   0002E2   ........     MOVA    #fileObject, R12
+   \   0002E6   ........     CALLA   #f_write
+    192                                      // Flush cached information of a writing file
+    193                                      FS_Sync(&fileObject);
+   \   0002EA   ........     MOVA    #fileObject, R12
+   \   0002EE   ........     CALLA   #f_sync
+    194                                      
+    195                                      // V(bFLAG_GPSSignalIsBeingCaptured)
+    196                                      bFLAG_GPSSignalIsBeingCaptured = _CLEAR_;
+   \   0002F2   ....C243.... MOVX.B  #0x0, &bFLAG_GPSSignalIsBeingCaptured
+    197                                  }
+    198                              }
+   \                     ??APP_Log_13:
+   \   0002F8   2F41         MOV.W   @SP, R15
+   \   0002FA   1F53         ADD.W   #0x1, R15
+   \   0002FC   814F0000     MOV.W   R15, 0(SP)
+   \   000300   553F         JMP     ??APP_Log_3
+    199                              
+    200          ///////////////////////////// STORING SENSOR DATA  /////////////////////////////
+    201          #if (APP_LOG_TEMP_AND_HUM_SENSORS == _ENABLE_) || (APP_LOG_LIGHT_SENSORS == _ENABLE_)                    
+    202                              // Move pointer to the end of file to append
+    203                              FS_Lseek(&fileObject, FS_GetSizeOfFile(&fileObject));
+   \                     ??APP_Log_12:
+   \   000302   ....1E42.... MOVX.W  &fileObject + 12, R14
+   \   000308   ....1F42.... MOVX.W  &fileObject + 14, R15
+   \   00030E   ........     MOVA    #fileObject, R12
+   \   000312   ........     CALLA   #f_lseek
+    204                              // Write captured CLEON sample to the openned file
+    205                              FS_Write(&fileObject, &uniCLEONSensorData, sizeof(uniCLEONSensorData), &bw);
+   \   000316   ........     MOVA    #bw, R15
+   \   00031A   3E42         MOV.W   #0x8, R14
+   \   00031C   ........     MOVA    #uniCLEONSensorData, R13
+   \   000320   ........     MOVA    #fileObject, R12
+   \   000324   ........     CALLA   #f_write
+    206                              // Flush cached information of a writing file
+    207                              FS_Sync(&fileObject);
+   \   000328   ........     MOVA    #fileObject, R12
+   \   00032C   ........     CALLA   #f_sync
+    208          #endif
+    209                              
+    210          ///////////////////////////////// WRAPPING UP //////////////////////////////////                                  
+    211                              // Stop GPS
+    212                              SYS_GPS_StopOperation();
+   \   000330   ........     CALLA   #SYS_GPS_StopOperation
+    213              
+    214                              // Increase the total number of samples written to the openned file
+    215                              if(ulNumberOfCLEONSamplesInAFileCount < (ulSampleCount - 1)){
+   \   000334   3E43         MOV.W   #0xffff, R14
+   \   000336   3F43         MOV.W   #0xffff, R15
+   \   000338   ....1E52.... ADDX.W  &ulSampleCount, R14
+   \   00033E   ....1F62.... ADDCX.W &ulSampleCount + 2, R15
+   \   000344   ....829F.... CMPX.W  R15, &ulNumberOfCLEONSamplesInAFileCount + 2
+   \   00034A   0528         JNC     ??APP_Log_16
+   \   00034C   0B20         JNE     ??APP_Log_17
+   \   00034E   ....829E.... CMPX.W  R14, &ulNumberOfCLEONSamplesInAFileCount
+   \   000354   072C         JC      ??APP_Log_17
+    216                                  ulNumberOfCLEONSamplesInAFileCount++;
+   \                     ??APP_Log_16:
+   \   000356   ....9253.... ADDX.W  #0x1, &ulNumberOfCLEONSamplesInAFileCount
+   \   00035C   ....8263.... ADDCX.W #0x0, &ulNumberOfCLEONSamplesInAFileCount + 2
+   \   000362   193C         JMP     ??APP_Log_18
+    217                              }else if(ulNumberOfCLEONSamplesInAFileCount == (ulSampleCount - 1)){
+   \                     ??APP_Log_17:
+   \   000364   3E43         MOV.W   #0xffff, R14
+   \   000366   3F43         MOV.W   #0xffff, R15
+   \   000368   ....1E52.... ADDX.W  &ulSampleCount, R14
+   \   00036E   ....1F62.... ADDCX.W &ulSampleCount + 2, R15
+   \   000374   ....829E.... CMPX.W  R14, &ulNumberOfCLEONSamplesInAFileCount
+   \   00037A   0D20         JNE     ??APP_Log_18
+   \   00037C   ....829F.... CMPX.W  R15, &ulNumberOfCLEONSamplesInAFileCount + 2
+   \   000382   0920         JNE     ??APP_Log_18
+    218                                  ulNumberOfCLEONSamplesInAFileCount = 0;
+   \   000384   ....8243.... MOVX.W  #0x0, &ulNumberOfCLEONSamplesInAFileCount
+   \   00038A   ....8243.... MOVX.W  #0x0, &ulNumberOfCLEONSamplesInAFileCount + 2
+    219                                  bFLAG_ISLoggingRequested = _CLEAR_;
+   \   000390   ....C243.... MOVX.B  #0x0, &bFLAG_ISLoggingRequested
+    220                              }
+    221          
+    222                              // If the total number of captured and written samples reach value defined in 'APP_LOG_SAMPLES_IN_A_FILE',
+    223                              // close file and reset counter to zero
+    224                              if(ulNumberOfCLEONSamplesInAFileCount == APP_LOG_SAMPLES_IN_A_FILE){
+   \                     ??APP_Log_18:
+   \   000396   ....B290A086 CMPX.W  #0x86a0, &ulNumberOfCLEONSamplesInAFileCount
+   \            ....        
+   \   00039E   0E20         JNE     ??APP_Log_19
+   \   0003A0   ....9293.... CMPX.W  #0x1, &ulNumberOfCLEONSamplesInAFileCount + 2
+   \   0003A6   0A20         JNE     ??APP_Log_19
+    225                                  FS_Close(&fileObject);
+   \   0003A8   ........     MOVA    #fileObject, R12
+   \   0003AC   ........     CALLA   #f_close
+    226                                  ulNumberOfCLEONSamplesInAFileCount = 0;    
+   \   0003B0   ....8243.... MOVX.W  #0x0, &ulNumberOfCLEONSamplesInAFileCount
+   \   0003B6   ....8243.... MOVX.W  #0x0, &ulNumberOfCLEONSamplesInAFileCount + 2
+    227                              }
+    228          
+    229          #if APP_LOG_LED_INDICATION == _ENABLE_        
+    230                              // Turn LED2 off
+    231                              SAMPLING_IN_ACTION_LED_OFF(); 
+   \                     ??APP_Log_19:
+   \   0003BC   F2D040008202 BIS.B   #0x40, &0x282
+    232          #endif // APP_LOG_LED_INDICATION    
+    233                          }
+    234                      }
+    235                  }
+    236          #if TIME_MEASUREMENT == _ENABLE_                    
+    237                  if(ulNumberOfCLEONSamplesInAFileCount == NUMBER_OF_TIME_MEASUREMENT_TEST){
+    238                      for(int i = 0 ; i < NUMBER_OF_TIME_MEASUREMENT_TEST; i++){
+    239                          /*
+    240                          if(i == 0 ){
+    241                              printf("Sample #\n");
+    242                              printf("Time at APP_Log start - Time at user button press\n");
+    243                              printf("Time at start writing header to SD card - Time at APP_Log start\n");
+    244                              printf("Time at the first GPS signal chunk - Time at start writing header to SD card\n\n");
+    245                          }
+    246                          */
+    247                          printf("Sample %d\n", i);
+    248                          printf("%lld ms\n", (stTimeMeasurement[i].ullTimeAtStartAPPLog - stTimeMeasurement[i].ullTimeAtUserButtonPressed) / 10000);    
+    249                          printf("%lld ms\n", (stTimeMeasurement[i].ullTimeAtWriteHeaderToSDCard - stTimeMeasurement[i].ullTimeAtStartAPPLog) / 10000);    
+    250                          printf("%lld ms\n\n", (stTimeMeasurement[i].ullTimeAtFirstChunk - stTimeMeasurement[i].ullTimeAtWriteHeaderToSDCard) / 10000);    
+    251                      }
+    252                  }
+    253          #endif                                        
+    254                  
+    255                  // If sensing is set to on-demand mode, clear the flag
+    256                  // This locates at the end of the fuction 'APP_Log()' to prevent the flag from being set again during the function is in operation
+    257                  if(ulSampleCount == 1) bFLAG_ISLoggingRequested = _CLEAR_;
+   \                     ??APP_Log_5:
+   \   0003C2   ....9293.... CMPX.W  #0x1, &ulSampleCount
+   \   0003C8   0720         JNE     ??APP_Log_4
+   \   0003CA   ....8293.... CMPX.W  #0x0, &ulSampleCount + 2
+   \   0003D0   0320         JNE     ??APP_Log_4
+   \   0003D2   ....C243.... MOVX.B  #0x0, &bFLAG_ISLoggingRequested
+    258              }
+    259          }
+   \                     ??APP_Log_4:
+   \   0003D8   31500A00     ADD.W   #0xa, SP
+   \   0003DC   7416         POPM.A  #0x8, R11
+   \   0003DE   1001         RETA
+   \   0003E0                REQUIRE _A_PEOUT_L
+   \   0003E0                REQUIRE _A_ADC12CTL0_L
+   \   0003E0                REQUIRE _A_DMA0CTL_L
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "%lld_s16368_if4092000...">`:
+   \   000000   256C6C645F73 DC8 "%lld_s16368_if4092000_m2_i2_s8.bin"
+   \            31363336385F
+   \            696634303932
+   \            3030305F6D32
+   \            5F69325F7338
+   \            2E62696E00  
+    260          
+    261          
+    262          
+    263          
+    264          
+    265          
+    266          
+    267          
+    268          
+    269          
+    270          
+    271          
+    272          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+      54  APP_Log
+            46 -> SYS_GPS_StartOperation
+            46 -> SYS_GPS_StopOperation
+            46 -> SYS_SENSORS_S108701_Read
+            46 -> SYS_SENSORS_S1087_Read
+            46 -> SYS_SENSORS_SHT11_Off
+            46 -> SYS_SENSORS_SHT11_On
+            46 -> SYS_SENSORS_SHT11_ReadHumidity
+            46 -> SYS_SENSORS_SHT11_ReadTemperature
+            46 -> _Div64u
+            54 -> _Div64u
+            46 -> f_close
+            46 -> f_lseek
+            54 -> f_open
+            46 -> f_sync
+            46 -> f_write
+            46 -> memset
+            54 -> sprintf
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      35  ?<Constant "%lld_s16368_if4092000...">
+     992  APP_Log
+       2  _A_ADC12CTL0_L
+       2  _A_DMA0CTL_L
+       2  _A_PEOUT_L
+       1  bFLAG_CLEONSampleIntervalConuter
+       1  bFLAG_GPSSignalIsBeingCaptured
+       1  bFLAG_ISLoggingRequested
+      50  sFilename
+       4  ulChunkCount
+       4  ulChunkGap
+       4  ulNumberOfCLEONSamplesInAFileCount
+       4  ulSampleCount
+       4  ulSampleGap
+
+ 
+ 992 bytes in segment CODE
+   6 bytes in segment DATA16_AN
+  35 bytes in segment DATA20_C
+  73 bytes in segment DATA20_Z
+ 
+ 992 bytes of CODE  memory
+  35 bytes of CONST memory
+  73 bytes of DATA  memory (+ 6 bytes shared)
+
+Errors: none
+Warnings: none

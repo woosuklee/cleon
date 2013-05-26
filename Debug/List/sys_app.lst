@@ -1,0 +1,1223 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.1.50592/W32 for MSP430       17/Nov/2012  15:04:40 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_app. #
+#                     c                                                       #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_app. #
+#                     c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\Debug\L #
+#                     ist\" -la "C:\Users\woosuk\Dropbox\lws\ESL\3.           #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ESL\3 #
+#                     . Research\7. Fall 2012\4_CLEON\3_software\1_developing #
+#                     \cleon\Debug\Obj\" --debug -D__MSP430F5338__ -e         #
+#                     --double=64 --dlib_config "C:\Program Files (x86)\IAR   #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\platform\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\FatF #
+#                     s\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -Oh --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\s #
+#                     ys_app.lst                                              #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\sy #
+#                     s_app.r43                                               #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\sys\sys_app.c
+      1          /**
+      2          @file       sys_app.c
+      3          
+      4          @brief      Testing application interface
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x700
+   \   union <unnamed> __data16 _A_ADC12CTL0_L
+   \                     _A_ADC12CTL0_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x510
+   \   union <unnamed> __data16 _A_DMA0CTL_L
+   \                     _A_DMA0CTL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x262
+   \   union <unnamed> __data16 _A_PDOUT_L
+   \                     _A_PDOUT_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x282
+   \   union <unnamed> __data16 _A_PEOUT_L
+   \                     _A_PEOUT_L:
+   \   000000                DS8 2
+      9          #include "hal_define.h"
+     10          #include "fs_define.h"
+     11          
+     12          extern cleon_data_u  uniCLEON;
+     13          extern usb_frame_u   uniUSBRecvFrame;
+     14          
+     15          extern time_tick_u  uniTimeTick;
+     16          
+     17          extern bool bFLAG_IsTimeSynced;
+     18          extern bool bFLAG_DMATransferCompleted;
+     19          extern bool bFLAG_GPIOUserBtnPressed;
+     20          extern bool bFLAG_RTCTimeTickOfSecond;
+     21          extern bool bFLAG_USBFrameReceived;
+     22          extern bool bFLAG_GPSSignalIsBeingCaptured;
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     23                 bool bFLAG_USBFrameIsBeingProcessed = _CLEAR_;
+   \                     bFLAG_USBFrameIsBeingProcessed:
+   \   000000                DS8 1
+     24                 
+     25          extern FATFS Fatfs;		        
+     26          extern FIL   fileObject;	    
+     27          extern BYTE  FatFsReadBuff[128];
+     28                 
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     29          unsigned char ucRTCDelayCountForGPS = 0;
+   \                     ucRTCDelayCountForGPS:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     30          unsigned char ucRTCTwoSecondsCounter = 0;
+   \                     ucRTCTwoSecondsCounter:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 2, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     31          unsigned int  uiNumberOfGPSData = 0;
+   \                     uiNumberOfGPSData:
+   \   000000                DS8 2
+     32          
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     33          unsigned char ucCollectionSampleGroupCount = 0;
+   \                     ucCollectionSampleGroupCount:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+     34          unsigned char ucChunkInCollectionSampleGroupCount = 0;
+   \                     ucChunkInCollectionSampleGroupCount:
+   \   000000                DS8 1
+     35          
+     36          /*----------------------------------------------------------------------------*/
+     37          /**
+     38          @brief    Blinking a LED in every second 
+     39          
+     40          @return   void
+     41          
+     42          @param    void
+     43          */
+
+   \                                 In  segment CODE, align 2
+     44          void SYS_APP_BoardLivenessLED(void)
+   \                     SYS_APP_BoardLivenessLED:
+     45          {
+     46              if(bFLAG_RTCTimeTickOfSecond == _SET_){
+   \   000000   ....C293.... CMPX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+   \   000006   0624         JEQ     ??SYS_APP_BoardLivenessLED_0
+     47                  bFLAG_RTCTimeTickOfSecond = _CLEAR_;
+   \   000008   ....C243.... MOVX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+     48                  LED4_TOGGLE();
+   \   00000E   F2E080008202 XOR.B   #0x80, &0x282
+     49              }
+     50          }
+   \                     ??SYS_APP_BoardLivenessLED_0:
+   \   000014   1001         RETA
+   \   000016                REQUIRE _A_PEOUT_L
+     51            
+     52          /*----------------------------------------------------------------------------*/
+     53          /**
+     54          @brief    Collect three GPS samples with 50ms interval
+     55                    (Same sensor data measured at the first chunk will be maintained for the rest as well)
+     56          
+     57          @return   void
+     58          
+     59          @param    void
+     60          */
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine1:
+   \   000000   ........     MOVA    #`?<Constant "\\r\\n">`, R12
+   \   000004   ........     BRA     #SYS_USB_Printf
+
+   \                                 In  segment CODE, align 2
+     61          void SYS_APP_CollectThreeSamples(void)
+   \                     SYS_APP_CollectThreeSamples:
+     62          {
+   \   000000   7B14         PUSHM.A #0x8, R11
+   \   000002   31803400     SUB.W   #0x34, SP
+     63              if(bFLAG_GPIOUserBtnPressed == _SET_){
+   \   000006   ....C293.... CMPX.B  #0x0, &bFLAG_GPIOUserBtnPressed
+   \   00000C   D524         JEQ     ??SYS_APP_CollectThreeSamples_4
+     64                  bFLAG_GPIOUserBtnPressed = _CLEAR_;
+   \   00000E   ....C243.... MOVX.B  #0x0, &bFLAG_GPIOUserBtnPressed
+     65                  if(bFLAG_USBFrameIsBeingProcessed == _CLEAR_){
+   \   000014   ....C293.... CMPX.B  #0x0, &bFLAG_USBFrameIsBeingProcessed
+   \   00001A   CE20         JNE     ??SYS_APP_CollectThreeSamples_4
+     66                      if(bFLAG_IsTimeSynced == _FALSE_){
+   \   00001C   ....C293.... CMPX.B  #0x0, &bFLAG_IsTimeSynced
+   \   000022   0620         JNE     ??SYS_APP_CollectThreeSamples_5
+     67                          SYS_USB_Printf("\r\n===> (warning!) CLEON time tick is not yet synchronized\r\n");
+   \   000024   ........     MOVA    #`?<Constant "\\r\\n===> (warning!) CLE...">`, R12
+   \   000028   ........     CALLA   #SYS_USB_Printf
+     68                          SYS_USB_Printf("\r\n");
+   \   00002C   ........     CALLA   #?Subroutine1
+     69                      }
+     70                      SYS_USB_Printf("===> Logging started\r\n");
+   \                     ??SYS_APP_CollectThreeSamples_5:
+   \   000030   ........     MOVA    #`?<Constant "===> Logging started\\r\\n">`, R12
+   \   000034   ........     CALLA   #SYS_USB_Printf
+     71                      
+     72                      // Turn LED5 on (this LED will be truned off when FLASH write is done)
+     73                      LED5_ON();                      
+   \   000038   ........     CALLA   #?Subroutine0
+     74                      // Turn SHT11 on
+     75                      SYS_SENSORS_SHT11_On();
+     76                      uniCLEON.stCLEON.uniSensors.stSensors.uiTemperature = SYS_SENSORS_SHT11_ReadTemperature();
+     77                      uniCLEON.stCLEON.uniSensors.stSensors.uiHumidity    = SYS_SENSORS_SHT11_ReadHumidity();
+     78                      // Turn SHT11 off
+     79                      SYS_SENSORS_SHT11_Off();
+     80                      
+     81                      // Start ADC conversion
+     82                      HAL_ADC_StartADC();   
+     83                      uniCLEON.stCLEON.uniSensors.stSensors.uiLightPAR    = SYS_SENSORS_S1087_Read(); 
+     84                      uniCLEON.stCLEON.uniSensors.stSensors.uiLightTSR    = SYS_SENSORS_S108701_Read();
+     85                      // Stop ADC conversion
+     86                      HAL_ADC_StopADC();
+     87                      
+     88                      for(unsigned long i= (ucCollectionSampleGroupCount * CLEON_NUMBER_OF_CHUNKS_IN_A_GROUP) ; i < (CLEON_NUMBER_OF_CHUNKS_IN_A_GROUP * (ucCollectionSampleGroupCount + 1)) ; i++){
+   \                     ??CrossCallReturnLabel_1:
+   \   00003C   ........     MOVA    #ucCollectionSampleGroupCount, R9
+   \   000040   6F49         MOV.B   @R9, R15
+   \   000042   0A4F         MOV.W   R15, R10
+   \   000044                RPT     #0x2
+   \   000044   41180A5F     ADDX.W  R15, R10
+   \   000048   0B4A         MOV.W   R10, R11
+   \   00004A   3BE3         XOR.W   #0xffff, R11
+   \   00004C   0B5B         RLA.W   R11
+   \   00004E   0B7B         SUBC.W  R11, R11
+   \   000050   0441         MOV.W   SP, R4
+   \   000052   2453         ADD.W   #0x2, R4
+   \   000054   0541         MOV.W   SP, R5
+   \   000056   0553         ADD.W   #0x0, R5
+   \   000058   ........     MOVA    #bFLAG_GPSSignalIsBeingCaptured, R7
+   \   00005C   ........     MOVA    #ucChunkInCollectionSampleGroupCount, R6
+   \   000060   873C         JMP     ??SYS_APP_CollectThreeSamples_6
+     89                          ucChunkInCollectionSampleGroupCount++;
+   \                     ??SYS_APP_CollectThreeSamples_2:
+   \   000062   D6530000     ADD.B   #0x1, 0(R6)
+     90                          
+     91                          SYS_USB_Printf("===> Start logging chunk #%d in group #%d\r\n", ucChunkInCollectionSampleGroupCount, ucCollectionSampleGroupCount);
+   \   000066   0D12         PUSH.W  R13
+   \   000068   6F46         MOV.B   @R6, R15
+   \   00006A   0F12         PUSH.W  R15
+   \   00006C   ........     MOVA    #`?<Constant "===> Start logging ch...">`, R12
+   \   000070   ........     CALLA   #SYS_USB_Printf
+     92                          
+     93                          if(bFLAG_GPSSignalIsBeingCaptured == _CLEAR_){
+   \   000074   2152         ADD.W   #0x4, SP
+   \   000076   C7930000     CMP.B   #0x0, 0(R7)
+   \   00007A   6F20         JNE     ??SYS_APP_CollectThreeSamples_7
+     94                              bFLAG_GPSSignalIsBeingCaptured = _SET_;
+   \   00007C   D7430000     MOV.B   #0x1, 0(R7)
+     95                              
+     96                              uniCLEON.stCLEON.uniChunkCount.ulOriginalVar = 1;
+   \   000080   98431C00     MOV.W   #0x1, 0x1c(R8)
+   \   000084   88431E00     MOV.W   #0x0, 0x1e(R8)
+     97                              uniCLEON.stCLEON.uniChunkGapMS.ulOriginalVar = 1000;
+   \   000088   B840E8032400 MOV.W   #0x3e8, 0x24(R8)
+   \   00008E   88432600     MOV.W   #0x0, 0x26(R8)
+     98                                                  
+     99                              // Interval between chunk is 1 sec                    
+    100                              while(!bFLAG_RTCTimeTickOfSecond);
+   \                     ??SYS_APP_CollectThreeSamples_0:
+   \   000092   ....C293.... CMPX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+   \   000098   FC27         JEQ     ??SYS_APP_CollectThreeSamples_0
+    101                              bFLAG_RTCTimeTickOfSecond = _CLEAR_;
+   \   00009A   ....C243.... MOVX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+    102                              
+    103                              // Update time tick information
+    104                              uniCLEON.stCLEON.uniRTCTime.llMillisecondTimeTickCounter = uniTimeTick.llMillisecondTimeTick;
+   \   0000A0   ........     MOVA    #uniTimeTick, R15
+   \   0000A4   B84F0800     MOV.W   @R15+, 0x8(R8)
+   \   0000A8   B84F0A00     MOV.W   @R15+, 0xa(R8)
+   \   0000AC   B84F0C00     MOV.W   @R15+, 0xc(R8)
+   \   0000B0   B84F0E00     MOV.W   @R15+, 0xe(R8)
+    105                              
+    106                              // Start DMA transfer
+    107                              DMA0CTL |= DMAEN;  
+   \   0000B4   B2D010001005 BIS.W   #0x10, &0x510
+    108                                  
+    109                              // Update time for time stamping
+    110                              SYS_USB_Printf("===> Logging started at ms time tick of ");
+   \   0000BA   ........     MOVA    #`?<Constant "===> Logging started ...">`, R12
+   \   0000BE   ........     CALLA   #SYS_USB_Printf
+    111                              SYS_USB_Printf("%lld\r\n", uniTimeTick.llMillisecondTimeTick);
+   \   0000C2   ....1212.... PUSHX.W &uniTimeTick + 6
+   \   0000C8   ....1212.... PUSHX.W &uniTimeTick + 4
+   \   0000CE   ....1212.... PUSHX.W &uniTimeTick + 2
+   \   0000D4   ....1212.... PUSHX.W &uniTimeTick
+   \   0000DA   ........     MOVA    #`?<Constant "%lld\\r\\n">`, R12
+   \   0000DE   ........     CALLA   #SYS_USB_Printf
+   \   0000E2   3152         ADD.W   #0x8, SP
+   \   0000E4   ........     CALLA   #?Subroutine3
+    112                              
+    113                              // Wait until DMA-transfer-complete-IF is set
+    114                              while(!bFLAG_DMATransferCompleted);
+    115                              bFLAG_DMATransferCompleted = _CLEAR_;
+    116          
+    117                              //----------------------------------------------------------
+    118                              // Store CLEON data structure to Micro SD (FatFs)
+    119                              UINT bw;
+    120                              char filename[50] = {0};
+   \                     ??CrossCallReturnLabel_9:
+   \   0000E8   0C41         MOV.W   SP, R12
+   \   0000EA   2C53         ADD.W   #0x2, R12
+   \   0000EC   3E403200     MOV.W   #0x32, R14
+   \   0000F0   ........     CALLA   #?ClearMemoryBytes
+    121                              sprintf(filename, "%lld_s16368_if4092000_m2_i2.txt", uniCLEON.stCLEON.uniRTCTime.llMillisecondTimeTickCounter);
+   \   0000F4   18120E00     PUSH.W  0xe(R8)
+   \   0000F8   18120C00     PUSH.W  0xc(R8)
+   \   0000FC   18120A00     PUSH.W  0xa(R8)
+   \   000100   18120800     PUSH.W  0x8(R8)
+   \   000104   ........     MOVA    #`?<Constant "%lld_s16368_if4092000...">`, R13
+   \   000108   CC04         MOVA    R4, R12
+   \   00010A   ........     CALLA   #sprintf
+    122                              
+    123                              FS_Mount(0, &Fatfs);
+   \   00010E   ........     MOVA    #Fatfs, R13
+   \   000112   4C43         MOV.B   #0x0, R12
+   \   000114   ........     CALLA   #f_mount
+    124                              FS_MakeDir("log");
+   \   000118   ........     MOVA    #`?<Constant "log">`, R12
+   \   00011C   ........     CALLA   #f_mkdir
+    125                              FS_ChangeDir("/log");
+   \   000120   ........     MOVA    #`?<Constant "/log">`, R12
+   \   000124   ........     CALLA   #f_chdir
+    126                              FS_Open(&fileObject, filename, FA_WRITE | FA_CREATE_ALWAYS);
+   \   000128   7E400A00     MOV.B   #0xa, R14
+   \   00012C   CD04         MOVA    R4, R13
+   \   00012E   ........     MOVA    #fileObject, R12
+   \   000132   ........     CALLA   #f_open
+    127                              FS_Write(&fileObject, &uniCLEON, sizeof(uniCLEON), &bw);
+   \   000136   CF05         MOVA    R5, R15
+   \   000138   3E402C20     MOV.W   #0x202c, R14
+   \   00013C   CD08         MOVA    R8, R13
+   \   00013E   ........     MOVA    #fileObject, R12
+   \   000142   ........     CALLA   #f_write
+    128                              FS_Close(&fileObject);
+   \   000146   ........     MOVA    #fileObject, R12
+   \   00014A   ........     CALLA   #f_close
+    129                              //----------------------------------------------------------
+    130                              
+    131                            //HAL_FLASH_Write(sizeof(uniCLEON), (unsigned char *)&uniCLEON, (unsigned char *)(MSP430_INTERNAL_FLASH_BANK1_ADDRESS + (0x00004000 * i)));
+    132                              uiNumberOfGPSData++;
+   \   00014E   ....9253.... ADDX.W  #0x1, &uiNumberOfGPSData
+    133                                  
+    134                              bFLAG_GPSSignalIsBeingCaptured = _CLEAR_;
+   \   000154   C7430000     MOV.B   #0x0, 0(R7)
+   \   000158   3152         ADD.W   #0x8, SP
+    135                          }
+    136                          SYS_USB_Printf("===> Chunk #%d in group #%d has been captured\r\n", ucChunkInCollectionSampleGroupCount, ucCollectionSampleGroupCount);
+   \                     ??SYS_APP_CollectThreeSamples_7:
+   \   00015A   6F49         MOV.B   @R9, R15
+   \   00015C   0F12         PUSH.W  R15
+   \   00015E   6F46         MOV.B   @R6, R15
+   \   000160   0F12         PUSH.W  R15
+   \   000162   ........     MOVA    #`?<Constant "===> Chunk #%d in gro...">`, R12
+   \   000166   ........     CALLA   #SYS_USB_Printf
+    137                      }
+   \   00016A   1A53         ADD.W   #0x1, R10
+   \   00016C   0B63         ADDC.W  #0x0, R11
+   \   00016E   2152         ADD.W   #0x4, SP
+   \                     ??SYS_APP_CollectThreeSamples_6:
+   \   000170   6D49         MOV.B   @R9, R13
+   \   000172   0F4D         MOV.W   R13, R15
+   \   000174   1F53         ADD.W   #0x1, R15
+   \   000176   0E4F         MOV.W   R15, R14
+   \   000178                RPT     #0x2
+   \   000178   41180E5F     ADDX.W  R15, R14
+   \   00017C   0F4E         MOV.W   R14, R15
+   \   00017E   3FE3         XOR.W   #0xffff, R15
+   \   000180   0F5F         RLA.W   R15
+   \   000182   0F7F         SUBC.W  R15, R15
+   \   000184   0B9F         CMP.W   R15, R11
+   \   000186   6D2B         JNC     ??SYS_APP_CollectThreeSamples_2
+   \   000188   0220         JNE     ??SYS_APP_CollectThreeSamples_8
+   \   00018A   0A9E         CMP.W   R14, R10
+   \   00018C   6A2B         JNC     ??SYS_APP_CollectThreeSamples_2
+    138                      ucCollectionSampleGroupCount++;
+   \                     ??SYS_APP_CollectThreeSamples_8:
+   \   00018E   D9530000     ADD.B   #0x1, 0(R9)
+    139                      
+    140                      ucChunkInCollectionSampleGroupCount = 0;
+   \   000192   C6430000     MOV.B   #0x0, 0(R6)
+    141                      
+    142                      if(uiNumberOfGPSData > 12)           uiNumberOfGPSData = 12;
+   \   000196   ....B2900D00 CMPX.W  #0xd, &uiNumberOfGPSData
+   \            ....        
+   \   00019E   0428         JNC     ??SYS_APP_CollectThreeSamples_9
+   \   0001A0   ....B2400C00 MOVX.W  #0xc, &uiNumberOfGPSData
+   \            ....        
+    143                      if(ucCollectionSampleGroupCount > 3) ucCollectionSampleGroupCount = 0;
+   \                     ??SYS_APP_CollectThreeSamples_9:
+   \   0001A8   E9920000     CMP.B   #0x4, 0(R9)
+   \   0001AC   0228         JNC     ??SYS_APP_CollectThreeSamples_10
+   \   0001AE   C9430000     MOV.B   #0x0, 0(R9)
+    144                      
+    145                      LED5_OFF(); 
+   \                     ??SYS_APP_CollectThreeSamples_10:
+   \   0001B2   F2D040008202 BIS.B   #0x40, &0x282
+    146                  }
+    147              }
+    148          }
+   \                     ??SYS_APP_CollectThreeSamples_4:
+   \   0001B8   31503400     ADD.W   #0x34, SP
+   \   0001BC   7416         POPM.A  #0x8, R11
+   \   0001BE   1001         RETA
+   \   0001C0                REQUIRE _A_PEOUT_L
+   \   0001C0                REQUIRE _A_ADC12CTL0_L
+   \   0001C0                REQUIRE _A_DMA0CTL_L
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine3:
+   \   000000   ....C293.... CMPX.B  #0x0, &bFLAG_DMATransferCompleted
+   \   000006   FC27         JEQ     ?Subroutine3
+   \   000008   ....C243.... MOVX.B  #0x0, &bFLAG_DMATransferCompleted
+   \   00000E   1001         RETA
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine0:
+   \   000000   ........     CALLA   #?Subroutine5
+   \                     ??CrossCallReturnLabel_12:
+   \   000004   ........     MOVA    #uniCLEON, R8
+   \   000008   ........     CALLA   #SYS_SENSORS_SHT11_ReadTemperature
+   \   00000C   884C2420     MOV.W   R12, 0x2024(R8)
+   \   000010   ........     CALLA   #SYS_SENSORS_SHT11_ReadHumidity
+   \   000014   884C2620     MOV.W   R12, 0x2026(R8)
+   \   000018   ........     CALLA   #?Subroutine4
+   \                     ??CrossCallReturnLabel_10:
+   \   00001C   884C2A20     MOV.W   R12, 0x202a(R8)
+   \   000020   ........     CALLA   #SYS_SENSORS_S108701_Read
+   \   000024   884C2820     MOV.W   R12, 0x2028(R8)
+   \   000028   92C30007     BIC.W   #0x1, &0x700
+   \   00002C   1001         RETA
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine5:
+   \   000000   F2C040008202 BIC.B   #0x40, &0x282
+   \   000006   ........     BRA     #SYS_SENSORS_SHT11_On
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine4:
+   \   000000   ........     CALLA   #SYS_SENSORS_SHT11_Off
+   \   000004   92D30007     BIS.W   #0x1, &0x700
+   \   000008   ........     BRA     #SYS_SENSORS_S1087_Read
+    149          
+    150          /*----------------------------------------------------------------------------*/
+    151          /**
+    152          @brief    Processing a command frame received via USB
+    153          
+    154          @return   void
+    155          
+    156          @param    void
+    157          */
+
+   \                                 In  segment CODE, align 2
+    158          void SYS_APP_ProcessingReceivedUSBFrame(void)
+   \                     SYS_APP_ProcessingReceivedUSBFrame:
+    159          {
+   \   000000   1B14         PUSHM.A #0x2, R11
+    160              if(bFLAG_USBFrameReceived == _SET_){
+   \   000002   ....C293.... CMPX.B  #0x0, &bFLAG_USBFrameReceived
+   \   000008   CA24         JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_5
+    161                  bFLAG_USBFrameReceived = _CLEAR_;
+   \   00000A   ....C243.... MOVX.B  #0x0, &bFLAG_USBFrameReceived
+    162                  
+    163                  bFLAG_USBFrameIsBeingProcessed = _SET_;
+   \   000010   ....D243.... MOVX.B  #0x1, &bFLAG_USBFrameIsBeingProcessed
+    164          
+    165                  switch(uniUSBRecvFrame.stUSBFrame.ucCommand){
+   \   000016   ........     MOVA    #uniUSBRecvFrame, R10
+   \   00001A   5E4A0300     MOV.B   0x3(R10), R14
+   \   00001E   5E83         SUB.B   #0x1, R14
+   \   000020   6A24         JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_6
+   \   000022   5E83         SUB.B   #0x1, R14
+   \   000024   6524         JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_7
+   \   000026   5E83         SUB.B   #0x1, R14
+   \   000028   AE24         JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_8
+   \   00002A   5E83         SUB.B   #0x1, R14
+   \   00002C   3B24         JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_9
+   \   00002E   5E83         SUB.B   #0x1, R14
+   \   000030   8624         JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_10
+   \   000032   5E83         SUB.B   #0x1, R14
+   \   000034   9F24         JEQ     ??SYS_APP_ProcessingReceivedUSBFrame_11
+   \   000036   5E83         SUB.B   #0x1, R14
+   \   000038   A820         JNE     ??SYS_APP_ProcessingReceivedUSBFrame_3
+    166                      case USB_FRAME_COMMAND_START_LOGGING:
+    167                          SYS_USB_Printf("===> Logging started\r\n");
+   \   00003A   ........     MOVA    #`?<Constant "===> Logging started\\r\\n">`, R12
+   \   00003E   ........     CALLA   #SYS_USB_Printf
+    168                          
+    169                          // Turn LED5 on (this LED will be truned off when FLASH write is done)
+    170                          LED5_ON();                      
+   \   000042   ........     CALLA   #?Subroutine5
+    171                          // Turn SHT11 on
+    172                          SYS_SENSORS_SHT11_On();
+    173                          uniCLEON.stCLEON.uniSensors.stSensors.uiTemperature = SYS_SENSORS_SHT11_ReadTemperature();
+   \                     ??CrossCallReturnLabel_13:
+   \   000046   ........     MOVA    #uniCLEON, R11
+   \   00004A   ........     CALLA   #SYS_SENSORS_SHT11_ReadTemperature
+   \   00004E   8B4C2420     MOV.W   R12, 0x2024(R11)
+    174                          uniCLEON.stCLEON.uniSensors.stSensors.uiHumidity    = SYS_SENSORS_SHT11_ReadHumidity();
+   \   000052   ........     CALLA   #SYS_SENSORS_SHT11_ReadHumidity
+   \   000056   8B4C2620     MOV.W   R12, 0x2026(R11)
+    175                          // Turn SHT11 off
+    176                          SYS_SENSORS_SHT11_Off();
+   \   00005A   ........     CALLA   #?Subroutine4
+    177                          
+    178                          // Start ADC conversion
+    179                          HAL_ADC_StartADC();   
+    180                          uniCLEON.stCLEON.uniSensors.stSensors.uiLightPAR    = SYS_SENSORS_S1087_Read(); 
+   \                     ??CrossCallReturnLabel_11:
+   \   00005E   8B4C2A20     MOV.W   R12, 0x202a(R11)
+    181                          uniCLEON.stCLEON.uniSensors.stSensors.uiLightTSR    = SYS_SENSORS_S108701_Read();
+   \   000062   ........     CALLA   #SYS_SENSORS_S108701_Read
+   \   000066   8B4C2820     MOV.W   R12, 0x2028(R11)
+    182                          // Stop ADC conversion
+    183                          HAL_ADC_StopADC();
+   \   00006A   92C30007     BIC.W   #0x1, &0x700
+    184                          
+    185                          // Update time for time stamping
+    186                          HAL_ReadCurrentTimeTick();
+   \   00006E   ........     CALLA   #HAL_ReadCurrentTimeTick
+    187                          
+    188                          // Start DMA transfer
+    189                          DMA0CTL |= DMAEN;  
+   \   000072   B2D010001005 BIS.W   #0x10, &0x510
+   \   000078   ........     CALLA   #?Subroutine3
+    190                          
+    191                          // Wait until DMA-transfer-complete-IF is set
+    192                          while(!bFLAG_DMATransferCompleted);
+    193                          bFLAG_DMATransferCompleted = _CLEAR_;
+    194                          
+    195                          SYS_USB_Printf("Stored GPS data\r\n");
+   \                     ??CrossCallReturnLabel_8:
+   \   00007C   ........     MOVA    #`?<Constant "Stored GPS data\\r\\n">`, R12
+   \   000080   ........     CALLA   #SYS_USB_Printf
+    196                          for(int i = 0 ; i < 8236 ;i++){
+    197                              SYS_USB_Printf("%.2x ", uniCLEON.ucSingleByte[i]);
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_1:
+   \   000084   7F4B         MOV.B   @R11+, R15
+   \   000086   0F12         PUSH.W  R15
+   \   000088   ........     MOVA    #`?<Constant "%.2x ">`, R12
+   \   00008C   ........     CALLA   #SYS_USB_Printf
+    198                          }
+   \   000090   2153         ADD.W   #0x2, SP
+   \   000092   ........     CMPA    #uniCLEON + 8236, R11
+   \   000096   F623         JNE     ??SYS_APP_ProcessingReceivedUSBFrame_1
+    199                          SYS_USB_Printf("\r\n");
+   \   000098   ........     CALLA   #?Subroutine1
+    200                          
+    201                          LED5_OFF(); 
+   \                     ??CrossCallReturnLabel_2:
+   \   00009C   F2D040008202 BIS.B   #0x40, &0x282
+    202           
+    203                          break;
+   \   0000A2   733C         JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+    204                      case USB_FRAME_COMMAND_CONNECT:
+    205                          SYS_USB_Printf("===> Welcome to CLEON\n");
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_9:
+   \   0000A4   ........     MOVA    #`?<Constant "===> Welcome to CLEON\\n">`, R12
+   \   0000A8   ........     CALLA   #SYS_USB_Printf
+    206                          SYS_USB_Printf("===> You are now connected to CLEON\n");
+   \   0000AC   ........     MOVA    #`?<Constant "===> You are now conn...">`, R12
+   \   0000B0   ........     CALLA   #SYS_USB_Printf
+    207                          SYS_USB_Printf("===> - CLCOK SETTING\r\n");       
+   \   0000B4   ........     MOVA    #`?<Constant "===> - CLCOK SETTING\\r\\n">`, R12
+   \   0000B8   ........     CALLA   #SYS_USB_Printf
+    208                          SYS_USB_Printf("===>       MCLK  = 12MHz\r\n");
+   \   0000BC   ........     MOVA    #`?<Constant "===>       MCLK  = 12...">`, R12
+   \   0000C0   ........     CALLA   #SYS_USB_Printf
+    209                          SYS_USB_Printf("===>       ACLK  = 32768Hz\r\n");
+   \   0000C4   ........     MOVA    #`?<Constant "===>       ACLK  = 32...">`, R12
+   \   0000C8   ........     CALLA   #SYS_USB_Printf
+    210                          SYS_USB_Printf("===>       SMCLK = 12MHz\r\n");
+   \   0000CC   ........     MOVA    #`?<Constant "===>       SMCLK = 12...">`, R12
+   \   0000D0   ........     CALLA   #SYS_USB_Printf
+    211                          SYS_USB_Printf("===> - Number of stored CLEON samples: %d\n", uiNumberOfGPSData);
+   \   0000D4   ....1212.... PUSHX.W &uiNumberOfGPSData
+   \   0000DA   ........     MOVA    #`?<Constant "===> - Number of stor...">`, R12
+   \   0000DE   ........     CALLA   #SYS_USB_Printf
+    212                          SYS_USB_Printf("===> - Current CLEON time (or ms tick) is ");
+   \   0000E2   ........     MOVA    #`?<Constant "===> - Current CLEON ...">`, R12
+   \   0000E6   ........     CALLA   #SYS_USB_Printf
+    213                          HAL_ReadCurrentTimeTick();
+   \   0000EA   ........     CALLA   #HAL_ReadCurrentTimeTick
+    214                          break;
+   \   0000EE   493C         JMP     ??SYS_APP_ProcessingReceivedUSBFrame_12
+    215                      case USB_FRAME_COMMAND_REQUEST_SYSTEM_TIME:
+    216                          SYS_USB_Printf("===> - Current CLEON time (or ms tick) is ");
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_7:
+   \   0000F0   ........     MOVA    #`?<Constant "===> - Current CLEON ...">`, R12
+   \   0000F4   1F3C         JMP     ??SYS_APP_ProcessingReceivedUSBFrame_13
+    217                          HAL_ReadCurrentTimeTick();
+    218                          break;
+    219                      case USB_FRAME_COMMAND_UPDATE_SYSTEM_TIME:
+    220                          uniTimeTick.ucSingleByte[0] = uniUSBRecvFrame.stUSBFrame.ucData[0];
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_6:
+   \   0000F6   ........     MOVA    #uniTimeTick, R15
+   \   0000FA   DF4A04000000 MOV.B   0x4(R10), 0(R15)
+    221                          uniTimeTick.ucSingleByte[1] = uniUSBRecvFrame.stUSBFrame.ucData[1];
+   \   000100   DF4A05000100 MOV.B   0x5(R10), 0x1(R15)
+    222                          uniTimeTick.ucSingleByte[2] = uniUSBRecvFrame.stUSBFrame.ucData[2];
+   \   000106   DF4A06000200 MOV.B   0x6(R10), 0x2(R15)
+    223                          uniTimeTick.ucSingleByte[3] = uniUSBRecvFrame.stUSBFrame.ucData[3];
+   \   00010C   DF4A07000300 MOV.B   0x7(R10), 0x3(R15)
+    224                          uniTimeTick.ucSingleByte[4] = uniUSBRecvFrame.stUSBFrame.ucData[4];
+   \   000112   DF4A08000400 MOV.B   0x8(R10), 0x4(R15)
+    225                          uniTimeTick.ucSingleByte[5] = uniUSBRecvFrame.stUSBFrame.ucData[5];
+   \   000118   DF4A09000500 MOV.B   0x9(R10), 0x5(R15)
+    226                          uniTimeTick.ucSingleByte[6] = uniUSBRecvFrame.stUSBFrame.ucData[6];
+   \   00011E   DF4A0A000600 MOV.B   0xa(R10), 0x6(R15)
+    227                          uniTimeTick.ucSingleByte[7] = uniUSBRecvFrame.stUSBFrame.ucData[7];
+   \   000124   DF4A0B000700 MOV.B   0xb(R10), 0x7(R15)
+    228                          bFLAG_IsTimeSynced = _TRUE_;
+   \   00012A   ....D243.... MOVX.B  #0x1, &bFLAG_IsTimeSynced
+    229                          SYS_USB_Printf("===> - Current CLEON time is ");
+   \   000130   ........     MOVA    #`?<Constant "===> - Current CLEON ...">_1`, R12
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_13:
+   \   000134   ........     CALLA   #SYS_USB_Printf
+    230                          HAL_ReadCurrentTimeTick();                
+   \   000138   ........     CALLA   #HAL_ReadCurrentTimeTick
+    231                          break;
+   \   00013C   263C         JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+    232                      case USB_FRAME_COMMAND_REQUEST_CURRENT_SENSOR_DATA:
+    233                          // Turn SHT11 on
+    234                          SYS_SENSORS_SHT11_On();
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_10:
+   \   00013E   ........     CALLA   #SYS_SENSORS_SHT11_On
+    235                          SYS_USB_Printf("===> ");
+   \   000142   ........     MOVA    #`?<Constant "===> ">`, R11
+   \   000146   ........     CALLA   #?Subroutine2
+    236                          SYS_SENSORS_SHT11_ReadTemperature();
+   \                     ??CrossCallReturnLabel_7:
+   \   00014A   ........     CALLA   #SYS_SENSORS_SHT11_ReadTemperature
+    237                          SYS_USB_Printf("===> ");
+   \   00014E   ........     CALLA   #?Subroutine2
+    238                          SYS_SENSORS_SHT11_ReadHumidity();
+   \                     ??CrossCallReturnLabel_6:
+   \   000152   ........     CALLA   #SYS_SENSORS_SHT11_ReadHumidity
+    239                          // Turn SHT11 off
+    240                          SYS_SENSORS_SHT11_Off();
+   \   000156   ........     CALLA   #SYS_SENSORS_SHT11_Off
+    241                          
+    242                          // Start ADC conversion
+    243                          HAL_ADC_StartADC();   
+   \   00015A   92D30007     BIS.W   #0x1, &0x700
+    244                          SYS_USB_Printf("===> ");
+   \   00015E   ........     CALLA   #?Subroutine2
+    245                          SYS_SENSORS_S1087_Read(); 
+   \                     ??CrossCallReturnLabel_5:
+   \   000162   ........     CALLA   #SYS_SENSORS_S1087_Read
+    246                          SYS_USB_Printf("===> ");
+   \   000166   ........     CALLA   #?Subroutine2
+    247                          SYS_SENSORS_S108701_Read();
+   \                     ??CrossCallReturnLabel_4:
+   \   00016A   ........     CALLA   #SYS_SENSORS_S108701_Read
+    248                          // Stop ADC conversion
+    249                          HAL_ADC_StopADC();
+   \   00016E   92C30007     BIC.W   #0x1, &0x700
+    250                          break;
+   \   000172   0B3C         JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+    251                      case USB_FRAME_COMMAND_CHECK_NUMBER_OF_STORED_SAMPLE:
+    252                          SYS_USB_Printf("===> - Number of stored CLEON sample: %d \n", uiNumberOfGPSData);                
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_11:
+   \   000174   ....1212.... PUSHX.W &uiNumberOfGPSData
+   \   00017A   ........     MOVA    #`?<Constant "===> - Number of stor...">_1`, R12
+   \   00017E   ........     CALLA   #SYS_USB_Printf
+    253                          break;
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_12:
+   \   000182   2153         ADD.W   #0x2, SP
+   \   000184   023C         JMP     ??SYS_APP_ProcessingReceivedUSBFrame_3
+    254                      case USB_FRAME_COMMAND_REQEUST_CLEON_STRUCTURE:
+    255                          SYS_APP_PostProcessing();
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_8:
+   \   000186   ........     CALLA   #SYS_APP_PostProcessing
+    256                          break;
+    257                      default:
+    258                          break;
+    259                  }
+    260                  // Re-initialize USB frame to all zero
+    261                  memset(&uniUSBRecvFrame, 0, sizeof(uniUSBRecvFrame));
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_3:
+   \   00018A   3E402400     MOV.W   #0x24, R14
+   \   00018E   0F43         MOV.W   #0x0, R15
+   \   000190   0D43         MOV.W   #0x0, R13
+   \   000192   CC0A         MOVA    R10, R12
+   \   000194   ........     CALLA   #memset
+    262                  
+    263                  bFLAG_USBFrameIsBeingProcessed = _CLEAR_;
+   \   000198   ....C243.... MOVX.B  #0x0, &bFLAG_USBFrameIsBeingProcessed
+    264              }
+    265          }
+   \                     ??SYS_APP_ProcessingReceivedUSBFrame_5:
+   \   00019E   1A16         POPM.A  #0x2, R11
+   \   0001A0   1001         RETA
+   \   0001A2                REQUIRE _A_PEOUT_L
+   \   0001A2                REQUIRE _A_ADC12CTL0_L
+   \   0001A2                REQUIRE _A_DMA0CTL_L
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine2:
+   \   000000   CC0B         MOVA    R11, R12
+   \   000002   ........     BRA     #SYS_USB_Printf
+    266          
+    267          /*----------------------------------------------------------------------------*/
+    268          /**
+    269          @brief    Logging GPS signal data for test
+    270          
+    271          @return   void
+    272          
+    273          @param    void
+    274          */
+
+   \                                 In  segment CODE, align 2
+    275          void SYS_APP_LoggingForTest(void)
+   \                     SYS_APP_LoggingForTest:
+    276          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+    277              if(bFLAG_RTCTimeTickOfSecond == _SET_){
+   \   000002   ....C293.... CMPX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+   \   000008   4A24         JEQ     ??SYS_APP_LoggingForTest_1
+    278                  bFLAG_RTCTimeTickOfSecond = _CLEAR_;
+   \   00000A   ....C243.... MOVX.B  #0x0, &bFLAG_RTCTimeTickOfSecond
+    279                   if(ucRTCTwoSecondsCounter == CLEON_DATA_LOGGING_INTERVAL){
+   \   000010   ........     MOVA    #ucRTCTwoSecondsCounter, R10
+   \   000014   EA930000     CMP.B   #0x2, 0(R10)
+   \   000018   4020         JNE     ??SYS_APP_LoggingForTest_2
+    280                      // Blink LED in every two seconds 
+    281                      LED4_TOGGLE();  
+   \   00001A   F2E080008202 XOR.B   #0x80, &0x282
+    282                      
+    283                      // From 5th second, CLEON logs 12 samples (see uniCLEON) and store it to FLASH
+    284                      if((ucRTCDelayCountForGPS > CLEON_DELAY_UNTIL_FIRST_LOGGING) && (ucRTCDelayCountForGPS < CLEON_DELAY_UNTIL_FIRST_LOGGING + CLEON_NUMBER_OF_SAMPLES_TO_BE_LOGGED + 1)){
+   \   000020   ........     MOVA    #ucRTCDelayCountForGPS, R11
+   \   000024   7E40FC00     MOV.B   #0xfc, R14
+   \   000028   6E5B         ADD.B   @R11, R14
+   \   00002A   7E900C00     CMP.B   #0xc, R14
+   \   00002E   282C         JC      ??SYS_APP_LoggingForTest_3
+    285                          // Turn LED5 on (this LED will be truned off when FLASH write is done)
+    286                          LED5_ON();                      
+   \   000030   ........     CALLA   #?Subroutine0
+    287                          // Turn SHT11 on
+    288                          SYS_SENSORS_SHT11_On();
+    289                          uniCLEON.stCLEON.uniSensors.stSensors.uiTemperature = SYS_SENSORS_SHT11_ReadTemperature();
+    290                          uniCLEON.stCLEON.uniSensors.stSensors.uiHumidity    = SYS_SENSORS_SHT11_ReadHumidity();
+    291                          // Turn SHT11 off
+    292                          SYS_SENSORS_SHT11_Off();
+    293                          
+    294                          // Start ADC conversion
+    295                          HAL_ADC_StartADC();   
+    296                          uniCLEON.stCLEON.uniSensors.stSensors.uiLightPAR    = SYS_SENSORS_S1087_Read(); 
+    297                          uniCLEON.stCLEON.uniSensors.stSensors.uiLightTSR    = SYS_SENSORS_S108701_Read();
+    298                          // Stop ADC conversion
+    299                          HAL_ADC_StopADC();
+    300                          
+    301                          // Update time for time stamping
+    302                          HAL_ReadCurrentTimeTick();
+   \                     ??CrossCallReturnLabel_0:
+   \   000034   ........     CALLA   #HAL_ReadCurrentTimeTick
+    303                          
+    304                          // Start DMA transfer
+    305                          DMA0CTL |= DMAEN;    
+   \   000038   B2D010001005 BIS.W   #0x10, &0x510
+   \   00003E   ....1E42.... MOVX.W  &uiNumberOfGPSData, R14
+    306                          
+    307                          // Wait until DMA-transfer-complete-IF is set
+    308                          while((!bFLAG_DMATransferCompleted) && (uiNumberOfGPSData <CLEON_NUMBER_OF_SAMPLES_TO_BE_LOGGED));
+   \   000044   ....C293.... CMPX.B  #0x0, &bFLAG_DMATransferCompleted
+   \   00004A   0320         JNE     ??SYS_APP_LoggingForTest_4
+   \                     ??SYS_APP_LoggingForTest_0:
+   \   00004C   3E900C00     CMP.W   #0xc, R14
+   \   000050   FD2B         JNC     ??SYS_APP_LoggingForTest_0
+    309                          bFLAG_DMATransferCompleted = _CLEAR_;
+   \                     ??SYS_APP_LoggingForTest_4:
+   \   000052   ....C243.... MOVX.B  #0x0, &bFLAG_DMATransferCompleted
+    310                          
+    311                          // Save 12 samples of uniCLEON to FLASH
+    312                          if(uiNumberOfGPSData < CLEON_NUMBER_OF_SAMPLES_TO_BE_LOGGED){
+   \   000058   3E900C00     CMP.W   #0xc, R14
+   \   00005C   112C         JC      ??SYS_APP_LoggingForTest_3
+    313                              HAL_FLASH_Write(sizeof(uniCLEON), (unsigned char *)&uniCLEON, (unsigned char *)(MSP430_INTERNAL_FLASH_BANK1_ADDRESS + (0x00004000 * uiNumberOfGPSData)));
+   \   00005E                RPT     #0x6
+   \   00005E   45184E5E     RLAX.B  R14
+   \   000062   8E10         SWPB    R14
+   \   000064   0F43         MOV.W   #0x0, R15
+   \   000066   3E500080     ADD.W   #0x8000, R14
+   \   00006A   1F63         ADDC.W  #0x1, R15
+   \   00006C   1F15         PUSHM.W #0x2, R15
+   \   00006E   0E16         POPM.A  #0x1, R14
+   \   000070   CD08         MOVA    R8, R13
+   \   000072   3C402C20     MOV.W   #0x202c, R12
+   \   000076   ........     CALLA   #HAL_FLASH_Write
+    314                              uiNumberOfGPSData++;
+   \   00007A   ....9253.... ADDX.W  #0x1, &uiNumberOfGPSData
+    315                          }
+    316                      }
+    317                      if(ucRTCDelayCountForGPS < CLEON_DELAY_UNTIL_FIRST_LOGGING + CLEON_NUMBER_OF_SAMPLES_TO_BE_LOGGED + 2){
+   \                     ??SYS_APP_LoggingForTest_3:
+   \   000080   FB9011000000 CMP.B   #0x11, 0(R11)
+   \   000086   032C         JC      ??SYS_APP_LoggingForTest_5
+    318                          ucRTCDelayCountForGPS++;
+   \   000088   DB530000     ADD.B   #0x1, 0(R11)
+   \   00008C   033C         JMP     ??SYS_APP_LoggingForTest_6
+    319                      }else if(ucRTCDelayCountForGPS == CLEON_DELAY_UNTIL_FIRST_LOGGING + CLEON_NUMBER_OF_SAMPLES_TO_BE_LOGGED + 2){
+   \                     ??SYS_APP_LoggingForTest_5:
+   \   00008E   0220         JNE     ??SYS_APP_LoggingForTest_6
+    320                          LED2_ON();
+   \   000090   E2C36302     BIC.B   #0x2, &0x263
+    321                      }
+    322                      ucRTCTwoSecondsCounter = 0;
+   \                     ??SYS_APP_LoggingForTest_6:
+   \   000094   CA430000     MOV.B   #0x0, 0(R10)
+   \   000098   023C         JMP     ??SYS_APP_LoggingForTest_1
+    323                  }else{
+    324                      ucRTCTwoSecondsCounter++;
+   \                     ??SYS_APP_LoggingForTest_2:
+   \   00009A   DA530000     ADD.B   #0x1, 0(R10)
+    325                  }
+    326              }
+    327          }
+   \                     ??SYS_APP_LoggingForTest_1:
+   \   00009E   3816         POPM.A  #0x4, R11
+   \   0000A0   1001         RETA
+   \   0000A2                REQUIRE _A_PEOUT_L
+   \   0000A2                REQUIRE _A_ADC12CTL0_L
+   \   0000A2                REQUIRE _A_DMA0CTL_L
+   \   0000A2                REQUIRE _A_PDOUT_L
+    328          
+    329          /*----------------------------------------------------------------------------*/
+    330          /**
+    331          @brief    Dump stored CLEON data structure in FLASH to PC via USB
+    332                    (for test purpose)
+    333          
+    334          @return   void
+    335          
+    336          @param    void
+    337          */
+
+   \                                 In  segment CODE, align 2
+    338          void SYS_APP_PostProcessing(void)
+   \                     SYS_APP_PostProcessing:
+    339          {
+   \   000000   5B14         PUSHM.A #0x6, R11
+    340              for(unsigned long i= 0 ; i < uiNumberOfGPSData ; i++){
+   \   000002   0643         MOV.W   #0x0, R6
+   \   000004   0743         MOV.W   #0x0, R7
+   \   000006   3A400080     MOV.W   #0x8000, R10
+   \   00000A   1B43         MOV.W   #0x1, R11
+   \   00000C   223C         JMP     ??SYS_APP_PostProcessing_2
+    341                  SYS_USB_Printf("Stored GPS data #%2d\r\n",i+1);
+   \                     ??SYS_APP_PostProcessing_1:
+   \   00000E   1653         ADD.W   #0x1, R6
+   \   000010   0763         ADDC.W  #0x0, R7
+   \   000012   0712         PUSH.W  R7
+   \   000014   0612         PUSH.W  R6
+   \   000016   ........     MOVA    #`?<Constant "Stored GPS data #%2d\\r\\n">`, R12
+   \   00001A   ........     CALLA   #SYS_USB_Printf
+    342                  for(int j = 0 ; j < sizeof(uniCLEON) ; j++){
+   \   00001E   084A         MOV.W   R10, R8
+   \   000020   094B         MOV.W   R11, R9
+   \   000022   38502C20     ADD.W   #0x202c, R8
+   \   000026   0963         ADDC.W  #0x0, R9
+   \   000028   2152         ADD.W   #0x4, SP
+    343                      SYS_USB_Printf("%.2x ", *(unsigned char *)(0x00018000 + 0x00004000 * i + j));
+   \                     ??SYS_APP_PostProcessing_0:
+   \   00002A   1B15         PUSHM.W #0x2, R11
+   \   00002C   0F16         POPM.A  #0x1, R15
+   \   00002E   6F4F         MOV.B   @R15, R15
+   \   000030   0F12         PUSH.W  R15
+   \   000032   ........     MOVA    #`?<Constant "%.2x ">`, R12
+   \   000036   ........     CALLA   #SYS_USB_Printf
+    344                  }
+   \   00003A   1A53         ADD.W   #0x1, R10
+   \   00003C   0B63         ADDC.W  #0x0, R11
+   \   00003E   2153         ADD.W   #0x2, SP
+   \   000040   0A98         CMP.W   R8, R10
+   \   000042   F323         JNE     ??SYS_APP_PostProcessing_0
+   \   000044   0B99         CMP.W   R9, R11
+   \   000046   F123         JNE     ??SYS_APP_PostProcessing_0
+    345                  SYS_USB_Printf("\r\n");
+   \   000048   ........     CALLA   #?Subroutine1
+    346              }
+   \                     ??CrossCallReturnLabel_3:
+   \   00004C   3A50D41F     ADD.W   #0x1fd4, R10
+   \   000050   0B63         ADDC.W  #0x0, R11
+   \                     ??SYS_APP_PostProcessing_2:
+   \   000052   ....1E42.... MOVX.W  &uiNumberOfGPSData, R14
+   \   000058   0793         CMP.W   #0x0, R7
+   \   00005A   0220         JNE     ??SYS_APP_PostProcessing_3
+   \   00005C   069E         CMP.W   R14, R6
+   \   00005E   D72B         JNC     ??SYS_APP_PostProcessing_1
+    347          }
+   \                     ??SYS_APP_PostProcessing_3:
+   \   000060   5616         POPM.A  #0x6, R11
+   \   000062   1001         RETA
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "\\r\\n===> (warning!) CLE...">`:
+   \   000000   0D0A3D3D3D3E DC8 0DH, 0AH, 3DH, 3DH, 3DH, 3EH, 20H, 28H
+   \            2028        
+   \   000008   7761726E696E DC8 77H, 61H, 72H, 6EH, 69H, 6EH, 67H, 21H
+   \            6721        
+   \   000010   2920434C454F DC8 29H, 20H, 43H, 4CH, 45H, 4FH, 4EH, 20H
+   \            4E20        
+   \   000018   74696D652074 DC8 74H, 69H, 6DH, 65H, 20H, 74H, 69H, 63H
+   \            6963        
+   \   000020   6B206973206E DC8 6BH, 20H, 69H, 73H, 20H, 6EH, 6FH, 74H
+   \            6F74        
+   \   000028   207965742073 DC8 20H, 79H, 65H, 74H, 20H, 73H, 79H, 6EH
+   \            796E        
+   \   000030   6368726F6E69 DC8 63H, 68H, 72H, 6FH, 6EH, 69H, 7AH, 65H
+   \            7A65        
+   \   000038   640D0A00     DC8 64H, 0DH, 0AH, 0
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "\\r\\n">`:
+   \   000000   0D0A00       DC8 "\015\012"
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> Logging started\\r\\n">`:
+   \   000000   3D3D3D3E204C DC8 "===> Logging started\015\012"
+   \            6F6767696E67
+   \            207374617274
+   \            65640D0A00  
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> Start logging ch...">`:
+   \   000000   3D3D3D3E2053 DC8 "===> Start logging chunk #%d in group #%d\015\012"
+   \            74617274206C
+   \            6F6767696E67
+   \            206368756E6B
+   \            202325642069
+   \            6E2067726F75
+   \            70202325640D
+   \            0A00        
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> Logging started ...">`:
+   \   000000   3D3D3D3E204C DC8 "===> Logging started at ms time tick of "
+   \            6F6767696E67
+   \            207374617274
+   \            656420617420
+   \            6D732074696D
+   \            65207469636B
+   \            206F662000  
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "%lld\\r\\n">`:
+   \   000000   256C6C640D0A DC8 "%lld\015\012"
+   \            00          
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \   000000   000000000000 DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \            000000000000
+   \            0000000000  
+   \   000011   000000000000 DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \            000000000000
+   \            00000000    
+   \   000021   000000000000 DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+   \            000000000000
+   \            0000000000  
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "%lld_s16368_if4092000...">`:
+   \   000000   256C6C645F73 DC8 "%lld_s16368_if4092000_m2_i2.txt"
+   \            31363336385F
+   \            696634303932
+   \            3030305F6D32
+   \            5F69322E7478
+   \            7400        
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "log">`:
+   \   000000   6C6F6700     DC8 "log"
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "/log">`:
+   \   000000   2F6C6F6700   DC8 "/log"
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> Chunk #%d in gro...">`:
+   \   000000   3D3D3D3E2043 DC8 "===> Chunk #%d in group #%d has been captured\015\012"
+   \            68756E6B2023
+   \            256420696E20
+   \            67726F757020
+   \            232564206861
+   \            73206265656E
+   \            206361707475
+   \            7265640D0A00
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "Stored GPS data\\r\\n">`:
+   \   000000   53746F726564 DC8 "Stored GPS data\015\012"
+   \            204750532064
+   \            6174610D0A00
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "%.2x ">`:
+   \   000000   252E32782000 DC8 "%.2x "
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> Welcome to CLEON\\n">`:
+   \   000000   3D3D3D3E2057 DC8 "===> Welcome to CLEON\012"
+   \            656C636F6D65
+   \            20746F20434C
+   \            454F4E0A00  
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> You are now conn...">`:
+   \   000000   3D3D3D3E2059 DC8 "===> You are now connected to CLEON\012"
+   \            6F7520617265
+   \            206E6F772063
+   \            6F6E6E656374
+   \            656420746F20
+   \            434C454F4E0A
+   \            00          
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> - CLCOK SETTING\\r\\n">`:
+   \   000000   3D3D3D3E202D DC8 "===> - CLCOK SETTING\015\012"
+   \            20434C434F4B
+   \            205345545449
+   \            4E470D0A00  
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===>       MCLK  = 12...">`:
+   \   000000   3D3D3D3E2020 DC8 "===>       MCLK  = 12MHz\015\012"
+   \            20202020204D
+   \            434C4B20203D
+   \            2031324D487A
+   \            0D0A00      
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===>       ACLK  = 32...">`:
+   \   000000   3D3D3D3E2020 DC8 "===>       ACLK  = 32768Hz\015\012"
+   \            202020202041
+   \            434C4B20203D
+   \            203332373638
+   \            487A0D0A00  
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===>       SMCLK = 12...">`:
+   \   000000   3D3D3D3E2020 DC8 "===>       SMCLK = 12MHz\015\012"
+   \            202020202053
+   \            4D434C4B203D
+   \            2031324D487A
+   \            0D0A00      
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> - Number of stor...">`:
+   \   000000   3D3D3D3E202D DC8 "===> - Number of stored CLEON samples: %d\012"
+   \            204E756D6265
+   \            72206F662073
+   \            746F72656420
+   \            434C454F4E20
+   \            73616D706C65
+   \            733A2025640A
+   \            00          
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> - Current CLEON ...">`:
+   \   000000   3D3D3D3E202D DC8 "===> - Current CLEON time (or ms tick) is "
+   \            204375727265
+   \            6E7420434C45
+   \            4F4E2074696D
+   \            6520286F7220
+   \            6D7320746963
+   \            6B2920697320
+   \            00          
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> - Current CLEON ...">_1`:
+   \   000000   3D3D3D3E202D DC8 "===> - Current CLEON time is "
+   \            204375727265
+   \            6E7420434C45
+   \            4F4E2074696D
+   \            652069732000
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> ">`:
+   \   000000   3D3D3D3E2000 DC8 "===> "
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "===> - Number of stor...">_1`:
+   \   000000   3D3D3D3E202D DC8 "===> - Number of stored CLEON sample: %d \012"
+   \            204E756D6265
+   \            72206F662073
+   \            746F72656420
+   \            434C454F4E20
+   \            73616D706C65
+   \            3A202564200A
+   \            00          
+
+   \                                 In  segment DATA20_C, align 1, align-sorted
+   \                     `?<Constant "Stored GPS data #%2d\\r\\n">`:
+   \   000000   53746F726564 DC8 "Stored GPS data #%2d\015\012"
+   \            204750532064
+   \            617461202325
+   \            32640D0A00  
+    348          
+    349          
+    350          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_APP_BoardLivenessLED
+      96  SYS_APP_CollectThreeSamples
+            88 -> SYS_SENSORS_S108701_Read
+            88 -> SYS_SENSORS_S1087_Read
+            88 -> SYS_SENSORS_SHT11_Off
+            88 -> SYS_SENSORS_SHT11_On
+            88 -> SYS_SENSORS_SHT11_ReadHumidity
+            88 -> SYS_SENSORS_SHT11_ReadTemperature
+            88 -> SYS_USB_Printf
+            92 -> SYS_USB_Printf
+            96 -> SYS_USB_Printf
+            96 -> f_chdir
+            96 -> f_close
+            96 -> f_mkdir
+            96 -> f_mount
+            96 -> f_open
+            96 -> f_write
+            96 -> sprintf
+      20  SYS_APP_LoggingForTest
+            20 -> HAL_FLASH_Write
+            20 -> HAL_ReadCurrentTimeTick
+            20 -> SYS_SENSORS_S108701_Read
+            20 -> SYS_SENSORS_S1087_Read
+            20 -> SYS_SENSORS_SHT11_Off
+            20 -> SYS_SENSORS_SHT11_On
+            20 -> SYS_SENSORS_SHT11_ReadHumidity
+            20 -> SYS_SENSORS_SHT11_ReadTemperature
+      32  SYS_APP_PostProcessing
+            28 -> SYS_USB_Printf
+            30 -> SYS_USB_Printf
+            32 -> SYS_USB_Printf
+      14  SYS_APP_ProcessingReceivedUSBFrame
+            12 -> HAL_ReadCurrentTimeTick
+            14 -> HAL_ReadCurrentTimeTick
+            12 -> SYS_APP_PostProcessing
+            12 -> SYS_SENSORS_S108701_Read
+            12 -> SYS_SENSORS_S1087_Read
+            12 -> SYS_SENSORS_SHT11_Off
+            12 -> SYS_SENSORS_SHT11_On
+            12 -> SYS_SENSORS_SHT11_ReadHumidity
+            12 -> SYS_SENSORS_SHT11_ReadTemperature
+            12 -> SYS_USB_Printf
+            14 -> SYS_USB_Printf
+            12 -> memset
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       6  ?<Constant "%.2x ">
+       7  ?<Constant "%lld\r\n">
+      32  ?<Constant "%lld_s16368_if4092000...">
+       5  ?<Constant "/log">
+      29  ?<Constant "===>       ACLK  = 32...">
+      27  ?<Constant "===>       MCLK  = 12...">
+      27  ?<Constant "===>       SMCLK = 12...">
+       6  ?<Constant "===> ">
+      23  ?<Constant "===> - CLCOK SETTING\r\n">
+      43  ?<Constant "===> - Current CLEON ...">
+      30  ?<Constant "===> - Current CLEON ...">_1
+      43  ?<Constant "===> - Number of stor...">
+      43  ?<Constant "===> - Number of stor...">_1
+      48  ?<Constant "===> Chunk #%d in gro...">
+      41  ?<Constant "===> Logging started ...">
+      23  ?<Constant "===> Logging started\r\n">
+      44  ?<Constant "===> Start logging ch...">
+      23  ?<Constant "===> Welcome to CLEON\n">
+      37  ?<Constant "===> You are now conn...">
+      23  ?<Constant "Stored GPS data #%2d\r\n">
+      18  ?<Constant "Stored GPS data\r\n">
+       3  ?<Constant "\r\n">
+      60  ?<Constant "\r\n===> (warning!) CLE...">
+       4  ?<Constant "log">
+      50  ?<Constant {0}>
+      46  ?Subroutine0
+       8  ?Subroutine1
+       6  ?Subroutine2
+      16  ?Subroutine3
+      12  ?Subroutine4
+      10  ?Subroutine5
+      22  SYS_APP_BoardLivenessLED
+     448  SYS_APP_CollectThreeSamples
+     162  SYS_APP_LoggingForTest
+     100  SYS_APP_PostProcessing
+     418  SYS_APP_ProcessingReceivedUSBFrame
+       2  _A_ADC12CTL0_L
+       2  _A_DMA0CTL_L
+       2  _A_PDOUT_L
+       2  _A_PEOUT_L
+       1  bFLAG_USBFrameIsBeingProcessed
+       1  ucChunkInCollectionSampleGroupCount
+       1  ucCollectionSampleGroupCount
+       1  ucRTCDelayCountForGPS
+       1  ucRTCTwoSecondsCounter
+       2  uiNumberOfGPSData
+
+ 
+ 1 248 bytes in segment CODE
+     8 bytes in segment DATA16_AN
+   695 bytes in segment DATA20_C
+     7 bytes in segment DATA20_Z
+ 
+ 1 248 bytes of CODE  memory
+   695 bytes of CONST memory
+     7 bytes of DATA  memory (+ 8 bytes shared)
+
+Errors: none
+Warnings: none

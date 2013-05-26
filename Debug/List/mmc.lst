@@ -1,0 +1,1607 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.1.50592/W32 for MSP430       16/Nov/2012  16:46:17 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\fs\mmc.c     #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\fs\mmc.c"    #
+#                     -lC "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\Debug\L #
+#                     ist\" -la "C:\Users\woosuk\Dropbox\lws\ESL\3.           #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ESL\3 #
+#                     . Research\7. Fall 2012\4_CLEON\3_software\1_developing #
+#                     \cleon\Debug\Obj\" --debug -D__MSP430F5338__ -e         #
+#                     --double=64 --dlib_config "C:\Program Files (x86)\IAR   #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\platform\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -Oh --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\m #
+#                     mc.lst                                                  #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\mm #
+#                     c.r43                                                   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\mmc.c
+      1          /* --COPYRIGHT--,NULL
+      2           **
+      3           * --/COPYRIGHT--*/
+      4          /*------------------------------------------------------------------------/
+      5           * /  Bitbanging MMCv3/SDv1/SDv2 (in SPI mode) control module
+      6           * /-------------------------------------------------------------------------/
+      7           * /
+      8           * /  Copyright (C) 2010, ChaN, all right reserved.
+      9           * /
+     10           * / * This software is a free software and there is NO WARRANTY.
+     11           * / * No restriction on use. You can use, modify and redistribute it for
+     12           * /   personal, non-profit or commercial products UNDER YOUR RESPONSIBILITY.
+     13           * / * Redistributions of source code must retain the above copyright notice.
+     14           * /
+     15           * ---------------------------------------------------------------------------*/
+     16          
+     17          #include <intrinsics.h>                                                 /* Include MSP430-specific intrincs */
+     18          #include "diskio.h"                                                     /* Common include file for FatFs and disk I/O layer */
+     19          #include "HAL_SDCard.h"                                                 /* MSP-EXP430F5529 specific SD Card driver */
+     20          #include "hal_define.h"
+     21          
+     22          /*
+     23           *-------------------------------------------------------------------------
+     24           * Platform dependent macros and functions needed to be modified
+     25           *-------------------------------------------------------------------------
+     26           */
+     27          
+     28          #define MCLK_FREQ   12000000
+     29          
+     30          #define INIT_PORT()     HAL_SPI_Init()                                  /* Initialize MMC control port */
+     31          #define FAST_MODE()     SDCard_fastMode()                               /* Maximize SD Card transfer speed */
+     32          //#define DLY_US(n)       __delay_cycles(n * 25)  /* Delay n microseconds assuming MCLK=25MHz */
+     33          #define DLY_US(n)       __delay_cycles(n * (MCLK_FREQ / 1000000))   //Delay n microseconds           // KLQ
+     34          
+     35          
+     36          #define CS_H()          SDCard_setCSHigh()                              /* Set MMC CS "high" */
+     37          #define CS_L()          SDCard_setCSLow()                               /* Set MMC CS "low" */
+     38          
+     39          //#define	INS             (1)                 /* Card is inserted (yes:true, no:false, default:true) */
+
+   \                                 In  segment DATA20_I, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_copy20
+     40          BYTE INS = 1;                                                           //KLQ
+   \                     INS:
+   \   000000                DS8 1
+   \   000001                REQUIRE `?<Initializer for INS>`
+     41          #define WP              (0)                                             /* Card is write protected (yes:true, no:false,
+     42                                                                                   *default:false) */
+     43          
+     44          
+     45          
+     46          /*
+     47           *-------------------------------------------------------------------------
+     48           * Platform dependent RTC Function for FatFs module
+     49           *-------------------------------------------------------------------------
+     50           */
+
+   \                                 In  segment CODE, align 2
+     51          DWORD get_fattime (void)
+   \                     get_fattime:
+     52          {
+     53              DWORD tmr;
+     54          
+     55              //TODO: Customize to use the MSP430 RTC
+     56          
+     57              /* Pack date and time into a DWORD variable */
+     58              tmr =     (((DWORD)2001 - 80) << 25)                                //rtcYear
+     59                    | ((DWORD)9 << 21)                                            //rtcMon
+     60                    | ((DWORD)11 << 16)                                           //rtcMday
+     61                    | (WORD)(4 << 11)                                             //rtcHour
+     62                    | (WORD)(30 << 5)                                             //rtcMin
+     63                    | (WORD)(0 >> 1);                                             //rtcSec
+     64          
+     65              return (tmr);
+   \   000000   3C40C023     MOV.W   #0x23c0, R12
+   \   000004   3D402B03     MOV.W   #0x32b, R13
+   \   000008   1001         RETA
+     66          }
+     67          
+     68          /*--------------------------------------------------------------------------
+     69           * Module Private Functions
+     70           * ---------------------------------------------------------------------------*/
+     71          
+     72          /* MMC/SD command (SPI mode) */
+     73          #define CMD0    (0)                                                     /* GO_IDLE_STATE */
+     74          #define CMD1    (1)                                                     /* SEND_OP_COND */
+     75          #define ACMD41  (0x80 + 41)                                             /* SEND_OP_COND (SDC) */
+     76          #define CMD8    (8)                                                     /* SEND_IF_COND */
+     77          #define CMD9    (9)                                                     /* SEND_CSD */
+     78          #define CMD10   (10)                                                    /* SEND_CID */
+     79          #define CMD12   (12)                                                    /* STOP_TRANSMISSION */
+     80          #define ACMD13  (0x80 + 13)                                             /* SD_STATUS (SDC) */
+     81          #define CMD16   (16)                                                    /* SET_BLOCKLEN */
+     82          #define CMD17   (17)                                                    /* READ_SINGLE_BLOCK */
+     83          #define CMD18   (18)                                                    /* READ_MULTIPLE_BLOCK */
+     84          #define CMD23   (23)                                                    /* SET_BLOCK_COUNT */
+     85          #define ACMD23  (0x80 + 23)                                             /* SET_WR_BLK_ERASE_COUNT (SDC) */
+     86          #define CMD24   (24)                                                    /* WRITE_BLOCK */
+     87          #define CMD25   (25)                                                    /* WRITE_MULTIPLE_BLOCK */
+     88          #define CMD41   (41)                                                    /* SEND_OP_COND (ACMD) */
+     89          #define CMD55   (55)                                                    /* APP_CMD */
+     90          #define CMD58   (58)                                                    /* READ_OCR */
+     91          
+     92          /* Card type flags (CardType) */
+     93          #define CT_MMC      0x01                                                /* MMC ver 3 */
+     94          #define CT_SD1      0x02                                                /* SD ver 1 */
+     95          #define CT_SD2      0x04                                                /* SD ver 2 */
+     96          #define CT_SDC      (CT_SD1 | CT_SD2)                                   /* SD */
+                         ^
+Warning[Pe047]: incompatible redefinition of macro "CT_SDC" (declared at line
+          80 of "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall
+          2012\4_CLEON\3_software\1_developing\cleon\fs\diskio.h")
+     97          #define CT_BLOCK    0x08                                                /* Block addressing */
+     98          
+     99          
+    100          static
+
+   \                                 In  segment DATA20_I, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_copy20
+    101          DSTATUS Stat = STA_NOINIT;                                              /* Disk status */
+   \                     Stat:
+   \   000000                DS8 1
+   \   000001                REQUIRE `?<Initializer for Stat>`
+    102          
+    103          static
+
+   \                                 In  segment DATA20_Z, align 1, align-sorted
+   \   000000                REQUIRE ?cstart_init_zero20
+    104          BYTE CardType;                                                          /* b0:MMC, b1:SDv1, b2:SDv2, b3:Block addressing */
+   \                     CardType:
+   \   000000                DS8 1
+    105          
+    106          
+    107          
+    108          /*
+    109           *-----------------------------------------------------------------------
+    110           * Transmit bytes to the MMC
+    111           *-----------------------------------------------------------------------
+    112           */
+    113          
+    114          static
+    115          void xmit_mmc (
+    116              const BYTE* buff,                                                   /* Data to be sent */
+    117              UINT bc                                                             /* Number of bytes to send */
+    118              )
+    119          {
+    120              SDCard_sendFrame((uint8_t *)buff, bc);
+    121          }
+    122          
+    123          /*
+    124           *-----------------------------------------------------------------------
+    125           * Receive bytes from the MMC
+    126           *-----------------------------------------------------------------------
+    127           */
+    128          
+    129          static
+    130          void rcvr_mmc (
+    131              BYTE *buff,                                                         /* Pointer to read buffer */
+    132              UINT bc                                                             /* Number of bytes to receive */
+    133              )
+    134          {
+    135              SDCard_readFrame(buff, bc);
+    136          }
+    137          
+    138          /*
+    139           *-----------------------------------------------------------------------
+    140           * Wait for card ready
+    141           *-----------------------------------------------------------------------
+    142           */
+    143          
+    144          static
+    145          int wait_ready (void)                                                   /* 1:OK, 0:Timeout */
+    146          {
+    147              BYTE d;
+    148              UINT tmr;
+    149          
+    150          
+    151              for (tmr = 5000; tmr; tmr--){                                       /* Wait for ready in timeout of 500ms */
+    152                  rcvr_mmc(&d, 1);
+    153                  if (d == 0xFF){
+    154                      return ( 1) ;
+    155                  }
+    156                  DLY_US(100);
+    157              }
+    158          
+    159              return (0);
+    160          }
+    161          
+    162          /*
+    163           *-----------------------------------------------------------------------
+    164           * Deselect the card and release SPI bus
+    165           *-----------------------------------------------------------------------
+    166           */
+    167          
+
+   \                                 In  segment CODE, align 2
+    168          static
+    169          void deselect (void)
+   \                     deselect:
+    170          {
+   \   000000   2183         SUB.W   #0x2, SP
+    171              BYTE d;
+    172          
+    173              CS_H();
+   \   000002   ........     CALLA   #SDCard_setCSHigh
+    174              rcvr_mmc(&d, 1);
+   \   000006   ........     CALLA   #?Subroutine3
+    175          }
+   \                     ??CrossCallReturnLabel_3:
+   \   00000A   2153         ADD.W   #0x2, SP
+   \   00000C   1001         RETA
+    176          
+    177          /*
+    178           *-----------------------------------------------------------------------
+    179           * Select the card and wait for ready
+    180           *-----------------------------------------------------------------------
+    181           */
+    182          
+
+   \                                 In  segment CODE, align 2
+    183          static
+    184          int select (void)                   /* 1:OK, 0:Timeout */
+   \                     select:
+    185          {
+   \   000000   1B14         PUSHM.A #0x2, R11
+   \   000002   2183         SUB.W   #0x2, SP
+    186              CS_L();
+   \   000004   ........     CALLA   #SDCard_setCSLow
+    187              if (!wait_ready()){
+   \   000008   3B408813     MOV.W   #0x1388, R11
+   \   00000C   0A41         MOV.W   SP, R10
+   \   00000E   0A53         ADD.W   #0x0, R10
+   \                     ??select_0:
+   \   000010   ........     CALLA   #?Subroutine1
+   \                     ??CrossCallReturnLabel_28:
+   \   000014   F1930000     CMP.B   #0xff, 0(SP)
+   \   000018   0220         JNE     ??select_1
+    188                  deselect();
+    189                  return (0);
+    190              }
+    191              return (1);
+   \   00001A   1C43         MOV.W   #0x1, R12
+   \   00001C   0A3C         JMP     ??select_2
+   \                     ??select_1:
+   \   00001E                ////////////// Start of 1200 cycles delay.
+   \   00001E   0343         NOP
+   \   000020   3F408E01     MOV.W   #0x18e, R15
+   \                     ??select_3:
+   \   000024   3F53         ADD.W   #0xffff, R15
+   \   000026   FE2F         JC      ??select_3
+   \   000028                ////////////// End of delay code.
+   \   000028   3B53         ADD.W   #0xffff, R11
+   \   00002A   F223         JNE     ??select_0
+   \   00002C   ........     CALLA   #deselect
+   \   000030   0C43         MOV.W   #0x0, R12
+   \                     ??select_2:
+   \   000032   2153         ADD.W   #0x2, SP
+   \   000034   1A16         POPM.A  #0x2, R11
+   \   000036   1001         RETA
+    192          }
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   1D43         MOV.W   #0x1, R13
+   \   000002                REQUIRE ??Subroutine1_0
+   \   000002                // Fall through to label ??Subroutine1_0
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ??Subroutine1_0:
+   \   000000   CC0A         MOVA    R10, R12
+   \   000002   ........     BRA     #SDCard_readFrame
+    193          
+    194          /*
+    195           *-----------------------------------------------------------------------
+    196           * Receive a data packet from MMC
+    197           *-----------------------------------------------------------------------
+    198           */
+    199          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    200          static
+    201          int rcvr_datablock (                /* 1:OK, 0:Failed */
+   \                     rcvr_datablock:
+    202              BYTE *buff,                     /* Data buffer to store received data */
+    203              UINT btr                        /* Byte count */
+    204              )
+    205          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   2183         SUB.W   #0x2, SP
+   \   000004   CB0C         MOVA    R12, R11
+   \   000006   084D         MOV.W   R13, R8
+    206              BYTE d[2];
+    207              UINT tmr;
+    208          
+    209          
+    210              for (tmr = 1000; tmr; tmr--){   /* Wait for data packet in timeout of 100ms */
+   \   000008   3940E803     MOV.W   #0x3e8, R9
+   \   00000C   0A41         MOV.W   SP, R10
+   \   00000E   0A53         ADD.W   #0x0, R10
+    211                  rcvr_mmc(d, 1);
+   \                     ??rcvr_datablock_0:
+   \   000010   ........     CALLA   #?Subroutine1
+    212                  if (d[0] != 0xFF){
+   \                     ??CrossCallReturnLabel_26:
+   \   000014   F1930000     CMP.B   #0xff, 0(SP)
+   \   000018   0320         JNE     ??rcvr_datablock_1
+    213                      break;
+    214                  }
+    215                  DLY_US(100);
+   \   00001A   ........     CALLA   #?Subroutine4
+    216              }
+   \                     ??CrossCallReturnLabel_4:
+   \   00001E   F823         JNE     ??rcvr_datablock_0
+    217              if (d[0] != 0xFE){
+   \                     ??rcvr_datablock_1:
+   \   000020   F190FE000000 CMP.B   #0xfe, 0(SP)
+   \   000026   0224         JEQ     ??rcvr_datablock_2
+    218                  return ( 0) ;               /* If not valid data token, retutn with error */
+   \   000028   0C43         MOV.W   #0x0, R12
+   \   00002A   083C         JMP     ??rcvr_datablock_3
+    219              }
+    220              rcvr_mmc(buff, btr);            /* Receive the data block into buffer */
+   \                     ??rcvr_datablock_2:
+   \   00002C   0D48         MOV.W   R8, R13
+   \   00002E   CC0B         MOVA    R11, R12
+   \   000030   ........     CALLA   #SDCard_readFrame
+    221              rcvr_mmc(d, 2);                 /* Discard CRC */
+   \   000034   2D43         MOV.W   #0x2, R13
+   \   000036   ........     CALLA   #??Subroutine1_0
+    222          
+    223              return (1);                     /* Return with success */
+   \                     ??CrossCallReturnLabel_23:
+   \   00003A   1C43         MOV.W   #0x1, R12
+   \                     ??rcvr_datablock_3:
+   \   00003C   2153         ADD.W   #0x2, SP
+   \   00003E   3816         POPM.A  #0x4, R11
+   \   000040   1001         RETA
+    224          }
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine4:
+   \   000000                ////////////// Start of 1200 cycles delay.
+   \   000000   0343         NOP
+   \   000002   3F408E01     MOV.W   #0x18e, R15
+   \                     ??Subroutine4_0:
+   \   000006   3F53         ADD.W   #0xffff, R15
+   \   000008   FE2F         JC      ??Subroutine4_0
+   \   00000A                ////////////// End of delay code.
+   \   00000A   3953         ADD.W   #0xffff, R9
+   \   00000C   1001         RETA
+    225          
+    226          /*
+    227           *-----------------------------------------------------------------------
+    228           * Send a data packet to MMC
+    229           *-----------------------------------------------------------------------
+    230           */
+    231          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   2152         ADD.W   #0x4, SP
+   \   000002   3816         POPM.A  #0x4, R11
+   \   000004   1001         RETA
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    232          static
+    233          int xmit_datablock (                /* 1:OK, 0:Failed */
+   \                     xmit_datablock:
+    234              const BYTE *buff,               /* 512 byte data block to be transmitted */
+    235              BYTE token                      /* Data/Stop token */
+    236              )
+    237          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   2182         SUB.W   #0x4, SP
+   \   000004   C80C         MOVA    R12, R8
+   \   000006   4A4D         MOV.B   R13, R10
+    238              BYTE d[2];
+    239          
+    240          
+    241              if (!wait_ready()){
+   \   000008   39408813     MOV.W   #0x1388, R9
+   \   00000C   0B41         MOV.W   SP, R11
+   \   00000E   0B53         ADD.W   #0x0, R11
+   \                     ??xmit_datablock_0:
+   \   000010   ........     CALLA   #?Subroutine2
+   \                     ??CrossCallReturnLabel_2:
+   \   000014   F1930000     CMP.B   #0xff, 0(SP)
+   \   000018   0D20         JNE     ??xmit_datablock_3
+    242                  return ( 0) ;
+    243              }
+    244          
+    245              d[0] = token;
+   \   00001A   C14A0100     MOV.B   R10, 0x1(SP)
+   \   00001E   0B41         MOV.W   SP, R11
+   \   000020   1B53         ADD.W   #0x1, R11
+   \   000022   1D43         MOV.W   #0x1, R13
+   \   000024   CC0B         MOVA    R11, R12
+    246              xmit_mmc(d, 1);                 /* Xmit a token */
+   \   000026   ........     CALLA   #SDCard_sendFrame
+    247              if (token != 0xFD){             /* Is it data token? */
+   \   00002A   7A90FD00     CMP.B   #0xfd, R10
+   \   00002E   0620         JNE     ??xmit_datablock_4
+    248                  xmit_mmc(buff, 512);        /* Xmit the 512 byte data block to MMC */
+    249                  rcvr_mmc(d, 2);             /* Dummy CRC (FF,FF) */
+    250                  rcvr_mmc(d, 1);             /* Receive data response */
+    251                  if ((d[0] & 0x1F) != 0x05){ /* If not accepted, return with error */
+    252                      return (0);
+    253                  }
+    254              }
+    255          
+    256              return (1);
+   \                     ??xmit_datablock_1:
+   \   000030   1C43         MOV.W   #0x1, R12
+   \                     ??xmit_datablock_2:
+   \   000032   ....         JMP     ?Subroutine0
+   \                     ??xmit_datablock_3:
+   \   000034   ........     CALLA   #?Subroutine4
+   \                     ??CrossCallReturnLabel_5:
+   \   000038   1324         JEQ     ??xmit_datablock_5
+   \   00003A   EA3F         JMP     ??xmit_datablock_0
+   \                     ??xmit_datablock_4:
+   \   00003C   3D400002     MOV.W   #0x200, R13
+   \   000040   CC08         MOVA    R8, R12
+   \   000042   ........     CALLA   #SDCard_sendFrame
+   \   000046   2D43         MOV.W   #0x2, R13
+   \   000048   CC0B         MOVA    R11, R12
+   \   00004A   ........     CALLA   #SDCard_readFrame
+   \   00004E   ........     CALLA   #?Subroutine2
+   \                     ??CrossCallReturnLabel_0:
+   \   000052   5E410100     MOV.B   0x1(SP), R14
+   \   000056   7EF01F00     AND.B   #0x1f, R14
+   \   00005A   7E900500     CMP.B   #0x5, R14
+   \   00005E   E827         JEQ     ??xmit_datablock_1
+   \                     ??xmit_datablock_5:
+   \   000060   0C43         MOV.W   #0x0, R12
+   \   000062   E73F         JMP     ??xmit_datablock_2
+   \   000064   0343         NOP
+    257          }
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   1D43         MOV.W   #0x1, R13
+   \   000002   CC0B         MOVA    R11, R12
+   \   000004   ........     BRA     #SDCard_readFrame
+    258          
+    259          /*
+    260           *-----------------------------------------------------------------------
+    261           * Send a command packet to MMC
+    262           *-----------------------------------------------------------------------
+    263           */
+    264          
+
+   \                                 In  segment CODE, align 2
+    265          static
+    266          BYTE send_cmd (                     /* Returns command response (bit7==1:Send failed)*/
+   \                     send_cmd:
+    267              BYTE cmd,                       /* Command byte */
+    268              DWORD arg                       /* Argument */
+    269              )
+    270          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   3182         SUB.W   #0x8, SP
+   \   000004   484C         MOV.B   R12, R8
+   \   000006   0A4E         MOV.W   R14, R10
+   \   000008   0B4F         MOV.W   R15, R11
+    271              BYTE n, d, buf[6];
+    272          
+    273          
+    274              if (cmd & 0x80){                /* ACMD<n> is the command sequense of CMD55-CMD<n> */
+   \   00000A   4C93         CMP.B   #0x0, R12
+   \   00000C   0A34         JGE     ??send_cmd_1
+    275                  cmd &= 0x7F;
+   \   00000E   78C08000     BIC.B   #0x80, R8
+    276                  n = send_cmd(CMD55, 0);
+   \   000012   0E43         MOV.W   #0x0, R14
+   \   000014   0F43         MOV.W   #0x0, R15
+   \   000016   7C403700     MOV.B   #0x37, R12
+   \   00001A   ........     CALLA   #send_cmd
+    277                  if (n > 1){
+   \   00001E   6C93         CMP.B   #0x2, R12
+   \   000020   3D2C         JC      ??send_cmd_2
+    278                      return ( n) ;
+    279                  }
+    280              }
+    281          
+    282              /* Select the card and wait for ready */
+    283              deselect();
+   \                     ??send_cmd_1:
+   \   000022   ........     CALLA   #deselect
+    284              if (!select()){
+   \   000026   ........     CALLA   #select
+   \   00002A   0C93         CMP.W   #0x0, R12
+   \   00002C   0220         JNE     ??send_cmd_3
+    285                  return ( 0xFF) ;
+   \   00002E   7C43         MOV.B   #0xff, R12
+   \   000030   353C         JMP     ??send_cmd_2
+    286              }
+    287          
+    288              /* Send a command packet */
+    289              buf[0] = 0x40 | cmd;            /* Start + Command index */
+   \                     ??send_cmd_3:
+   \   000032   4E48         MOV.B   R8, R14
+   \   000034   7ED04000     BIS.B   #0x40, R14
+   \   000038   C14E0100     MOV.B   R14, 0x1(SP)
+    290              buf[1] = (BYTE)(arg >> 24);     /* Argument[31..24] */
+   \   00003C   0F4B         MOV.W   R11, R15
+   \   00003E   8F10         SWPB    R15
+   \   000040   4E4F         MOV.B   R15, R14
+   \   000042   C14E0200     MOV.B   R14, 0x2(SP)
+    291              buf[2] = (BYTE)(arg >> 16);     /* Argument[23..16] */
+   \   000046   C14B0300     MOV.B   R11, 0x3(SP)
+    292              buf[3] = (BYTE)(arg >> 8);      /* Argument[15..8] */
+   \   00004A   0F4A         MOV.W   R10, R15
+   \   00004C   8F10         SWPB    R15
+   \   00004E   C14F0400     MOV.B   R15, 0x4(SP)
+    293              buf[4] = (BYTE)arg;             /* Argument[7..0] */
+   \   000052   C14A0500     MOV.B   R10, 0x5(SP)
+    294              n = 0x01;                       /* Dummy CRC + Stop */
+   \   000056   5C43         MOV.B   #0x1, R12
+    295              if (cmd == CMD0){
+   \   000058   4893         CMP.B   #0x0, R8
+   \   00005A   0320         JNE     ??send_cmd_4
+   \   00005C   7C409500     MOV.B   #0x95, R12
+   \   000060   043C         JMP     ??send_cmd_5
+    296                  n = 0x95;                   /* (valid CRC for CMD0(0)) */
+    297              }
+    298              if (cmd == CMD8){
+   \                     ??send_cmd_4:
+   \   000062   7892         CMP.B   #0x8, R8
+   \   000064   0220         JNE     ??send_cmd_5
+    299                  n = 0x87;                   /* (valid CRC for CMD8(0x1AA)) */
+   \   000066   7C408700     MOV.B   #0x87, R12
+    300              }
+    301              buf[5] = n;
+   \                     ??send_cmd_5:
+   \   00006A   C14C0600     MOV.B   R12, 0x6(SP)
+    302              xmit_mmc(buf, 6);
+   \   00006E   3D400600     MOV.W   #0x6, R13
+   \   000072   0C41         MOV.W   SP, R12
+   \   000074   1C53         ADD.W   #0x1, R12
+   \   000076   ........     CALLA   #SDCard_sendFrame
+    303          
+    304              /* Receive command response */
+    305              if (cmd == CMD12){
+   \   00007A   78900C00     CMP.B   #0xc, R8
+   \   00007E   0220         JNE     ??send_cmd_6
+    306                  rcvr_mmc(&d, 1);            /* Skip a stuff byte when stop reading */
+   \   000080   ........     CALLA   #?Subroutine3
+    307              }
+    308              n = 10;                         /* Wait for a valid response in timeout of 10 attempts */
+   \                     ??send_cmd_6:
+   \   000084   7A400A00     MOV.B   #0xa, R10
+   \   000088   0B41         MOV.W   SP, R11
+   \   00008A   0B53         ADD.W   #0x0, R11
+    309              do {
+    310                  rcvr_mmc(&d, 1);
+   \                     ??send_cmd_0:
+   \   00008C   ........     CALLA   #?Subroutine2
+    311              }
+    312              while ((d & 0x80) && --n);
+   \                     ??CrossCallReturnLabel_1:
+   \   000090   C1930000     CMP.B   #0x0, 0(SP)
+   \   000094   0234         JGE     ??send_cmd_7
+   \   000096   7A53         ADD.B   #0xff, R10
+   \   000098   F923         JNE     ??send_cmd_0
+    313          
+    314              return (d);                     /* Return with the response value */
+   \                     ??send_cmd_7:
+   \   00009A   6C41         MOV.B   @SP, R12
+   \                     ??send_cmd_2:
+   \   00009C   3152         ADD.W   #0x8, SP
+   \   00009E   3816         POPM.A  #0x4, R11
+   \   0000A0   1001         RETA
+    315          }
+    316          
+    317          /*--------------------------------------------------------------------------
+    318           *
+    319           * Public Functions
+    320           *
+    321           * ---------------------------------------------------------------------------*/
+    322          
+    323          
+    324          /*
+    325           *-----------------------------------------------------------------------
+    326           * Get Disk Status
+    327           *-----------------------------------------------------------------------
+    328           */
+    329          
+
+   \                                 In  segment CODE, align 2
+    330          DSTATUS disk_status (
+   \                     disk_status:
+    331              BYTE drv                        /* Drive number (0) */
+    332              )
+    333          {
+    334              DSTATUS s = Stat;
+   \   000000   ....5E42.... MOVX.B  &Stat, R14
+    335          
+    336          
+    337              if (drv || !INS){
+   \   000006   4C93         CMP.B   #0x0, R12
+   \   000008   0420         JNE     ??disk_status_0
+   \   00000A   ....C293.... CMPX.B  #0x0, &INS
+   \   000010   0320         JNE     ??disk_status_1
+    338                  s = STA_NODISK | STA_NOINIT;
+   \                     ??disk_status_0:
+   \   000012   7E400300     MOV.B   #0x3, R14
+   \   000016   023C         JMP     ??disk_status_2
+    339              } else {
+    340                  s &= ~STA_NODISK;
+    341                  if (WP){
+    342                      s |= STA_PROTECT;
+    343                  } else {
+    344                      s &= ~STA_PROTECT;
+   \                     ??disk_status_1:
+   \   000018   7EF0F900     AND.B   #0xf9, R14
+    345                  }
+    346              }
+    347              Stat = s;
+   \                     ??disk_status_2:
+   \   00001C   ....C24E.... MOVX.B  R14, &Stat
+    348          
+    349              return (s);
+   \   000022   4C4E         MOV.B   R14, R12
+   \   000024   1001         RETA
+    350          }
+    351          
+    352          /*
+    353           *-----------------------------------------------------------------------
+    354           * Initialize Disk Drive
+    355           *-----------------------------------------------------------------------
+    356           */
+    357          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    358          DSTATUS disk_initialize (
+   \                     disk_initialize:
+    359              BYTE drv    /* Physical drive nmuber (0) */
+    360              )
+    361          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   2182         SUB.W   #0x4, SP
+   \   000004   4A4C         MOV.B   R12, R10
+    362          /* TI: Inserted pragma to supress IAR compiler warning incicating 'cmd'
+    363           * is not used. If removed however the compile fails */
+    364          #ifdef __IAR_SYSTEMS_ICC__
+    365          #pragma diag_suppress=Pe550
+    366          #endif
+    367          #ifdef __TI_COMPILER_VERSION__
+    368          #pragma diag_suppress 552
+    369          #endif
+    370              BYTE n, ty, cmd, buf[4];
+    371          #ifdef __IAR_SYSTEMS_ICC__
+    372          #pragma diag_default=Pe550
+    373          #endif
+    374          //#ifdef __TI_COMPILER_VERSION__
+    375          //#pragma diag_default 552
+    376          //#endif
+    377              UINT tmr;
+    378              DSTATUS s;
+    379          
+    380          
+    381              INIT_PORT();                                                        /* Initialize control port */
+   \   000006   ........     CALLA   #HAL_SPI_Init
+    382          
+    383              s = disk_status(drv);                                               /* Check if card is in the socket */
+   \   00000A   4C4A         MOV.B   R10, R12
+   \   00000C   ........     CALLA   #disk_status
+   \   000010   4B4C         MOV.B   R12, R11
+    384              if (s & STA_NODISK){
+   \   000012   6CB3         BIT.B   #0x2, R12
+   \   000014   752C         JC      ??disk_initialize_6
+    385                  return ( s) ;
+    386              }
+    387          
+    388              CS_H();
+   \   000016   ........     CALLA   #SDCard_setCSHigh
+    389              for (n = 10; n; n--){rcvr_mmc(buf, 1);                              /* 80 dummy clocks */
+   \   00001A   78400A00     MOV.B   #0xa, R8
+   \   00001E   0A41         MOV.W   SP, R10
+   \   000020   0A53         ADD.W   #0x0, R10
+   \                     ??disk_initialize_0:
+   \   000022   ........     CALLA   #?Subroutine1
+    390              }
+   \                     ??CrossCallReturnLabel_27:
+   \   000026   7853         ADD.B   #0xff, R8
+   \   000028   FC23         JNE     ??disk_initialize_0
+    391              ty = 0;
+   \   00002A   4843         MOV.B   #0x0, R8
+    392              if (send_cmd(CMD0, 0) == 1){                                        /* Enter Idle state */
+   \   00002C   0E43         MOV.W   #0x0, R14
+   \   00002E   0F43         MOV.W   #0x0, R15
+   \   000030   4C43         MOV.B   #0x0, R12
+   \   000032   ........     CALLA   #send_cmd
+   \   000036   5C93         CMP.B   #0x1, R12
+   \   000038   5320         JNE     ??disk_initialize_4
+    393                  if (send_cmd(CMD8, 0x1AA) == 1){                                /* SDv2? */
+   \   00003A   3E40AA01     MOV.W   #0x1aa, R14
+   \   00003E   0F43         MOV.W   #0x0, R15
+   \   000040   7C42         MOV.B   #0x8, R12
+   \   000042   ........     CALLA   #send_cmd
+   \   000046   5C93         CMP.B   #0x1, R12
+   \   000048   2B20         JNE     ??disk_initialize_7
+    394                      rcvr_mmc(buf, 4);                                           /* Get trailing return value of R7 resp */
+   \   00004A   2D42         MOV.W   #0x4, R13
+   \   00004C   ........     CALLA   #??Subroutine1_0
+    395                      if (buf[2] == 0x01 && buf[3] == 0xAA){                      /* The card can work at vdd range of 2.7-3.6V */
+   \                     ??CrossCallReturnLabel_25:
+   \   000050   D1930200     CMP.B   #0x1, 0x2(SP)
+   \   000054   4520         JNE     ??disk_initialize_4
+   \   000056   F190AA000300 CMP.B   #0xaa, 0x3(SP)
+   \   00005C   4120         JNE     ??disk_initialize_4
+    396                          for (tmr = 1000; tmr; tmr--)
+   \   00005E   3940E803     MOV.W   #0x3e8, R9
+    397                          {                                                       /* Wait for leaving idle state (ACMD41 with HCS bit) */
+    398                              if (send_cmd(ACMD41, 1UL << 30) == 0){
+   \                     ??disk_initialize_1:
+   \   000062   0E43         MOV.W   #0x0, R14
+   \   000064   3F400040     MOV.W   #0x4000, R15
+   \   000068   ........     CALLA   #?Subroutine6
+   \                     ??CrossCallReturnLabel_12:
+   \   00006C   0424         JEQ     ??disk_initialize_8
+    399                                  break;
+    400                              }
+    401                              DLY_US(1000);
+   \   00006E   ........     CALLA   #?Subroutine8
+    402                          }
+   \                     ??CrossCallReturnLabel_8:
+   \   000072   3624         JEQ     ??disk_initialize_4
+   \   000074   F63F         JMP     ??disk_initialize_1
+    403                          if (tmr && send_cmd(CMD58, 0) == 0){                    /* Check CCS bit in the OCR */
+   \                     ??disk_initialize_8:
+   \   000076   0993         CMP.W   #0x0, R9
+   \   000078   3324         JEQ     ??disk_initialize_4
+   \   00007A   0E43         MOV.W   #0x0, R14
+   \   00007C   0F43         MOV.W   #0x0, R15
+   \   00007E   7C403A00     MOV.B   #0x3a, R12
+   \   000082   ........     CALLA   #?Subroutine10
+   \                     ??CrossCallReturnLabel_14:
+   \   000086   2C20         JNE     ??disk_initialize_4
+    404                              rcvr_mmc(buf, 4);
+   \   000088   2D42         MOV.W   #0x4, R13
+   \   00008A   ........     CALLA   #??Subroutine1_0
+    405                              ty = (buf[0] & 0x40) ? CT_SD2 | CT_BLOCK : CT_SD2;  /* SDv2 */
+   \                     ??CrossCallReturnLabel_24:
+   \   00008E   F1B040000000 BIT.B   #0x40, 0(SP)
+   \   000094   022C         JC      ??disk_initialize_9
+   \   000096   6842         MOV.B   #0x4, R8
+   \   000098   233C         JMP     ??disk_initialize_4
+   \                     ??disk_initialize_9:
+   \   00009A   78400C00     MOV.B   #0xc, R8
+   \   00009E   203C         JMP     ??disk_initialize_4
+    406                          }
+    407                      }
+    408                  } else {                                                        /* SDv1 or MMCv3 */
+    409                      if (send_cmd(ACMD41, 0) <= 1){
+   \                     ??disk_initialize_7:
+   \   0000A0   0E43         MOV.W   #0x0, R14
+   \   0000A2   0F43         MOV.W   #0x0, R15
+   \   0000A4   7C40A900     MOV.B   #0xa9, R12
+   \   0000A8   ........     CALLA   #send_cmd
+   \   0000AC   6C93         CMP.B   #0x2, R12
+   \   0000AE   4873         SUBC.B  #0x0, R8
+   \   0000B0   78E3         XOR.B   #0xff, R8
+   \   0000B2   6853         ADD.B   #0x2, R8
+    410                          ty = CT_SD1; cmd = ACMD41;                              /* SDv1 */
+    411                      } else {
+    412                          ty = CT_MMC; cmd = CMD1;                                /* MMCv3 */
+    413                      }
+    414                      for (tmr = 1000; tmr; tmr--)
+   \   0000B4   3940E803     MOV.W   #0x3e8, R9
+    415                      {                                                           /* Wait for leaving idle state */
+    416                          if (send_cmd(ACMD41, 0) == 0){
+   \                     ??disk_initialize_2:
+   \   0000B8   0E43         MOV.W   #0x0, R14
+   \   0000BA   0F43         MOV.W   #0x0, R15
+   \   0000BC   ........     CALLA   #?Subroutine6
+   \                     ??CrossCallReturnLabel_13:
+   \   0000C0   0424         JEQ     ??disk_initialize_10
+    417                              break;
+    418                          }
+    419                          DLY_US(1000);
+   \   0000C2   ........     CALLA   #?Subroutine8
+    420                      }
+   \                     ??CrossCallReturnLabel_9:
+   \   0000C6   0B24         JEQ     ??disk_initialize_11
+   \   0000C8   F73F         JMP     ??disk_initialize_2
+    421                      if (!tmr || send_cmd(CMD16, 512) != 0){                     /* Set R/W block length to 512 */
+   \                     ??disk_initialize_10:
+   \   0000CA   0993         CMP.W   #0x0, R9
+   \   0000CC   0824         JEQ     ??disk_initialize_11
+   \   0000CE   3E400002     MOV.W   #0x200, R14
+   \   0000D2   0F43         MOV.W   #0x0, R15
+   \   0000D4   7C401000     MOV.B   #0x10, R12
+   \   0000D8   ........     CALLA   #?Subroutine10
+   \                     ??CrossCallReturnLabel_15:
+   \   0000DC   0124         JEQ     ??disk_initialize_4
+    422                          ty = 0;
+   \                     ??disk_initialize_11:
+   \   0000DE   4843         MOV.B   #0x0, R8
+    423                      }
+    424                  }
+    425              }
+    426              CardType = ty;
+   \                     ??disk_initialize_4:
+   \   0000E0   ....C248.... MOVX.B  R8, &CardType
+    427              deselect();
+   \   0000E6   ........     CALLA   #deselect
+    428          
+    429              if (ty){                                                            /* Initialization succeded */
+   \   0000EA   4893         CMP.B   #0x0, R8
+   \   0000EC   0424         JEQ     ??disk_initialize_12
+    430                  FAST_MODE();
+   \   0000EE   ........     CALLA   #SDCard_fastMode
+    431                  s &= ~STA_NOINIT;
+   \   0000F2   5BC3         BIC.B   #0x1, R11
+   \   0000F4   013C         JMP     ??disk_initialize_13
+    432              } else {                                                            /* Initialization failed */
+    433                  s |= STA_NOINIT;
+   \                     ??disk_initialize_12:
+   \   0000F6   5BD3         BIS.B   #0x1, R11
+    434              }
+    435          
+    436              Stat = s;
+   \                     ??disk_initialize_13:
+   \   0000F8   ....C24B.... MOVX.B  R11, &Stat
+    437          
+    438              return (s);
+   \   0000FE   4C4B         MOV.B   R11, R12
+   \                     ??disk_initialize_6:
+   \   000100                REQUIRE ?Subroutine0
+   \   000100                // Fall through to label ?Subroutine0
+    439          }
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine8:
+   \   000000                ////////////// Start of 12000 cycles delay.
+   \   000000   0343         NOP
+   \   000002   3F409E0F     MOV.W   #0xf9e, R15
+   \                     ??Subroutine8_0:
+   \   000006   3F53         ADD.W   #0xffff, R15
+   \   000008   FE2F         JC      ??Subroutine8_0
+   \   00000A                ////////////// End of delay code.
+   \   00000A   3953         ADD.W   #0xffff, R9
+   \   00000C   1001         RETA
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine10:
+   \   000000   ........     CALLA   #send_cmd
+   \   000004   4C93         CMP.B   #0x0, R12
+   \   000006   1001         RETA
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine6:
+   \   000000   7C40A900     MOV.B   #0xa9, R12
+   \   000004   ....         JMP     ?Subroutine10
+   \   000006   0343         NOP
+    440          
+    441          /*
+    442           *-----------------------------------------------------------------------
+    443           * Read Sector(s)
+    444           *-----------------------------------------------------------------------
+    445           */
+    446          
+
+   \                                 In  segment CODE, align 2
+    447          DRESULT disk_read (
+   \                     disk_read:
+    448              BYTE drv,                                                           /* Physical drive nmuber (0) */
+    449              BYTE *buff,                                                         /* Pointer to the data buffer to store read data */
+    450              DWORD sector,                                                       /* Start sector number (LBA) */
+    451              BYTE count                                                          /* Sector count (1..128) */
+    452              )
+    453          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   CB0D         MOVA    R13, R11
+   \   000004   084E         MOV.W   R14, R8
+   \   000006   094F         MOV.W   R15, R9
+    454              DSTATUS s;
+    455          
+    456          
+    457              s = disk_status(drv);
+   \   000008   ........     CALLA   #disk_status
+    458              if (s & STA_NOINIT){
+   \   00000C   5CB3         BIT.B   #0x1, R12
+   \   00000E   0328         JNC     ??disk_read_2
+    459                  return ( RES_NOTRDY) ;
+   \   000010   7C400300     MOV.B   #0x3, R12
+   \   000014   393C         JMP     ??disk_read_1
+    460              }
+   \                     ??disk_read_2:
+   \   000016   5A411400     MOV.B   0x14(SP), R10
+    461              if (!count){
+   \   00001A   4A93         CMP.B   #0x0, R10
+   \   00001C   0220         JNE     ??disk_read_3
+    462                  return ( RES_PARERR) ;
+   \   00001E   6C42         MOV.B   #0x4, R12
+   \   000020   333C         JMP     ??disk_read_1
+    463              }
+    464              if (!(CardType & CT_BLOCK)){
+   \                     ??disk_read_3:
+   \   000022   ....F2B2.... BITX.B  #0x8, &CardType
+   \   000028   062C         JC      ??disk_read_4
+    465                  sector *= 512;                                                  /* Convert LBA to byte address if needed */
+   \   00002A   0C48         MOV.W   R8, R12
+   \   00002C   0D4F         MOV.W   R15, R13
+   \   00002E   ........     CALLA   #?ShiftLeft32_9
+   \   000032   084C         MOV.W   R12, R8
+   \   000034   094D         MOV.W   R13, R9
+    466              }
+    467              if (count == 1){                                                    /* Single block read */
+   \                     ??disk_read_4:
+   \   000036   5A93         CMP.B   #0x1, R10
+   \   000038   0E48         MOV.W   R8, R14
+   \   00003A   0F49         MOV.W   R9, R15
+   \   00003C   0B20         JNE     ??disk_read_5
+    468                  if ((send_cmd(CMD17, sector) == 0)                              /* READ_SINGLE_BLOCK */
+    469                      && rcvr_datablock(buff, 512)){
+   \   00003E   7C401100     MOV.B   #0x11, R12
+   \   000042   ........     CALLA   #?Subroutine10
+   \                     ??CrossCallReturnLabel_18:
+   \   000046   1920         JNE     ??disk_read_6
+   \   000048   ........     CALLA   #?Subroutine9
+   \                     ??CrossCallReturnLabel_11:
+   \   00004C   0C93         CMP.W   #0x0, R12
+   \   00004E   1524         JEQ     ??disk_read_6
+    470                      count = 0;
+   \   000050   4A43         MOV.B   #0x0, R10
+   \   000052   133C         JMP     ??disk_read_6
+    471                  }
+    472              } else {                                                            /* Multiple block read */
+    473                  if (send_cmd(CMD18, sector) == 0){                              /* READ_MULTIPLE_BLOCK */
+   \                     ??disk_read_5:
+   \   000054   7C401200     MOV.B   #0x12, R12
+   \   000058   ........     CALLA   #?Subroutine10
+   \                     ??CrossCallReturnLabel_19:
+   \   00005C   0E20         JNE     ??disk_read_6
+    474                      do {
+    475                          if (!rcvr_datablock(buff, 512)){
+   \                     ??disk_read_0:
+   \   00005E   ........     CALLA   #?Subroutine9
+   \                     ??CrossCallReturnLabel_10:
+   \   000062   0C93         CMP.W   #0x0, R12
+   \   000064   0424         JEQ     ??disk_read_7
+    476                              break;
+    477                          }
+    478                          buff += 512;
+   \   000066   AB000002     ADDA    #0x200, R11
+    479                      } while (--count);
+   \   00006A   7A53         ADD.B   #0xff, R10
+   \   00006C   F823         JNE     ??disk_read_0
+    480                      send_cmd(CMD12, 0);                                         /* STOP_TRANSMISSION */
+   \                     ??disk_read_7:
+   \   00006E   0E43         MOV.W   #0x0, R14
+   \   000070   0F43         MOV.W   #0x0, R15
+   \   000072   7C400C00     MOV.B   #0xc, R12
+   \   000076   ........     CALLA   #send_cmd
+    481                  }
+    482              }
+    483              deselect();
+   \                     ??disk_read_6:
+   \   00007A   ........     CALLA   #deselect
+    484          
+    485              return (count ? RES_ERROR : RES_OK);
+   \   00007E   4A93         CMP.B   #0x0, R10
+   \   000080   0220         JNE     ??disk_read_8
+   \   000082   4C43         MOV.B   #0x0, R12
+   \   000084   013C         JMP     ??disk_read_1
+   \                     ??disk_read_8:
+   \   000086   5C43         MOV.B   #0x1, R12
+   \                     ??disk_read_1:
+   \   000088   3816         POPM.A  #0x4, R11
+   \   00008A   1001         RETA
+    486          }
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine9:
+   \   000000   3D400002     MOV.W   #0x200, R13
+   \   000004   CC0B         MOVA    R11, R12
+   \   000006   ........     BRA     #rcvr_datablock
+    487          
+    488          /*
+    489           *-----------------------------------------------------------------------
+    490           * Write Sector(s)
+    491           *-----------------------------------------------------------------------
+    492           */
+    493          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    494          DRESULT disk_write (
+   \                     disk_write:
+    495              BYTE drv,                                                           /* Physical drive nmuber (0) */
+    496              const BYTE *buff,                                                   /* Pointer to the data to be written */
+    497              DWORD sector,                                                       /* Start sector number (LBA) */
+    498              BYTE count                                                          /* Sector count (1..128) */
+    499              )
+    500          {
+   \   000000   3B14         PUSHM.A #0x4, R11
+   \   000002   C90D         MOVA    R13, R9
+   \   000004   0A4E         MOV.W   R14, R10
+   \   000006   0B4F         MOV.W   R15, R11
+    501              DSTATUS s;
+    502          
+    503          
+    504              s = disk_status(drv);
+   \   000008   ........     CALLA   #disk_status
+    505              if (s & STA_NOINIT){
+   \   00000C   5CB3         BIT.B   #0x1, R12
+   \   00000E   0328         JNC     ??disk_write_2
+    506                  return ( RES_NOTRDY) ;
+   \   000010   7C400300     MOV.B   #0x3, R12
+   \   000014   533C         JMP     ??disk_write_1
+    507              }
+    508              if (s & STA_PROTECT){
+   \                     ??disk_write_2:
+   \   000016   6CB2         BIT.B   #0x4, R12
+   \   000018   0228         JNC     ??disk_write_3
+    509                  return ( RES_WRPRT) ;
+   \   00001A   6C43         MOV.B   #0x2, R12
+   \   00001C   4F3C         JMP     ??disk_write_1
+    510              }
+   \                     ??disk_write_3:
+   \   00001E   58411400     MOV.B   0x14(SP), R8
+    511              if (!count){
+   \   000022   4893         CMP.B   #0x0, R8
+   \   000024   0220         JNE     ??disk_write_4
+    512                  return ( RES_PARERR) ;
+   \   000026   6C42         MOV.B   #0x4, R12
+   \   000028   493C         JMP     ??disk_write_1
+    513              }
+    514              if (!(CardType & CT_BLOCK)){
+   \                     ??disk_write_4:
+   \   00002A   ....F2B2.... BITX.B  #0x8, &CardType
+   \   000030   062C         JC      ??disk_write_5
+    515                  sector *= 512;                                                  /* Convert LBA to byte address if needed */
+   \   000032   0C4A         MOV.W   R10, R12
+   \   000034   0D4F         MOV.W   R15, R13
+   \   000036   ........     CALLA   #?ShiftLeft32_9
+   \   00003A   0A4C         MOV.W   R12, R10
+   \   00003C   0B4D         MOV.W   R13, R11
+    516              }
+    517              if (count == 1){                                                    /* Single block write */
+   \                     ??disk_write_5:
+   \   00003E   5893         CMP.B   #0x1, R8
+   \   000040   1020         JNE     ??disk_write_6
+    518                  if ((send_cmd(CMD24, sector) == 0)                              /* WRITE_BLOCK */
+    519                      && xmit_datablock(buff, 0xFE)){
+   \   000042   0E4A         MOV.W   R10, R14
+   \   000044   0F4B         MOV.W   R11, R15
+   \   000046   7C401800     MOV.B   #0x18, R12
+   \   00004A   ........     CALLA   #?Subroutine10
+   \                     ??CrossCallReturnLabel_16:
+   \   00004E   2F20         JNE     ??disk_write_7
+   \   000050   7D40FE00     MOV.B   #0xfe, R13
+   \   000054   CC09         MOVA    R9, R12
+   \   000056   ........     CALLA   #xmit_datablock
+   \   00005A   0C93         CMP.W   #0x0, R12
+   \   00005C   2824         JEQ     ??disk_write_7
+    520                      count = 0;
+   \   00005E   4843         MOV.B   #0x0, R8
+   \   000060   263C         JMP     ??disk_write_7
+    521                  }
+    522              } else {                                                            /* Multiple block write */
+    523                  if (CardType & CT_SDC){
+   \                     ??disk_write_6:
+   \   000062   ....5E42.... MOVX.B  &CardType, R14
+   \   000068   7EB00600     BIT.B   #0x6, R14
+   \   00006C   0624         JEQ     ??disk_write_8
+    524                      send_cmd(ACMD23, count);
+   \   00006E   4E48         MOV.B   R8, R14
+   \   000070   0F43         MOV.W   #0x0, R15
+   \   000072   7C409700     MOV.B   #0x97, R12
+   \   000076   ........     CALLA   #send_cmd
+    525                  }
+    526                  if (send_cmd(CMD25, sector) == 0){                              /* WRITE_MULTIPLE_BLOCK */
+   \                     ??disk_write_8:
+   \   00007A   0E4A         MOV.W   R10, R14
+   \   00007C   0F4B         MOV.W   R11, R15
+   \   00007E   7C401900     MOV.B   #0x19, R12
+   \   000082   ........     CALLA   #?Subroutine10
+   \                     ??CrossCallReturnLabel_17:
+   \   000086   1320         JNE     ??disk_write_7
+    527                      do {
+    528                          if (!xmit_datablock(buff, 0xFC)){
+   \                     ??disk_write_0:
+   \   000088   7D40FC00     MOV.B   #0xfc, R13
+   \   00008C   CC09         MOVA    R9, R12
+   \   00008E   ........     CALLA   #xmit_datablock
+   \   000092   0C93         CMP.W   #0x0, R12
+   \   000094   0424         JEQ     ??disk_write_9
+    529                              break;
+    530                          }
+    531                          buff += 512;
+   \   000096   A9000002     ADDA    #0x200, R9
+    532                      } while (--count);
+   \   00009A   7853         ADD.B   #0xff, R8
+   \   00009C   F523         JNE     ??disk_write_0
+    533                      if (!xmit_datablock(0, 0xFD)){                              /* STOP_TRAN token */
+   \                     ??disk_write_9:
+   \   00009E   7D40FD00     MOV.B   #0xfd, R13
+   \   0000A2   4C43         MOVA    #0x0, R12
+   \   0000A4   ........     CALLA   #xmit_datablock
+   \   0000A8   0C93         CMP.W   #0x0, R12
+   \   0000AA   0120         JNE     ??disk_write_7
+    534                          count = 1;
+   \   0000AC   5843         MOV.B   #0x1, R8
+    535                      }
+    536                  }
+    537              }
+    538              deselect();
+   \                     ??disk_write_7:
+   \   0000AE   ........     CALLA   #deselect
+    539          
+    540              return (count ? RES_ERROR : RES_OK);
+   \   0000B2   4893         CMP.B   #0x0, R8
+   \   0000B4   0220         JNE     ??disk_write_10
+   \   0000B6   4C43         MOV.B   #0x0, R12
+   \   0000B8   013C         JMP     ??disk_write_1
+   \                     ??disk_write_10:
+   \   0000BA   5C43         MOV.B   #0x1, R12
+   \                     ??disk_write_1:
+   \   0000BC   3816         POPM.A  #0x4, R11
+   \   0000BE   1001         RETA
+    541          }
+    542          
+    543          /*
+    544           *-----------------------------------------------------------------------
+    545           * Miscellaneous Functions
+    546           *-----------------------------------------------------------------------
+    547           */
+    548          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    549          DRESULT disk_ioctl (
+   \                     disk_ioctl:
+    550              BYTE drv,                                                           /* Physical drive nmuber (0) */
+    551              BYTE ctrl,                                                          /* Control code */
+    552              DWORD *buff /* Buffer to send/receive control data */               //KLQ  Changed from void* to DWORD*
+    553              )
+    554          {
+   \   000000   1B14         PUSHM.A #0x2, R11
+   \   000002   31801000     SUB.W   #0x10, SP
+   \   000006   CA0E         MOVA    R14, R10
+    555              DRESULT res;
+    556              BYTE n, csd[16];
+    557              WORD cs;
+    558          
+    559          
+    560              if (disk_status(drv) & STA_NOINIT){                                 /* Check if card is in the socket */
+   \   000008   ........     CALLA   #disk_status
+   \   00000C   5CB3         BIT.B   #0x1, R12
+   \   00000E   0328         JNC     ??disk_ioctl_1
+    561                  return (RES_NOTRDY);
+   \   000010   7C400300     MOV.B   #0x3, R12
+   \   000014   5B3C         JMP     ??disk_ioctl_2
+    562              }
+    563          
+    564              res = RES_ERROR;
+   \                     ??disk_ioctl_1:
+   \   000016   5B43         MOV.B   #0x1, R11
+    565              switch (ctrl){
+   \   000018   4D83         SUB.B   #0x0, R13
+   \   00001A   0524         JEQ     ??disk_ioctl_3
+   \   00001C   5D83         SUB.B   #0x1, R13
+   \   00001E   0A24         JEQ     ??disk_ioctl_4
+   \   000020   6D83         SUB.B   #0x2, R13
+   \   000022   4924         JEQ     ??disk_ioctl_5
+   \   000024   4F3C         JMP     ??disk_ioctl_6
+    566                  case CTRL_SYNC:                                                 /* Make sure that no pending write process */
+    567                      if (select()){
+   \                     ??disk_ioctl_3:
+   \   000026   ........     CALLA   #select
+   \   00002A   0C93         CMP.W   #0x0, R12
+   \   00002C   4C24         JEQ     ??disk_ioctl_7
+    568                          deselect();
+   \   00002E   ........     CALLA   #deselect
+    569                          res = RES_OK;
+   \   000032   463C         JMP     ??disk_ioctl_0
+    570                      }
+    571                      break;
+    572          
+    573                  case GET_SECTOR_COUNT:                                          /* Get number of sectors on the disk (DWORD) */
+    574                      if ((send_cmd(CMD9, 0) == 0) && rcvr_datablock(csd, 16)){
+   \                     ??disk_ioctl_4:
+   \   000034   ........     CALLA   #?Subroutine5
+   \                     ??CrossCallReturnLabel_22:
+   \   000038   4620         JNE     ??disk_ioctl_7
+   \   00003A   ........     CALLA   #?Subroutine7
+   \                     ??CrossCallReturnLabel_7:
+   \   00003E   4324         JEQ     ??disk_ioctl_7
+    575                          if ((csd[0] >> 6) == 1){                                /* SDC ver 2.00 */
+   \   000040   5F410800     MOV.B   0x8(SP), R15
+   \   000044   5E410900     MOV.B   0x9(SP), R14
+   \   000048   6D41         MOV.B   @SP, R13
+   \   00004A   7DF0C000     AND.B   #0xc0, R13
+   \   00004E   7D904000     CMP.B   #0x40, R13
+   \   000052   0820         JNE     ??disk_ioctl_8
+    576                              cs = csd[9] + ((WORD)csd[8] << 8) + 1;
+    577                              *buff = ((DWORD)cs) << 10;
+   \   000054   4C4E         MOV.B   R14, R12
+   \   000056   8F10         SWPB    R15
+   \   000058   0C5F         ADD.W   R15, R12
+   \   00005A   1C53         ADD.W   #0x1, R12
+   \   00005C   0D43         MOV.W   #0x0, R13
+   \   00005E   ........     CALLA   #?ShiftLeft32_10
+   \   000062   243C         JMP     ??disk_ioctl_9
+    578                          } else {                                                /* SDC ver 1.XX or MMC */
+    579                              n =
+    580                                  (csd[5] &
+    581                                   15) + ((csd[10] & 128) >> 7) + ((csd[9] & 3) << 1) + 2;
+    582                              cs =
+    583                                  (csd[8] >>
+    584                                   6) +
+    585                                  ((WORD)csd[7] << 2) + ((WORD)(csd[6] & 3) << 10) + 1;
+    586                              *(DWORD*)buff = (DWORD)cs << (n - 9);
+   \                     ??disk_ioctl_8:
+   \   000064                RPT     #0x6
+   \   000064   45194F10     RRUX.B  R15
+   \   000068   4C4F         MOV.B   R15, R12
+   \   00006A   5F410700     MOV.B   0x7(SP), R15
+   \   00006E   5F06         RLAM.W  #0x2, R15
+   \   000070   0C5F         ADD.W   R15, R12
+   \   000072   5F410600     MOV.B   0x6(SP), R15
+   \   000076   7FF00300     AND.B   #0x3, R15
+   \   00007A                RPT     #0x2
+   \   00007A   41184F5F     RLAX.B  R15
+   \   00007E   8F10         SWPB    R15
+   \   000080   0C5F         ADD.W   R15, R12
+   \   000082   1C53         ADD.W   #0x1, R12
+   \   000084   0D43         MOV.W   #0x0, R13
+   \   000086   5F410500     MOV.B   0x5(SP), R15
+   \   00008A   7FF00F00     AND.B   #0xf, R15
+   \   00008E   F1B080000A00 BIT.B   #0x80, 0xa(SP)
+   \   000094   5B73         SUBC.B  #0x1, R11
+   \   000096   5B53         ADD.B   #0x1, R11
+   \   000098   4F5B         ADD.B   R11, R15
+   \   00009A   7EF00300     AND.B   #0x3, R14
+   \   00009E   4E5E         RLA.B   R14
+   \   0000A0   4F5E         ADD.B   R14, R15
+   \   0000A2   7F50F900     ADD.B   #0xf9, R15
+   \   0000A6   4E4F         MOV.B   R15, R14
+   \   0000A8   ........     CALLA   #?ShiftLeft32
+   \                     ??disk_ioctl_9:
+   \   0000AC   8A4C0000     MOV.W   R12, 0(R10)
+   \   0000B0   8A4D0200     MOV.W   R13, 0x2(R10)
+    587                          }
+    588                          res = RES_OK;
+   \   0000B4   053C         JMP     ??disk_ioctl_0
+    589                      }
+    590                      break;
+    591          
+    592                  case GET_BLOCK_SIZE:                                            /* Get erase block size in unit of sector (DWORD) */
+    593                      *(DWORD*)buff = 128;
+   \                     ??disk_ioctl_5:
+   \   0000B6   BA4080000000 MOV.W   #0x80, 0(R10)
+   \   0000BC   8A430200     MOV.W   #0x0, 0x2(R10)
+    594                      res = RES_OK;
+   \                     ??disk_ioctl_0:
+   \   0000C0   4B43         MOV.B   #0x0, R11
+    595                      break;
+   \   0000C2   013C         JMP     ??disk_ioctl_7
+    596          
+    597                  default:
+    598                      res = RES_PARERR;
+   \                     ??disk_ioctl_6:
+   \   0000C4   6B42         MOV.B   #0x4, R11
+    599              }
+    600          
+    601              deselect();
+   \                     ??disk_ioctl_7:
+   \   0000C6   ........     CALLA   #deselect
+    602          
+    603              return (res);
+   \   0000CA   4C4B         MOV.B   R11, R12
+   \                     ??disk_ioctl_2:
+   \   0000CC   31501000     ADD.W   #0x10, SP
+   \   0000D0   1A16         POPM.A  #0x2, R11
+   \   0000D2   1001         RETA
+    604          }
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine7:
+   \   000000   3D401000     MOV.W   #0x10, R13
+   \   000004   0C41         MOV.W   SP, R12
+   \   000006   2C52         ADD.W   #0x4, R12
+   \   000008   ........     CALLA   #rcvr_datablock
+   \   00000C   0C93         CMP.W   #0x0, R12
+   \   00000E   1001         RETA
+
+   \                                 In  segment CODE, align 2, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   0E43         MOV.W   #0x0, R14
+   \   000002   0F43         MOV.W   #0x0, R15
+   \   000004   7C400900     MOV.B   #0x9, R12
+   \   000008                REQUIRE ?Subroutine10
+   \   000008                // Fall through to label ?Subroutine10
+    605          
+    606          //KLQ
+    607          
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    608          uint8_t validateCSD (void)
+   \                     validateCSD:
+    609          {
+   \   000000   1B14         PUSHM.A #0x2, R11
+   \   000002   31802000     SUB.W   #0x20, SP
+    610              BYTE csd0[16], csd1[16], i;
+    611              WORD sum = 0;
+   \   000006   0A43         MOV.W   #0x0, R10
+    612          
+    613              //Pull the CSD -- twice.  If the response codes are invalid, then we know the card isn't there or initialized.
+    614              if ((send_cmd(CMD9, 0) == 0) && rcvr_datablock(csd0, 16)){
+   \   000008   ........     CALLA   #?Subroutine5
+   \                     ??CrossCallReturnLabel_20:
+   \   00000C   3220         JNE     ??validateCSD_2
+   \   00000E   0B41         MOV.W   SP, R11
+   \   000010   3B501000     ADD.W   #0x10, R11
+   \   000014   3D401000     MOV.W   #0x10, R13
+   \   000018   0C4B         MOV.W   R11, R12
+   \   00001A   ........     CALLA   #rcvr_datablock
+   \   00001E   0C93         CMP.W   #0x0, R12
+   \   000020   2824         JEQ     ??validateCSD_2
+    615                  if ((send_cmd(CMD9, 0) == 0) && rcvr_datablock(csd1, 16)){
+   \   000022   ........     CALLA   #?Subroutine5
+   \                     ??CrossCallReturnLabel_21:
+   \   000026   2520         JNE     ??validateCSD_2
+   \   000028   ........     CALLA   #?Subroutine7
+   \                     ??CrossCallReturnLabel_6:
+   \   00002C   2224         JEQ     ??validateCSD_2
+    616                      //The response codes were good -- but maybe the SPI input was just floating low.  Let's evaluate the CSD data.
+    617                      //First, look for all zero or all ones.  If the SPI input is floating, these are the most likely outcomes.
+    618                      for (i = 0; i <= 15; i++){
+   \   00002E   0E4B         MOV.W   R11, R14
+    619                          sum += csd0[i];
+   \                     ??validateCSD_0:
+   \   000030   7F4E         MOV.B   @R14+, R15
+   \   000032   0A5F         ADD.W   R15, R10
+   \   000034   7F4E         MOV.B   @R14+, R15
+   \   000036   0A5F         ADD.W   R15, R10
+    620                      }
+   \   000038   0F4B         MOV.W   R11, R15
+   \   00003A   3F501000     ADD.W   #0x10, R15
+   \   00003E   0E9F         CMP.W   R15, R14
+   \   000040   F723         JNE     ??validateCSD_0
+    621                      if (!((sum == 0) || (sum == 4096))){
+   \   000042   0A93         CMP.W   #0x0, R10
+   \   000044   1624         JEQ     ??validateCSD_2
+   \   000046   3A900010     CMP.W   #0x1000, R10
+   \   00004A   1324         JEQ     ??validateCSD_2
+    622                          //The response was a mix of 0's and 1's.  Floating inputs could still do that -- but it's unlikely they'd
+    623                          //produce the same pattern twice.  Compare to ensure the two are identical.
+    624                          i = 0;
+   \   00004C   4E43         MOV.B   #0x0, R14
+   \   00004E   3F50E0FF     ADD.W   #0xffe0, R15
+    625                          while (i <= 15)
+    626                          {
+    627                              if (csd0[i] != csd1[i]){
+   \                     ??validateCSD_1:
+   \   000052   7D4B         MOV.B   @R11+, R13
+   \   000054   7D9F         CMP.B   @R15+, R13
+   \   000056   0820         JNE     ??validateCSD_3
+    628                                  break;
+    629                              }
+    630                              i++;
+   \   000058   5E53         ADD.B   #0x1, R14
+   \   00005A   7D4B         MOV.B   @R11+, R13
+   \   00005C   7D9F         CMP.B   @R15+, R13
+   \   00005E   0420         JNE     ??validateCSD_3
+   \   000060   5E53         ADD.B   #0x1, R14
+    631                          }
+   \   000062   7E901000     CMP.B   #0x10, R14
+   \   000066   F52B         JNC     ??validateCSD_1
+    632                          if (i > 15){
+   \                     ??validateCSD_3:
+   \   000068   7E901000     CMP.B   #0x10, R14
+   \   00006C   0228         JNC     ??validateCSD_2
+    633                              return ( 1) ;
+   \   00006E   5C43         MOV.B   #0x1, R12
+   \   000070   013C         JMP     ??validateCSD_4
+    634                          }
+    635                      }
+    636                  }
+    637              }
+    638              return ( 0) ;
+   \                     ??validateCSD_2:
+   \   000072   4C43         MOV.B   #0x0, R12
+   \                     ??validateCSD_4:
+   \   000074   31502000     ADD.W   #0x20, SP
+   \   000078   1A16         POPM.A  #0x2, R11
+   \   00007A   1001         RETA
+    639          }
+    640          
+    641          //Attempt to detect the card by commanding it to return its CSD register and evaluating it.  Returns the
+    642          //result, and also updates FatFs's internal INS variable.
+    643          //The proper way to detect a card is by sensing its presence on the DAT3 signal.  The EXP board doesn't
+    644          //contain the necessary h/w, so this s/w method works instead.
+
+   \                                 In  segment CODE, align 2, keep-with-next
+    645          unsigned char detectCard (void)
+   \                     detectCard:
+    646          {
+    647              //Check for a valid CSD response
+    648              if (validateCSD()){
+   \   000000   ........     CALLA   #validateCSD
+   \   000004   4C93         CMP.B   #0x0, R12
+   \   000006   0524         JEQ     ??detectCard_0
+    649                  disk_status(0);     //Update the INS variable
+   \   000008   4C43         MOV.B   #0x0, R12
+   \   00000A   ........     CALLA   #disk_status
+    650                  return ( 1) ;       //Card is present
+   \   00000E   5C43         MOV.B   #0x1, R12
+   \   000010   1001         RETA
+    651              }
+   \                     ??detectCard_0:
+   \   000012   ....D243.... MOVX.B  #0x1, &INS
+    652          
+    653              //We didn't get a valid response.  So we now know the status is one of two things:
+    654              //a) The card isn't there at all;
+    655              //b) or, it was just inserted recently, and needs to be initialized
+    656          
+    657              INS = 0x01;             //Trick disk_initialize into thinking it's inserted...
+    658              disk_initialize(0);     //Attempt to initialize it
+   \   000018   4C43         MOV.B   #0x0, R12
+   \   00001A   ........     CALLA   #disk_initialize
+    659          
+    660              INS = validateCSD();    //Try again
+   \   00001E   ........     CALLA   #validateCSD
+   \   000022   4F4C         MOV.B   R12, R15
+   \   000024   ....C24C.... MOVX.B  R12, &INS
+    661              disk_status(0);         //Update the INS variable
+   \   00002A   4C43         MOV.B   #0x0, R12
+   \   00002C   ........     CALLA   #disk_status
+    662          
+    663              return ( INS) ;         //1 = card is present; 0 = not present
+   \   000030   4C4F         MOV.B   R15, R12
+   \   000032   1001         RETA
+    664          }
+
+   \                                 In  segment DATA20_ID, align 1, align-sorted
+   \                     `?<Initializer for INS>`:
+   \   000000   01           DC8 1
+
+   \                                 In  segment DATA20_ID, align 1, align-sorted
+   \                     `?<Initializer for Stat>`:
+   \   000000   01           DC8 1
+
+   \                                 In  segment CODE, align 2
+   \                     ?Subroutine3:
+   \   000000   1D43         MOV.W   #0x1, R13
+   \   000002   0C41         MOV.W   SP, R12
+   \   000004   2C52         ADD.W   #0x4, R12
+   \   000006   ........     BRA     #SDCard_readFrame
+    665          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       6  deselect
+             6 -> SDCard_readFrame
+             6 -> SDCard_setCSHigh
+       4  detectCard
+             4 -> disk_initialize
+             4 -> disk_status
+             4 -> validateCSD
+      24  disk_initialize
+            24 -> HAL_SPI_Init
+            24 -> SDCard_fastMode
+            24 -> SDCard_readFrame
+            24 -> SDCard_setCSHigh
+            24 -> deselect
+            24 -> disk_status
+            24 -> send_cmd
+      28  disk_ioctl
+            28 -> deselect
+            28 -> disk_status
+            28 -> rcvr_datablock
+            28 -> select
+            28 -> send_cmd
+      20  disk_read
+            20 -> deselect
+            20 -> disk_status
+            20 -> rcvr_datablock
+            20 -> send_cmd
+       4  disk_status
+      20  disk_write
+            20 -> deselect
+            20 -> disk_status
+            20 -> send_cmd
+            20 -> xmit_datablock
+       4  get_fattime
+      22  rcvr_datablock
+            22 -> SDCard_readFrame
+      14  select
+            14 -> SDCard_readFrame
+            14 -> SDCard_setCSLow
+            14 -> deselect
+      28  send_cmd
+            28 -> SDCard_readFrame
+            28 -> SDCard_sendFrame
+            28 -> deselect
+            28 -> select
+            28 -> send_cmd
+      44  validateCSD
+            44 -> rcvr_datablock
+            44 -> send_cmd
+      24  xmit_datablock
+            24 -> SDCard_readFrame
+            24 -> SDCard_sendFrame
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ?<Initializer for INS>
+       1  ?<Initializer for Stat>
+       6  ??Subroutine1_0
+       6  ?Subroutine0
+       2  ?Subroutine1
+       8  ?Subroutine10
+       8  ?Subroutine2
+      10  ?Subroutine3
+      14  ?Subroutine4
+       8  ?Subroutine5
+       8  ?Subroutine6
+      16  ?Subroutine7
+      14  ?Subroutine8
+      10  ?Subroutine9
+       1  CardType
+       1  INS
+       1  Stat
+      14  deselect
+      52  detectCard
+     256  disk_initialize
+     212  disk_ioctl
+     140  disk_read
+      38  disk_status
+     192  disk_write
+      10  get_fattime
+      66  rcvr_datablock
+      56  select
+     162  send_cmd
+     124  validateCSD
+     102  xmit_datablock
+
+ 
+ 1 534 bytes in segment CODE
+     2 bytes in segment DATA20_I
+     2 bytes in segment DATA20_ID
+     1 byte  in segment DATA20_Z
+ 
+ 1 534 bytes of CODE  memory
+     2 bytes of CONST memory
+     3 bytes of DATA  memory
+
+Errors: none
+Warnings: 1

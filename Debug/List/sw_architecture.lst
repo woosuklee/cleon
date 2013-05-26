@@ -1,0 +1,99 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       07/Dec/2012  20:25:57 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\doc\sw_archi #
+#                     tecture.c                                               #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\doc\sw_archi #
+#                     tecture.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.      #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ESL\ #
+#                     3. Research\7. Fall 2012\4_CLEON\3_software\1_developin #
+#                     g\cleon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develop #
+#                     ing\cleon\Debug\Obj\" --no_cse --no_unroll --no_inline  #
+#                     --no_code_motion --no_tbaa --debug -D__MSP430F5338__    #
+#                     -e --double=64 --dlib_config "C:\Program Files\IAR      #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\intro\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib\" #
+#                      -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfor #
+#                     m\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\FatF #
+#                     s\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\app\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -On --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\s #
+#                     w_architecture.lst                                      #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\sw #
+#                     _architecture.r43                                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\doc\sw_architecture.c
+      1          /**
+      2          @file       sw_architecture.c
+      3          
+      4          @brief      Documentation for CLEON software architecture
+      5          
+      6          @page       SW_ARCH     Software architecture    
+      7          
+      8          @section    SW_STRUCT   Software structure
+      9                                  - The software is fully interrupt-driven and the system remains in low-power-mode almost all the time
+     10                                  - Software is modularized into several sub-groups
+     11                                  - \b 'Sys' is for board-level abstraction and \b 'hal' is for hardware-level (mainly for MCU)\n
+     12                                    (\b cleon_conf.h (in 'platform') bridges 'sys' and 'hal') \n
+     13                                    (It means that it is possible to easily replace the MSP430F5338 with new MCU with minimum efforts by modifying 'hal' and 'cleon_conf.h' only) \n
+     14                                      @image html file_structure.jpg 
+     15                                      + \b app : application programming interface (API) for sensor data logging and USB connectivity
+     16                                      + \b doc : documentation (files in this group will be excluded from build)
+     17                                      + \b fs : FatFs file system (http://elm-chan.org/fsw/ff/00index_e.html)
+     18                                      + \b hal : hardware access layer (HAL) for MSP430F5338
+     19                                      + \b main : contains main.c
+     20                                      + \b platform : platform definition
+     21                                      + \b sys : system functions
+     22                                      + \b output : target file generated by compiler
+     23          
+     24          @section    SW_FLOW     Software flowchart
+     25                                  - The flowchart below briefly shows software flow \n
+     26                                    (Note that this is simplified flow and there would be a little difference in real operation)
+     27                                    
+     28                                      @image html flowchart.jpg 
+     29          
+     30          */
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none

@@ -1,0 +1,156 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:39 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_adc.c             #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_adc.c" -lC        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_adc.lst    #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_adc.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_adc.c
+      1          /**
+      2          @file       hal_adc.c
+      3          
+      4          @brief      ADC configuration
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x700
+   \   union <unnamed> __data16 _A_ADC12CTL0_L
+   \                     _A_ADC12CTL0_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x702
+   \   union <unnamed> __data16 _A_ADC12CTL1_L
+   \                     _A_ADC12CTL1_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x710
+   \   unsigned char volatile __data16 ADC12MCTL0
+   \                     ADC12MCTL0:
+   \   000000                DS8 1
+
+   \                                 In  segment DATA16_AN, at 0x711
+   \   unsigned char volatile __data16 ADC12MCTL1
+   \                     ADC12MCTL1:
+   \   000000                DS8 1
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          /*----------------------------------------------------------------------------*/
+     14          /**
+     15          @brief    Initializing ADC
+     16          
+     17          @return   void 
+     18          
+     19          @param    void
+     20          */
+
+   \                                 In  segment CODE, align 2
+     21          void HAL_ADC_Init(void)
+   \                     HAL_ADC_Init:
+     22          { 
+     23              ADC12CTL0 |=  ADC12SHT0_15 + ADC12SHT1_15 + ADC12MSC + ADC12ON;   
+   \   000000   B2D090FF0007 BIS.W   #0xff90, &0x700
+     24              ADC12CTL1 |=  ADC12SHP;
+   \   000006   B2D000020207 BIS.W   #0x200, &0x702
+     25          
+     26              ADC12MCTL0 = (ADC12INCH_15 + ADC12SREF_0); 
+   \   00000C   F2400F001007 MOV.B   #0xf, &0x710
+     27              ADC12MCTL1 = (ADC12INCH_14 + ADC12SREF_0 + ADC12EOS); 
+   \   000012   F2408E001107 MOV.B   #0x8e, &0x711
+     28          
+     29              ADC12CTL1 |= ADC12CONSEQ_1;  
+   \   000018   A2D30207     BIS.W   #0x2, &0x702
+     30              ADC12CTL1 |= ADC12CSTARTADD_0;
+   \   00001C   924202070207 MOV.W   &0x702, &0x702
+     31              
+     32              ADC12CTL0 |=  ADC12ON;
+   \   000022   B2D010000007 BIS.W   #0x10, &0x700
+     33              
+     34              // Initially ADC is disabled
+     35              ADC12CTL0 |=  ADC12ENC;	
+   \   000028   A2D30007     BIS.W   #0x2, &0x700
+     36          }
+   \   00002C   1001         RETA
+   \   00002E                REQUIRE _A_ADC12CTL0_L
+   \   00002E                REQUIRE _A_ADC12CTL1_L
+   \   00002E                REQUIRE ADC12MCTL0
+   \   00002E                REQUIRE ADC12MCTL1
+     37          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_ADC_Init
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       1  ADC12MCTL0
+       1  ADC12MCTL1
+      46  HAL_ADC_Init
+       2  _A_ADC12CTL0_L
+       2  _A_ADC12CTL1_L
+
+ 
+ 46 bytes in segment CODE
+  6 bytes in segment DATA16_AN
+ 
+ 46 bytes of CODE memory
+  0 bytes of DATA memory (+ 6 bytes shared)
+
+Errors: none
+Warnings: none

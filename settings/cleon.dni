@@ -1,0 +1,151 @@
+[Stack]
+FillEnabled=1
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[State Storage]
+Control Register=0
+[Sequencer]
+Control Register=0
+NextState0=0
+NextState1=0
+[Action Register]
+Break=0
+State Storage=0
+[DebugChecksum]
+Checksum=-1638824045
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[EEM State Storage]
+Buffer=AAAAAAAADAAAAAAAAAAAAAAA
+[BreakpointUsageDialog]
+Placement=_ 1256 304 1866 586
+[SfrWindow]
+Show=1 1
+Sort=4 0
+[struct_types]
+Fmt0=rtc_time_s-ucDay	3	0
+Fmt1=rtc_time_s-ucHour	3	0
+Fmt2=rtc_time_s-ucMinute	3	0
+Fmt3=rtc_time_s-ucMonth	3	0
+Fmt4=rtc_time_s-ucSecond	3	0
+Fmt5=rtc_time_s-ucYear	3	0
+Fmt6=rtc_time_s-uiMillisecond	3	0
+Fmt7=signature_u-ulOriginalVar	4	0
+Fmt8=usb_frame_s-ucLength	4	0
+[array_types]
+Fmt0=unsigned char[36]	4	0
+Fmt1=unsigned char[4]	4	0
+Fmt2=unsigned char[8236]	4	0
+Fmt3=unsigned char[8238]	4	0
+[watch_formats]
+Fmt0={W}0:(unsigned long long *)0x038000	4	0
+Fmt1={W}0:*(unsigned long *)(0x0018000 + 0x00004000 * i)	4	0
+Fmt2={W}0:*(unsigned long *)(0x00180000 + 0x00004000 * i)	4	0
+Fmt3={W}0:*ptrDestination	4	0
+Fmt4={W}0:*ptrulData	3	0
+Fmt5={W}0:0x00004000 * ucNumberOfGPSData	4	0
+Fmt6={W}0:0x00018000 + 0x00004000 * i	4	0
+Fmt7={W}0:0x0018000 + 0x00004000 * i	4	0
+Fmt8={W}0:0x00180000 + 0x00004000 * i	4	0
+Fmt9={W}0:BAKCTL	4	0
+Fmt10={W}0:LOCKBAK	4	0
+Fmt11={W}0:MSP430_INTERNAL_FLASH_BANK1_ADDRESS	4	0
+Fmt12={W}0:MSP430_INTERNAL_FLASH_BANK1_ADDRESS + (0x00004000 * ucNumberOfGPSData)	4	0
+Fmt13={W}0:SYSRSTIV	4	0
+Fmt14={W}0:SysRstIv	4	0
+Fmt15={W}0:ptrulDestination	4	0
+Fmt16={W}0:ptrulSource	4	0
+Fmt17={W}0:sizeof(uniCLEON)	3	0
+Fmt18={W}0:ucCollectionSampleGroupCount	3	0
+Fmt19={W}0:ucRTCDelayCountForGPS	3	0
+Fmt20={W}0:ucRTCTwoSecondsCounter	3	0
+Fmt21={W}0:ucRxData	4	0
+Fmt22={W}0:ucSource	4	0
+Fmt23={W}0:ucUSBFrameByteCount	3	0
+Fmt24={W}0:ucUSBFrameDataFieldByteCount	3	0
+Fmt25={W}0:ucVirtualUARTData	4	0
+Fmt26={W}0:uiTemp	4	0
+Fmt27={W}0:ulDestination	4	0
+Fmt28={W}0:ulSource	4	0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[CallStackLog]
+Enabled=0
+[DriverProfiling]
+Enabled=0
+Mode=1
+Graph=0
+Symbiont=0
+Exclusions=
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[DataLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[Breakpoints2]
+Count=0
+[Interrupts]
+Enabled=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[Trace1]
+Enabled=1
+ShowSource=1
+[Breakpoints]
+Count=0
+[FET]
+Clock mode=0
+Extended Clock mode=16351
+Secure Password=
+Extended Clock Control Enable=1
+Advanced Extended Clock Control=0
+Emulation mode=917504
+Free running=0
+Shutting Down=3
+[Memory Dump]
+Start address=240E
+Lenghth=2024
+Address info=0
+Format=1
+Dump registers=0
+PC=0
+SP=0
+SR=0
+all registers=0
+File name=C:\USERS\WOOSUK\DESKTOP\TED\RELEASE\MEMORY.DMP
+[Aliases]
+A0=_ "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\4_cleon\3_software\cleon2.1\main.c" ""
+A1=_ "C:\Users\woosuk\Desktop\cleon_power_optimized_plus_MicroSD\fs\FatFs\diskio.c" ""
+A2=_ "C:\Users\woosuk\Desktop\cleon_power_optimized_plus_MicroSD\fs\FatFs\ff.c" ""
+A3=_ "C:\Users\woosuk\Desktop\cleon_power_optimized_plus_MicroSD\sys\sys_sensors.c" ""
+A4=_ "C:\Users\woosuk\Desktop\cleon_updated_to_support_ms_tick\sys\sys_init.c" ""
+A5=_ "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon-가장 최근, 오디오포트 동작하지만 GPS 동작 안함\main.c" "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\main.c"
+A6=_ "C:\cleon_updated_to_support_ms_tick\sys\sys_usb.c" "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\sys\sys_usb.c"
+Count=7
+SuppressDialog=1

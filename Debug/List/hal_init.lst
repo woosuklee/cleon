@@ -1,0 +1,147 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:39 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_init.c            #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_init.c" -lC       #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_init.lst   #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_init.r43    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_init.c
+      1          /**
+      2          @file       hal_init.c
+      3          
+      4          @brief      Initializing HAL
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          /*----------------------------------------------------------------------------*/
+     14          /**
+     15          @brief    Initializing hardware
+     16          
+     17          @return   void 
+     18          
+     19          @param    void
+     20          */
+
+   \                                 In  segment CODE, align 2
+     21          void HAL_Init(void)
+   \                     HAL_Init:
+     22          { 
+     23              HAL_PMM_Init();    
+   \   000000   ........     CALLA   #HAL_PMM_Init
+     24              HAL_GPIO_Init();
+   \   000004   ........     CALLA   #HAL_GPIO_Init
+     25              HAL_UCS_Init();
+   \   000008   ........     CALLA   #HAL_UCS_Init
+     26              HAL_UART_Init();
+   \   00000C   ........     CALLA   #HAL_UART_Init
+     27              HAL_RTC_Init(); 
+   \   000010   ........     CALLA   #HAL_RTC_Init
+     28              HAL_FLASH_Init();
+   \   000014   ........     CALLA   #HAL_FLASH_Init
+     29              HAL_DMA_Init();
+   \   000018   ........     CALLA   #HAL_DMA_Init
+     30              HAL_ADC_Init();
+   \   00001C   ........     CALLA   #HAL_ADC_Init
+     31              HAL_TIMER_Init();    
+   \   000020   ........     CALLA   #HAL_TIMER_Init
+     32              HAL_SPI_Init();
+   \   000024   ........     BRA     #HAL_SPI_Init
+     33                  
+     34          #if (DEBUG_MODE) && (DUMP_SYSTEM_INFO_VIA_USB)
+     35              // Welcome screen
+     36              SYS_USB_Printf("=======================================================\r\n");
+     37              SYS_USB_Printf("CLEON                                                  \r\n");
+     38              SYS_USB_Printf("=======================================================\r\n");    
+     39              
+     40              // Clock setting information
+     41              SYS_USB_Printf("CLCOK SETTING                                          \r\n");       
+     42              SYS_USB_Printf("    MCLK  = 12MHz\r\n");
+     43              SYS_USB_Printf("    ACLK  = 32768Hz\r\n");
+     44              SYS_USB_Printf("    SMCLK = 12MHz\r\n");
+     45              SYS_USB_Printf("\r\n");
+     46          #endif           
+     47          }
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_Init
+            4 -> HAL_ADC_Init
+            4 -> HAL_DMA_Init
+            4 -> HAL_FLASH_Init
+            4 -> HAL_GPIO_Init
+            4 -> HAL_PMM_Init
+            4 -> HAL_RTC_Init
+            4 -> HAL_SPI_Init
+            4 -> HAL_TIMER_Init
+            4 -> HAL_UART_Init
+            4 -> HAL_UCS_Init
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      40  HAL_Init
+
+ 
+ 40 bytes in segment CODE
+ 
+ 40 bytes of CODE memory
+
+Errors: none
+Warnings: none

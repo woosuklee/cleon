@@ -1,0 +1,230 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:36 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_ucs.c             #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_ucs.c" -lC        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_ucs.lst    #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_ucs.r43     #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_ucs.c
+      1          /**
+      2          @file       hal_ucs.c
+      3          
+      4          @brief      Universal clock system configuration
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x49c
+   \   union <unnamed> __data16 _A_BAKCTL_L
+   \                     _A_BAKCTL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x26a
+   \   union <unnamed> __data16 _A_PDSEL_L
+   \                     _A_PDSEL_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x102
+   \   union <unnamed> __data16 _A_SFRIFG1_L
+   \                     _A_SFRIFG1_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x168
+   \   union <unnamed> __data16 _A_UCSCTL4_L
+   \                     _A_UCSCTL4_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x16c
+   \   union <unnamed> __data16 _A_UCSCTL6_L
+   \                     _A_UCSCTL6_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x16e
+   \   union <unnamed> __data16 _A_UCSCTL7_L
+   \                     _A_UCSCTL7_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          /*----------------------------------------------------------------------------*/
+     14          /**
+     15          @brief    Initializing universal clock system
+     16          
+     17          @return   void 
+     18          
+     19          @param    void
+     20          */
+
+   \                                 In  segment CODE, align 2
+     21          void HAL_UCS_Init()
+   \                     HAL_UCS_Init:
+     22          { 
+     23              unsigned int    uiXT1Timeout = 50000;
+   \   000000   3F4050C3     MOV.W   #0xc350, R15
+     24              unsigned int    uiXT2Timeout = 50000;
+   \   000004   3E4050C3     MOV.W   #0xc350, R14
+     25              
+     26              while (BAKCTL & LOCKBAK) BAKCTL &= ~LOCKBAK;
+   \                     ??HAL_UCS_Init_0:
+   \   000008   92B39C04     BIT.W   #0x1, &0x49c
+   \   00000C   0328         JNC     ??HAL_UCS_Init_3
+   \   00000E   92C39C04     BIC.W   #0x1, &0x49c
+   \   000012   FA3F         JMP     ??HAL_UCS_Init_0
+     27              
+     28              // XT1 (32768Hz)
+     29              UCSCTL6 |= XT1DRIVE1 + XT1DRIVE0;           
+   \                     ??HAL_UCS_Init_3:
+   \   000014   B2D0C0006C01 BIS.W   #0xc0, &0x16c
+     30              
+     31              UCSCTL6 &= ~XT1OFF;                         // Set XT1 On
+   \   00001A   92C36C01     BIC.W   #0x1, &0x16c
+     32              UCSCTL6 &= ~(XCAP1 + XCAP0);                // Internal load cap
+   \   00001E   B2F0F3FF6C01 AND.W   #0xfff3, &0x16c
+     33              
+     34              __delay_cycles(50000);                      // Delay until XT2 is stabilized
+   \   000024                ////////////// Start of 50000 cycles delay.
+   \   000024   3D401941     MOV.W   #0x4119, R13
+   \                     ??HAL_UCS_Init_6:
+   \   000028   3D53         ADD.W   #0xffff, R13
+   \   00002A   FE2F         JC      ??HAL_UCS_Init_6
+   \   00002C                ////////////// End of delay code.
+     35          
+     36              do                                          // Loop until XT1 stabilizes
+     37              {
+     38                  UCSCTL7 &= ~XT1LFOFFG;                  // Clear XT2,XT1,DCO fault flags
+   \                     ??HAL_UCS_Init_1:
+   \   00002C   A2C36E01     BIC.W   #0x2, &0x16e
+     39                  SFRIFG1 &= ~OFIFG;                      // Clear fault flags
+   \   000030   A2C30201     BIC.W   #0x2, &0x102
+     40              }while ((UCSCTL7 & XT1LFOFFG) && --uiXT1Timeout);   // Check XT2 fault flag
+   \   000034   A2B36E01     BIT.W   #0x2, &0x16e
+   \   000038   0328         JNC     ??HAL_UCS_Init_4
+   \   00003A   3F53         ADD.W   #0xffff, R15
+   \   00003C   0F93         CMP.W   #0x0, R15
+   \   00003E   F623         JNE     ??HAL_UCS_Init_1
+     41              
+     42              // XT2 (12000000Hz)
+     43              XT2_PORT(SEL) |= BV(XT2OUT_PIN);            // Set P7.2/XT2IN and P7.3/XT2OUT for XT pins
+   \                     ??HAL_UCS_Init_4:
+   \   000040   F2D26A02     BIS.B   #0x8, &0x26a
+     44              XT2_PORT(SEL) |= BV(XT2IN_PIN);
+   \   000044   E2D26A02     BIS.B   #0x4, &0x26a
+     45              
+     46              UCSCTL6 |= XT2DRIVE0;                       // Drive strength set to range of 8MHz to 16MHz
+   \   000048   B2D000406C01 BIS.W   #0x4000, &0x16c
+     47              UCSCTL6 &= ~XT2OFF;                         // Set XT2 On
+   \   00004E   B2C000016C01 BIC.W   #0x100, &0x16c
+     48              
+     49              __delay_cycles(50000);                      // Delay until XT2 is stabilized
+   \   000054                ////////////// Start of 50000 cycles delay.
+   \   000054   3D401941     MOV.W   #0x4119, R13
+   \                     ??HAL_UCS_Init_7:
+   \   000058   3D53         ADD.W   #0xffff, R13
+   \   00005A   FE2F         JC      ??HAL_UCS_Init_7
+   \   00005C                ////////////// End of delay code.
+     50              
+     51              do                                          // Loop until XT2 stabilizes
+     52              {
+     53                  UCSCTL7 &= ~XT2OFFG;                    // Clear XT2,XT1,DCO fault flags
+   \                     ??HAL_UCS_Init_2:
+   \   00005C   B2C26E01     BIC.W   #0x8, &0x16e
+     54                  SFRIFG1 &= ~OFIFG;                      // Clear fault flags
+   \   000060   A2C30201     BIC.W   #0x2, &0x102
+     55              }while ((UCSCTL7 & XT2OFFG) && --uiXT2Timeout);   // Check XT2 fault flag
+   \   000064   B2B26E01     BIT.W   #0x8, &0x16e
+   \   000068   0328         JNC     ??HAL_UCS_Init_5
+   \   00006A   3E53         ADD.W   #0xffff, R14
+   \   00006C   0E93         CMP.W   #0x0, R14
+   \   00006E   F623         JNE     ??HAL_UCS_Init_2
+     56              
+     57              // Clock selection
+     58              UCSCTL4 |= SELA_0 + SELS_5 + SELM_5;        // Select SMCLK, ACLK source and DCO source
+   \                     ??HAL_UCS_Init_5:
+   \   000070   B2D055006801 BIS.W   #0x55, &0x168
+     59          }
+   \   000076   1001         RETA
+   \   000078                REQUIRE _A_BAKCTL_L
+   \   000078                REQUIRE _A_UCSCTL6_L
+   \   000078                REQUIRE _A_UCSCTL7_L
+   \   000078                REQUIRE _A_SFRIFG1_L
+   \   000078                REQUIRE _A_PDSEL_L
+   \   000078                REQUIRE _A_UCSCTL4_L
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_UCS_Init
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+     120  HAL_UCS_Init
+       2  _A_BAKCTL_L
+       2  _A_PDSEL_L
+       2  _A_SFRIFG1_L
+       2  _A_UCSCTL4_L
+       2  _A_UCSCTL6_L
+       2  _A_UCSCTL7_L
+
+ 
+ 120 bytes in segment CODE
+  12 bytes in segment DATA16_AN
+ 
+ 120 bytes of CODE memory
+   0 bytes of DATA memory (+ 12 bytes shared)
+
+Errors: none
+Warnings: none

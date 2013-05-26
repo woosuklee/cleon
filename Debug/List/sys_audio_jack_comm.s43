@@ -1,0 +1,499 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      03/Dec/2012  06:22:06 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_aud /
+//                     io_jack_comm.c                                         /
+//    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\sys_aud /
+//                     io_jack_comm.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3 /
+//                     . Research\7. Fall 2012\4_CLEON\3_software\1_developin /
+//                     g\cleon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ /
+//                     ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_deve /
+//                     loping\cleon\Debug\List\" -o                           /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\" /
+//                      --no_cse --no_unroll --no_inline --no_code_motion     /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files\IAR Systems\Embedded   /
+//                     Workbench 6.4\430\LIB\DLIB\dl430xldn.h" -I             /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\intro\" -I  /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I    /
+//                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall   /
+//                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib\ /
+//                     " -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.   /
+//                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfo /
+//                     rm\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.            /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\fs\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.      /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\fs\FatFs\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3 /
+//                     . Research\7. Fall 2012\4_CLEON\3_software\1_developin /
+//                     g\cleon\app\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3.   /
+//                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\ /
+//                     cleon\" --core=430X --data_model=large -On             /
+//                     --multiplier=32 --multiplier_location=4C0              /
+//                     --hw_workaround=CPU40 --hw_workaround=CPU42            /
+//    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    /
+//                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\ /
+//                     sys_audio_jack_comm.s43                                /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sys_audio_jack_comm
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?ClearMemoryBytes
+        EXTERN ?cstart_init_zero20
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC SYS_AUDIO_JACK_COMM_GetParity
+        FUNCTION SYS_AUDIO_JACK_COMM_GetParity,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_Init
+        FUNCTION SYS_AUDIO_JACK_COMM_Init,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_InitTimer
+        FUNCTION SYS_AUDIO_JACK_COMM_InitTimer,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_InitiateCommunication
+        FUNCTION SYS_AUDIO_JACK_COMM_InitiateCommunication,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_MakeIdle
+        FUNCTION SYS_AUDIO_JACK_COMM_MakeIdle,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_StartTransmission
+        FUNCTION SYS_AUDIO_JACK_COMM_StartTransmission,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 12, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_StopTransmission
+        FUNCTION SYS_AUDIO_JACK_COMM_StopTransmission,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_TerminateCommunication
+        FUNCTION SYS_AUDIO_JACK_COMM_TerminateCommunication,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+        FUNCTION SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 30, STACK
+        PUBWEAK TB0CCR0
+        PUBWEAK _A_PADIR_L
+        PUBWEAK _A_PAOUT_L
+        PUBLIC bAudioJackUARTStartTransmission
+        PUBLIC bIdleAudioJackUARTCommunicationChannel
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN bFLAG_TimerB0Tick
+        EXTERN HAL_TIMER_TimerB0Init
+        FUNCTION HAL_TIMER_TimerB0Init,0202H
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0202H
+// union <unnamed> __data16 _A_PAOUT_L
+_A_PAOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0204H
+// union <unnamed> __data16 _A_PADIR_L
+_A_PADIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,03d2H
+// unsigned short volatile __data16 TB0CCR0
+TB0CCR0:
+        DS8 2
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+bIdleAudioJackUARTCommunicationChannel:
+        DS8 1
+
+        RSEG DATA20_Z:DATA:SORT:NOROOT(0)
+        REQUIRE ?cstart_init_zero20
+bAudioJackUARTStartTransmission:
+        DS8 1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_Init
+        FUNCALL SYS_AUDIO_JACK_COMM_Init, SYS_AUDIO_JACK_COMM_InitTimer
+        LOCFRAME CSTACK, 4, STACK
+        BIS.B   #0x1, &0x205
+        BIC.B   #0x2, &0x204
+        BRA     #SYS_AUDIO_JACK_COMM_InitTimer
+          CFI EndBlock cfiBlock0
+        REQUIRE _A_PADIR_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_InitTimer:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_InitTimer
+        FUNCALL SYS_AUDIO_JACK_COMM_InitTimer, HAL_TIMER_TimerB0Init
+        LOCFRAME CSTACK, 4, STACK
+        BRA     #HAL_TIMER_TimerB0Init
+          CFI EndBlock cfiBlock1
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_InitiateCommunication:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_InitiateCommunication
+        MOVX.B  &bIdleAudioJackUARTCommunicationChannel, R14
+        BISX.B  &bAudioJackUARTStartTransmission, R14
+        CMP.B   #0x0, R14
+        JNE     ??SYS_AUDIO_JACK_COMM_InitiateCommunication_0
+        MOV.W   #0x2ee, &0x3d2
+        MOVX.B  #0x1, &bIdleAudioJackUARTCommunicationChannel
+??SYS_AUDIO_JACK_COMM_InitiateCommunication_0:
+        RETA
+          CFI EndBlock cfiBlock2
+        REQUIRE TB0CCR0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_StartTransmission:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_StartTransmission
+        FUNCALL SYS_AUDIO_JACK_COMM_StartTransmission, SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+        LOCFRAME CSTACK, 12, STACK
+        FUNCALL SYS_AUDIO_JACK_COMM_StartTransmission, SYS_AUDIO_JACK_COMM_StopTransmission
+        LOCFRAME CSTACK, 12, STACK
+        PUSHM.A #0x2, R11
+          CFI R10L Frame(CFA, -12)
+          CFI R10H Frame(CFA, -10)
+          CFI R11L Frame(CFA, -8)
+          CFI R11H Frame(CFA, -6)
+          CFI CFA SP+12
+        MOV.W   R12, R10
+        MOVA    R13, R11
+        MOVX.B  &bIdleAudioJackUARTCommunicationChannel, R14
+        MOV.B   #0x1, R15
+        XORX.B  &bAudioJackUARTStartTransmission, R15
+        BIT.B   R15, R14
+        JEQ     ??SYS_AUDIO_JACK_COMM_StartTransmission_1
+??SYS_AUDIO_JACK_COMM_StartTransmission_0:
+        CMP.W   #0x0, R10
+        JEQ     ??SYS_AUDIO_JACK_COMM_StartTransmission_2
+        MOVX.B  #0x0, &bIdleAudioJackUARTCommunicationChannel
+        MOVX.B  #0x1, &bAudioJackUARTStartTransmission
+        MOV.B   @R11, R12
+        CALLA   #SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+        ADDA    #0x4, R11
+        ADD.W   #0xffff, R10
+        JMP     ??SYS_AUDIO_JACK_COMM_StartTransmission_0
+??SYS_AUDIO_JACK_COMM_StartTransmission_2:
+        CALLA   #SYS_AUDIO_JACK_COMM_StopTransmission
+??SYS_AUDIO_JACK_COMM_StartTransmission_1:
+        POPM.A  #0x2, R11
+          CFI R10H SameValue
+          CFI R11H SameValue
+          CFI R10L SameValue
+          CFI R11L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock3
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_MakeIdle:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_MakeIdle
+        MOV.B   #0x1, R14
+        XORX.B  &bAudioJackUARTStartTransmission, R14
+        BISX.B  &bIdleAudioJackUARTCommunicationChannel, R14
+        CMP.B   #0x0, R14
+        JNE     ??SYS_AUDIO_JACK_COMM_MakeIdle_0
+        MOV.W   #0x15e, &0x3d2
+        MOVX.B  #0x1, &bIdleAudioJackUARTCommunicationChannel
+??SYS_AUDIO_JACK_COMM_MakeIdle_0:
+        RETA
+          CFI EndBlock cfiBlock4
+        REQUIRE TB0CCR0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_StopTransmission:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_StopTransmission
+        CMPX.B  #0x0, &bAudioJackUARTStartTransmission
+        JEQ     ??SYS_AUDIO_JACK_COMM_StopTransmission_0
+        MOV.W   #0x15e, &0x3d2
+        MOVX.B  #0x1, &bIdleAudioJackUARTCommunicationChannel
+        MOVX.B  #0x0, &bAudioJackUARTStartTransmission
+??SYS_AUDIO_JACK_COMM_StopTransmission_0:
+        RETA
+          CFI EndBlock cfiBlock5
+        REQUIRE TB0CCR0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_TerminateCommunication:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_TerminateCommunication
+        MOV.W   #0x0, &0x3d2
+        MOVX.B  #0x0, &bIdleAudioJackUARTCommunicationChannel
+        MOVX.B  #0x0, &bAudioJackUARTStartTransmission
+        RETA
+          CFI EndBlock cfiBlock6
+        REQUIRE TB0CCR0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack:
+          CFI Block cfiBlock7 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack
+        FUNCALL SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack, SYS_AUDIO_JACK_COMM_GetParity
+        LOCFRAME CSTACK, 30, STACK
+        FUNCALL SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack, SYS_AUDIO_JACK_COMM_MakeIdle
+        LOCFRAME CSTACK, 30, STACK
+        PUSHM.A #0x1, R10
+          CFI R10L Frame(CFA, -8)
+          CFI R10H Frame(CFA, -6)
+          CFI CFA SP+8
+        SUB.W   #0x16, SP
+          CFI CFA SP+30
+        MOV.B   R12, R13
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        MOV.W   #0x16, R14
+        CALLA   #?ClearMemoryBytes
+        MOV.W   #0x0, R14
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_0:
+        CMP.W   #0x8, R14
+        JGE     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_5
+        MOV.B   R13, R15
+        SUB.B   #0x1, R14
+        JN      ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_6
+        RPT     R14
+        RRAX.W  R15
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_6:
+        ADD.B   #0x1, R14
+        BIT.B   #0x1, R15
+        JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_7
+        MOV.W   SP, R12
+        ADD.W   #0x0, R12
+        MOV.W   R14, R15
+        RLA.W   R15
+        ADD.W   R15, R12
+        MOV.B   #0x0, 0x2(R12)
+        MOV.W   SP, R10
+        ADD.W   #0x0, R10
+        MOV.W   R14, R15
+        RLA.W   R15
+        ADD.W   R15, R10
+        MOV.B   #0x1, 0x3(R10)
+        JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_8
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_7:
+        MOV.W   SP, R10
+        ADD.W   #0x0, R10
+        MOV.W   R14, R15
+        RLA.W   R15
+        ADD.W   R15, R10
+        MOV.B   #0x1, 0x2(R10)
+        MOV.W   SP, R10
+        ADD.W   #0x0, R10
+        MOV.W   R14, R15
+        RLA.W   R15
+        ADD.W   R15, R10
+        MOV.B   #0x0, 0x3(R10)
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_8:
+        ADD.W   #0x1, R14
+        JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_0
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_5:
+        MOV.B   R13, R12
+        CALLA   #SYS_AUDIO_JACK_COMM_GetParity
+        CMP.B   #0x0, R12
+        JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_9
+        MOV.B   #0x0, 0x12(SP)
+        MOV.B   #0x1, 0x13(SP)
+        JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_10
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_9:
+        MOV.B   #0x1, 0x12(SP)
+        MOV.B   #0x0, 0x13(SP)
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_10:
+        MOV.W   #0x0, &0x3d2
+        MOV.W   #0xbb8, &0x3d2
+        MOV.W   #0x0, R15
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_2:
+        CMP.W   #0x17, R15
+        JGE     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_4
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_1:
+        CMPX.B  #0x0, &bFLAG_TimerB0Tick
+        JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_1
+        MOVX.B  #0x0, &bFLAG_TimerB0Tick
+        CMP.W   #0x16, R15
+        JEQ     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_4
+        MOV.W   R15, R14
+        ADD.W   SP, R14
+        CMP.B   #0x1, 0(R14)
+        JNE     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_11
+        BIS.B   #0x1, &0x203
+        JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_12
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_11:
+        BIC.B   #0x1, &0x203
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_12:
+        ADD.W   #0x1, R15
+        JMP     ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_2
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_4:
+        CALLA   #SYS_AUDIO_JACK_COMM_MakeIdle
+        ////////////// Start of 7500 cycles delay.
+        NOP
+        MOV.W   #0x9c2, R15
+??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_13:
+        ADD.W   #0xffff, R15
+        JC      ??SYS_AUDIO_JACK_COMM_TransmitByteViaAudioJack_13
+        ////////////// End of delay code.
+        ADD.W   #0x16, SP
+          CFI CFA SP+8
+        POPM.A  #0x1, R10
+          CFI R10H SameValue
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock7
+        REQUIRE TB0CCR0
+        REQUIRE _A_PAOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_AUDIO_JACK_COMM_GetParity:
+          CFI Block cfiBlock8 Using cfiCommon0
+          CFI Function SYS_AUDIO_JACK_COMM_GetParity
+        MOV.B   R12, R15
+        MOV.B   #0x0, R12
+??SYS_AUDIO_JACK_COMM_GetParity_0:
+        CMP.B   #0x0, R15
+        JEQ     ??SYS_AUDIO_JACK_COMM_GetParity_1
+        XOR.B   #0x1, R12
+        MOV.B   R15, R14
+        ADD.B   #0xff, R14
+        AND.B   R14, R15
+        JMP     ??SYS_AUDIO_JACK_COMM_GetParity_0
+??SYS_AUDIO_JACK_COMM_GetParity_1:
+        RETA
+          CFI EndBlock cfiBlock8
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        RSEG DATA20_C:CONST:SORT:NOROOT(0)
+        DC8 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+
+        END
+// 
+// 422 bytes in segment CODE
+//   6 bytes in segment DATA16_AN
+//  22 bytes in segment DATA20_C
+//   2 bytes in segment DATA20_Z
+// 
+// 422 bytes of CODE  memory
+//  22 bytes of CONST memory
+//   2 bytes of DATA  memory (+ 6 bytes shared)
+//
+//Errors: none
+//Warnings: none

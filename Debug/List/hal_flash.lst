@@ -1,0 +1,242 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:36 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\hal\hal_flash.c           #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\hal_flash.c" -lC      #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\hal_flash.lst  #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\hal_flash.r43   #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\hal\hal_flash.c
+      1          /**
+      2          @file       hal_flash.c
+      3          
+      4          @brief      FLASH configuration
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+
+   \                                 In  segment DATA16_AN, at 0x140
+   \   union <unnamed> __data16 _A_FCTL1_L
+   \                     _A_FCTL1_L:
+   \   000000                DS8 2
+
+   \                                 In  segment DATA16_AN, at 0x144
+   \   union <unnamed> __data16 _A_FCTL3_L
+   \                     _A_FCTL3_L:
+   \   000000                DS8 2
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+     13          /*----------------------------------------------------------------------------*/
+     14          /**
+     15          @brief    Initializing FLASH
+     16          
+     17          @return   void 
+     18          
+     19          @param    void
+     20          */
+
+   \                                 In  segment CODE, align 2
+     21          void HAL_FLASH_Init(void)
+   \                     HAL_FLASH_Init:
+     22          { 
+     23          #if ERASE_INTERNAL_FLASH_ON_RESET == _ENABLE_  
+     24              HAL_FLASH_EraseBank((unsigned long *)MSP430_INTERNAL_FLASH_BANK1_ADDRESS);
+     25              HAL_FLASH_EraseBank((unsigned long *)MSP430_INTERNAL_FLASH_BANK2_ADDRESS);
+     26              HAL_FLASH_EraseBank((unsigned long *)MSP430_INTERNAL_FLASH_BANK3_ADDRESS);
+     27          #endif    
+     28          }
+   \   000000   1001         RETA
+     29          
+     30          /*----------------------------------------------------------------------------*/
+     31          /**
+     32          @brief    Write data to internal FLASH
+     33          
+     34          @return   void 
+     35          
+     36          @param    uiSize - size of source data
+     37          @param    *ptrulSource - base address of source data
+     38          @param    *ptrulDestination - base address of FLASH destination
+     39          */
+
+   \                                 In  segment CODE, align 2
+     40          void HAL_FLASH_Write(unsigned int uiSize, unsigned char *ptrucSource, unsigned char *ptrucDestination)
+   \                     HAL_FLASH_Write:
+     41          {
+     42              FCTL3 = FWKEY;                              // Clear Lock bit
+   \   000000   B24000A54401 MOV.W   #0xa500, &0x144
+     43              FCTL1 = FWKEY + WRT;                        // Enable byte/word write mode
+   \   000006   B24040A54001 MOV.W   #0xa540, &0x140
+     44              
+     45              while (uiSize > 0) {
+   \                     ??HAL_FLASH_Write_1:
+   \   00000C   0C93         CMP.W   #0x0, R12
+   \   00000E   0B24         JEQ     ??HAL_FLASH_Write_2
+     46                  while (FCTL3 & BUSY);                   // test busy
+   \                     ??HAL_FLASH_Write_0:
+   \   000010   92B34401     BIT.W   #0x1, &0x144
+   \   000014   FD2F         JC      ??HAL_FLASH_Write_0
+     47                  *ptrucDestination++ = *ptrucSource++;   // Write to Flash
+   \   000016   EE4D0000     MOV.B   @R13, 0(R14)
+   \   00001A   AD000100     ADDA    #0x1, R13
+   \   00001E   AE000100     ADDA    #0x1, R14
+     48                  uiSize--;
+   \   000022   3C53         ADD.W   #0xffff, R12
+   \   000024   F33F         JMP     ??HAL_FLASH_Write_1
+     49              }
+     50          
+     51              FCTL1 = FWKEY;                              // Clear Erase bit
+   \                     ??HAL_FLASH_Write_2:
+   \   000026   B24000A54001 MOV.W   #0xa500, &0x140
+     52              FCTL3 = FWKEY + LOCK;                       // Set LOCK bit
+   \   00002C   B24010A54401 MOV.W   #0xa510, &0x144
+     53          }
+   \   000032   1001         RETA
+   \   000034                REQUIRE _A_FCTL3_L
+   \   000034                REQUIRE _A_FCTL1_L
+     54          
+     55          /*----------------------------------------------------------------------------*/
+     56          /**
+     57          @brief    Erase FLASH segement
+     58          
+     59          @return   void 
+     60          
+     61          @param    *ptrulDestination - base address of FLAHS segment
+     62          */
+
+   \                                 In  segment CODE, align 2
+     63          void HAL_FLASH_EraseSegment(unsigned long *ptrulDestination)
+   \                     HAL_FLASH_EraseSegment:
+     64          {
+     65              FCTL3 = FWKEY;                              // Clear Lock bit
+   \   000000   B24000A54401 MOV.W   #0xa500, &0x144
+     66              FCTL1 = FWKEY + ERASE;                      // Set Erase bit
+   \   000006   B24002A54001 MOV.W   #0xa502, &0x140
+     67              *ptrulDestination = 0;                      // Dummy write to erase Flash seg
+   \   00000C   8C430000     MOV.W   #0x0, 0(R12)
+   \   000010   8C430200     MOV.W   #0x0, 0x2(R12)
+     68              while (FCTL3 & BUSY);                       // test busy
+   \                     ??HAL_FLASH_EraseSegment_0:
+   \   000014   92B34401     BIT.W   #0x1, &0x144
+   \   000018   FD2F         JC      ??HAL_FLASH_EraseSegment_0
+     69              FCTL1 = FWKEY;                              // Clear WRT bit
+   \   00001A   B24000A54001 MOV.W   #0xa500, &0x140
+     70              FCTL3 = FWKEY + LOCK;                       // Set LOCK bit
+   \   000020   B24010A54401 MOV.W   #0xa510, &0x144
+     71          }
+   \   000026   1001         RETA
+   \   000028                REQUIRE _A_FCTL3_L
+   \   000028                REQUIRE _A_FCTL1_L
+     72          
+     73          /*----------------------------------------------------------------------------*/
+     74          /**
+     75          @brief    Erase FLASH bank
+     76          
+     77          @return   void 
+     78          
+     79          @param    *ptrulDestination - base address of FLAHS bank
+     80          */
+
+   \                                 In  segment CODE, align 2
+     81          void HAL_FLASH_EraseBank(unsigned long *ptrulDestination)
+   \                     HAL_FLASH_EraseBank:
+     82          {
+     83              FCTL3 = FWKEY;                              // Clear Lock bit
+   \   000000   B24000A54401 MOV.W   #0xa500, &0x144
+     84              FCTL1 = FWKEY + MERAS;                      // Set Erase bit
+   \   000006   B24004A54001 MOV.W   #0xa504, &0x140
+     85              *ptrulDestination = 0;                      // Dummy write to erase Flash seg
+   \   00000C   8C430000     MOV.W   #0x0, 0(R12)
+   \   000010   8C430200     MOV.W   #0x0, 0x2(R12)
+     86              while (FCTL3 & BUSY);                       // test busy
+   \                     ??HAL_FLASH_EraseBank_0:
+   \   000014   92B34401     BIT.W   #0x1, &0x144
+   \   000018   FD2F         JC      ??HAL_FLASH_EraseBank_0
+     87              FCTL1 = FWKEY;                              // Clear WRT bit
+   \   00001A   B24000A54001 MOV.W   #0xa500, &0x140
+     88              FCTL3 = FWKEY + LOCK;                       // Set LOCK bit
+   \   000020   B24010A54401 MOV.W   #0xa510, &0x144
+     89          }
+   \   000026   1001         RETA
+   \   000028                REQUIRE _A_FCTL3_L
+   \   000028                REQUIRE _A_FCTL1_L
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  HAL_FLASH_EraseBank
+       4  HAL_FLASH_EraseSegment
+       4  HAL_FLASH_Init
+       4  HAL_FLASH_Write
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      40  HAL_FLASH_EraseBank
+      40  HAL_FLASH_EraseSegment
+       2  HAL_FLASH_Init
+      52  HAL_FLASH_Write
+       2  _A_FCTL1_L
+       2  _A_FCTL3_L
+
+ 
+ 134 bytes in segment CODE
+   4 bytes in segment DATA16_AN
+ 
+ 134 bytes of CODE memory
+   0 bytes of DATA memory (+ 4 bytes shared)
+
+Errors: none
+Warnings: none

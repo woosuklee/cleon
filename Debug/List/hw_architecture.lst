@@ -1,0 +1,128 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       07/Dec/2012  20:25:56 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\doc\hw_archi #
+#                     tecture.c                                               #
+#    Command line  =  "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\doc\hw_archi #
+#                     tecture.c" -lC "C:\Users\woosuk\Dropbox\lws\ESL\3.      #
+#                     Research\7. Fall 2012\4_CLEON\3_software\1_developing\c #
+#                     leon\Debug\List\" -la "C:\Users\woosuk\Dropbox\lws\ESL\ #
+#                     3. Research\7. Fall 2012\4_CLEON\3_software\1_developin #
+#                     g\cleon\Debug\List\" -o "C:\Users\woosuk\Dropbox\lws\ES #
+#                     L\3. Research\7. Fall 2012\4_CLEON\3_software\1_develop #
+#                     ing\cleon\Debug\Obj\" --no_cse --no_unroll --no_inline  #
+#                     --no_code_motion --no_tbaa --debug -D__MSP430F5338__    #
+#                     -e --double=64 --dlib_config "C:\Program Files\IAR      #
+#                     Systems\Embedded Workbench                              #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\intro\" -I   #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\sys\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\" -I     #
+#                     "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall    #
+#                     2012\4_CLEON\3_software\1_developing\cleon\hal\rtclib\" #
+#                      -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.     #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\platfor #
+#                     m\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\"    #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\fs\FatF #
+#                     s\" -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.  #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\app\"   #
+#                     -I "C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7.      #
+#                     Fall 2012\4_CLEON\3_software\1_developing\cleon\"       #
+#                     --core=430X --data_model=large -On --multiplier=32      #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\List\h #
+#                     w_architecture.lst                                      #
+#    Object file   =  C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall     #
+#                     2012\4_CLEON\3_software\1_developing\cleon\Debug\Obj\hw #
+#                     _architecture.r43                                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\woosuk\Dropbox\lws\ESL\3. Research\7. Fall 2012\4_CLEON\3_software\1_developing\cleon\doc\hw_architecture.c
+      1          /** 
+      2          @file       hw_architecture.c
+      3          
+      4          @brief      Documentation for CLEON hardware architecture
+      5          
+      6          @page       HW_ARCH     Hardware architecture
+      7          
+      8          @section    GPS_ARCH    GPS H/W architecture    
+      9                                  - CLEON embeds MAX2769 from MAXIM as GPS front-end
+     10                                  - MAX2769 generates 2bits of I (I1, I0) at a time with speed at 16.368MHz (sampling rate: 16.368MHz)
+     11                                  - The 2 bit data is parallelized by using two 8-bit serial-to-parallel IC in order to reduce the speed down to 2.046MHz (16.368MHz/8)
+     12                                  - Meanwhile, reference clock from MAX2769 running at 16.368MHz is being slowered down to 2.046MHz (16.368MHz/8) by using binary counter 
+     13                                  - MCU reads the parallelized I1 and I0 data with DMA support (DMA trigger: 2.046MHz (16.368MHz/8))
+     14                                  
+     15                                  @dot
+     16                                  digraph GPS_hw_architecture{
+     17                                              graph       [bgcolor = white, resolution=128];
+     18                                              node        [shape = box, fontname = Helvetica, fontsize = 8, style = filled];
+     19                                              edge        [fontname = Helvetica, fontsize = 8, style = filled];    
+     20                                  
+     21                                              max2769         [ label="GPS chip (MAX2769)" URL="http://datasheets.maxim-ic.com/en/ds/MAX2769.pdf"];
+     22                                              binary_counter  [ label="Binary-counter" URL="http://www.ti.com/lit/ds/symlink/sn74lv161a.pdf"];
+     23                                              inverter        [ label="Inverter" URL="http://www.ti.com/lit/ds/symlink/sn74lvc1g04.pdf"];
+     24                                              sr_1            [ label="8-bit serial-to-parallel shift-register" URL="http://www.ti.com/lit/ds/symlink/sn74lv595a.pdf"];    
+     25                                              sr_2            [ label="8-bit serial-to-parallel shift-register" URL="http://www.ti.com/lit/ds/symlink/sn74lv595a.pdf"];    
+     26                                              mcu             [ label="MCU (MSP430F5338)" URL="http://www.ti.com/lit/ds/symlink/msp430f5338.pdf"];
+     27                                              
+     28                                              max2769 -> binary_counter [ label="16.368MHz (Ref. CLK)" ];
+     29                                              max2769 -> inverter       [ label="16.368MHz (Ref. CLK)" ];
+     30                                              inverter -> sr_1 [ label="Inverted_16.368MHz (SRCLK)" ];
+     31                                              inverter -> sr_2 [ label="Inverted_16.368MHz (SRCLK)" ];
+     32                                              binary_counter -> sr_1 [ label="2.046MHz (RCLK)" ];
+     33                                              binary_counter -> sr_2 [ label="2.046MHz (RCLK)" ];
+     34                                              
+     35                                              binary_counter  -> mcu [ label="2.046MHz (DMA trigger)" ];
+     36                                                  
+     37                                              max2769 -> sr_1 [ label="I1 (speed at 16.368MHz)" ];
+     38                                              max2769 -> sr_2 [ label="I0 (speed at 16.368MHz)" ];
+     39          
+     40                                              sr_1 -> mcu [ label="I1_0"];    
+     41                                              sr_1 -> mcu [ label="I1_1"];    
+     42                                              sr_1 -> mcu [ label="I1_2"];    
+     43                                              sr_1 -> mcu [ label="I1_3"];    
+     44                                              sr_1 -> mcu [ label="I1_4"];    
+     45                                              sr_1 -> mcu [ label="I1_5"];    
+     46                                              sr_1 -> mcu [ label="I1_6"];    
+     47                                              sr_1 -> mcu [ label="I1_7"];    
+     48                                              
+     49                                              sr_2 -> mcu [ label="I0_0"];    
+     50                                              sr_2 -> mcu [ label="I0_1"];    
+     51                                              sr_2 -> mcu [ label="I0_2"];    
+     52                                              sr_2 -> mcu [ label="I0_3"];    
+     53                                              sr_2 -> mcu [ label="I0_4"];    
+     54                                              sr_2 -> mcu [ label="I0_5"];    
+     55                                              sr_2 -> mcu [ label="I0_6"];    
+     56                                              sr_2 -> mcu [ label="I0_7"];    
+     57                                  }
+     58                                  @enddot
+     59          */
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none

@@ -1,0 +1,469 @@
+///////////////////////////////////////////////////////////////////////////////
+//                                                                            /
+// IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430      20/Feb/2013  20:57:37 /
+// Copyright 1996-2012 IAR Systems AB.                                        /
+//                                                                            /
+//    __rt_version  =  3                                                      /
+//    __double_size =  64                                                     /
+//    __reg_r4      =  free                                                   /
+//    __reg_r5      =  free                                                   /
+//    __pic         =  no                                                     /
+//    __core        =  430X                                                   /
+//    __data_model  =  large                                                  /
+//    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\sys\sys_gps.c            /
+//    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\sys_gps.c"    /
+//                     -lC "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.    /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -la  /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\List\" -o   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\Debug\Obj\"       /
+//                     --no_cse --no_unroll --no_inline --no_code_motion      /
+//                     --no_tbaa --debug -D__MSP430F5338__ -e --double=64     /
+//                     --dlib_config "C:\Program Files (x86)\IAR              /
+//                     Systems\Embedded Workbench                             /
+//                     6.4\430\LIB\DLIB\dl430xldn.h" -I                       /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\intro\" -I        /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\sys\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\hal\rtclib\" -I   /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\platform\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\" -I           /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\fs\FatFs\" -I     /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\app\" -I          /
+//                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8.        /
+//                     Spring 2013\3_cleon\3_software\cleon\" --core=430X     /
+//                     --data_model=large -On --multiplier=32                 /
+//                     --multiplier_location=4C0 --hw_workaround=CPU40        /
+//                     --hw_workaround=CPU42                                  /
+//    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  /
+//                     2013\3_cleon\3_software\cleon\Debug\List\sys_gps.s43   /
+//                                                                            /
+//                                                                            /
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME sys_gps
+
+        RTMODEL "__SystemLibrary", "DLib"
+        RTMODEL "__core", "430X"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dlib_file_descriptor", "0"
+        RTMODEL "__dlib_full_locale_support", "0"
+        RTMODEL "__double_size", "64"
+        RTMODEL "__pic", "no"
+        RTMODEL "__reg_r4", "free"
+        RTMODEL "__reg_r5", "free"
+        RTMODEL "__rt_version", "3"
+
+        RSEG CSTACK:DATA:SORT:NOROOT(0)
+
+        EXTERN ?longjmp_r4
+        EXTERN ?longjmp_r5
+        EXTERN ?setjmp_r4
+        EXTERN ?setjmp_r5
+
+        PUBWEAK ?setjmp_save_r4
+        PUBWEAK ?setjmp_save_r5
+        PUBLIC SYS_GPS_Init
+        FUNCTION SYS_GPS_Init,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_GPS_InitControlIO
+        FUNCTION SYS_GPS_InitControlIO,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_GPS_InitDataIO
+        FUNCTION SYS_GPS_InitDataIO,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_GPS_InitProgramIO
+        FUNCTION SYS_GPS_InitProgramIO,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_GPS_StartOperation
+        FUNCTION SYS_GPS_StartOperation,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_GPS_StopOperation
+        FUNCTION SYS_GPS_StopOperation,0203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 4, STACK
+        PUBLIC SYS_GPS_TestGPS
+        FUNCTION SYS_GPS_TestGPS,021203H
+        ARGFRAME CSTACK, 0, STACK
+        LOCFRAME CSTACK, 8, STACK
+        PUBWEAK _A_DMA0CTL_L
+        PUBWEAK _A_PADIR_L
+        PUBWEAK _A_PAOUT_L
+        PUBWEAK _A_PBDIR_L
+        PUBWEAK _A_PBOUT_L
+        PUBWEAK _A_PCDIR_L
+        PUBWEAK _A_PCOUT_L
+        PUBWEAK _A_PEDIR_L
+        PUBWEAK _A_PEOUT_L
+        
+          CFI Names cfiNames0
+          CFI StackFrame CFA SP DATA
+          CFI Resource PC:20, SP:20, SR:16, R4L:16, R4H:4, R4:20, R5L:16, R5H:4
+          CFI Resource R5:20, R6L:16, R6H:4, R6:20, R7L:16, R7H:4, R7:20, R8L:16
+          CFI Resource R8H:4, R8:20, R9L:16, R9H:4, R9:20, R10L:16, R10H:4
+          CFI Resource R10:20, R11L:16, R11H:4, R11:20, R12L:16, R12H:4, R12:20
+          CFI Resource R13L:16, R13H:4, R13:20, R14L:16, R14H:4, R14:20, R15L:16
+          CFI Resource R15H:4, R15:20
+          CFI ResourceParts R4 R4H, R4L
+          CFI ResourceParts R5 R5H, R5L
+          CFI ResourceParts R6 R6H, R6L
+          CFI ResourceParts R7 R7H, R7L
+          CFI ResourceParts R8 R8H, R8L
+          CFI ResourceParts R9 R9H, R9L
+          CFI ResourceParts R10 R10H, R10L
+          CFI ResourceParts R11 R11H, R11L
+          CFI ResourceParts R12 R12H, R12L
+          CFI ResourceParts R13 R13H, R13L
+          CFI ResourceParts R14 R14H, R14L
+          CFI ResourceParts R15 R15H, R15L
+          CFI EndNames cfiNames0
+        
+          CFI Common cfiCommon0 Using cfiNames0
+          CFI CodeAlign 2
+          CFI DataAlign 2
+          CFI ReturnAddress PC CODE
+          CFI CFA SP+4
+          CFI PC Frame(CFA, -4)
+          CFI SR Undefined
+          CFI R4L SameValue
+          CFI R4H SameValue
+          CFI R4 Concat
+          CFI R5L SameValue
+          CFI R5H SameValue
+          CFI R5 Concat
+          CFI R6L SameValue
+          CFI R6H SameValue
+          CFI R6 Concat
+          CFI R7L SameValue
+          CFI R7H SameValue
+          CFI R7 Concat
+          CFI R8L SameValue
+          CFI R8H SameValue
+          CFI R8 Concat
+          CFI R9L SameValue
+          CFI R9H SameValue
+          CFI R9 Concat
+          CFI R10L SameValue
+          CFI R10H SameValue
+          CFI R10 Concat
+          CFI R11L SameValue
+          CFI R11H SameValue
+          CFI R11 Concat
+          CFI R12L Undefined
+          CFI R12H Undefined
+          CFI R12 Undefined
+          CFI R13L Undefined
+          CFI R13H Undefined
+          CFI R13 Undefined
+          CFI R14L Undefined
+          CFI R14H Undefined
+          CFI R14 Undefined
+          CFI R15L Undefined
+          CFI R15H Undefined
+          CFI R15 Undefined
+          CFI EndCommon cfiCommon0
+        
+        EXTERN uniCLEONGPSData
+
+
+        ASEGN DATA16_AN:DATA:NOROOT,0510H
+// union <unnamed> __data16 _A_DMA0CTL_L
+_A_DMA0CTL_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0202H
+// union <unnamed> __data16 _A_PAOUT_L
+_A_PAOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0204H
+// union <unnamed> __data16 _A_PADIR_L
+_A_PADIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0222H
+// union <unnamed> __data16 _A_PBOUT_L
+_A_PBOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0224H
+// union <unnamed> __data16 _A_PBDIR_L
+_A_PBDIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0242H
+// union <unnamed> __data16 _A_PCOUT_L
+_A_PCOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0244H
+// union <unnamed> __data16 _A_PCDIR_L
+_A_PCDIR_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0282H
+// union <unnamed> __data16 _A_PEOUT_L
+_A_PEOUT_L:
+        DS8 2
+
+        ASEGN DATA16_AN:DATA:NOROOT,0284H
+// union <unnamed> __data16 _A_PEDIR_L
+_A_PEDIR_L:
+        DS8 2
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_GPS_Init:
+          CFI Block cfiBlock0 Using cfiCommon0
+          CFI Function SYS_GPS_Init
+        FUNCALL SYS_GPS_Init, SYS_GPS_InitControlIO
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_GPS_Init, SYS_GPS_StopOperation
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_GPS_Init, SYS_GPS_InitProgramIO
+        LOCFRAME CSTACK, 4, STACK
+        FUNCALL SYS_GPS_Init, SYS_GPS_InitDataIO
+        LOCFRAME CSTACK, 4, STACK
+        CALLA   #SYS_GPS_InitControlIO
+        CALLA   #SYS_GPS_StopOperation
+        CALLA   #SYS_GPS_InitProgramIO
+        BRA     #SYS_GPS_InitDataIO
+          CFI EndBlock cfiBlock0
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_GPS_InitDataIO:
+          CFI Block cfiBlock1 Using cfiCommon0
+          CFI Function SYS_GPS_InitDataIO
+        BIC.B   #0x1, &0x222
+        BIC.B   #0x2, &0x222
+        BIC.B   #0x4, &0x222
+        BIC.B   #0x8, &0x222
+        BIC.B   #0x10, &0x222
+        BIC.B   #0x20, &0x222
+        BIC.B   #0x40, &0x222
+        BIC.B   #0x80, &0x222
+        BIC.B   #0x1, &0x223
+        BIC.B   #0x2, &0x223
+        BIC.B   #0x4, &0x223
+        BIC.B   #0x8, &0x223
+        BIC.B   #0x10, &0x223
+        BIC.B   #0x20, &0x223
+        BIC.B   #0x40, &0x223
+        BIC.B   #0x80, &0x223
+        BIC.B   #0x1, &0x242
+        BIC.B   #0x2, &0x242
+        BIC.B   #0x4, &0x242
+        BIC.B   #0x8, &0x242
+        BIC.B   #0x10, &0x242
+        BIC.B   #0x20, &0x242
+        BIC.B   #0x40, &0x242
+        BIC.B   #0x80, &0x242
+        BIC.B   #0x1, &0x243
+        BIC.B   #0x2, &0x243
+        BIC.B   #0x4, &0x243
+        BIC.B   #0x8, &0x243
+        BIC.B   #0x10, &0x243
+        BIC.B   #0x20, &0x243
+        BIC.B   #0x40, &0x243
+        BIC.B   #0x80, &0x243
+        BIC.B   #0x1, &0x224
+        BIC.B   #0x2, &0x224
+        BIC.B   #0x4, &0x224
+        BIC.B   #0x8, &0x224
+        BIC.B   #0x10, &0x224
+        BIC.B   #0x20, &0x224
+        BIC.B   #0x40, &0x224
+        BIC.B   #0x80, &0x224
+        BIC.B   #0x1, &0x225
+        BIC.B   #0x2, &0x225
+        BIC.B   #0x4, &0x225
+        BIC.B   #0x8, &0x225
+        BIC.B   #0x10, &0x225
+        BIC.B   #0x20, &0x225
+        BIC.B   #0x40, &0x225
+        BIC.B   #0x80, &0x225
+        BIC.B   #0x1, &0x244
+        BIC.B   #0x2, &0x244
+        BIC.B   #0x4, &0x244
+        BIC.B   #0x8, &0x244
+        BIC.B   #0x10, &0x244
+        BIC.B   #0x20, &0x244
+        BIC.B   #0x40, &0x244
+        BIC.B   #0x80, &0x244
+        BIC.B   #0x1, &0x245
+        BIC.B   #0x2, &0x245
+        BIC.B   #0x4, &0x245
+        BIC.B   #0x8, &0x245
+        BIC.B   #0x10, &0x245
+        BIC.B   #0x20, &0x245
+        BIC.B   #0x40, &0x245
+        BIC.B   #0x80, &0x245
+        RETA
+          CFI EndBlock cfiBlock1
+        REQUIRE _A_PBOUT_L
+        REQUIRE _A_PCOUT_L
+        REQUIRE _A_PBDIR_L
+        REQUIRE _A_PCDIR_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_GPS_InitControlIO:
+          CFI Block cfiBlock2 Using cfiCommon0
+          CFI Function SYS_GPS_InitControlIO
+        BIS.B   #0x2, &0x282
+        BIS.B   #0x2, &0x284
+        BIS.B   #0x10, &0x282
+        BIS.B   #0x10, &0x284
+        RETA
+          CFI EndBlock cfiBlock2
+        REQUIRE _A_PEOUT_L
+        REQUIRE _A_PEDIR_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_GPS_InitProgramIO:
+          CFI Block cfiBlock3 Using cfiCommon0
+          CFI Function SYS_GPS_InitProgramIO
+        BIS.B   #0x8, &0x282
+        BIS.B   #0x8, &0x284
+        BIC.B   #0x4, &0x282
+        BIS.B   #0x4, &0x284
+        BIC.B   #0x8, &0x203
+        BIS.B   #0x8, &0x205
+        BIS.B   #0x4, &0x203
+        BIS.B   #0x4, &0x205
+        RETA
+          CFI EndBlock cfiBlock3
+        REQUIRE _A_PEOUT_L
+        REQUIRE _A_PEDIR_L
+        REQUIRE _A_PAOUT_L
+        REQUIRE _A_PADIR_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_GPS_StartOperation:
+          CFI Block cfiBlock4 Using cfiCommon0
+          CFI Function SYS_GPS_StartOperation
+        BIS.B   #0x1, &0x282
+        RETA
+          CFI EndBlock cfiBlock4
+        REQUIRE _A_PEOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_GPS_StopOperation:
+          CFI Block cfiBlock5 Using cfiCommon0
+          CFI Function SYS_GPS_StopOperation
+        BIC.B   #0x1, &0x282
+        RETA
+          CFI EndBlock cfiBlock5
+        REQUIRE _A_PEOUT_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+SYS_GPS_TestGPS:
+          CFI Block cfiBlock6 Using cfiCommon0
+          CFI Function SYS_GPS_TestGPS
+        FUNCALL SYS_GPS_TestGPS, SYS_GPS_StartOperation
+        LOCFRAME CSTACK, 8, STACK
+        FUNCALL SYS_GPS_TestGPS, SYS_GPS_StopOperation
+        LOCFRAME CSTACK, 8, STACK
+        PUSHM.A #0x1, R10
+          CFI R10L Frame(CFA, -8)
+          CFI R10H Frame(CFA, -6)
+          CFI CFA SP+8
+        MOV.W   R12, R15
+        MOV.W   #0x0, R14
+        MOV.W   #0x0, R13
+        CALLA   #SYS_GPS_StartOperation
+        MOV.W   #0x0, R12
+??SYS_GPS_TestGPS_0:
+        CMP.W   R15, R12
+        JC      ??SYS_GPS_TestGPS_3
+        ////////////// Start of 12000 cycles delay.
+        JMP     ??SYS_GPS_TestGPS_11
+??SYS_GPS_TestGPS_11:
+        PUSHM.A #0x1, R8
+          CFI CFA SP+12
+        MOV.W   #0xf9b, R8
+??SYS_GPS_TestGPS_10:
+        ADD.W   #0xffff, R8
+        JC      ??SYS_GPS_TestGPS_10
+        POPM.A  #0x1, R8
+          CFI CFA SP+8
+        ////////////// End of delay code.
+        ADD.W   #0x1, R12
+        JMP     ??SYS_GPS_TestGPS_0
+??SYS_GPS_TestGPS_3:
+        BIS.W   #0x10, &0x510
+??SYS_GPS_TestGPS_1:
+        BIT.W   #0x8, &0x510
+        JNC     ??SYS_GPS_TestGPS_1
+        BIC.W   #0x8, &0x510
+        MOV.W   #0x0, R12
+??SYS_GPS_TestGPS_2:
+        CMP.W   #0x1ff8, R12
+        JGE     ??SYS_GPS_TestGPS_4
+        MOV.W   R12, R10
+        CMPX.B  #0xff, uniCLEONGPSData(R10)
+        JNE     ??SYS_GPS_TestGPS_5
+        ADD.W   #0x1, R14
+        JMP     ??SYS_GPS_TestGPS_6
+??SYS_GPS_TestGPS_5:
+        MOV.W   R12, R10
+        CMPX.B  #0x0, uniCLEONGPSData(R10)
+        JNE     ??SYS_GPS_TestGPS_6
+        ADD.W   #0x1, R13
+??SYS_GPS_TestGPS_6:
+        ADD.W   #0x1, R12
+        JMP     ??SYS_GPS_TestGPS_2
+??SYS_GPS_TestGPS_4:
+        CALLA   #SYS_GPS_StopOperation
+        CMP.W   #0xffd, R14
+        JC      ??SYS_GPS_TestGPS_7
+        CMP.W   #0xffd, R13
+        JNC     ??SYS_GPS_TestGPS_8
+??SYS_GPS_TestGPS_7:
+        MOV.B   #0x0, R12
+        JMP     ??SYS_GPS_TestGPS_9
+??SYS_GPS_TestGPS_8:
+        MOV.B   #0x1, R12
+??SYS_GPS_TestGPS_9:
+        POPM.A  #0x1, R10
+          CFI R10H SameValue
+          CFI R10L SameValue
+          CFI CFA SP+4
+        RETA
+          CFI EndBlock cfiBlock6
+        REQUIRE _A_DMA0CTL_L
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r4:
+        REQUIRE ?setjmp_r4
+        REQUIRE ?longjmp_r4
+
+        RSEG CODE:CODE:REORDER:NOROOT(1)
+?setjmp_save_r5:
+        REQUIRE ?setjmp_r5
+        REQUIRE ?longjmp_r5
+
+        END
+// 
+// 522 bytes in segment CODE
+//  18 bytes in segment DATA16_AN
+// 
+// 522 bytes of CODE memory
+//   0 bytes of DATA memory (+ 18 bytes shared)
+//
+//Errors: none
+//Warnings: none

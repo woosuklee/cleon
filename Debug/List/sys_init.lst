@@ -1,0 +1,257 @@
+###############################################################################
+#                                                                             #
+# IAR C/C++ Compiler V5.51.2.50607/W32 for MSP430       20/Feb/2013  20:57:35 #
+# Copyright 1996-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    __rt_version  =  3                                                       #
+#    __double_size =  64                                                      #
+#    __reg_r4      =  free                                                    #
+#    __reg_r5      =  free                                                    #
+#    __pic         =  no                                                      #
+#    __core        =  430X                                                    #
+#    __data_model  =  large                                                   #
+#    Source file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\sys\sys_init.c            #
+#    Command line  =  "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\sys_init.c" -lC       #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -la          #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\List\" -o           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\" --no_cse      #
+#                     --no_unroll --no_inline --no_code_motion --no_tbaa      #
+#                     --debug -D__MSP430F5338__ -e --double=64 --dlib_config  #
+#                     "C:\Program Files (x86)\IAR Systems\Embedded Workbench  #
+#                     6.4\430\LIB\DLIB\dl430xldn.h" -I                        #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\intro\" -I                #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\sys\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\hal\rtclib\" -I           #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\platform\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\" -I                   #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\fs\FatFs\" -I             #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\app\" -I                  #
+#                     "C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring  #
+#                     2013\3_cleon\3_software\cleon\" --core=430X             #
+#                     --data_model=large -On --multiplier=32                  #
+#                     --multiplier_location=4C0 --hw_workaround=CPU40         #
+#                     --hw_workaround=CPU42                                   #
+#    List file     =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\List\sys_init.lst   #
+#    Object file   =  C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring   #
+#                     2013\3_cleon\3_software\cleon\Debug\Obj\sys_init.r43    #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+C:\Users\Woosuk\Dropbox\lws\ESL\3. Research\8. Spring 2013\3_cleon\3_software\cleon\sys\sys_init.c
+      1          /**
+      2          @file       sys_init.c
+      3          
+      4          @brief      Initializing the system
+      5          */
+      6          
+      7          #include "cleon_conf.h"
+      8          #include "app_define.h"
+      9          #include "sys_define.h"
+     10          #include "hal_define.h"
+     11          #include "fs_define.h"
+     12          
+
+   \                                 In  segment DATA20_N, align 2, align-sorted
+     13          __no_init cleon_header_u      uniCLEONHeader;
+   \                     uniCLEONHeader:
+   \   000000                DS8 44
+
+   \                                 In  segment DATA20_N, align 1, align-sorted
+     14          __no_init cleon_gps_data_u    uniCLEONGPSData;
+   \                     uniCLEONGPSData:
+   \   000000                DS8 8184
+
+   \                                 In  segment DATA20_N, align 2, align-sorted
+     15          __no_init cleon_sensor_data_u uniCLEONSensorData;
+   \                     uniCLEONSensorData:
+   \   000000                DS8 8
+     16          
+     17          /*----------------------------------------------------------------------------*/
+     18          /**
+     19          @brief    Initializing CLEON
+     20          
+     21          @return   void 
+     22          
+     23          @param    void
+     24          */
+
+   \                                 In  segment CODE, align 2
+     25          void SYS_Init(void)
+   \                     SYS_Init:
+     26          { 
+     27              SYS_MCU_Init();
+   \   000000   ........     CALLA   #SYS_MCU_Init
+     28              SYS_PWR_Init();
+   \   000004   ........     CALLA   #SYS_PWR_Init
+     29              SYS_EXT_FLASH_Init();       
+   \   000008   ........     CALLA   #SYS_EXT_FLASH_Init
+     30              SYS_MMC_Init();
+   \   00000C   ........     CALLA   #SYS_MMC_Init
+     31              SYS_SENSORS_Init();
+   \   000010   ........     CALLA   #SYS_SENSORS_Init
+     32              SYS_USB_Init();
+   \   000014   ........     CALLA   #SYS_USB_Init
+     33              
+     34              SYS_InitCLEONDataStructure();
+   \   000018   ........     CALLA   #SYS_InitCLEONDataStructure
+     35            
+     36              SYS_GPS_Init();    
+   \   00001C   ........     BRA     #SYS_GPS_Init
+     37          }
+     38          
+     39          /*----------------------------------------------------------------------------*/
+     40          /**
+     41          @brief    Initializing CLEON data structure
+     42          
+     43          @return   void 
+     44          
+     45          @param    void
+     46          */
+
+   \                                 In  segment CODE, align 2
+     47          void SYS_InitCLEONDataStructure(void)
+   \                     SYS_InitCLEONDataStructure:
+     48          { 
+     49              for( int i = 0 ; i < SIZE_OF_HEADER_IN_BYTE; i++){
+   \   000000   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_InitCLEONDataStructure_0:
+   \   000002   3F902C00     CMP.W   #0x2c, R15
+   \   000006   0634         JGE     ??SYS_InitCLEONDataStructure_3
+     50                  uniCLEONHeader.ucSingleBytes[i] = 0;
+   \   000008   0E4F         MOV.W   R15, R14
+   \   00000A   ....CE43.... MOVX.B  #0x0, uniCLEONHeader(R14)
+     51              }
+   \   000010   1F53         ADD.W   #0x1, R15
+   \   000012   F73F         JMP     ??SYS_InitCLEONDataStructure_0
+     52              
+     53              for( int i = 0 ; i < SIZE_OF_GPS_SIGANL_IN_BYTE; i++){
+   \                     ??SYS_InitCLEONDataStructure_3:
+   \   000014   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_InitCLEONDataStructure_1:
+   \   000016   3F90F81F     CMP.W   #0x1ff8, R15
+   \   00001A   0634         JGE     ??SYS_InitCLEONDataStructure_4
+     54                  uniCLEONGPSData.ucSingleByte[i] = 0;
+   \   00001C   0E4F         MOV.W   R15, R14
+   \   00001E   ....CE43.... MOVX.B  #0x0, uniCLEONGPSData(R14)
+     55              }
+   \   000024   1F53         ADD.W   #0x1, R15
+   \   000026   F73F         JMP     ??SYS_InitCLEONDataStructure_1
+     56              
+     57              for( int i = 0 ; i < SIZE_OF_SENSOR_DATA_IN_BYTE; i++){
+   \                     ??SYS_InitCLEONDataStructure_4:
+   \   000028   0F43         MOV.W   #0x0, R15
+   \                     ??SYS_InitCLEONDataStructure_2:
+   \   00002A   3F92         CMP.W   #0x8, R15
+   \   00002C   0634         JGE     ??SYS_InitCLEONDataStructure_5
+     58                  uniCLEONSensorData.ucSingleByte[i] = 0;
+   \   00002E   0E4F         MOV.W   R15, R14
+   \   000030   ....CE43.... MOVX.B  #0x0, uniCLEONSensorData(R14)
+     59              }
+   \   000036   1F53         ADD.W   #0x1, R15
+   \   000038   F83F         JMP     ??SYS_InitCLEONDataStructure_2
+     60              
+     61              uniCLEONHeader.stCLEONHeader.uniSignature.ucSingleByte[0] = 'L';
+   \                     ??SYS_InitCLEONDataStructure_5:
+   \   00003A   ....F2404C00 MOVX.B  #0x4c, &uniCLEONHeader
+   \            ....        
+     62              uniCLEONHeader.stCLEONHeader.uniSignature.ucSingleByte[1] = 'E';
+   \   000042   ....F2404500 MOVX.B  #0x45, &uniCLEONHeader + 1
+   \            ....        
+     63              uniCLEONHeader.stCLEONHeader.uniSignature.ucSingleByte[2] = 'A';
+   \   00004A   ....F2404100 MOVX.B  #0x41, &uniCLEONHeader + 2
+   \            ....        
+     64              uniCLEONHeader.stCLEONHeader.uniSignature.ucSingleByte[3] = 'P';
+   \   000052   ....F2405000 MOVX.B  #0x50, &uniCLEONHeader + 3
+   \            ....        
+     65             
+     66              uniCLEONHeader.stCLEONHeader.uniVersion.ucSingleByte[0] = 0x01;
+   \   00005A   ....D243.... MOVX.B  #0x1, &uniCLEONHeader + 4
+     67              uniCLEONHeader.stCLEONHeader.uniVersion.ucSingleByte[1] = 0x00;
+   \   000060   ....C243.... MOVX.B  #0x0, &uniCLEONHeader + 5
+     68              uniCLEONHeader.stCLEONHeader.uniVersion.ucSingleByte[2] = 0x01;
+   \   000066   ....D243.... MOVX.B  #0x1, &uniCLEONHeader + 6
+     69              uniCLEONHeader.stCLEONHeader.uniVersion.ucSingleByte[3] = 0x00;
+   \   00006C   ....C243.... MOVX.B  #0x0, &uniCLEONHeader + 7
+     70           
+     71              uniCLEONHeader.stCLEONHeader.stReceiverSetting.uniSamplesPerMS.ulOriginalVar = 16368;
+   \   000072   ....B240F03F MOVX.W  #0x3ff0, &uniCLEONHeader + 16
+   \            ....        
+   \   00007A   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 18
+     72              uniCLEONHeader.stCLEONHeader.stReceiverSetting.uniIntermediateFreq.dOriginalVar = 4092000.0;
+   \   000080   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 20
+   \   000086   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 22
+   \   00008C   ....B2403038 MOVX.W  #0x3830, &uniCLEONHeader + 24
+   \            ....        
+   \   000094   ....B2404F41 MOVX.W  #0x414f, &uniCLEONHeader + 26
+   \            ....        
+     73          
+     74              uniCLEONHeader.stCLEONHeader.uniChunkCount.ulOriginalVar = 1;
+   \   00009C   ....9243.... MOVX.W  #0x1, &uniCLEONHeader + 28
+   \   0000A2   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 30
+     75              uniCLEONHeader.stCLEONHeader.uniChunkSizeMS.ulOriginalVar = 2;
+   \   0000A8   ....A243.... MOVX.W  #0x2, &uniCLEONHeader + 32
+   \   0000AE   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 34
+     76              uniCLEONHeader.stCLEONHeader.uniChunkGapMS.ulOriginalVar = 50;
+   \   0000B4   ....B2403200 MOVX.W  #0x32, &uniCLEONHeader + 36
+   \            ....        
+   \   0000BC   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 38
+     77              uniCLEONHeader.stCLEONHeader.uniGPSSignalDataFormat.ulOriginalVar = 1;
+   \   0000C2   ....9243.... MOVX.W  #0x1, &uniCLEONHeader + 40
+   \   0000C8   ....8243.... MOVX.W  #0x0, &uniCLEONHeader + 42
+     78          }
+   \   0000CE   1001         RETA
+     79          
+     80          
+     81          
+
+   Maximum stack usage in bytes:
+
+   CSTACK Function
+   ------ --------
+       4  SYS_Init
+            4 -> SYS_EXT_FLASH_Init
+            4 -> SYS_GPS_Init
+            4 -> SYS_InitCLEONDataStructure
+            4 -> SYS_MCU_Init
+            4 -> SYS_MMC_Init
+            4 -> SYS_PWR_Init
+            4 -> SYS_SENSORS_Init
+            4 -> SYS_USB_Init
+       4  SYS_InitCLEONDataStructure
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      32  SYS_Init
+     208  SYS_InitCLEONDataStructure
+    8184  uniCLEONGPSData
+      44  uniCLEONHeader
+       8  uniCLEONSensorData
+
+ 
+   240 bytes in segment CODE
+ 8 236 bytes in segment DATA20_N
+ 
+   240 bytes of CODE memory
+ 8 236 bytes of DATA memory
+
+Errors: none
+Warnings: none
